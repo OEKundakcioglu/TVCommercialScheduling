@@ -1,0 +1,36 @@
+# ConsoleConfigLoop configuration
+instancePaths:
+  - "instances/1.json"
+  - "instances/2.json"
+  - "instances/3.json"
+  - "instances/4.json"
+  - "instances/5.json"
+  - "instances/6.json"
+  - "instances/7.json"
+  - "instances/8.json"
+  - "instances/9.json"
+  - "instances/10.json"
+
+isBestMoveOptions:
+  - true
+  - false
+
+alphaGeneratorOptions:
+  - type: "Fixed"
+    alpha: 0.1
+  - type: "Fixed"
+    alpha: 0.25
+  - type: "Fixed"
+    alpha: 0.5
+  - type: "Uniform"
+    minAlpha: 0.1
+    maxAlpha: 1.0
+  - type: "Uniform"
+    minAlpha: 0.1
+    maxAlpha: 0.5
+
+timeLimit: 30
+
+randomRunN: 3
+
+outputDirectory: "outputGrasp"
