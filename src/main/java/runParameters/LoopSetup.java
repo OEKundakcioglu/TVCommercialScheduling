@@ -4,7 +4,7 @@ import java.util.List;
 
 @SuppressWarnings({"FieldCanBeLocal", "unused"})
 public class LoopSetup {
-    public static boolean isDebug = true;
+    public static boolean isDebug = false;
     public static int numberOfCommercials = 400;
     private final String instancePath;
     private final ConstructiveHeuristicSettings constructiveHeuristicSettings;
