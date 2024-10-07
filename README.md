@@ -28,16 +28,16 @@ To replicate the results presented in the paper, use the following command:
 **On macOS/Linux:**
 
 ```bash
-./gradlew runLoop -PyamlConfigPath=path/to/config.yaml
+./gradlew runGraspLoop -PyamlConfigPath=path/to/config.yaml
 ```
 
 **On Windows:**
 
 ```bash
-gradlew runLoop -PyamlConfigPath=path\to\config.yaml
+gradlew runGraspLoop -PyamlConfigPath=path\to\config.yaml
 ```
 
-The `runLoop` task runs the GRASP algorithm using the specified YAML configuration file. An example configuration file (`yamlConfigGrasp.yaml`) is provided, containing default values to replicate the results in the paper. You may use this as a template for your own configurations.
+The `runGraspLoop` task runs the GRASP algorithm using the specified YAML configuration file. An example configuration file (`yamlConfigGrasp.yaml`) is provided, containing default values to replicate the results in the paper. You may use this as a template for your own configurations.
 
 ##### 1.1.2: Running the GRASP Code with a Single Instance
 
