@@ -2,11 +2,11 @@ import com.beust.jcommander.JCommander;
 import com.beust.jcommander.Parameter;
 import com.beust.jcommander.Parameters;
 import data.Utils;
-import grasp.graspWithPathRelinking.ReactiveGraspWithPathRelinking;
-import grasp.reactiveGrasp.AlphaGenerator;
-import grasp.reactiveGrasp.AlphaGeneratorConstant;
-import grasp.reactiveGrasp.AlphaGeneratorUniform;
-import model.ProblemParameters;
+import solvers.heuristicSolvers.grasp.graspWithPathRelinking.GraspWithPathRelinking;
+import solvers.heuristicSolvers.grasp.reactiveGrasp.AlphaGenerator;
+import solvers.heuristicSolvers.grasp.reactiveGrasp.AlphaGeneratorConstant;
+import solvers.heuristicSolvers.grasp.reactiveGrasp.AlphaGeneratorUniform;
+import data.ProblemParameters;
 import runParameters.ConstructiveHeuristicSettings;
 import runParameters.LocalSearchSettings;
 
@@ -95,9 +95,9 @@ public class mainConsoleSingleInstance {
                 main.instancePath
         );
 
-        var grasp = new ReactiveGraspWithPathRelinking(parameters, graspSettings);
+        var grasp = new GraspWithPathRelinking(parameters, graspSettings);
 
-        var graspOutput = grasp.getGraspOutput();
+        var graspOutput = grasp.getSolution();
         Utils.writeObjectToJson(graspOutput, main.outputPath);
     }
 }

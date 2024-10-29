@@ -5,9 +5,10 @@ import runParameters.LoopSetup;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 
 public class Solution {
-    public List<List<SolutionData>> solution;
+    public transient List<List<SolutionData>> solution;
     private transient SolutionData[] flattenedSortedSolutionData;
     public double revenue;
 
@@ -15,16 +16,19 @@ public class Solution {
         this.solution = solution;
 
         for (List<SolutionData> solutionDataList : solution) {
+            if (solutionDataList == null) continue;
             calculateKpiValues(solutionDataList);
         }
 
         this.revenue = solution.stream()
+                .filter(Objects::nonNull)
                 .flatMap(List::stream)
                 .mapToDouble(SolutionData::getRevenue).sum();
 
 
         this.flattenedSortedSolutionData = new SolutionData[LoopSetup.numberOfCommercials];
         for (List<SolutionData> solutionDataList : solution) {
+            if (solutionDataList == null) continue;
             for (SolutionData solutionData : solutionDataList) {
                 flattenedSortedSolutionData[solutionData.getCommercial().getId()] = solutionData;
             }

@@ -1,7 +1,7 @@
 package runParameters;
 
-import grasp.reactiveGrasp.AlphaGenerator;
-import grasp.reactiveGrasp.AlphaGeneratorUniform;
+import solvers.heuristicSolvers.grasp.reactiveGrasp.AlphaGenerator;
+import solvers.heuristicSolvers.grasp.reactiveGrasp.AlphaGeneratorUniform;
 
 import java.util.Random;
 

@@ -1,0 +1,34 @@
+# ConsoleConfigLoop configuration
+instancePaths:
+  - "instances/1.json"
+  - "instances/2.json"
+  - "instances/3.json"
+  - "instances/4.json"
+  - "instances/5.json"
+  - "instances/6.json"
+  - "instances/7.json"
+  - "instances/8.json"
+  - "instances/9.json"
+  - "instances/10.json"
+
+T0Options:
+  - 0.99
+  - 0.995
+  - 0.9999
+
+alphaOptions:
+  - 0.9
+  - 0.95
+  - 0.99
+
+populationSizeOptions:
+  - 1000
+  - 3000
+  - 6000
+
+
+timeLimit: 300
+
+randomRunN: 3
+
+outputDirectory: "output/outputBee"

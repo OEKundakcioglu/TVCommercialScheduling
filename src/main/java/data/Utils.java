@@ -3,7 +3,6 @@ package data;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import data.enums.ATTENTION;
-import model.ProblemParameters;
 
 import java.io.FileWriter;
 import java.io.IOException;
@@ -126,11 +125,11 @@ public class Utils {
             throw new Exception(String.format("Commercial: %d, Inventory: %d | Last attention is not satisfied",
                     commercial.getId(), inventory.getId()));
         } else if (attention == ATTENTION.F30) {
-            if (feasibilityData.solutionData().getStartTime() < 30) return;
+            if (feasibilityData.solutionData().getStartTime() <= 30) return;
             throw new Exception(String.format("Commercial: %d, Inventory: %d | F30 attention is not satisfied. It is broadcasted at %f",
                     commercial.getId(), inventory.getId(), feasibilityData.solutionData().getStartTime()));
         } else if (attention == ATTENTION.F60) {
-            if (feasibilityData.solutionData().getStartTime() < 60) return;
+            if (feasibilityData.solutionData().getStartTime() <= 60) return;
             throw new Exception(String.format("Commercial: %d, Inventory: %d | F60 attention is not satisfied. It is broadcasted at %f",
                     commercial.getId(), inventory.getId(), feasibilityData.solutionData().getStartTime()));
         } else {
@@ -158,6 +157,7 @@ public class Utils {
                 .mapToInt(i -> i.getCommercial().getId()).sum();
 
         var sumId2 = solution.solution.stream()
+                .filter(Objects::nonNull)
                 .flatMap(Collection::stream)
                 .mapToInt(i -> i.getCommercial().getId())
                 .sum();

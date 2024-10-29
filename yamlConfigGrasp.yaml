@@ -29,8 +29,16 @@ alphaGeneratorOptions:
     minAlpha: 0.1
     maxAlpha: 0.5
 
-timeLimit: 1800
+localSearchMoves:
+  - "outOfPool"
+  - "interSwap"
+  - "insert"
+  - "transfer"
+  - "shift"
+  - "intraSwap"
+
+timeLimit: 300
 
 randomRunN: 3
 
-outputDirectory: "outputGrasp"
+outputDirectory: "output/outputGrasp"

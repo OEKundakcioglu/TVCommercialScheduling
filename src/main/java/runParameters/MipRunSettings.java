@@ -1,7 +1,9 @@
 package runParameters;
 
+import java.util.List;
+
 public record MipRunSettings(
-        int timeLimit,
+        List<Integer> checkPointTimes,
         String logPath
 ) {
 }

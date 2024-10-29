@@ -8,7 +8,6 @@ import java.util.*;
 public class Commercial {
     private final int id;
     private final int duration;
-    private final transient Map<ATTENTION, List<Inventory>> setOfSuitableInvByAttention;
     private final transient Set<Inventory> setOfSuitableInv;
     private final Map<Inventory, ATTENTION> attentionMap;
     private transient ATTENTION[] attentionMapArray;
@@ -22,7 +21,6 @@ public class Commercial {
         this.duration = duration;
         this.price = price;
         this.pricingType = pricingType;
-        this.setOfSuitableInvByAttention = new HashMap<>();
         this.audienceType = audienceType;
         this.group = group;
         this.attentionMap = new HashMap<>();
@@ -47,10 +45,6 @@ public class Commercial {
         } catch (Exception e) {
             return -Double.MAX_VALUE;
         }
-    }
-
-    public Map<ATTENTION, List<Inventory>> getSetOfSuitableInvByAttention() {
-        return this.setOfSuitableInvByAttention;
     }
 
     public int getId() {
@@ -96,5 +90,20 @@ public class Commercial {
     @Override
     public int hashCode() {
         return id;
+    }
+
+    public PRICING_TYPE getPricingType() {
+        return pricingType;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public void setAttentionToL(){
+        for (var inventory : this.attentionMap.keySet()){
+            this.attentionMap.replace(inventory, ATTENTION.LAST);
+            this.attentionMapArray[inventory.getId()] = ATTENTION.LAST;
+        }
     }
 }
