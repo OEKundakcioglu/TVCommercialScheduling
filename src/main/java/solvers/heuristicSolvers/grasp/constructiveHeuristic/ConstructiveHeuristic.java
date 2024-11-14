@@ -1,9 +1,9 @@
 package solvers.heuristicSolvers.grasp.constructiveHeuristic;
 
 import data.*;
-import data.enums.ATTENTION;
 import data.ProblemParameters;
-import data.enums.PRICING_TYPE;
+import data.enums.ATTENTION;
+
 import runParameters.ConstructiveHeuristicSettings;
 
 import java.util.*;
@@ -13,8 +13,6 @@ public class ConstructiveHeuristic implements IConstructiveHeuristic {
     private final double lastAttentionBoost;
     private final double f30AttentionBoost;
     private final double f60AttentionBoost;
-
-    private Solution solution;
     private final ProblemParameters parameters;
     private final Random random;
     private final double alpha;
@@ -23,13 +21,14 @@ public class ConstructiveHeuristic implements IConstructiveHeuristic {
     private final Map<Inventory, TrackRecord> trackRecordMap;
     private final int[] totalCommercialTimes;
     private final int smallestHour;
+    private Solution solution;
 
     public ConstructiveHeuristic(ProblemParameters parameters, double alpha, Random random, ConstructiveHeuristicSettings constructiveHeuristicSettings) {
         this.random = random;
         this.alpha = alpha;
 
         this.firstAttentionBoost = random.nextDouble(constructiveHeuristicSettings.lowerBound(), constructiveHeuristicSettings.upperBound());
-        this.lastAttentionBoost = random.nextDouble(constructiveHeuristicSettings.lowerBound(), constructiveHeuristicSettings.upperBound());
+        this.lastAttentionBoost = 1 / random.nextDouble(constructiveHeuristicSettings.lowerBound(), constructiveHeuristicSettings.upperBound());
         this.f30AttentionBoost = random.nextDouble(constructiveHeuristicSettings.lowerBound(), constructiveHeuristicSettings.upperBound());
         this.f60AttentionBoost = random.nextDouble(constructiveHeuristicSettings.lowerBound(), constructiveHeuristicSettings.upperBound());
 
@@ -138,16 +137,15 @@ public class ConstructiveHeuristic implements IConstructiveHeuristic {
     }
 
     private double calculateGreedyScore(TrackRecord trackRecord, Commercial commercial, ATTENTION attention) {
-        if (attention == ATTENTION.LAST){
-            var remainingInvTime = trackRecord.inventory.getDuration() - trackRecord.currentTime;
-            var remainingHourTime = 720 - getTotalHourlyCommercialTime(trackRecord.inventory.getHour());
-            var remainingTime = Math.min(remainingInvTime, remainingHourTime);
-//            var remainingTime = remainingInvTime;
-
-            if (remainingTime > commercial.getDuration() * 2) {
-                return 0;
-            }
-        }
+//        if (attention == ATTENTION.LAST){
+//            var remainingInvTime = trackRecord.inventory.getDuration() - trackRecord.currentTime;
+//            var remainingHourTime = 720 - getTotalHourlyCommercialTime(trackRecord.inventory.getHour());
+//            var remainingTime = Math.min(remainingInvTime, remainingHourTime);
+//
+//            if (remainingTime > commercial.getDuration() * 2) {
+//                return 0;
+//            }
+//        }
 
         var minute = (trackRecord.currentTime / 60) + 1;
 
@@ -163,10 +161,6 @@ public class ConstructiveHeuristic implements IConstructiveHeuristic {
         } else if (attention == ATTENTION.F60) {
             score *= f60AttentionBoost;
         }
-//
-//        if (commercial.getPricingType() == PRICING_TYPE.FIXED) {
-//            score *= fixedBoost;
-//        }
 
         return score;
     }

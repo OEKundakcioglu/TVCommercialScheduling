@@ -1,13 +1,10 @@
 import com.google.common.collect.Collections2;
-
 import data.ProblemParameters;
-import data.Solution;
 
 import runParameters.ConstructiveHeuristicSettings;
 import runParameters.GraspSettings;
 import runParameters.LocalSearchSettings;
 
-import solvers.SolverSolution;
 import solvers.heuristicSolvers.grasp.graspWithPathRelinking.GraspWithPathRelinking;
 import solvers.heuristicSolvers.grasp.reactiveGrasp.AlphaGeneratorUniform;
 
@@ -19,7 +16,7 @@ public class asd {
     @SuppressWarnings("unchecked")
     public static void main(String... args) throws Exception {
         var parameters = new ProblemParameters();
-        parameters.readData("instances/1.json");
+        parameters.readData("instances/5.json");
 
         //        var orienteeringData = ReduceProblemToVRP.reduce(parameters);
         //        var algorithm =
@@ -36,7 +33,7 @@ public class asd {
         //        Utils.feasibilityCheck(model.getSolution().getBestSolution());
 
         var permutes =
-                List.copyOf(
+                new ArrayList<>(List.copyOf(
                         Collections2.permutations(
                                 List.of(
                                         "shift",
@@ -44,20 +41,23 @@ public class asd {
                                         "outOfPool",
                                         "transfer",
                                         "interSwap",
-                                        "insert")));
+                                        "insert"))));
+
+        Collections.shuffle(permutes);
 
         var sols = new ArrayList<List<Object>>();
 
         for (var permute : permutes) {
             var random = new Random(0);
+            System.out.println(permute);
             var grasp =
                     new GraspWithPathRelinking(
                             parameters,
                             new GraspSettings(
                                     true,
-                                    120,
+                                    60,
                                     new LocalSearchSettings(permute),
-                                    new ConstructiveHeuristicSettings(0.2, 5),
+                                    new ConstructiveHeuristicSettings(0.5, 5),
                                     random,
                                     new AlphaGeneratorUniform(random, 0.1, 0.5),
                                     1,
@@ -79,5 +79,33 @@ public class asd {
             System.out.println((int) revenue);
         }
         writer.close();
+
+        //        var localSearchSettings =
+        //                new LocalSearchSettings(
+        //                        List.of(
+        //                                "outOfPool",
+        //                                "interSwap",
+        //                                "insert",
+        //                                "transfer",
+        //                                "shift",
+        //                                "intraSwap"));
+        //
+        //        var constructiveHeuristicSettings = new ConstructiveHeuristicSettings(1, 5);
+        //        var random = new Random();
+        //        var alphaGenerator = new AlphaGeneratorUniform(random, 0.1, 1);
+        //        //        var alphaGenerator = new AlphaGeneratorConstant(0.5);
+        //
+        //        var graspSettings =
+        //                new GraspSettings(
+        //                        true,
+        //                        120,
+        //                        localSearchSettings,
+        //                        constructiveHeuristicSettings,
+        //                        random,
+        //                        alphaGenerator,
+        //                        1,
+        //                        "instances/10.json");
+        //
+        //        var grasp = new GraspWithPathRelinking(parameters, graspSettings);
     }
 }
