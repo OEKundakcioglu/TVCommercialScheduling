@@ -251,7 +251,7 @@ public class ContinuousTimeConstraint {
                     Commercial secondCommercial = commercials.get(secondCommIndex);
 
                     for (Inventory inventory : firstCommercial.getSetOfSuitableInv()) {
-                        if (!secondCommercial.getSetOfSuitableInv().contains(inventory)) continue;
+                        if (!secondCommercial.isInventorySuitable(inventory)) continue;
                         for (int n = 0; n < inventory.getMaxCommercialCount() - 1; n++) {
                             GRBLinExpr lhs = new GRBLinExpr();
 

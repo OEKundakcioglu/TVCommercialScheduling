@@ -51,6 +51,11 @@ public class ProblemParameters {
         populateCommercials(commercialArray);
         populateRatings(ratingArray);
 
+        var maxId = this.setOfInventories.stream().map(Inventory::getId).max(Integer::compareTo).orElse(0);
+        for (Commercial commercial : this.setOfCommercials) {
+            commercial.setSuitableInventoriesArray(maxId);
+        }
+
         this.setOfInventories.sort(Comparator.comparing(Inventory::getId));
         this.setOfCommercials.sort(Comparator.comparing(Commercial::getId));
 

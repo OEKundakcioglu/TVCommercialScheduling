@@ -23,7 +23,7 @@ public class OutOfPoolSwapMove implements IMove{
     private boolean isRevenueGainCalculated = false;
     private boolean isFeasible;
     private boolean isFeasibilityChecked = false;
-    private final double cStartTime;
+    private final int cStartTime;
 
     private final int n;
 

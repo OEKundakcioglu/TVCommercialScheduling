@@ -3,6 +3,7 @@ package solvers.heuristicSolvers.grasp.constructiveHeuristic;
 import data.*;
 import data.enums.ATTENTION;
 import data.ProblemParameters;
+import data.enums.PRICING_TYPE;
 import runParameters.ConstructiveHeuristicSettings;
 
 import java.util.*;
@@ -137,6 +138,17 @@ public class ConstructiveHeuristic implements IConstructiveHeuristic {
     }
 
     private double calculateGreedyScore(TrackRecord trackRecord, Commercial commercial, ATTENTION attention) {
+        if (attention == ATTENTION.LAST){
+            var remainingInvTime = trackRecord.inventory.getDuration() - trackRecord.currentTime;
+            var remainingHourTime = 720 - getTotalHourlyCommercialTime(trackRecord.inventory.getHour());
+            var remainingTime = Math.min(remainingInvTime, remainingHourTime);
+//            var remainingTime = remainingInvTime;
+
+            if (remainingTime > commercial.getDuration() * 2) {
+                return 0;
+            }
+        }
+
         var minute = (trackRecord.currentTime / 60) + 1;
 
         var rating = trackRecord.inventory.arrayRatings[minute][commercial.getAudienceType()];
@@ -151,6 +163,10 @@ public class ConstructiveHeuristic implements IConstructiveHeuristic {
         } else if (attention == ATTENTION.F60) {
             score *= f60AttentionBoost;
         }
+//
+//        if (commercial.getPricingType() == PRICING_TYPE.FIXED) {
+//            score *= fixedBoost;
+//        }
 
         return score;
     }

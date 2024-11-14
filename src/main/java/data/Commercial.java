@@ -8,13 +8,17 @@ import java.util.*;
 public class Commercial {
     private final int id;
     private final int duration;
-    private final transient Set<Inventory> setOfSuitableInv;
+    private final transient List<Inventory> setOfSuitableInv;
     private final Map<Inventory, ATTENTION> attentionMap;
     private transient ATTENTION[] attentionMapArray;
     private final double price;
     private final PRICING_TYPE pricingType;
     private final int audienceType;
     private final int group;
+
+    private transient double[][] revenueMatrix;
+
+    private transient boolean[] suitableInventoriesArray;
 
     public Commercial(int id, int duration, double price, PRICING_TYPE pricingType, int audienceType, int group) {
         this.id = id;
@@ -24,7 +28,7 @@ public class Commercial {
         this.audienceType = audienceType;
         this.group = group;
         this.attentionMap = new HashMap<>();
-        this.setOfSuitableInv = new HashSet<>();
+        this.setOfSuitableInv = new ArrayList<>();
     }
 
     public double getRevenue(double rating) {
@@ -35,7 +39,7 @@ public class Commercial {
         }
     }
 
-    public double getRevenue(Inventory inventory, double startTime) {
+    private double calcRevenue(Inventory inventory, int startTime) {
         int minute = (int) startTime / 60 + 1;
 
         try {
@@ -45,6 +49,10 @@ public class Commercial {
         } catch (Exception e) {
             return -Double.MAX_VALUE;
         }
+    }
+
+    public double getRevenue(Inventory inventory, int startTime) {
+        return this.revenueMatrix[inventory.getId()][startTime];
     }
 
     public int getId() {
@@ -75,7 +83,7 @@ public class Commercial {
         return attentionMap;
     }
 
-    public Set<Inventory> getSetOfSuitableInv() {
+    public List<Inventory> getSetOfSuitableInv() {
         return setOfSuitableInv;
     }
 
@@ -100,10 +108,22 @@ public class Commercial {
         return price;
     }
 
-    public void setAttentionToL(){
-        for (var inventory : this.attentionMap.keySet()){
-            this.attentionMap.replace(inventory, ATTENTION.LAST);
-            this.attentionMapArray[inventory.getId()] = ATTENTION.LAST;
+    public void setSuitableInventoriesArray(int maxInvId) {
+        this.suitableInventoriesArray = new boolean[maxInvId + 1];
+        for (var inv : this.setOfSuitableInv) {
+            this.suitableInventoriesArray[inv.getId()] = true;
         }
+
+        int maxInvDur = this.setOfSuitableInv.stream().mapToInt(Inventory::getDuration).max().orElse(0);
+        this.revenueMatrix = new double[maxInvId + 1][maxInvDur + 1];
+        for (var inv : this.setOfSuitableInv) {
+            for (int i = 0; i <= inv.getDuration(); i++) {
+                this.revenueMatrix[inv.getId()][i] = this.calcRevenue(inv, i);
+            }
+        }
+    }
+
+    public boolean isInventorySuitable(Inventory inventory) {
+        return this.suitableInventoriesArray[inventory.getId()];
     }
 }

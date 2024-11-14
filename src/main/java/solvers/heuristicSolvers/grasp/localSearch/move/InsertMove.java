@@ -16,7 +16,7 @@ public class InsertMove implements IMove {
     private final double inventoryUtilization;
     private final List<SolutionData> solutionDataList;
     private final int lastIndexOfInventory;
-    private final double cStartTime;
+    private final int cStartTime;
 
     private final double[] totalCommercialDurationOfHour;
 

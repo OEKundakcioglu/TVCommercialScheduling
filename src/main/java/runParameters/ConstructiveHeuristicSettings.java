@@ -3,6 +3,7 @@ package runParameters;
 public record ConstructiveHeuristicSettings(
         double lowerBound,
         double upperBound
+
 ) {
 
     @SuppressWarnings("unused")

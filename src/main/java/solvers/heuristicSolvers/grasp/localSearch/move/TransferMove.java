@@ -17,7 +17,7 @@ public class TransferMove implements IMove {
     private final int n2;
     private final Commercial n1Commercial;
     private final SolutionData n1SolutionData;
-    private final double startTimeAtN2;
+    private final int startTimeAtN2;
     private final List<SolutionData> n1InventoryList;
     private final List<SolutionData> n2InventoryList;
     private final int lastIndexOfN1;

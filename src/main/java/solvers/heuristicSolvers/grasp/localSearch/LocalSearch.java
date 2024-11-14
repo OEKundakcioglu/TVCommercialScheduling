@@ -4,6 +4,7 @@ import data.Solution;
 import data.ProblemParameters;
 import runParameters.LocalSearchSettings;
 
+import java.util.List;
 import java.util.Random;
 
 public class LocalSearch {
@@ -35,6 +36,12 @@ public class LocalSearch {
                 bestFoundSolution = solution;
             }
             else {
+//                for (var movestr : List.of("outOfPool", "insert")) {
+//                    var tempSolution = applySearch(movestr, solution, isBestMove);
+//                    if (tempSolution.revenue > solution.revenue) {
+//                        solution = tempSolution;
+//                    }
+//                }
                 k++;
             }
         }

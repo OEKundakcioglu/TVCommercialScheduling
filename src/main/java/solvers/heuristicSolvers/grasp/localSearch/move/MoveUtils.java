@@ -8,11 +8,12 @@ import data.enums.ATTENTION;
 @SuppressWarnings("BooleanMethodIsAlwaysInverted")
 public class MoveUtils {
 
-    protected static double calculateRevenueGain(Inventory inventory,
-                                                 SolutionData solutionData,
-                                                 double oldRevenue,
-                                                 double currentTime,
-                                                 double oldTime) {
+    protected static double calculateRevenueGain(
+            Inventory inventory,
+            SolutionData solutionData,
+            double oldRevenue,
+            double currentTime,
+            double oldTime) {
 
         try {
             int currentMinute = (int) (currentTime / 60) + 1;
@@ -21,8 +22,12 @@ public class MoveUtils {
                 return 0;
             }
 
-//            var rating = inventory.ratings.get(currentMinute).get(solutionData.getCommercial().getAudienceType());
-            var rating = inventory.arrayRatings[currentMinute][solutionData.getCommercial().getAudienceType()];
+            //            var rating =
+            // inventory.ratings.get(currentMinute).get(solutionData.getCommercial().getAudienceType());
+            var rating =
+                    inventory
+                            .arrayRatings[currentMinute][
+                            solutionData.getCommercial().getAudienceType()];
 
             var newRevenue = solutionData.getCommercial().getRevenue(rating);
 
@@ -32,7 +37,12 @@ public class MoveUtils {
         }
     }
 
-    protected static boolean isAttentionSatisfied(Commercial commercial, Inventory inventory, int position, double startTime, int lastIndexOfInventory) {
+    protected static boolean isAttentionSatisfied(
+            Commercial commercial,
+            Inventory inventory,
+            int position,
+            double startTime,
+            int lastIndexOfInventory) {
         var attention = commercial.getAttentionMapArray()[inventory.getId()];
 
         if (attention == ATTENTION.NONE) return true;
@@ -57,7 +67,6 @@ public class MoveUtils {
                 continue;
             }
 
-
             if (commercial.getGroup() == group) return false;
             group = commercial.getGroup();
             prevCommercial = commercial;
@@ -66,13 +75,14 @@ public class MoveUtils {
         return true;
     }
 
-    protected static double calculateRevenueChange(SolutionData solutionData, Inventory inventory, double shift) {
-        double oldStartTime = solutionData.getStartTime();
+    protected static double calculateRevenueChange(
+            SolutionData solutionData, Inventory inventory, int shift) {
+        int oldStartTime = solutionData.getStartTime();
         int minute = (int) (oldStartTime / 60) + 1;
         var oldRevenue = solutionData.getRevenue();
 
-        double newStartTime = oldStartTime + shift;
-        int newMinute = (int) (newStartTime / 60) + 1;
+        int newStartTime = oldStartTime + shift;
+        int newMinute = (newStartTime / 60) + 1;
 
         if (minute == newMinute) return 0;
 
@@ -81,12 +91,9 @@ public class MoveUtils {
         return newRevenue - oldRevenue;
     }
 
-    protected static void updateSolutionData(SolutionData solutionData, Inventory inventory, double shift, int position) {
-        var revenueGain = MoveUtils.calculateRevenueChange(
-                solutionData,
-                inventory,
-                shift
-        );
+    protected static void updateSolutionData(
+            SolutionData solutionData, Inventory inventory, int shift, int position) {
+        var revenueGain = MoveUtils.calculateRevenueChange(solutionData, inventory, shift);
         var newRevenue = solutionData.getRevenue() + revenueGain;
         var newStartTime = solutionData.getStartTime() + shift;
         solutionData.update(newRevenue, newStartTime, position);

@@ -99,8 +99,8 @@ public class ShiftMove implements IMove {
 
         int calculateRevenueAffectedStartIndex;
         int calculateRevenueAffectedEndIndex;
-        double timeShiftOfAffectedCommercials;
-        double timeShiftOfShiftedCommercial;
+        int timeShiftOfAffectedCommercials;
+        int timeShiftOfShiftedCommercial;
         if (n1 < n2) {
             calculateRevenueAffectedStartIndex = n1 + 1;
             calculateRevenueAffectedEndIndex = n2;

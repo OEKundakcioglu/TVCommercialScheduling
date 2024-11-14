@@ -5,8 +5,8 @@ public class SolutionData {
     private transient Inventory inventory;
 
     private double revenue;
-    private double startTime;
-    private double endTime;
+    private int startTime;
+    private int endTime;
     private int position;
 
     public SolutionData(Commercial commercial, Inventory inventory) {
@@ -23,7 +23,7 @@ public class SolutionData {
         return copy;
     }
 
-    public void update(Inventory inventory, double revenue, double startTime, int position){
+    public void update(Inventory inventory, double revenue, int startTime, int position){
         this.inventory = inventory;
         this.revenue = revenue;
         this.startTime = startTime;
@@ -31,7 +31,7 @@ public class SolutionData {
         this.endTime = startTime + commercial.getDuration();
     }
 
-    public void update(double revenue, double startTime, int position){
+    public void update(double revenue, int startTime, int position){
         this.revenue = revenue;
         this.startTime = startTime;
         this.position = position;
@@ -50,11 +50,11 @@ public class SolutionData {
         return revenue;
     }
 
-    public double getStartTime() {
+    public int getStartTime() {
         return startTime;
     }
 
-    public double getEndTime() {
+    public int getEndTime() {
         return endTime;
     }
 

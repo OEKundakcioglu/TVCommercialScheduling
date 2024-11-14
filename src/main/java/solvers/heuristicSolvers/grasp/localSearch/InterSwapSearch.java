@@ -66,8 +66,8 @@ public class InterSwapSearch extends BaseSearch{
                     c2 = s1.getCommercial();
                 }
 
-                if (!c1.getSetOfSuitableInv().contains(i2)) continue;
-                if (!c2.getSetOfSuitableInv().contains(i1)) continue;
+                if (!c1.isInventorySuitable(i2)) continue;
+                if (!c2.isInventorySuitable(i1)) continue;
 
                 var move = new InterSwapMove(super.currentSolution, i1, n1, i2, n2, totalCommercialDurationOfHour);
 
@@ -115,8 +115,8 @@ public class InterSwapSearch extends BaseSearch{
                     c2 = s1.getCommercial();
                 }
 
-                if (!c1.getSetOfSuitableInv().contains(i2)) continue;
-                if (!c2.getSetOfSuitableInv().contains(i1)) continue;
+                if (!c1.isInventorySuitable(i2)) continue;
+                if (!c2.isInventorySuitable(i1)) continue;
 
                 var move = new InterSwapMove(super.currentSolution, i1, n1, i2, n2, totalCommercialDurationOfHour);
 

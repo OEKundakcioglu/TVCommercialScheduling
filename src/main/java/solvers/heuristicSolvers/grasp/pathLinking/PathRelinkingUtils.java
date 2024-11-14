@@ -1,16 +1,19 @@
 package solvers.heuristicSolvers.grasp.pathLinking;
 
 import data.Solution;
+
 import solvers.heuristicSolvers.grasp.localSearch.move.IMove;
 import solvers.heuristicSolvers.grasp.localSearch.move.InsertMove;
 import solvers.heuristicSolvers.grasp.localSearch.move.RemoveMove;
 import solvers.heuristicSolvers.grasp.localSearch.move.TransferMove;
 
-import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.Random;
 
 @SuppressWarnings({"DuplicatedCode", "SpellCheckingInspection"})
 public class PathRelinkingUtils {
+    private static final Random random = new Random();
+
     public static int distance(Solution solution1, Solution solution2) {
         int numberOfCommercialsInDifferentInventories = 0;
         int numberOfCommercialsInCurrentButNotInGuiding = 0;
@@ -56,8 +59,8 @@ public class PathRelinkingUtils {
     }
 
     public static IMove getMove(Solution currentSolution, Solution guidingSolution, double[] totalCommercialDurationOfHour) {
-
-        var moves = new ArrayList<IMove>();
+        IMove bestMove = null;
+        var bestRevenueGain = Double.NEGATIVE_INFINITY;
 
         var solution1Datas = currentSolution.getSortedSolutionData();
         var solution2Datas = guidingSolution.getSortedSolutionData();
@@ -89,7 +92,12 @@ public class PathRelinkingUtils {
                                 solution1Data.getInventory(), solution2Data.getInventory(),
                                 n1, k, totalCommercialDurationOfHour
                         );
-                        if (move.checkFeasibility()) moves.add(move);
+                        if (move.checkFeasibility()) {
+                            if (move.calculateRevenueGain() > bestRevenueGain) {
+                                bestRevenueGain = move.calculateRevenueGain();
+                                bestMove = move;
+                            }
+                        }
                     }
                 }
                 i++;
@@ -99,7 +107,12 @@ public class PathRelinkingUtils {
             // If commercial is in current solution but not in guiding solution
             else if (solution1Data.getCommercial().getId() < solution2Data.getCommercial().getId()) {
                 var move = new RemoveMove(currentSolution, solution1Data.getInventory(), solution1Data.getPosition());
-                if (move.checkFeasibility()) moves.add(move);
+                if (move.checkFeasibility()) {
+                    if (move.calculateRevenueGain() > bestRevenueGain) {
+                        bestRevenueGain = move.calculateRevenueGain();
+                        bestMove = move;
+                    }
+                }
                 i++;
             }
 
@@ -113,7 +126,12 @@ public class PathRelinkingUtils {
                             k,
                             totalCommercialDurationOfHour
                     );
-                    if (move.checkFeasibility()) moves.add(move);
+                    if (move.checkFeasibility()) {
+                        if (move.calculateRevenueGain() > bestRevenueGain) {
+                            bestRevenueGain = move.calculateRevenueGain();
+                            bestMove = move;
+                        }
+                    }
                 }
                 j++;
             }
@@ -125,7 +143,12 @@ public class PathRelinkingUtils {
                 if (solutionData == null) continue;
 
                 var move = new RemoveMove(currentSolution, solutionData.getInventory(), solutionData.getPosition());
-                if (move.checkFeasibility()) moves.add(move);
+                if (move.checkFeasibility()) {
+                    if (move.calculateRevenueGain() > bestRevenueGain) {
+                        bestRevenueGain = move.calculateRevenueGain();
+                        bestMove = move;
+                    }
+                }
             }
         }
 
@@ -144,14 +167,17 @@ public class PathRelinkingUtils {
                             totalCommercialDurationOfHour
                     );
                     if (move.checkFeasibility()) {
-                        moves.add(move);
+                        if (move.calculateRevenueGain() > bestRevenueGain) {
+                            bestRevenueGain = move.calculateRevenueGain();
+                            bestMove = move;
+                        }
                     }
                 }
             }
         }
 
-        return moves.stream()
-                .max(Comparator.comparingDouble(IMove::calculateRevenueGain))
-                .orElse(null);
+//        return moves.isEmpty() ? null : moves.get(random.nextInt(moves.size()));
+
+        return bestMove;
     }
 }

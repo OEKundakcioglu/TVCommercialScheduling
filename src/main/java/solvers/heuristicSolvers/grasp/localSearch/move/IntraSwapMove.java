@@ -17,7 +17,7 @@ public class IntraSwapMove implements IMove {
     private final Commercial n2Commercial;
     private final SolutionData n1SolutionData;
     private final SolutionData n2SolutionData;
-    private final double shift;
+    private final int shift;
     private final int lastIndexOfInventory;
     private final List<SolutionData> inventoryList;
 
