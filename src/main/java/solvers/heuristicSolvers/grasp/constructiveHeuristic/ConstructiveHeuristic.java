@@ -23,23 +23,45 @@ public class ConstructiveHeuristic implements IConstructiveHeuristic {
     private final int smallestHour;
     private Solution solution;
 
-    public ConstructiveHeuristic(ProblemParameters parameters, double alpha, Random random, ConstructiveHeuristicSettings constructiveHeuristicSettings) {
+    public ConstructiveHeuristic(
+            ProblemParameters parameters,
+            double alpha,
+            Random random,
+            ConstructiveHeuristicSettings constructiveHeuristicSettings) {
         this.random = random;
         this.alpha = alpha;
 
-        this.firstAttentionBoost = random.nextDouble(constructiveHeuristicSettings.lowerBound(), constructiveHeuristicSettings.upperBound());
-        this.lastAttentionBoost = 1 / random.nextDouble(constructiveHeuristicSettings.lowerBound(), constructiveHeuristicSettings.upperBound());
-        this.f30AttentionBoost = random.nextDouble(constructiveHeuristicSettings.lowerBound(), constructiveHeuristicSettings.upperBound());
-        this.f60AttentionBoost = random.nextDouble(constructiveHeuristicSettings.lowerBound(), constructiveHeuristicSettings.upperBound());
+        this.firstAttentionBoost =
+                random.nextDouble(
+                        constructiveHeuristicSettings.lowerBound(),
+                        constructiveHeuristicSettings.upperBound());
+        this.lastAttentionBoost =
+                1
+                        / random.nextDouble(
+                                constructiveHeuristicSettings.lowerBound(),
+                                constructiveHeuristicSettings.upperBound());
+        this.f30AttentionBoost =
+                random.nextDouble(
+                        constructiveHeuristicSettings.lowerBound(),
+                        constructiveHeuristicSettings.upperBound());
+        this.f60AttentionBoost =
+                random.nextDouble(
+                        constructiveHeuristicSettings.lowerBound(),
+                        constructiveHeuristicSettings.upperBound());
 
         this.parameters = parameters;
         this.unassignedCommercials = new ArrayList<>(this.parameters.getSetOfCommercials());
         this.totalCommercialTimes = new int[this.parameters.getSetOfHours().size()];
-        this.smallestHour = this.parameters.getSetOfHours().stream().mapToInt(Integer::intValue).min().orElse(0);
+        this.smallestHour =
+                this.parameters.getSetOfHours().stream()
+                        .mapToInt(Integer::intValue)
+                        .min()
+                        .orElse(0);
 
         this.solutionList = new ArrayList<>();
 
-        this.parameters.getSetOfInventories()
+        this.parameters
+                .getSetOfInventories()
                 .forEach(inv -> this.solutionList.add(inv.getId(), new ArrayList<>()));
 
         this.trackRecordMap = new HashMap<>();
@@ -79,20 +101,13 @@ public class ConstructiveHeuristic implements IConstructiveHeuristic {
 
             var solutionDataList = new ArrayList<SolutionData>();
             for (Commercial commercial : commercialList) {
-                solutionDataList.add(new SolutionData(commercial, parameters.getSetOfInventories().get(i)));
+                solutionDataList.add(
+                        new SolutionData(commercial, parameters.getSetOfInventories().get(i)));
             }
             _solutionList.add(i, solutionDataList);
         }
 
         this.solution = new Solution(_solutionList);
-    }
-
-    private Triple<Commercial, Inventory, Double> selectCommercialAndInventory() {
-        var rcl = getRCL();
-        if (rcl == null) return null;
-
-//        return rcl.get(0);
-        return rcl.get(this.random.nextInt(rcl.size()));
     }
 
     private void updateSolutionMap(Inventory inventory, Commercial commercial) {
@@ -104,11 +119,18 @@ public class ConstructiveHeuristic implements IConstructiveHeuristic {
         trackRecord.currentTime += commercial.getDuration();
         trackRecord.latestAiredCommercialsGroup = commercial.getGroup();
         trackRecord.isAnyAssigned = true;
-        trackRecord.isCommercialWithLastAttentionAssigned = commercial.getAttentionMap().get(inventory) == ATTENTION.LAST;
+        trackRecord.isCommercialWithLastAttentionAssigned =
+                commercial.getAttentionMap().get(inventory) == ATTENTION.LAST;
     }
 
-    private List<Triple<Commercial, Inventory, Double>> getRCL() {
-        var triples = new ArrayList<Triple<Commercial, Inventory, Double>>(unassignedCommercials.size());
+    private Triple<Commercial, Inventory, Double> selectCommercialAndInventory() {
+        var commercials = new ArrayList<Commercial>();
+        var inventories = new ArrayList<Inventory>();
+        var scores = new ArrayList<Double>();
+
+        var worstScore = Double.POSITIVE_INFINITY;
+
+        var bestScore = Double.NEGATIVE_INFINITY;
 
         for (var commercial : this.unassignedCommercials) {
             for (var inventory : commercial.getSetOfSuitableInv()) {
@@ -117,35 +139,58 @@ public class ConstructiveHeuristic implements IConstructiveHeuristic {
                     continue;
                 }
 
-                var greedyScore = calculateGreedyScore(this.trackRecordMap.get(inventory), commercial, attention);
-                var newTriple = new Triple<>(commercial, inventory, greedyScore);
-                triples.add(newTriple);
+                var greedyScore =
+                        calculateGreedyScore(
+                                this.trackRecordMap.get(inventory), commercial, attention);
+
+                commercials.add(commercial);
+                inventories.add(inventory);
+                scores.add(greedyScore);
+
+                if (greedyScore < worstScore) {
+                    worstScore = greedyScore;
+                }
+
+                if (greedyScore > bestScore) {
+                    bestScore = greedyScore;
+                }
             }
         }
 
-        if (triples.isEmpty()) {
+        if (commercials.isEmpty()) {
             return null;
         }
 
-        var bestScore = triples.stream().map(triple -> triple.third).max(Comparator.naturalOrder()).orElse(0.0);
-        var worstScore = triples.stream().map(triple -> triple.third).min(Comparator.naturalOrder()).orElse(0.0);
         var threshold = bestScore - this.alpha * (bestScore - worstScore);
-
-        return triples.stream()
-                .filter(triple -> triple.third >= threshold)
-                .toList();
+        return getReservoirSample(commercials, inventories, scores, threshold);
     }
 
-    private double calculateGreedyScore(TrackRecord trackRecord, Commercial commercial, ATTENTION attention) {
-//        if (attention == ATTENTION.LAST){
-//            var remainingInvTime = trackRecord.inventory.getDuration() - trackRecord.currentTime;
-//            var remainingHourTime = 720 - getTotalHourlyCommercialTime(trackRecord.inventory.getHour());
-//            var remainingTime = Math.min(remainingInvTime, remainingHourTime);
-//
-//            if (remainingTime > commercial.getDuration() * 2) {
-//                return 0;
-//            }
-//        }
+    private Triple<Commercial, Inventory, Double> getReservoirSample(
+            List<Commercial> commercials,
+            List<Inventory> inventories,
+            List<Double> scores,
+            double threshold) {
+        Commercial selectedCommercial = null;
+        Inventory selectedInventory = null;
+        double selectedScore = 0.0;
+
+        int count = 0;
+        for (int i = 0; i < commercials.size(); i++) {
+            if (scores.get(i) >= threshold) {
+                count++;
+                if (random.nextInt(count) == 0) {
+                    selectedCommercial = commercials.get(i);
+                    selectedInventory = inventories.get(i);
+                    selectedScore = scores.get(i);
+                }
+            }
+        }
+
+        return new Triple<>(selectedCommercial, selectedInventory, selectedScore);
+    }
+
+    private double calculateGreedyScore(
+            TrackRecord trackRecord, Commercial commercial, ATTENTION attention) {
 
         var minute = (trackRecord.currentTime / 60) + 1;
 
@@ -165,16 +210,18 @@ public class ConstructiveHeuristic implements IConstructiveHeuristic {
         return score;
     }
 
-    private boolean checkFeasibility(TrackRecord trackRecord, Commercial commercial, ATTENTION attention) {
-        return !trackRecord.isCommercialWithLastAttentionAssigned &&
-                checkIfInventoryDurationExceeded(trackRecord.inventory, commercial) &&
-                checkIfHourlyLimitExceeded(trackRecord.inventory.getHour(), commercial) &&
-                checkIfConsequentSameGroup(trackRecord, commercial) &&
-                checkAttentions(trackRecord, attention);
+    private boolean checkFeasibility(
+            TrackRecord trackRecord, Commercial commercial, ATTENTION attention) {
+        return !trackRecord.isCommercialWithLastAttentionAssigned
+                && checkIfInventoryDurationExceeded(trackRecord.inventory, commercial)
+                && checkIfHourlyLimitExceeded(trackRecord.inventory.getHour(), commercial)
+                && checkIfConsequentSameGroup(trackRecord, commercial)
+                && checkAttentions(trackRecord, attention);
     }
 
     private boolean checkIfInventoryDurationExceeded(Inventory inventory, Commercial commercial) {
-        return this.trackRecordMap.get(inventory).currentTime + commercial.getDuration() <= inventory.getDuration();
+        return this.trackRecordMap.get(inventory).currentTime + commercial.getDuration()
+                <= inventory.getDuration();
     }
 
     private boolean checkIfHourlyLimitExceeded(int hour, Commercial commercial) {
