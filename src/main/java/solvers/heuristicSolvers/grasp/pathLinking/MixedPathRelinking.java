@@ -1,9 +1,10 @@
 package solvers.heuristicSolvers.grasp.pathLinking;
 
+import data.ProblemParameters;
 import data.Solution;
 import data.Utils;
+
 import solvers.heuristicSolvers.grasp.localSearch.move.IMove;
-import data.ProblemParameters;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,14 +13,21 @@ public class MixedPathRelinking {
 
     private final Solution guidingSolution;
     private final Solution initialSolution;
-    private Solution bestFoundSolution;
     private final ProblemParameters parameters;
+    private final PathRelinkingUtils pathRelinkingUtils;
     public List<IMove> madeMoves = new ArrayList<>();
+    private Solution bestFoundSolution;
 
-    public MixedPathRelinking(ProblemParameters parameters, Solution initialSolution, Solution guidingSolution) throws Exception {
+    public MixedPathRelinking(
+            ProblemParameters parameters,
+            Solution initialSolution,
+            Solution guidingSolution,
+            PathRelinkingUtils pathRelinkingUtils)
+            throws Exception {
         this.parameters = parameters;
         this.initialSolution = initialSolution;
         this.guidingSolution = guidingSolution;
+        this.pathRelinkingUtils = pathRelinkingUtils;
 
         solve();
     }
@@ -34,10 +42,13 @@ public class MixedPathRelinking {
 
         var isDirectionTowardsGuiding = true;
 
-        while (PathRelinkingUtils.distance(currentSolution, _guidingSolution) > 1){
-            var totalCommercialDurationOfHour = Utils.getHourlyDurations(currentSolution, parameters);
+        while (pathRelinkingUtils.distance(currentSolution, _guidingSolution) > 1) {
+            var totalCommercialDurationOfHour =
+                    Utils.getHourlyDurations(currentSolution, parameters);
             var target = isDirectionTowardsGuiding ? guidingSolution : initialSolution;
-            var move = PathRelinkingUtils.getMove(currentSolution, target, totalCommercialDurationOfHour);
+            var move =
+                    pathRelinkingUtils.getMove(
+                            currentSolution, target, totalCommercialDurationOfHour);
             if (move == null) {
                 var temp = currentSolution;
                 currentSolution = _guidingSolution;

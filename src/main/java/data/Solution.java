@@ -10,7 +10,7 @@ import java.util.Objects;
 public class Solution {
     public transient List<List<SolutionData>> solution;
     private transient SolutionData[] flattenedSortedSolutionData;
-    public double revenue;
+    public int revenue;
 
     public Solution(List<List<SolutionData>> solution) {
         this.solution = solution;
@@ -20,7 +20,7 @@ public class Solution {
             calculateKpiValues(solutionDataList);
         }
 
-        this.revenue = solution.stream()
+        this.revenue = (int) solution.stream()
                 .filter(Objects::nonNull)
                 .flatMap(List::stream)
                 .mapToDouble(SolutionData::getRevenue).sum();
@@ -37,7 +37,7 @@ public class Solution {
 
     private Solution(List<List<SolutionData>> solution,
                      SolutionData[] flattenedSortedSolutionData,
-                     double revenue) {
+                     int revenue) {
         this.solution = solution;
         this.flattenedSortedSolutionData = flattenedSortedSolutionData;
         this.revenue = revenue;

@@ -19,7 +19,7 @@ public class LoopSetup {
 
         this.constructiveHeuristicSettings = constructiveHeuristicSettings;
         this.localSearchSettings = new LocalSearchSettings(
-                List.of("shift", "intraSwap", "transfer", "interSwap", "insert", "outOfPool")
+                List.of("shift", "intraSwap", "transfer", "interSwap", "insert", "outOfPool"), 0.2
         );
         this.graspSettings = graspSettings;
         this.randomRunN = randomRunN;

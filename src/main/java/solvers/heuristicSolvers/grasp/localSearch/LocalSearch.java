@@ -43,7 +43,7 @@ public class LocalSearch {
 
     @SuppressWarnings("IfCanBeSwitch")
     public Solution applySearch(String key, Solution solution, SearchMode searchMode) throws Exception {
-        searchMode = random.nextDouble() < 0.3 ? SearchMode.RANDOM : searchMode;
+        searchMode = random.nextDouble() < localSearchSettings.randomMoveProbability ? SearchMode.RANDOM : searchMode;
 
         BaseSearch search;
 

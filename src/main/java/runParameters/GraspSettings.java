@@ -15,11 +15,13 @@ public class GraspSettings {
     private final AlphaGenerator alphaGenerator;
     private final int randomRunN;
     private final String instancePath;
+    private final PathRelinkingSettings pathRelinkingSettings;
 
     // Constructor
     public GraspSettings(SearchMode searchMode, int timeLimit, LocalSearchSettings localSearchSettings,
                          ConstructiveHeuristicSettings constructiveHeuristicSettings, Random random,
-                         AlphaGenerator alphaGenerator, int randomRunN, String instancePath) {
+                         AlphaGenerator alphaGenerator, int randomRunN, String instancePath,
+                         PathRelinkingSettings pathRelinkingSettings) {
         this.searchMode = searchMode;
         this.timeLimit = timeLimit;
         this.localSearchSettings = localSearchSettings;
@@ -28,6 +30,7 @@ public class GraspSettings {
         this.alphaGenerator = alphaGenerator;
         this.randomRunN = randomRunN;
         this.instancePath = instancePath;
+        this.pathRelinkingSettings = pathRelinkingSettings;
 
         this.random.setSeed(hashCode());
 
@@ -61,26 +64,32 @@ public class GraspSettings {
         return alphaGenerator;
     }
 
+    public PathRelinkingSettings pathRelinkingSettings() {
+        return pathRelinkingSettings;
+    }
+
     public String getStringIdentifier() {
         return String.format(
-                "isBestMove=%s_timeLimit=%ds_seed=%d_alphaGenerator=%s",
+                "isBestMove=%s_timeLimit=%ds_seed=%d_alphaGenerator=%s_pathRelinkingSettings=%s",
                 searchMode,
                 timeLimit,
                 hashCode(),
-                alphaGenerator.getStringIdentifier()
+                alphaGenerator.getStringIdentifier(),
+                pathRelinkingSettings.stringIdentifier()
         );
     }
 
     @Override
     public int hashCode() {
         return String.format(
-                "%d_%d_%d_%d_%d_%d",
+                "%d_%d_%d_%d_%d_%d_%d",
                 searchMode.hashCode(),
                 localSearchSettings.hashCode(),
                 constructiveHeuristicSettings.hashCode(),
                 alphaGenerator.hashCode(),
                 randomRunN,
-                instancePath.hashCode()
+                instancePath.hashCode(),
+                pathRelinkingSettings.hashCode()
         ).hashCode();
     }
 }
