@@ -3,13 +3,14 @@ package solvers.heuristicSolvers.grasp.pathLinking;
 import data.Solution;
 
 import runParameters.LocalSearchSettings;
-
 import runParameters.PathRelinkingSettings;
+
 import solvers.heuristicSolvers.grasp.localSearch.move.IMove;
 import solvers.heuristicSolvers.grasp.localSearch.move.InsertMove;
 import solvers.heuristicSolvers.grasp.localSearch.move.RemoveMove;
 import solvers.heuristicSolvers.grasp.localSearch.move.TransferMove;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 @SuppressWarnings({"DuplicatedCode", "SpellCheckingInspection"})
@@ -78,6 +79,9 @@ public class PathRelinkingUtils {
         IMove bestMove = null;
         var bestRevenueGain = Double.NEGATIVE_INFINITY;
 
+        IMove randomMove = null;
+        int count = 0;
+
         var solution1Datas = currentSolution.getSortedSolutionData();
         var solution2Datas = guidingSolution.getSortedSolutionData();
 
@@ -115,9 +119,8 @@ public class PathRelinkingUtils {
                                         k,
                                         totalCommercialDurationOfHour);
                         if (move.checkFeasibility()) {
-                            if (random.nextDouble() < localSearchSettings.randomMoveProbability * pathRelinkingSettings.getCoeff()) {
-                                return move;
-                            }
+                            count++;
+                            if (random.nextInt(count) == 0) randomMove = move;
 
                             if (move.calculateRevenueGain() > bestRevenueGain) {
                                 bestRevenueGain = move.calculateRevenueGain();
@@ -139,9 +142,8 @@ public class PathRelinkingUtils {
                                 solution1Data.getInventory(),
                                 solution1Data.getPosition());
                 if (move.checkFeasibility()) {
-                    if (random.nextDouble() < localSearchSettings.randomMoveProbability * pathRelinkingSettings.getCoeff()) {
-                        return move;
-                    }
+                    count++;
+                    if (random.nextInt(count) == 0) randomMove = move;
 
                     if (move.calculateRevenueGain() > bestRevenueGain) {
                         bestRevenueGain = move.calculateRevenueGain();
@@ -168,9 +170,8 @@ public class PathRelinkingUtils {
                                     k,
                                     totalCommercialDurationOfHour);
                     if (move.checkFeasibility()) {
-                        if (random.nextDouble() < localSearchSettings.randomMoveProbability * pathRelinkingSettings.getCoeff()) {
-                            return move;
-                        }
+                        count++;
+                        if (random.nextInt(count) == 0) randomMove = move;
 
                         if (move.calculateRevenueGain() > bestRevenueGain) {
                             bestRevenueGain = move.calculateRevenueGain();
@@ -193,9 +194,8 @@ public class PathRelinkingUtils {
                                 solutionData.getInventory(),
                                 solutionData.getPosition());
                 if (move.checkFeasibility()) {
-                    if (random.nextDouble() < localSearchSettings.randomMoveProbability * pathRelinkingSettings.getCoeff()) {
-                        return move;
-                    }
+                    count++;
+                    if (random.nextInt(count) == 0) randomMove = move;
 
                     if (move.calculateRevenueGain() > bestRevenueGain) {
                         bestRevenueGain = move.calculateRevenueGain();
@@ -221,9 +221,8 @@ public class PathRelinkingUtils {
                                     l,
                                     totalCommercialDurationOfHour);
                     if (move.checkFeasibility()) {
-                        if (random.nextDouble() < localSearchSettings.randomMoveProbability * pathRelinkingSettings.getCoeff()) {
-                            return move;
-                        }
+                        count++;
+                        if (random.nextInt(count) == 0) randomMove = move;
 
                         if (move.calculateRevenueGain() > bestRevenueGain) {
                             bestRevenueGain = move.calculateRevenueGain();
@@ -232,6 +231,10 @@ public class PathRelinkingUtils {
                     }
                 }
             }
+        }
+
+        if (random.nextDouble() < pathRelinkingSettings.getCoeff() * localSearchSettings.randomMoveProbability) {
+            return randomMove;
         }
 
         return bestMove;

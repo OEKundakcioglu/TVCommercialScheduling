@@ -6,9 +6,9 @@ public class LocalSearchSettings {
     public List<String> moves;
     public double randomMoveProbability;
 
-    public LocalSearchSettings(List<String> moves, double randomMoveProbability) {
+    public LocalSearchSettings(List<String> moves) {
         this.moves = moves;
-        this.randomMoveProbability = randomMoveProbability;
+        this.randomMoveProbability = 0;
     }
 
     @SuppressWarnings("unused")

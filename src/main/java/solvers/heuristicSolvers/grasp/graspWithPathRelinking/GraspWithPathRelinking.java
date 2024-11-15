@@ -134,7 +134,7 @@ public class GraspWithPathRelinking {
 
             if (noImprovementCounter % 10 == 0) {
                 graspSettings.localSearchSettings().randomMoveProbability =
-                        Math.min(0.3, 0.1 * (Math.sqrt(noImprovementCounter) / (5)));
+                        Math.min(0.5, 0.1 * (Math.sqrt(noImprovementCounter) / (5)));
             }
 
             pb.setExtraMessage(
@@ -218,6 +218,7 @@ public class GraspWithPathRelinking {
             }
         }
     }
+
 
     public SolverSolution getSolution() {
         return solverSolution;

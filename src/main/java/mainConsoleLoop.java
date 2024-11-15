@@ -7,10 +7,7 @@ import data.Utils;
 
 import org.yaml.snakeyaml.Yaml;
 
-import runParameters.ConstructiveHeuristicSettings;
-import runParameters.GraspSettings;
-import runParameters.LocalSearchSettings;
-import runParameters.LoopSetup;
+import runParameters.*;
 
 import solvers.SolverSolution;
 import solvers.heuristicSolvers.grasp.graspWithPathRelinking.GraspWithPathRelinking;
@@ -122,7 +119,8 @@ class ConsoleConfigLoop {
                                         new Random(),
                                         alphaGeneratorWrapper.getAlphaGenerator(),
                                         randomRun,
-                                        instancePath);
+                                        instancePath,
+                                        new PathRelinkingSettings(0.1));
 
                         var loopSetUp =
                                 new LoopSetup(
