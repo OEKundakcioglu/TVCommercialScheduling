@@ -12,8 +12,8 @@ import java.util.Random;
 public class InsertSearch extends BaseSearch {
     private final double[] totalCommercialDurationOfHour;
 
-    public InsertSearch(Solution currentSolution, ProblemParameters parameters, boolean getAllNeighborhood, boolean isBestMove, Random random) throws Exception {
-        super(currentSolution, parameters, getAllNeighborhood, isBestMove, random);
+    public InsertSearch(Solution currentSolution, ProblemParameters parameters, boolean getAllNeighborhood, SearchMode searchMode, Random random) throws Exception {
+        super(currentSolution, parameters, getAllNeighborhood, searchMode, random);
         this.totalCommercialDurationOfHour = new double[parameters.getSetOfHours().size() + 1];
         for (var solutionDataList : currentSolution.solution) {
             if (solutionDataList.isEmpty()) continue;
@@ -24,8 +24,8 @@ public class InsertSearch extends BaseSearch {
             }
         }
 
-        if (!isBestMove) this.firstImprovingSearch();
-        else this.bestImprovingSearch();
+        if (searchMode == SearchMode.FIRST_IMPROVEMENT) this.firstImprovingSearch();
+        else if(searchMode == SearchMode.BEST_IMPROVEMENT) this.bestImprovingSearch();
     }
 
     private void firstImprovingSearch() throws Exception {

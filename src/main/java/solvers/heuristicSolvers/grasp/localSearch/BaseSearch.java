@@ -1,47 +1,49 @@
 package solvers.heuristicSolvers.grasp.localSearch;
 
-import data.Solution;
-import solvers.heuristicSolvers.grasp.localSearch.move.IMove;
 import data.ProblemParameters;
+import data.Solution;
+
+import solvers.heuristicSolvers.grasp.localSearch.move.IMove;
 
 import java.util.*;
 
 public abstract class BaseSearch {
+    protected final List<IMove> neighborhood;
     protected Solution currentSolution;
     protected Solution bestFoundSolution;
     protected ProblemParameters parameters;
-    protected final List<IMove> neighborhood;
     protected boolean getAllNeighborhood;
-    protected boolean isBestMove;
+    protected SearchMode searchMode;
     protected Random random;
 
-    BaseSearch(Solution currentSolution, ProblemParameters parameters, boolean getAllNeighborhood, boolean isBestMove, Random random) {
+    BaseSearch(
+            Solution currentSolution,
+            ProblemParameters parameters,
+            boolean getAllNeighborhood,
+            SearchMode searchMode,
+            Random random) {
         this.random = random;
-
-        assert !isBestMove || !getAllNeighborhood;
 
         this.currentSolution = currentSolution;
         this.parameters = parameters;
         this.getAllNeighborhood = getAllNeighborhood;
-        this.bestFoundSolution = null;
-        this.isBestMove = isBestMove;
+        this.bestFoundSolution = currentSolution;
+        this.searchMode = searchMode;
         this.neighborhood = new ArrayList<>();
     }
 
     protected boolean update(IMove move) throws Exception {
         var revenueGain = move.calculateRevenueGain();
 
-        if (this.bestFoundSolution == null) this.bestFoundSolution = move.applyMove();
-
-        if (this.getAllNeighborhood) {
-            neighborhood.add(move);
+        if (searchMode == SearchMode.RANDOM) {
+            bestFoundSolution = move.applyMove();
+            return false;
         }
 
-        else {
-            if (revenueGain + currentSolution.revenue > bestFoundSolution.revenue) {
-                bestFoundSolution = move.applyMove();
-                return isBestMove;
-            }
+        if (revenueGain + currentSolution.revenue > bestFoundSolution.revenue) {
+            bestFoundSolution = move.applyMove();
+
+            return searchMode != SearchMode.FIRST_IMPROVEMENT;
         }
 
         return true;
@@ -57,7 +59,7 @@ public abstract class BaseSearch {
         return shuffledList;
     }
 
-    protected List<Integer> getShuffledIndexList(int start, int excludedEnd){
+    protected List<Integer> getShuffledIndexList(int start, int excludedEnd) {
         var shuffledList = new ArrayList<Integer>();
         for (var i = start; i < excludedEnd; i++) {
             shuffledList.add(i);

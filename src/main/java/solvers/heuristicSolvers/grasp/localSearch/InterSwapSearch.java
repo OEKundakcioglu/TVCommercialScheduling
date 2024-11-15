@@ -2,17 +2,18 @@ package solvers.heuristicSolvers.grasp.localSearch;
 
 import data.Commercial;
 import data.Inventory;
-import data.Solution;
-import solvers.heuristicSolvers.grasp.localSearch.move.InterSwapMove;
 import data.ProblemParameters;
+import data.Solution;
+
+import solvers.heuristicSolvers.grasp.localSearch.move.InterSwapMove;
 
 import java.util.Random;
 
 public class InterSwapSearch extends BaseSearch{
     private final double[] totalCommercialDurationOfHour;
 
-    InterSwapSearch(Solution currentSolution, ProblemParameters parameters, boolean getAllNeighborhood, boolean isBestMove, Random random) throws Exception {
-        super(currentSolution, parameters, getAllNeighborhood, isBestMove, random);
+    InterSwapSearch(Solution currentSolution, ProblemParameters parameters, boolean getAllNeighborhood, SearchMode searchMode, Random random) throws Exception {
+        super(currentSolution, parameters, getAllNeighborhood, searchMode, random);
 
         this.totalCommercialDurationOfHour = new double[parameters.getSetOfHours().size() + 1];
         for (var solutionDataList : currentSolution.solution) {
@@ -25,8 +26,8 @@ public class InterSwapSearch extends BaseSearch{
             }
         }
 
-        if (!isBestMove) this.firstImprovingSearch();
-        else this.bestImprovingSearch();
+        if (searchMode == SearchMode.FIRST_IMPROVEMENT) this.firstImprovingSearch();
+        else if(searchMode == SearchMode.BEST_IMPROVEMENT) this.bestImprovingSearch();
     }
 
     private void firstImprovingSearch() throws Exception {

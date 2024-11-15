@@ -8,11 +8,11 @@ import java.util.Random;
 
 public class ShiftSearch extends BaseSearch{
 
-    ShiftSearch(Solution currentSolution, ProblemParameters parameters, boolean getAllNeighborhood, boolean isBestMove, Random random) throws Exception {
-        super(currentSolution, parameters, getAllNeighborhood, isBestMove, random);
+    ShiftSearch(Solution currentSolution, ProblemParameters parameters, boolean getAllNeighborhood, SearchMode searchMode, Random random) throws Exception {
+        super(currentSolution, parameters, getAllNeighborhood, searchMode, random);
 
-        if (isBestMove) bestImprovingSearch();
-        else firstImprovingSearch();
+        if (searchMode == SearchMode.FIRST_IMPROVEMENT) this.firstImprovingSearch();
+        else if(searchMode == SearchMode.BEST_IMPROVEMENT) this.bestImprovingSearch();
     }
 
     private void firstImprovingSearch() throws Exception {

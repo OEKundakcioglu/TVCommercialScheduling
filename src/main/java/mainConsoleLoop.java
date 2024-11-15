@@ -14,6 +14,7 @@ import runParameters.LoopSetup;
 
 import solvers.SolverSolution;
 import solvers.heuristicSolvers.grasp.graspWithPathRelinking.GraspWithPathRelinking;
+import solvers.heuristicSolvers.grasp.localSearch.SearchMode;
 import solvers.heuristicSolvers.grasp.reactiveGrasp.AlphaGenerator;
 import solvers.heuristicSolvers.grasp.reactiveGrasp.AlphaGeneratorConstant;
 import solvers.heuristicSolvers.grasp.reactiveGrasp.AlphaGeneratorUniform;
@@ -93,7 +94,7 @@ class AlphaGeneratorWrapper {
 
 class ConsoleConfigLoop {
     public List<String> instancePaths;
-    public List<Boolean> isBestMoveOptions;
+    public List<SearchMode> searchModes;
     public List<String> localSearchMoves;
     public List<AlphaGeneratorWrapper> alphaGeneratorOptions;
     public int timeLimit;
@@ -104,7 +105,7 @@ class ConsoleConfigLoop {
         var loopSetups = new ArrayList<LoopSetup>();
 
         for (var instancePath : instancePaths) {
-            for (var isBestMove : isBestMoveOptions) {
+            for (var searchMode : searchModes) {
                 for (var alphaGeneratorWrapper : alphaGeneratorOptions) {
                     for (int randomRun = 0; randomRun < randomRunN; randomRun++) {
                         var constructiveHeuristicSettings =
@@ -114,7 +115,7 @@ class ConsoleConfigLoop {
 
                         var graspSettings =
                                 new GraspSettings(
-                                        isBestMove,
+                                        searchMode,
                                         timeLimit,
                                         localSearchSettings,
                                         constructiveHeuristicSettings,

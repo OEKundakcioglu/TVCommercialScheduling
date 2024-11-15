@@ -87,7 +87,7 @@ public class GraspWithPathRelinking {
                     new LocalSearch(
                                     randomSolution,
                                     parameters,
-                                    graspSettings.isBestMove(),
+                                    graspSettings.getSearchMode(),
                                     graspSettings.localSearchSettings(),
                                     random)
                             .getSolution();
@@ -104,7 +104,7 @@ public class GraspWithPathRelinking {
                         new LocalSearch(
                                         randomSolution,
                                         parameters,
-                                        graspSettings.isBestMove(),
+                                        graspSettings.getSearchMode(),
                                         graspSettings.localSearchSettings(),
                                         random)
                                 .getSolution();

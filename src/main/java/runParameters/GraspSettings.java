@@ -1,12 +1,13 @@
 package runParameters;
 
+import solvers.heuristicSolvers.grasp.localSearch.SearchMode;
 import solvers.heuristicSolvers.grasp.reactiveGrasp.AlphaGenerator;
 import solvers.heuristicSolvers.grasp.reactiveGrasp.AlphaGeneratorUniform;
 
 import java.util.Random;
 
 public class GraspSettings {
-    private final boolean isBestMove;
+    private final SearchMode searchMode;
     private final int timeLimit;
     private final LocalSearchSettings localSearchSettings;
     private final ConstructiveHeuristicSettings constructiveHeuristicSettings;
@@ -16,10 +17,10 @@ public class GraspSettings {
     private final String instancePath;
 
     // Constructor
-    public GraspSettings(boolean isBestMove, int timeLimit, LocalSearchSettings localSearchSettings,
+    public GraspSettings(SearchMode searchMode, int timeLimit, LocalSearchSettings localSearchSettings,
                          ConstructiveHeuristicSettings constructiveHeuristicSettings, Random random,
                          AlphaGenerator alphaGenerator, int randomRunN, String instancePath) {
-        this.isBestMove = isBestMove;
+        this.searchMode = searchMode;
         this.timeLimit = timeLimit;
         this.localSearchSettings = localSearchSettings;
         this.constructiveHeuristicSettings = constructiveHeuristicSettings;
@@ -36,8 +37,8 @@ public class GraspSettings {
     }
 
     // Getters similar to record
-    public boolean isBestMove() {
-        return isBestMove;
+    public SearchMode getSearchMode() {
+        return searchMode;
     }
 
     public int timeLimit() {
@@ -62,8 +63,8 @@ public class GraspSettings {
 
     public String getStringIdentifier() {
         return String.format(
-                "isBestMove=%b_timeLimit=%ds_seed=%d_alphaGenerator=%s",
-                isBestMove,
+                "isBestMove=%s_timeLimit=%ds_seed=%d_alphaGenerator=%s",
+                searchMode,
                 timeLimit,
                 hashCode(),
                 alphaGenerator.getStringIdentifier()
@@ -73,8 +74,8 @@ public class GraspSettings {
     @Override
     public int hashCode() {
         return String.format(
-                "%s_%d_%d_%d_%d_%d",
-                isBestMove,
+                "%d_%d_%d_%d_%d_%d",
+                searchMode.hashCode(),
                 localSearchSettings.hashCode(),
                 constructiveHeuristicSettings.hashCode(),
                 alphaGenerator.hashCode(),
