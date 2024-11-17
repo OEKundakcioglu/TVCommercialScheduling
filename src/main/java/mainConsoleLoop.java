@@ -106,7 +106,7 @@ class ConsoleConfigLoop {
                 for (var alphaGeneratorWrapper : alphaGeneratorOptions) {
                     for (int randomRun = 0; randomRun < randomRunN; randomRun++) {
                         var constructiveHeuristicSettings =
-                                new ConstructiveHeuristicSettings(0.5, 5);
+                                new ConstructiveHeuristicSettings(0.5, 5, 3);
                         var localSearchSettings =
                                 new LocalSearchSettings(localSearchMoves);
 

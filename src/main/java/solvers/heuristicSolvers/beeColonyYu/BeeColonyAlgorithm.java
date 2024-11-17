@@ -198,7 +198,7 @@ public class BeeColonyAlgorithm {
     private int[] generateRandomSolution() {
         var constructive =
                 new ConstructiveHeuristic(
-                        parameters, 0.5, this.random, new ConstructiveHeuristicSettings(0.5, 5));
+                        parameters, 0.5, this.random, new ConstructiveHeuristicSettings(0.5, 5, 3));
         var sol = constructive.getSolution();
 
         var solString = new ArrayList<Integer>();

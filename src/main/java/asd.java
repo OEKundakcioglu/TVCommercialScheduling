@@ -1,5 +1,6 @@
 import com.google.common.collect.Collections2;
 import com.google.common.collect.Sets;
+
 import data.ProblemParameters;
 
 import runParameters.ConstructiveHeuristicSettings;
@@ -35,114 +36,125 @@ public class asd {
         //                        new MipRunSettings(List.of(90), ""));
         //        Utils.feasibilityCheck(model.getSolution().getBestSolution());
 
-                var permutes =
-                        new ArrayList<>(
-                                List.copyOf(
-                                        Collections2.permutations(
-                                                List.of(
-                                                        "shift",
-                                                        "intraSwap",
-                                                        "outOfPool",
-                                                        "transfer",
-                                                        "interSwap",
-                                                        "insert"))));
+        var permutes =
+                new ArrayList<>(
+                        List.copyOf(
+                                Collections2.permutations(
+                                        List.of(
+                                                "shift",
+                                                "intraSwap",
+                                                "outOfPool",
+                                                "transfer",
+                                                "interSwap",
+                                                "insert"))));
 
-                var pathrelinkingCoeefOptions =
-                        new ArrayList<>(List.of(
-                                new PathRelinkingSettings(1)));
+        var pathrelinkingCoeefOptions = new ArrayList<>(List.of(new PathRelinkingSettings(1)));
 
-                var constructiveHeuristicSettings =
-                        new ArrayList<>(List.of(
-                                new ConstructiveHeuristicSettings(1, 5)));
+        var constructiveHeuristicSettings =
+                new ArrayList<>(
+                        List.of(
+                                new ConstructiveHeuristicSettings(0.5, 5, 100),
+                                new ConstructiveHeuristicSettings(0.5, 5, 2),
+                                new ConstructiveHeuristicSettings(0.5, 5, 3),
+                                new ConstructiveHeuristicSettings(0.5, 5, 5),
+                                new ConstructiveHeuristicSettings(1, 5, 100),
+                                new ConstructiveHeuristicSettings(1, 5, 2),
+                                new ConstructiveHeuristicSettings(1, 5, 3),
+                                new ConstructiveHeuristicSettings(1, 5, 5)
+                               ));
 
-                Collections.shuffle(permutes);
-                Collections.shuffle(pathrelinkingCoeefOptions);
-                Collections.shuffle(constructiveHeuristicSettings);
+        Collections.shuffle(permutes);
+        Collections.shuffle(pathrelinkingCoeefOptions);
+        Collections.shuffle(constructiveHeuristicSettings);
 
-                var asd = new ArrayList<>(List.copyOf(Sets.cartesianProduct(Set.copyOf(permutes),
-                        Set.copyOf(pathrelinkingCoeefOptions),
-                        Set.copyOf(constructiveHeuristicSettings))));
+        var asd =
+                new ArrayList<>(
+                        List.copyOf(
+                                Sets.cartesianProduct(
+                                        Set.copyOf(permutes),
+                                        Set.copyOf(pathrelinkingCoeefOptions),
+                                        Set.copyOf(constructiveHeuristicSettings))));
 
-                Collections.shuffle(asd);
+        Collections.shuffle(asd);
 
+        asd = new ArrayList<>(asd.subList(0, 450));
 
-                var sols = new ArrayList<List<Object>>();
-                for (var comb : asd) {
-                    List<String> permute = (List<String>) comb.get(0);
-                    PathRelinkingSettings pathRelinkingSettings = (PathRelinkingSettings)
-         comb.get(1);
-                    ConstructiveHeuristicSettings constructiveHeuristicSetting =
-         (ConstructiveHeuristicSettings) comb.get(2);
+        var sols = new ArrayList<List<Object>>();
+        for (var comb : asd) {
+            List<String> permute = (List<String>) comb.get(0);
+            PathRelinkingSettings pathRelinkingSettings = (PathRelinkingSettings) comb.get(1);
+            ConstructiveHeuristicSettings constructiveHeuristicSetting =
+                    (ConstructiveHeuristicSettings) comb.get(2);
 
-                    var random = new Random(0);
-                    System.out.println(permute);
-                    System.out.println(pathRelinkingSettings.stringIdentifier());
-                    System.out.println(constructiveHeuristicSetting.getStringIdentifier());
-                    var grasp =
-                            new GraspWithPathRelinking(
-                                    parameters,
-                                    new GraspSettings(
-                                            SearchMode.FIRST_IMPROVEMENT,
-                                            60,
-                                            new LocalSearchSettings(permute),
-                                            constructiveHeuristicSetting,
-                                            random,
-                                            new AlphaGeneratorUniform(random, 0.1, 1),
-                                            1,
-                                            "instances/1.json",
+            var random = new Random(0);
+            System.out.println(permute);
+            System.out.println(pathRelinkingSettings.stringIdentifier());
+            System.out.println(constructiveHeuristicSetting.getStringIdentifier());
+            var grasp =
+                    new GraspWithPathRelinking(
+                            parameters,
+                            new GraspSettings(
+                                    SearchMode.FIRST_IMPROVEMENT,
+                                    60 * 3,
+                                    new LocalSearchSettings(permute),
+                                    constructiveHeuristicSetting,
+                                    random,
+                                    new AlphaGeneratorUniform(random, 0.1, 1),
+                                    1,
+                                    "instances/1.json",
                                     pathRelinkingSettings));
 
-                    sols.add(List.of(comb, grasp.getSolution().getBestSolution().revenue));
-                }
+            sols.add(List.of(comb, grasp.getSolution().getBestSolution().revenue));
+        }
 
-                sols.sort(Comparator.comparing(i -> (int) i.get(1)));
+        sols.sort(Comparator.comparing(i -> (int) i.get(1)));
 
-                BufferedWriter writer = new BufferedWriter(new FileWriter("output.txt"));
-                for (var sol : sols) {
-                    var comb = (List<Object>) sol.get(0);
-                    List<String> permute = (List<String>) comb.get(0);
-                    PathRelinkingSettings pathRelinkingSettings = (PathRelinkingSettings)
-         comb.get(1);
-                    ConstructiveHeuristicSettings constructiveHeuristicSetting =
-         (ConstructiveHeuristicSettings) comb.get(2);
+        BufferedWriter writer = new BufferedWriter(new FileWriter("output.txt"));
+        for (var sol : sols) {
+            var comb = (List<Object>) sol.get(0);
+            List<String> permute = (List<String>) comb.get(0);
+            PathRelinkingSettings pathRelinkingSettings = (PathRelinkingSettings) comb.get(1);
+            ConstructiveHeuristicSettings constructiveHeuristicSetting =
+                    (ConstructiveHeuristicSettings) comb.get(2);
 
-                    writer.write(Arrays.toString(permute.toArray()));
-                    writer.write("\t" + pathRelinkingSettings.stringIdentifier());
-                    writer.write("\t" + constructiveHeuristicSetting.getStringIdentifier());
+            writer.write(Arrays.toString(permute.toArray()));
+            writer.write("\t" + pathRelinkingSettings.stringIdentifier());
+            writer.write("\t" + constructiveHeuristicSetting.getStringIdentifier());
 
-                    int revenue = (int) sol.get(1);
-                    writer.write("\t " + (int) revenue + System.lineSeparator());
-                    System.out.println((int) revenue);
-                }
-                writer.close();
+            int revenue = (int) sol.get(1);
+            writer.write("\t " + (int) revenue + System.lineSeparator());
+            System.out.println((int) revenue);
+        }
+        writer.close();
 
-//        var localSearchSettings =
-//                new LocalSearchSettings(
-//                        List.of(
-//                                "shift",
-//                                "transfer",
-//                                "outOfPool",
-//                                "interSwap",
-//                                "insert",
-//                                "intraSwap"));
-//
-//        var constructiveHeuristicSettings = new ConstructiveHeuristicSettings(1, 5);
-//        var random = new Random();
-//        var alphaGenerator = new AlphaGeneratorUniform(random, 0.1, 1);
-//        //        var alphaGenerator = new AlphaGeneratorConstant(1);
-//
-//        var graspSettings =
-//                new GraspSettings(
-//                        SearchMode.FIRST_IMPROVEMENT,
-//                        300,
-//                        localSearchSettings,
-//                        constructiveHeuristicSettings,
-//                        random,
-//                        alphaGenerator,
-//                        1,
-//                        "instances/10.json",
-//                        new PathRelinkingSettings(1));
-//
-//        var grasp = new GraspWithPathRelinking(parameters, graspSettings);
+        //        var localSearchSettings =
+        //                new LocalSearchSettings(
+        //                        List.of(
+        //                                "insert",
+        //                                "intraSwap",
+        //                                "interSwap",
+        //                                "shift",
+        //                                "transfer",
+        //                                "outOfPool"
+        //                                ));
+        //
+        //        var constructiveHeuristicSettings = new ConstructiveHeuristicSettings(0.5, 5, 3);
+        //        var random = new Random();
+        //        var alphaGenerator = new AlphaGeneratorUniform(random, 0.1, 1);
+        //        //        var alphaGenerator = new AlphaGeneratorConstant(1);
+        //
+        //        var graspSettings =
+        //                new GraspSettings(
+        //                        SearchMode.FIRST_IMPROVEMENT,
+        //                        300,
+        //                        localSearchSettings,
+        //                        constructiveHeuristicSettings,
+        //                        random,
+        //                        alphaGenerator,
+        //                        1,
+        //                        "instances/10.json",
+        //                        new PathRelinkingSettings(1));
+        //
+        //        var grasp = new GraspWithPathRelinking(parameters, graspSettings);
     }
 }
