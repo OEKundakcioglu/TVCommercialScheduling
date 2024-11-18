@@ -23,8 +23,6 @@ public class ConstructiveHeuristic implements IConstructiveHeuristic {
     private final int smallestHour;
     private Solution solution;
 
-    private final ConstructiveHeuristicSettings constructiveHeuristicSettings;
-
     public ConstructiveHeuristic(
             ProblemParameters parameters,
             double alpha,
@@ -32,8 +30,6 @@ public class ConstructiveHeuristic implements IConstructiveHeuristic {
             ConstructiveHeuristicSettings constructiveHeuristicSettings) {
         this.random = random;
         this.alpha = alpha;
-
-        this.constructiveHeuristicSettings = constructiveHeuristicSettings;
 
         this.firstAttentionBoost =
                 random.nextDouble(
@@ -165,6 +161,7 @@ public class ConstructiveHeuristic implements IConstructiveHeuristic {
         }
 
         var threshold = bestScore - this.alpha * (bestScore - worstScore);
+
         return getReservoirSample(commercials, inventories, scores, threshold);
     }
 
@@ -194,13 +191,6 @@ public class ConstructiveHeuristic implements IConstructiveHeuristic {
 
     private double calculateGreedyScore(
             TrackRecord trackRecord, Commercial commercial, ATTENTION attention) {
-
-        if (attention == ATTENTION.LAST) {
-            int remainingTime = trackRecord.inventory.getDuration() - trackRecord.currentTime;
-            if (remainingTime > commercial.getDuration() * constructiveHeuristicSettings.lastCoefficient()) {
-                return 0;
-            }
-        }
 
         var minute = (trackRecord.currentTime / 60) + 1;
 

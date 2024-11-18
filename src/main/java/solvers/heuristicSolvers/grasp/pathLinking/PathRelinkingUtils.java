@@ -3,26 +3,22 @@ package solvers.heuristicSolvers.grasp.pathLinking;
 import data.Solution;
 
 import runParameters.LocalSearchSettings;
-import runParameters.PathRelinkingSettings;
 
 import solvers.heuristicSolvers.grasp.localSearch.move.IMove;
 import solvers.heuristicSolvers.grasp.localSearch.move.InsertMove;
 import solvers.heuristicSolvers.grasp.localSearch.move.RemoveMove;
 import solvers.heuristicSolvers.grasp.localSearch.move.TransferMove;
 
-import java.util.ArrayList;
 import java.util.Random;
 
 @SuppressWarnings({"DuplicatedCode", "SpellCheckingInspection"})
 public class PathRelinkingUtils {
     private final Random random;
     private final LocalSearchSettings localSearchSettings;
-    private final PathRelinkingSettings pathRelinkingSettings;
 
-    public PathRelinkingUtils(Random random, LocalSearchSettings localSearchSettings, PathRelinkingSettings pathRelinkingSettings) {
+    public PathRelinkingUtils(Random random, LocalSearchSettings localSearchSettings) {
         this.random = random;
         this.localSearchSettings = localSearchSettings;
-        this.pathRelinkingSettings = pathRelinkingSettings;
     }
 
     public int distance(Solution solution1, Solution solution2) {
@@ -233,7 +229,7 @@ public class PathRelinkingUtils {
             }
         }
 
-        if (random.nextDouble() < pathRelinkingSettings.getCoeff() * localSearchSettings.randomMoveProbability) {
+        if (random.nextDouble() < localSearchSettings.randomMoveProbability) {
             return randomMove;
         }
 

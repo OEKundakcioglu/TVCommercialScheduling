@@ -21,7 +21,7 @@ import java.util.*;
 
 public class GraspWithPathRelinking {
     @SuppressWarnings("FieldCanBeLocal")
-    private final int eliteSolutionsSize = 5;
+    private final int eliteSolutionsSize = 10;
 
     private final ProblemParameters parameters;
     private final List<Solution> eliteSolutions;
@@ -33,7 +33,6 @@ public class GraspWithPathRelinking {
     private final PathRelinkingUtils pathRelinkingUtils;
     private Solution bestSolution;
     private int foundSolutionAt;
-    private int noImprovementCounter = 0;
 
     public GraspWithPathRelinking(ProblemParameters parameters, GraspSettings graspSettings)
             throws Exception {
@@ -50,10 +49,7 @@ public class GraspWithPathRelinking {
                         graspSettings);
         this.checkPoints = new ArrayList<>();
         this.pathRelinkingUtils =
-                new PathRelinkingUtils(
-                        random,
-                        graspSettings.localSearchSettings(),
-                        graspSettings.pathRelinkingSettings());
+                new PathRelinkingUtils(random, graspSettings.localSearchSettings());
 
         this.solve();
 
@@ -132,11 +128,6 @@ public class GraspWithPathRelinking {
                         iteration / (double) (System.currentTimeMillis() / 1000 - startTime);
             }
 
-            if (noImprovementCounter % 10 == 0) {
-                graspSettings.localSearchSettings().randomMoveProbability =
-                        Math.min(0.5, 0.1 * (Math.sqrt(noImprovementCounter) / (5)));
-            }
-
             pb.setExtraMessage(
                     String.format(
                             "%.2f iter/s Best solution: %d found at %ds %.2f",
@@ -145,7 +136,6 @@ public class GraspWithPathRelinking {
                             foundSolutionAt,
                             graspSettings.localSearchSettings().randomMoveProbability));
 
-            noImprovementCounter++;
             iteration++;
         }
         pb.stepTo(graspSettings.timeLimit());
@@ -160,22 +150,7 @@ public class GraspWithPathRelinking {
         if (newFoundLocalOptima.revenue > bestSolution.revenue) {
             this.foundSolutionAt = (int) (System.currentTimeMillis() / 1000 - startTime);
 
-            var gain = newFoundLocalOptima.revenue - bestSolution.revenue;
-            var gainPercentage = 1e-4;
-            //                    Math.min(0.0001, 0.0001 * (iterationsPerSecond * 10 /
-            // noImprovementCounter));
-            if (gain > bestSolution.revenue * gainPercentage) noImprovementCounter = 0;
-            //            noImprovementCounter = 0;
-
             bestSolution = newFoundLocalOptima;
-            pb.setExtraMessage(
-                    String.format(
-                            "%.2fiter/s %d$ at %ds %.2f %f",
-                            iterationsPerSecond,
-                            bestSolution.revenue,
-                            (System.currentTimeMillis() / 1000 - startTime),
-                            graspSettings.localSearchSettings().randomMoveProbability,
-                            gainPercentage));
 
             this.checkPoints.add(
                     new CheckPoint(
@@ -218,7 +193,6 @@ public class GraspWithPathRelinking {
             }
         }
     }
-
 
     public SolverSolution getSolution() {
         return solverSolution;

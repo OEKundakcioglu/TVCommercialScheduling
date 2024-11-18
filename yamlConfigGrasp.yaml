@@ -11,13 +11,11 @@ instancePaths:
   - "instances/9.json"
   - "instances/10.json"
 
-isBestMoveOptions:
-  - true
-  - false
+searchModes:
+  - BEST_IMPROVEMENT
+  - FIRST_IMPROVEMENT
 
 alphaGeneratorOptions:
-  - type: "Fixed"
-    alpha: 0.1
   - type: "Fixed"
     alpha: 0.25
   - type: "Fixed"
@@ -29,13 +27,18 @@ alphaGeneratorOptions:
     minAlpha: 0.1
     maxAlpha: 0.5
 
+localSearchRandomProbabilities:
+  - 0.0
+  - 0.25
+  - 0.5
+
 localSearchMoves:
   - "outOfPool"
   - "interSwap"
   - "insert"
   - "transfer"
-  - "shift"
   - "intraSwap"
+  - "shift"
 
 timeLimit: 300
 

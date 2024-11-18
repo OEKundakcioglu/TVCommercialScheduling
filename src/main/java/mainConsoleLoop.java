@@ -94,6 +94,7 @@ class ConsoleConfigLoop {
     public List<SearchMode> searchModes;
     public List<String> localSearchMoves;
     public List<AlphaGeneratorWrapper> alphaGeneratorOptions;
+    public List<Double> localSearchRandomProbabilities;
     public int timeLimit;
     public int randomRunN;
     public String outputDirectory;
@@ -101,35 +102,44 @@ class ConsoleConfigLoop {
     public List<LoopSetup> getLoopSetups() {
         var loopSetups = new ArrayList<LoopSetup>();
 
+        System.out.println(
+                "Expected run time: "
+                        + instancePaths.size()
+                                * searchModes.size()
+                                * alphaGeneratorOptions.size()
+                                * localSearchRandomProbabilities.size()
+                                * timeLimit
+                                * randomRunN
+                                / 60
+                                / 60
+                        + " hours");
+
         for (var instancePath : instancePaths) {
             for (var searchMode : searchModes) {
                 for (var alphaGeneratorWrapper : alphaGeneratorOptions) {
-                    for (int randomRun = 0; randomRun < randomRunN; randomRun++) {
-                        var constructiveHeuristicSettings =
-                                new ConstructiveHeuristicSettings(0.5, 5, 3);
-                        var localSearchSettings =
-                                new LocalSearchSettings(localSearchMoves);
+                    for (var localSearchRandomProbability : localSearchRandomProbabilities) {
+                        for (int randomRun = 0; randomRun < randomRunN; randomRun++) {
+                            var constructiveHeuristicSettings =
+                                    new ConstructiveHeuristicSettings(0.5, 1.5);
+                            var localSearchSettings =
+                                    new LocalSearchSettings(
+                                            localSearchMoves, localSearchRandomProbability);
 
-                        var graspSettings =
-                                new GraspSettings(
-                                        searchMode,
-                                        timeLimit,
-                                        localSearchSettings,
-                                        constructiveHeuristicSettings,
-                                        new Random(),
-                                        alphaGeneratorWrapper.getAlphaGenerator(),
-                                        randomRun,
-                                        instancePath,
-                                        new PathRelinkingSettings(0.1));
+                            var graspSettings =
+                                    new GraspSettings(
+                                            searchMode,
+                                            timeLimit,
+                                            localSearchSettings,
+                                            constructiveHeuristicSettings,
+                                            new Random(),
+                                            alphaGeneratorWrapper.getAlphaGenerator(),
+                                            randomRun,
+                                            instancePath);
 
-                        var loopSetUp =
-                                new LoopSetup(
-                                        constructiveHeuristicSettings,
-                                        graspSettings,
-                                        randomRun,
-                                        instancePath);
+                            var loopSetUp = new LoopSetup(graspSettings, randomRun, instancePath);
 
-                        loopSetups.add(loopSetUp);
+                            loopSetups.add(loopSetUp);
+                        }
                     }
                 }
             }

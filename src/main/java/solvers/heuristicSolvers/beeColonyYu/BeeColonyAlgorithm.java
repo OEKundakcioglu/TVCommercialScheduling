@@ -195,10 +195,10 @@ public class BeeColonyAlgorithm {
                         nIter / (double) passedTime));
     }
 
-    private int[] generateRandomSolution() {
+    private int[] generateRandomSolution() throws Exception {
         var constructive =
                 new ConstructiveHeuristic(
-                        parameters, 0.5, this.random, new ConstructiveHeuristicSettings(0.5, 5, 3));
+                        parameters, 0.5, this.random, new ConstructiveHeuristicSettings(0.5, 5));
         var sol = constructive.getSolution();
 
         var solString = new ArrayList<Integer>();

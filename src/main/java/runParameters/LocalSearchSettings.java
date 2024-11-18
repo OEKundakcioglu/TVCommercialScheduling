@@ -6,14 +6,14 @@ public class LocalSearchSettings {
     public List<String> moves;
     public double randomMoveProbability;
 
-    public LocalSearchSettings(List<String> moves) {
+    public LocalSearchSettings(List<String> moves, double randomMoveProbability) {
         this.moves = moves;
-        this.randomMoveProbability = 0;
+        this.randomMoveProbability = randomMoveProbability;
     }
 
     @SuppressWarnings("unused")
     public String getStringIdentifier() {
-        return String.join(", ", moves) + ", " + randomMoveProbability;
+        return String.join(", ", moves) + "_" + randomMoveProbability;
     }
 
     @Override
