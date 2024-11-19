@@ -120,7 +120,7 @@ class ConsoleConfigLoop {
                     for (var localSearchRandomProbability : localSearchRandomProbabilities) {
                         for (int randomRun = 0; randomRun < randomRunN; randomRun++) {
                             var constructiveHeuristicSettings =
-                                    new ConstructiveHeuristicSettings(0.5, 1.5);
+                                    new ConstructiveHeuristicSettings(0.5, 2);
                             var localSearchSettings =
                                     new LocalSearchSettings(
                                             localSearchMoves, localSearchRandomProbability);
