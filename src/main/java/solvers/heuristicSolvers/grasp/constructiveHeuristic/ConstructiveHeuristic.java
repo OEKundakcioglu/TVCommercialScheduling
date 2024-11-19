@@ -23,6 +23,9 @@ public class ConstructiveHeuristic implements IConstructiveHeuristic {
     private final int smallestHour;
     private Solution solution;
 
+    private Commercial tripleCommercial;
+    private Inventory tripleInventory;
+
     public ConstructiveHeuristic(
             ProblemParameters parameters,
             double alpha,
@@ -79,13 +82,13 @@ public class ConstructiveHeuristic implements IConstructiveHeuristic {
 
     private void solve() {
         while (!this.unassignedCommercials.isEmpty()) {
-            var commercialAndInventory = selectCommercialAndInventory();
-            if (commercialAndInventory == null) {
+            selectCommercialAndInventory();
+            if (tripleCommercial == null) {
                 break;
             }
 
-            var commercial = commercialAndInventory.first;
-            var inventory = commercialAndInventory.second;
+            var commercial = tripleCommercial;
+            var inventory = tripleInventory;
 
             this.updateTrackRecord(inventory, commercial);
             this.updateSolutionMap(inventory, commercial);
@@ -122,15 +125,25 @@ public class ConstructiveHeuristic implements IConstructiveHeuristic {
                 commercial.getAttentionMap().get(inventory) == ATTENTION.LAST;
     }
 
-    private Triple<Commercial, Inventory, Double> selectCommercialAndInventory() {
-        var commercials = new ArrayList<Commercial>();
-        var inventories = new ArrayList<Inventory>();
-        var scores = new ArrayList<Double>();
+    private void selectCommercialAndInventory() {
+        var commercials =
+                new ArrayList<Commercial>(
+                        parameters.getSetOfCommercials().size()
+                                * parameters.getSetOfInventories().size());
+        var inventories =
+                new ArrayList<Inventory>(
+                        parameters.getSetOfCommercials().size()
+                                * parameters.getSetOfInventories().size());
+        double[] scores =
+                new double
+                        [parameters.getSetOfCommercials().size()
+                                * parameters.getSetOfInventories().size()];
 
         var worstScore = Double.POSITIVE_INFINITY;
 
         var bestScore = Double.NEGATIVE_INFINITY;
 
+        var i = 0;
         for (var commercial : this.unassignedCommercials) {
             for (var inventory : commercial.getSetOfSuitableInv()) {
                 var attention = commercial.getAttentionMapArray()[inventory.getId()];
@@ -144,7 +157,8 @@ public class ConstructiveHeuristic implements IConstructiveHeuristic {
 
                 commercials.add(commercial);
                 inventories.add(inventory);
-                scores.add(greedyScore);
+                scores[i] = greedyScore;
+                i++;
 
                 if (greedyScore < worstScore) {
                     worstScore = greedyScore;
@@ -157,36 +171,36 @@ public class ConstructiveHeuristic implements IConstructiveHeuristic {
         }
 
         if (commercials.isEmpty()) {
-            return null;
+            tripleCommercial = null;
+            tripleInventory = null;
         }
 
         var threshold = bestScore - this.alpha * (bestScore - worstScore);
 
-        return getReservoirSample(commercials, inventories, scores, threshold);
+        getReservoirSample(commercials, inventories, scores, threshold);
     }
 
-    private Triple<Commercial, Inventory, Double> getReservoirSample(
+    private void getReservoirSample(
             List<Commercial> commercials,
             List<Inventory> inventories,
-            List<Double> scores,
+            double[] scores,
             double threshold) {
         Commercial selectedCommercial = null;
         Inventory selectedInventory = null;
-        double selectedScore = 0.0;
 
         int count = 0;
         for (int i = 0; i < commercials.size(); i++) {
-            if (scores.get(i) >= threshold) {
+            if (scores[i] >= threshold) {
                 count++;
                 if (random.nextInt(count) == 0) {
                     selectedCommercial = commercials.get(i);
                     selectedInventory = inventories.get(i);
-                    selectedScore = scores.get(i);
                 }
             }
         }
 
-        return new Triple<>(selectedCommercial, selectedInventory, selectedScore);
+        tripleCommercial = selectedCommercial;
+        tripleInventory = selectedInventory;
     }
 
     private double calculateGreedyScore(
