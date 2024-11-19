@@ -13,7 +13,7 @@ public class LocalSearchSettings {
 
     @SuppressWarnings("unused")
     public String getStringIdentifier() {
-        return String.join(", ", moves) + "_" + randomMoveProbability;
+        return "randomMoveProb_" + randomMoveProbability;
     }
 
     @Override

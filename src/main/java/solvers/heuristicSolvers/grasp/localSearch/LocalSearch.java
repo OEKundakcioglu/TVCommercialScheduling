@@ -14,6 +14,8 @@ public class LocalSearch {
     private final LocalSearchSettings localSearchSettings;
     private transient final Random random;
 
+    private boolean didRandomMove = false;
+
     public LocalSearch(Solution currentSolution, ProblemParameters parameters, SearchMode searchMode, LocalSearchSettings localSearchSettings, Random random) throws Exception {
         this.currentSolution = currentSolution;
         this.bestFoundSolution = currentSolution;
@@ -44,6 +46,8 @@ public class LocalSearch {
     @SuppressWarnings("IfCanBeSwitch")
     public Solution applySearch(String key, Solution solution, SearchMode searchMode) throws Exception {
         searchMode = random.nextDouble() < localSearchSettings.randomMoveProbability ? SearchMode.RANDOM : searchMode;
+
+        didRandomMove = searchMode == SearchMode.RANDOM;
 
         BaseSearch search;
 

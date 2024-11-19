@@ -63,11 +63,13 @@ public class GraspSettings {
 
     public String getStringIdentifier() {
         return String.format(
-                "isBestMove=%s_timeLimit=%ds_seed=%d_alphaGenerator=%s",
+                "isBestMove=%s_timeLimit=%ds_seed=%d_alphaGenerator=%s_localSearch=%s_constructiveHeuristic=%s",
                 searchMode,
                 timeLimit,
                 hashCode(),
-                alphaGenerator.getStringIdentifier()
+                alphaGenerator.getStringIdentifier(),
+                localSearchSettings.getStringIdentifier(),
+                constructiveHeuristicSettings.getStringIdentifier()
         );
     }
 
