@@ -42,27 +42,31 @@ public class mainConsoleMipLoop {
         var mipConfig = readConsoleConfigMipLoop(consoleConfigMipLoopPath);
 
         for (var instancePath : mipConfig.instancePaths) {
-            var parameters = new ProblemParameters();
-            parameters.readData(instancePath);
+            try{
+                var parameters = new ProblemParameters();
+                parameters.readData(instancePath);
 
-            var mipRunSettings = new MipRunSettings(mipConfig.checkPointTimes, "");
+                var mipRunSettings = new MipRunSettings(mipConfig.checkPointTimes, "");
 
-            var instanceName = instancePath.split("/")[instancePath.split("/").length - 1];
+                var instanceName = instancePath.split("/")[instancePath.split("/").length - 1];
 
-            IModel model;
-            if (mipConfig.modelType.equals("Discrete")) model = new DiscreteTimeModel(parameters);
-            else if (mipConfig.modelType.equals("Continuous"))
-                model = new ContinuousTimeModel(parameters);
-            else throw new Exception("Invalid model type");
+                IModel model;
+                if (mipConfig.modelType.equals("Discrete")) model = new DiscreteTimeModel(parameters);
+                else if (mipConfig.modelType.equals("Continuous"))
+                    model = new ContinuousTimeModel(parameters);
+                else throw new Exception("Invalid model type");
 
-            var solver = new ModelSolver(model, parameters, mipRunSettings);
-            var solverSolution = solver.getSolution();
+                var solver = new ModelSolver(model, parameters, mipRunSettings);
+                var solverSolution = solver.getSolution();
 
-            Utils.feasibilityCheck(solverSolution.getBestSolution());
+                Utils.feasibilityCheck(solverSolution.getBestSolution());
 
-            Utils.writeObjectToJson(
-                    solverSolution,
-                    String.format("%s/%s/solution.json", mipConfig.outputDirectory, instanceName));
+                Utils.writeObjectToJson(
+                        solverSolution,
+                        String.format("%s/%s/solution.json", mipConfig.outputDirectory, instanceName));
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
     }
 
