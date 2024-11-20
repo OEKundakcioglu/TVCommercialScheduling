@@ -64,6 +64,8 @@ public class mainConsoleMipLoop {
                 Utils.writeObjectToJson(
                         solverSolution,
                         String.format("%s/%s/solution.json", mipConfig.outputDirectory, instanceName));
+
+                System.gc();
             } catch (Exception e) {
                 e.printStackTrace();
             }
