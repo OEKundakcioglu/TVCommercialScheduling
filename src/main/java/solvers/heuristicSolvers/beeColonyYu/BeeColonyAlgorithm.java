@@ -74,11 +74,11 @@ public class BeeColonyAlgorithm {
         }
 
         for (var i = 0; i < beeColonySettings.populationSize(); i++) {
-                        Collections.shuffle(allStringValues);
-                        int[] solString =
-             allStringValues.stream().mapToInt(Integer::intValue).toArray();
+            Collections.shuffle(allStringValues);
+            //                        int[] solString =
+            //             allStringValues.stream().mapToInt(Integer::intValue).toArray();
 
-//            var solString = generateRandomSolution();
+            var solString = generateRandomSolution();
             var newSolution =
                     new BeeColonySolution(solString, beeColonyUtils.calculateFitness(solString));
             employedBees.add(newSolution);
@@ -195,7 +195,7 @@ public class BeeColonyAlgorithm {
                         nIter / (double) passedTime));
     }
 
-    private int[] generateRandomSolution() throws Exception {
+    private int[] generateRandomSolution() {
         var constructive =
                 new ConstructiveHeuristic(
                         parameters, 0.5, this.random, new ConstructiveHeuristicSettings(0.5, 5));
