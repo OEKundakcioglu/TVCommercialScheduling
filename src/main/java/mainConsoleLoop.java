@@ -4,6 +4,7 @@ import com.beust.jcommander.Parameters;
 
 import data.ProblemParameters;
 import data.Utils;
+import data.problemBuilders.JsonParser;
 
 import org.yaml.snakeyaml.Yaml;
 
@@ -44,8 +45,7 @@ public class mainConsoleLoop {
         var loopSetups = consoleConfigLoop.getLoopSetups();
 
         for (var loopSetUp : loopSetups) {
-            var parameters = new ProblemParameters();
-            parameters.readData(loopSetUp.getInstancePath());
+            var parameters = new JsonParser().readData(loopSetUp.getInstancePath());
             var solverSolution = runHeuristic(parameters, loopSetUp.getGraspSettings());
             Utils.feasibilityCheck(solverSolution.getBestSolution());
 

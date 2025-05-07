@@ -16,6 +16,8 @@ public abstract class BaseSearch {
     protected SearchMode searchMode;
     protected Random random;
 
+    public static int moveCount = 0;
+
     BaseSearch(
             Solution currentSolution,
             ProblemParameters parameters,
@@ -33,6 +35,7 @@ public abstract class BaseSearch {
     }
 
     protected boolean update(IMove move) throws Exception {
+        moveCount++;
         var revenueGain = move.calculateRevenueGain();
 
         if (searchMode == SearchMode.RANDOM) {

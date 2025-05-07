@@ -2,8 +2,8 @@ import com.beust.jcommander.JCommander;
 import com.beust.jcommander.Parameter;
 import com.beust.jcommander.Parameters;
 
-import data.ProblemParameters;
 import data.Utils;
+import data.problemBuilders.JsonParser;
 
 import org.yaml.snakeyaml.Yaml;
 
@@ -43,8 +43,7 @@ public class mainConsoleMipLoop {
 
         for (var instancePath : mipConfig.instancePaths) {
             try{
-                var parameters = new ProblemParameters();
-                parameters.readData(instancePath);
+                var parameters = new JsonParser().readData(instancePath);
 
                 var mipRunSettings = new MipRunSettings(mipConfig.checkPointTimes, "");
 

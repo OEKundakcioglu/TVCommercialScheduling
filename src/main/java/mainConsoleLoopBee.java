@@ -4,6 +4,7 @@ import com.beust.jcommander.Parameters;
 
 import data.ProblemParameters;
 import data.Utils;
+import data.problemBuilders.JsonParser;
 
 import org.yaml.snakeyaml.Yaml;
 
@@ -46,8 +47,7 @@ public class mainConsoleLoopBee {
             OrienteeringData orienteeringData = null;
             ProblemParameters parameters = null;
             if (!orienteeringMap.containsKey(loopSetUp.instancePath())) {
-                parameters = new ProblemParameters();
-                parameters.readData(loopSetUp.instancePath());
+                parameters = new JsonParser().readData(loopSetUp.instancePath());
 
                 orienteeringData = ReduceProblemToVRP.reduce(parameters);
 
