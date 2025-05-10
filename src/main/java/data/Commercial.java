@@ -40,14 +40,14 @@ public class Commercial {
     }
 
     private double calcRevenue(Inventory inventory, int startTime) {
-        int minute = (int) startTime / 60 + 1;
+        int minute = startTime / 60 + 1;
 
         try {
             double rating = inventory.arrayRatings[minute][this.audienceType];
 
             return this.getRevenue(rating);
         } catch (Exception e) {
-            return -Double.MAX_VALUE;
+            throw new RuntimeException(e);
         }
     }
 
@@ -123,6 +123,7 @@ public class Commercial {
         }
     }
 
+    @SuppressWarnings("BooleanMethodIsAlwaysInverted")
     public boolean isInventorySuitable(Inventory inventory) {
         return this.suitableInventoriesArray[inventory.getId()];
     }
