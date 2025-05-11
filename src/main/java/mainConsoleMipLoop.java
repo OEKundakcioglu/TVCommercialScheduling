@@ -31,15 +31,14 @@ public class mainConsoleMipLoop {
     @Parameter(
             names = {"--yamlConfigPath", "--ycp"},
             description = "Path to the yaml config file")
-    private String yamlConfigPath = "src/main/resources/config.yaml";
+    private final String yamlConfigPath = "src/main/resources/config.yaml";
 
     public static void main(String[] args) throws Exception {
         mainConsoleMipLoop main = new mainConsoleMipLoop();
         JCommander commander = JCommander.newBuilder().addObject(main).build();
         commander.parse(args);
 
-        var consoleConfigMipLoopPath = main.yamlConfigPath;
-        var mipConfig = readConsoleConfigMipLoop(consoleConfigMipLoopPath);
+        var mipConfig = readConsoleConfigMipLoop(main.yamlConfigPath);
 
         for (var instancePath : mipConfig.instancePaths) {
             try{

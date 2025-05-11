@@ -1,19 +1,12 @@
-package data.problemBuilders;
+package randomProblemGenerator;
 
 import data.Commercial;
 import data.Inventory;
 import data.ProblemParameters;
 import data.enums.ATTENTION;
-import data.enums.PRICING_TYPE;
 
-import org.apache.commons.math3.util.Pair;
-
-import runParameters.RandomGeneratorConfig;
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
+import java.util.stream.IntStream;
 
 public class RandomProblemGenerator {
     private final RandomGeneratorConfig config;
@@ -32,7 +25,7 @@ public class RandomProblemGenerator {
 
         this.setOfCommercials = new ArrayList<>();
         this.setOfInventories = new ArrayList<>();
-        this.setOfHours = new ArrayList<>();
+        this.setOfHours = IntStream.range(0, config.getnHours()).boxed().toList();
         this.setOfFirstCommercials = new ArrayList<>();
         this.setOfLastCommercials = new ArrayList<>();
         this.setOfF30Commercials = new ArrayList<>();
@@ -41,11 +34,13 @@ public class RandomProblemGenerator {
     }
 
     public ProblemParameters generate() {
-        setOfHours.addAll(config.hourDistribution().getPmf().stream().map(Pair::getKey).toList());
         generateInventories();
-        generateRatings();
         generateCommercials();
+        generateRatings();
 
+        for (var commercial : setOfCommercials) {
+            commercial.setSuitableInventoriesArray(setOfInventories.size());
+        }
         return new ProblemParameters(
                 setOfCommercials,
                 setOfInventories,
@@ -55,13 +50,13 @@ public class RandomProblemGenerator {
                 setOfF30Commercials,
                 setOfF60Commercials,
                 ratings,
-                String.valueOf(config.seed()));
+                String.valueOf(config.getSeed()));
     }
 
     private void generateInventories() {
-        for (int i = 0; i < config.nInventory(); i++) {
-            int duration = (int) config.commercialDurationDistribution().sample();
-            var hour = config.hourDistribution().sample();
+        for (int i = 0; i < config.getnInventory(); i++) {
+            int duration = (int) config.sampleInventoryDuration();
+            var hour = config.sampleHour();
 
             var inventory = new Inventory(i, duration, hour, 100);
             setOfInventories.add(inventory);
@@ -69,16 +64,13 @@ public class RandomProblemGenerator {
     }
 
     private void generateCommercials() {
-        for (int i = 0; i < config.nCommercial(); i++) {
-            int duration = (int) config.commercialDurationDistribution().sample();
-            double price;
-            var pricingType = config.pricingTypeDistribution().sample();
-            if (pricingType == PRICING_TYPE.PRR) price = config.pprDistribution().sample();
-            else if (pricingType == PRICING_TYPE.FIXED) price = config.fixedDistribution().sample();
-            else throw new IllegalArgumentException("Invalid price type: " + pricingType);
+        for (int i = 0; i < config.getnCommercial(); i++) {
+            int duration = (int) config.sampleCommercialDuration();
+            var pricingType = config.samplePricingType();
+            var audienceType = config.sampleAudienceType();
+            double price = config.samplePrice(audienceType, pricingType);
 
-            var audienceType = config.audienceTypeDistribution().sample();
-            var group = config.groupDistribution().sample();
+            var group = config.sampleGroup();
             var commercial = new Commercial(i, duration, price, pricingType, audienceType, group);
             commercial.setAttentionMapArray(new ATTENTION[setOfInventories.size()]);
 
@@ -86,7 +78,7 @@ public class RandomProblemGenerator {
 
             var suitableInventories = getSuitableInventories();
             for (var inventory : suitableInventories) {
-                var attention = config.attentionDistribution().sample();
+                var attention = config.sampleAttention();
                 if (attention == ATTENTION.F30) {
                     setOfF30Commercials.add(commercial);
                 } else if (attention == ATTENTION.F60) {
@@ -103,8 +95,6 @@ public class RandomProblemGenerator {
                 inventory.getSetOfSuitableCommercials().add(commercial);
                 commercial.getSetOfSuitableInv().add(inventory);
             }
-
-            commercial.setSuitableInventoriesArray(setOfInventories.size());
         }
     }
 
@@ -112,8 +102,8 @@ public class RandomProblemGenerator {
         for (var inventory : setOfInventories) {
             for (var t = 0; t <= inventory.getDuration(); t += 60) {
                 int minute = t / 60 + 1;
-                for (var audienceType : config.audienceTypes()) {
-                    double rating = config.ratingDistribution().sample();
+                for (var audienceType : config.getAudienceTypes()) {
+                    double rating = config.sampleRating(audienceType, minute);
                     ratings.computeIfAbsent(inventory, k -> new HashMap<>())
                             .computeIfAbsent(minute, k -> new HashMap<>())
                             .put(audienceType, rating);
@@ -135,7 +125,7 @@ public class RandomProblemGenerator {
         var suitableInventories = new ArrayList<Inventory>();
 
         for (var inv : setOfInventories) {
-            boolean isSuitable = config.suitableInvDistribution().sample() == 1;
+            boolean isSuitable = config.sampleSuitableInv();
             if (isSuitable) {
                 suitableInventories.add(inv);
             }

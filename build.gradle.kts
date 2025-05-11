@@ -11,6 +11,7 @@ java {
 }
 
 
+
 group = "org.example"
 version = "1.0-SNAPSHOT"
 
@@ -168,7 +169,4 @@ tasks.register<JavaExec>("runMip") {
         args = argsList
     }
 }
-
-
-
 

@@ -1,12 +1,9 @@
 package data;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 
 import java.util.*;
 
 public class ProblemParameters {
-    private final Logger logger = LogManager.getLogger(ProblemParameters.class);
     private final List<Commercial> setOfCommercials;
     private final List<Inventory> setOfInventories;
     private final List<Integer> setOfHours;
@@ -15,7 +12,7 @@ public class ProblemParameters {
     private final List<Commercial> setOfF30Commercials;
     private final List<Commercial> setOfF60Commercials;
     private final Map<Inventory, Map<Integer, Map<Integer, Double>>> ratings; // inventory -> minute -> audienceType -> rating
-    private String instance;
+    private final String instance;
 
     public ProblemParameters(
             List<Commercial> setOfCommercials,
