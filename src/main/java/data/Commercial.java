@@ -1,20 +1,27 @@
 package data;
 
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+
 import data.enums.ATTENTION;
 import data.enums.PRICING_TYPE;
+import data.serializers.CommercialSerializer;
+import data.serializers.JsonSerializableObject;
 
 import java.util.*;
 
-public class Commercial {
+@JsonSerialize(using = CommercialSerializer.class)
+public class Commercial extends JsonSerializableObject {
     private final int id;
+    private final int group;
+    private final int audienceType;
+    private final double price;
     private final int duration;
+
+    private final PRICING_TYPE pricingType;
+
     private final transient List<Inventory> setOfSuitableInv;
     private final Map<Inventory, ATTENTION> attentionMap;
     private transient ATTENTION[] attentionMapArray;
-    private final double price;
-    private final PRICING_TYPE pricingType;
-    private final int audienceType;
-    private final int group;
 
     private transient double[][] revenueMatrix;
 

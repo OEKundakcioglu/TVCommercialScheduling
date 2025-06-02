@@ -1,9 +1,14 @@
 package data;
 
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+
+import data.serializers.JsonSerializableObject;
+import data.serializers.ProblemDataSerializer;
 
 import java.util.*;
 
-public class ProblemParameters {
+@JsonSerialize(using = ProblemDataSerializer.class)
+public class ProblemParameters extends JsonSerializableObject {
     private final List<Commercial> setOfCommercials;
     private final List<Inventory> setOfInventories;
     private final List<Integer> setOfHours;

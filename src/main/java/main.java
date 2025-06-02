@@ -18,7 +18,8 @@ import java.util.Random;
 
 public class main {
     public static void main(String[] args) throws Exception {
-        var problemData = new JsonParser().readData("instances/1.json");
+        var problemData = new JsonParser().readData("test.json");
+        problemData.writeToPath(Paths.get("test.json"));
 
         int seed = 0;
         int nCommercial = 10;
@@ -27,7 +28,7 @@ public class main {
         double suitableInvProbability = 0.5;
         var randomGeneratorConf =
                 new DistributionsJsonLoader(Paths.get("distributions.json"), seed)
-                        .load(nCommercial, nInventory, nHours, suitableInvProbability);
+                        .load(nInventory, nHours, 0.9);
 
         problemData = new RandomProblemGenerator(randomGeneratorConf).generate();
 

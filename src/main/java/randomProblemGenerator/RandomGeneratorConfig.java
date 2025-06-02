@@ -13,16 +13,17 @@ public final class RandomGeneratorConfig {
     private final Random rand;
 
     private final int seed;
-    private final int nCommercial;
     private final int nInventory;
     private final int nHours;
+    private final double density;
+
     private final Map<Integer, Map<Integer, RandomDrawDistribution<Double>>> ratingDistribution;
     private final RandomDrawDistribution<Double> inventoryDurationDistribution;
     private final RandomDrawDistribution<Double> commercialDurationDistribution;
     private final Map<Integer, Map<PRICING_TYPE, RandomDrawDistribution<Double>>>
             pricingDistribution;
-    private final RandomDrawDistribution<PRICING_TYPE> pricingTypeDistribution;
-    private final RandomDrawDistribution<ATTENTION> attentionDistribution;
+    private final Map<Integer, RandomDrawDistribution<PRICING_TYPE>> pricingTypeDistribution;
+    private final Map<Integer, RandomDrawDistribution<ATTENTION>> attentionDistribution;
     private final RandomDrawDistribution<Integer> audienceTypeDistribution;
     private final RandomDrawDistribution<Integer> groupDistribution;
     private final BinomialDistribution suitableInvDistribution;
@@ -31,24 +32,24 @@ public final class RandomGeneratorConfig {
     public RandomGeneratorConfig(
             Random rand,
             int seed,
-            int nCommercial,
             int nInventory,
             int nHours,
-            double suitableInvProbability,
+            double density,
             List<Integer> audienceTypes,
             Map<Integer, Map<Integer, RandomDrawDistribution<Double>>> ratingDistribution,
             RandomDrawDistribution<Double> inventoryDurationDistribution,
             RandomDrawDistribution<Double> commercialDurationDistribution,
-            Map<Integer, Map<PRICING_TYPE, RandomDrawDistribution<Double>>>
-                    pricingDistribution,
-            RandomDrawDistribution<PRICING_TYPE> pricingTypeDistribution,
-            RandomDrawDistribution<ATTENTION> attentionDistribution,
+            Map<Integer, Map<PRICING_TYPE, RandomDrawDistribution<Double>>> pricingDistribution,
+            Map<Integer, RandomDrawDistribution<PRICING_TYPE>> pricingTypeDistribution,
+            Map<Integer, RandomDrawDistribution<ATTENTION>> attentionDistribution,
             RandomDrawDistribution<Integer> audienceTypeDistribution,
-            RandomDrawDistribution<Integer> groupDistribution) {
+            RandomDrawDistribution<Integer> groupDistribution,
+            BinomialDistribution suitableInvDistribution) {
         this.seed = seed;
-        this.nCommercial = nCommercial;
         this.nInventory = nInventory;
         this.nHours = nHours;
+        this.density = density;
+
         this.ratingDistribution = ratingDistribution;
         this.audienceTypes = audienceTypes;
         this.inventoryDurationDistribution = inventoryDurationDistribution;
@@ -58,16 +59,12 @@ public final class RandomGeneratorConfig {
         this.attentionDistribution = attentionDistribution;
         this.audienceTypeDistribution = audienceTypeDistribution;
         this.groupDistribution = groupDistribution;
-        this.suitableInvDistribution = new BinomialDistribution(1, suitableInvProbability);
+        this.suitableInvDistribution = suitableInvDistribution;
         this.rand = rand;
     }
 
     public int getSeed() {
         return seed;
-    }
-
-    public int getnCommercial() {
-        return nCommercial;
     }
 
     public int getnInventory() {
@@ -90,12 +87,12 @@ public final class RandomGeneratorConfig {
         return pricingDistribution.get(audienceType).get(pricingType).sample();
     }
 
-    public PRICING_TYPE samplePricingType() {
-        return pricingTypeDistribution.sample();
+    public PRICING_TYPE samplePricingType(int audienceType) {
+        return pricingTypeDistribution.get(audienceType).sample();
     }
 
-    public ATTENTION sampleAttention() {
-        return attentionDistribution.sample();
+    public ATTENTION sampleAttention(int audienceType) {
+        return attentionDistribution.get(audienceType).sample();
     }
 
     public int sampleAudienceType() {
@@ -120,5 +117,9 @@ public final class RandomGeneratorConfig {
 
     public List<Integer> getAudienceTypes() {
         return audienceTypes;
+    }
+
+    public double getDensity() {
+        return density;
     }
 }

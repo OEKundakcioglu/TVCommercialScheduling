@@ -1,11 +1,17 @@
 package data;
 
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+
+import data.serializers.InventorySerializer;
+import data.serializers.JsonSerializableObject;
+
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
-public class Inventory {
+@JsonSerialize(using = InventorySerializer.class)
+public class Inventory extends JsonSerializableObject {
     final int id;
     final int duration;
     final int durationInMinutes;

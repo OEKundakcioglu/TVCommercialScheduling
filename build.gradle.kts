@@ -34,6 +34,8 @@ dependencies {
     implementation("com.beust:jcommander:1.82")
     implementation("com.google.guava:guava:33.3.1-jre")
 
+    implementation("com.fasterxml.jackson.core:jackson-databind:2.19.0")
+
 
     project.file("input").mkdirs()
     project.file("output").mkdirs()

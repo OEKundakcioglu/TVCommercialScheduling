@@ -6,6 +6,9 @@ import com.google.gson.JsonParser;
 import data.enums.ATTENTION;
 import data.enums.PRICING_TYPE;
 
+import org.apache.commons.math3.distribution.BinomialDistribution;
+import org.apache.commons.math3.random.JDKRandomGenerator;
+
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.nio.file.Path;
@@ -19,10 +22,11 @@ public class DistributionsJsonLoader {
     private RandomDrawDistribution<Double> inventoryDurationDistribution;
     private RandomDrawDistribution<Double> commercialDurationDistribution;
     private Map<Integer, Map<PRICING_TYPE, RandomDrawDistribution<Double>>> pricingDistribution;
-    private RandomDrawDistribution<PRICING_TYPE> pricingTypeDistribution;
-    private RandomDrawDistribution<ATTENTION> attentionDistribution;
+    private Map<Integer, RandomDrawDistribution<PRICING_TYPE>> pricingTypeDistribution;
+    private Map<Integer, RandomDrawDistribution<ATTENTION>> attentionDistribution;
     private RandomDrawDistribution<Integer> audienceTypeDistribution;
     private RandomDrawDistribution<Integer> groupDistribution;
+    private BinomialDistribution suitableInvDistribution;
 
     private List<Integer> audienceTypes;
 
@@ -33,8 +37,7 @@ public class DistributionsJsonLoader {
         this.random = new Random(seed);
     }
 
-    public RandomGeneratorConfig load(
-            int nCommercial, int nInventory, int nHours, double suitableInvProbability) {
+    public RandomGeneratorConfig load(int nInventory, int nHours, double density) {
         loadAudienceTypes();
         loadRatingDistribution();
         loadInventoryDurationDistribution();
@@ -44,14 +47,14 @@ public class DistributionsJsonLoader {
         loadAttentionDistribution();
         loadAudienceTypeDistribution();
         loadGroupDistribution();
+        loadSuitableInvDistribution();
 
         return new RandomGeneratorConfig(
                 random,
                 seed,
-                nCommercial,
                 nInventory,
                 nHours,
-                suitableInvProbability,
+                density,
                 audienceTypes,
                 ratingDistribution,
                 inventoryDurationDistribution,
@@ -60,7 +63,8 @@ public class DistributionsJsonLoader {
                 pricingTypeDistribution,
                 attentionDistribution,
                 audienceTypeDistribution,
-                groupDistribution);
+                groupDistribution,
+                suitableInvDistribution);
     }
 
     private void loadAudienceTypes() {
@@ -141,21 +145,39 @@ public class DistributionsJsonLoader {
     }
 
     private void loadPricingTypeDistribution() {
+        pricingTypeDistribution = new HashMap<>();
+
         var pricingTypeObj = jsonObject.getAsJsonObject("pricing_type");
-        pricingTypeDistribution =
-                new RandomDrawDistributionBuilder<PRICING_TYPE>()
-                        .setValues(pricingTypeObj, PRICING_TYPE::fromString)
-                        .setRandom(random)
-                        .build();
+        for (var entry : pricingTypeObj.entrySet()) {
+            var audienceType = Integer.parseInt(entry.getKey());
+            var distributionObject = entry.getValue().getAsJsonObject();
+
+            var distribution =
+                    new RandomDrawDistributionBuilder<PRICING_TYPE>()
+                            .setValues(distributionObject, PRICING_TYPE::fromString)
+                            .setRandom(random)
+                            .build();
+
+            pricingTypeDistribution.put(audienceType, distribution);
+        }
     }
 
     private void loadAttentionDistribution() {
+        attentionDistribution = new HashMap<>();
+
         var attentionObj = jsonObject.getAsJsonObject("commercial_flags");
-        attentionDistribution =
-                new RandomDrawDistributionBuilder<ATTENTION>()
-                        .setValues(attentionObj, ATTENTION::fromString)
-                        .setRandom(random)
-                        .build();
+        for (var entry : attentionObj.entrySet()) {
+            var audienceType = Integer.parseInt(entry.getKey());
+            var distributionObject = entry.getValue().getAsJsonObject();
+
+            var distribution =
+                    new RandomDrawDistributionBuilder<ATTENTION>()
+                            .setValues(distributionObject, ATTENTION::fromString)
+                            .setRandom(random)
+                            .build();
+
+            attentionDistribution.put(audienceType, distribution);
+        }
     }
 
     private void loadAudienceTypeDistribution() {
@@ -174,5 +196,11 @@ public class DistributionsJsonLoader {
                         .setValues(groupObj, Integer::parseInt)
                         .setRandom(random)
                         .build();
+    }
+
+    private void loadSuitableInvDistribution() {
+        var prob = jsonObject.get("suitability_probability").getAsDouble();
+        var rng = new JDKRandomGenerator(seed);
+        suitableInvDistribution = new BinomialDistribution(rng, 1, prob);
     }
 }

@@ -6,6 +6,7 @@ import data.ProblemParameters;
 import data.enums.ATTENTION;
 
 import java.util.*;
+import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.IntStream;
 
 public class RandomProblemGenerator {
@@ -64,21 +65,33 @@ public class RandomProblemGenerator {
     }
 
     private void generateCommercials() {
-        for (int i = 0; i < config.getnCommercial(); i++) {
+        double totalInvDuration =
+                setOfInventories.stream().mapToDouble(Inventory::getDuration).sum();
+        double totalCommercialDuration = 0;
+
+        var id = new AtomicInteger(0);
+        while (totalCommercialDuration < totalInvDuration * config.getDensity()) {
             int duration = (int) config.sampleCommercialDuration();
-            var pricingType = config.samplePricingType();
             var audienceType = config.sampleAudienceType();
+            var pricingType = config.samplePricingType(audienceType);
             double price = config.samplePrice(audienceType, pricingType);
 
             var group = config.sampleGroup();
-            var commercial = new Commercial(i, duration, price, pricingType, audienceType, group);
+            var commercial =
+                    new Commercial(
+                            id.getAndIncrement(),
+                            duration,
+                            price,
+                            pricingType,
+                            audienceType,
+                            group);
             commercial.setAttentionMapArray(new ATTENTION[setOfInventories.size()]);
 
             setOfCommercials.add(commercial);
 
             var suitableInventories = getSuitableInventories();
             for (var inventory : suitableInventories) {
-                var attention = config.sampleAttention();
+                var attention = config.sampleAttention(audienceType);
                 if (attention == ATTENTION.F30) {
                     setOfF30Commercials.add(commercial);
                 } else if (attention == ATTENTION.F60) {
@@ -95,6 +108,8 @@ public class RandomProblemGenerator {
                 inventory.getSetOfSuitableCommercials().add(commercial);
                 commercial.getSetOfSuitableInv().add(inventory);
             }
+
+            totalCommercialDuration += duration;
         }
     }
 
