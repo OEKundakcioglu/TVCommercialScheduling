@@ -34,7 +34,7 @@ public class mainConsoleMipLoop {
     @Parameter(
             names = {"--yamlConfigPath", "--ycp"},
             description = "Path to the yaml config file")
-    private final String yamlConfigPath = "src/main/resources/config.yaml";
+    private String yamlConfigPath = "src/main/resources/config.yaml";
 
     public static void main(String[] args) throws Exception {
         mainConsoleMipLoop main = new mainConsoleMipLoop();
