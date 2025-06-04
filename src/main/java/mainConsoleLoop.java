@@ -17,6 +17,7 @@ import solvers.heuristicSolvers.grasp.reactiveGrasp.AlphaGenerator;
 import solvers.heuristicSolvers.grasp.reactiveGrasp.AlphaGeneratorConstant;
 import solvers.heuristicSolvers.grasp.reactiveGrasp.AlphaGeneratorUniform;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
@@ -46,17 +47,23 @@ public class mainConsoleLoop {
 
         for (var loopSetUp : loopSetups) {
             var parameters = new JsonParser().readData(loopSetUp.getInstancePath());
+            var outputDirPath = loopSetUp.getOutputDirPath(consoleConfigLoop.outputDirectory);
+            var file = new File(outputDirPath + "/solution.json");
+            if (file.exists()) {
+                System.out.println("Solution already exists for " + loopSetUp.getInstancePath());
+                continue;
+            }
+
             var solverSolution = runHeuristic(parameters, loopSetUp.getGraspSettings());
             Utils.feasibilityCheck(solverSolution.getBestSolution());
 
-            var outputDirPath = loopSetUp.getOutputDirPath(consoleConfigLoop.outputDirectory);
             var path = Paths.get(outputDirPath);
             if (Files.notExists(path)) {
                 Files.createDirectories(path);
             }
 
             Utils.feasibilityCheck(solverSolution.getBestSolution());
-            Utils.writeObjectToJson(solverSolution, outputDirPath + "/solution.json");
+            Utils.writeObjectToJson(solverSolution, file.getPath());
         }
     }
 
@@ -70,7 +77,20 @@ public class mainConsoleLoop {
         Yaml yaml = new Yaml();
         InputStream inputStream = new FileInputStream(consoleConfigLoopPath);
 
-        return yaml.loadAs(inputStream, ConsoleConfigLoop.class);
+        var config = yaml.loadAs(inputStream, ConsoleConfigLoop.class);
+
+        if (config.instancePaths == null || config.instancePaths.isEmpty()) {
+            var file = new File(config.instanceFolder);
+            var instanceFiles = file.listFiles((dir, name) -> name.endsWith(".json"));
+            assert instanceFiles != null;
+
+            config.instancePaths = new ArrayList<>();
+            for (var instanceFile : instanceFiles) {
+                config.instancePaths.add(instanceFile.getPath());
+            }
+        }
+
+        return config;
     }
 }
 
@@ -91,6 +111,7 @@ class AlphaGeneratorWrapper {
 
 class ConsoleConfigLoop {
     public List<String> instancePaths;
+    public String instanceFolder;
     public List<SearchMode> searchModes;
     public List<String> localSearchMoves;
     public List<AlphaGeneratorWrapper> alphaGeneratorOptions;

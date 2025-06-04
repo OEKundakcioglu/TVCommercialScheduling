@@ -13,6 +13,7 @@ import solvers.heuristicSolvers.beeColonyYu.BeeColonySettings;
 import solvers.heuristicSolvers.beeColonyYu.OrienteeringData;
 import solvers.heuristicSolvers.beeColonyYu.ReduceProblemToVRP;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
@@ -58,6 +59,13 @@ public class mainConsoleLoopBee {
                 parameters = problemDataMap.get(loopSetUp.instancePath());
             }
 
+            var outputDirPath = loopSetUp.getOutputDirPath(consoleConfigLoop.outputDirectory);
+            var outputFile = new File(outputDirPath + "/solution.json");
+            if (outputFile.exists()) {
+                System.out.println("Solution already exists for " + loopSetUp.instancePath());
+                continue;
+            }
+
             var beeColonyAlgorithm =
                     new BeeColonyAlgorithm(orienteeringData, loopSetUp, parameters);
 
@@ -65,14 +73,13 @@ public class mainConsoleLoopBee {
 
             Utils.feasibilityCheck(solverSolution.getBestSolution());
 
-            var outputDirPath = loopSetUp.getOutputDirPath(consoleConfigLoop.outputDirectory);
             var path = Paths.get(outputDirPath);
             if (Files.notExists(path)) {
                 Files.createDirectories(path);
             }
 
             Utils.feasibilityCheck(solverSolution.getBestSolution());
-            Utils.writeObjectToJson(solverSolution, outputDirPath + "/solution.json");
+            Utils.writeObjectToJson(solverSolution, outputFile.getPath());
         }
     }
 
@@ -81,11 +88,25 @@ public class mainConsoleLoopBee {
         Yaml yaml = new Yaml();
         InputStream inputStream = new FileInputStream(consoleConfigLoopPath);
 
-        return yaml.loadAs(inputStream, BeeConsoleConfig.class);
+        var config = yaml.loadAs(inputStream, BeeConsoleConfig.class);
+
+        if (config.instancePaths == null || config.instancePaths.isEmpty()) {
+            var file = new File(config.instanceFolder);
+            var instanceFiles = file.listFiles((dir, name) -> name.endsWith(".json"));
+            assert instanceFiles != null;
+
+            config.instancePaths = new ArrayList<>();
+            for (var instanceFile : instanceFiles) {
+                config.instancePaths.add(instanceFile.getPath());
+            }
+        }
+
+        return config;
     }
 }
 
 class BeeConsoleConfig {
+    public String instanceFolder;
     public List<String> instancePaths;
     public List<Double> T0Options;
     public List<Double> alphaOptions;

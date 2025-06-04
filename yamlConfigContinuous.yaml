@@ -1,14 +1,6 @@
 instancePaths:
-  - "instances/1.json"
-  - "instances/2.json"
-  - "instances/3.json"
-  - "instances/4.json"
-  - "instances/5.json"
-  - "instances/6.json"
-  - "instances/7.json"
-  - "instances/8.json"
-  - "instances/9.json"
-  - "instances/10.json"
+
+instanceFolder: "instances"
 
 modelType: "Continuous" # "Discrete" or "Continuous"
 
@@ -23,4 +15,4 @@ checkPointTimes:
   - 3600
   - 7200
 
-outputDirectory: "outputNew/outputMip/continuous"
+outputDirectory: "outputAfterReview/outputMip/continuous"

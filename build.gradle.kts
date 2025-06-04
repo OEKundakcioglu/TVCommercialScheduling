@@ -55,6 +55,7 @@ tasks.register<JavaExec>("runGraspLoop"){
     classpath = sourceSets["main"].runtimeClasspath
 
     doFirst{
+
         val arglist = mutableListOf<String>()
         if (project.hasProperty("yamlConfigPath")){
             arglist.add("--yamlConfigPath=${project.property("yamlConfigPath")}")
@@ -63,7 +64,7 @@ tasks.register<JavaExec>("runGraspLoop"){
         if (project.hasProperty("ycp")){
             arglist.add("--ycp=${project.property("ycp")}")
         }
-
+        println("Arguments: ${arglist.joinToString(" ")}")
         args = arglist
     }
 }

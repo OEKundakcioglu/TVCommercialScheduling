@@ -1,3 +1,4 @@
+import data.ProblemParameters;
 import data.Utils;
 import data.problemBuilders.JsonParser;
 
@@ -8,52 +9,31 @@ import runParameters.ConstructiveHeuristicSettings;
 import runParameters.GraspSettings;
 import runParameters.LocalSearchSettings;
 
+import runParameters.MipRunSettings;
 import solvers.heuristicSolvers.grasp.graspWithPathRelinking.GraspWithPathRelinking;
 import solvers.heuristicSolvers.grasp.localSearch.SearchMode;
 import solvers.heuristicSolvers.grasp.reactiveGrasp.AlphaGeneratorConstant;
+import solvers.mipSolvers.ModelSolver;
+import solvers.mipSolvers.discreteTimeModel.DiscreteTimeModel;
 
+import java.io.File;
 import java.nio.file.Paths;
 import java.util.List;
 import java.util.Random;
 
 public class main {
-    public static void main(String[] args) throws Exception {
-        var problemData = new JsonParser().readData("test.json");
-        problemData.writeToPath(Paths.get("test.json"));
-
-        int seed = 0;
-        int nCommercial = 10;
-        int nInventory = 10;
-        int nHours = 10;
-        double suitableInvProbability = 0.5;
-        var randomGeneratorConf =
-                new DistributionsJsonLoader(Paths.get("distributions.json"), seed)
-                        .load(nInventory, nHours, 0.9);
-
-        problemData = new RandomProblemGenerator(randomGeneratorConf).generate();
-
-        var graspParameters =
-                new GraspSettings(
-                        SearchMode.BEST_IMPROVEMENT,
-                        100,
-                        new LocalSearchSettings(
-                                List.of(
-                                        "outOfPool",
-                                        "interSwap",
-                                        "insert",
-                                        "transfer",
-                                        "intraSwap",
-                                        "shift"),
-                                0.5),
-                        new ConstructiveHeuristicSettings(0.5, 2),
-                        new Random(0),
-                        new AlphaGeneratorConstant(0.5),
-                        1,
-                        "");
-
-        var solution = new GraspWithPathRelinking(problemData, graspParameters).getSolution();
-
-        Utils.feasibilityCheck(solution.getBestSolution());
-    }
-
+//    private static final MipRunSettings mipRunSettings = new MipRunSettings()
+//
+//    public static void main(String[] args) throws Exception {
+//        var folder = new File("instances");
+//        var files = folder.listFiles((dir, name) -> name.endsWith(".json"));
+//    }
+//
+//    private static void solveWithDiscreteMip(String fileName) throws Exception {
+//
+//
+//        var problem = new JsonParser().readData(fileName);
+//        var model = new DiscreteTimeModel(problem);
+//        var solver = new ModelSolver(model, problem, );
+//    }
 }

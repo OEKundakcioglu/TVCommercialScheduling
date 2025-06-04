@@ -1,15 +1,7 @@
 # ConsoleConfigLoop configuration
 instancePaths:
-  - "instances/1.json"
-  - "instances/2.json"
-  - "instances/3.json"
-  - "instances/4.json"
-  - "instances/5.json"
-  - "instances/6.json"
-  - "instances/7.json"
-  - "instances/8.json"
-  - "instances/9.json"
-  - "instances/10.json"
+
+instanceFolder: "instances"
 
 searchModes:
   - BEST_IMPROVEMENT
@@ -28,8 +20,6 @@ alphaGeneratorOptions:
     maxAlpha: 0.5
 
 localSearchRandomProbabilities:
-  - 0.0
-  - 0.25
   - 0.5
 
 localSearchMoves:
@@ -40,8 +30,8 @@ localSearchMoves:
   - "intraSwap"
   - "shift"
 
-timeLimit: 300
+timeLimit: 1
 
-randomRunN: 3
+randomRunN: 1
 
-outputDirectory: "outputNew/outputGrasp"
+outputDirectory: "outputAfterReview/outputGrasp"

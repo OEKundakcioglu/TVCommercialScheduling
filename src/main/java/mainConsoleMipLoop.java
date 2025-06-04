@@ -14,12 +14,15 @@ import solvers.mipSolvers.ModelSolver;
 import solvers.mipSolvers.continuousTimeModel.ContinuousTimeModel;
 import solvers.mipSolvers.discreteTimeModel.DiscreteTimeModel;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.List;
 
 class MipConfig {
+    public String instanceFolder;
     public List<String> instancePaths;
     public List<Integer> checkPointTimes;
     public String outputDirectory;
@@ -48,6 +51,12 @@ public class mainConsoleMipLoop {
 
                 var instanceName = instancePath.split("/")[instancePath.split("/").length - 1];
 
+                var file = new File(String.format("%s/%s/solution.json", mipConfig.outputDirectory, instanceName));
+                if (file.exists()) {
+                    System.out.println("Solution already exists for " + instanceName);
+                    continue;
+                }
+
                 IModel model;
                 if (mipConfig.modelType.equals("Discrete")) model = new DiscreteTimeModel(parameters);
                 else if (mipConfig.modelType.equals("Continuous"))
@@ -61,7 +70,7 @@ public class mainConsoleMipLoop {
 
                 Utils.writeObjectToJson(
                         solverSolution,
-                        String.format("%s/%s/solution.json", mipConfig.outputDirectory, instanceName));
+                        file.getPath());
 
                 System.gc();
             } catch (Exception e) {
@@ -74,6 +83,19 @@ public class mainConsoleMipLoop {
         var yaml = new Yaml();
         InputStream inputStream = new FileInputStream(path);
 
-        return yaml.loadAs(inputStream, MipConfig.class);
+        var config = yaml.loadAs(inputStream, MipConfig.class);
+
+        if (config.instancePaths == null || config.instancePaths.isEmpty()) {
+            var file = new File(config.instanceFolder);
+            var instanceFiles = file.listFiles((dir, name) -> name.endsWith(".json"));
+            assert instanceFiles != null;
+
+            config.instancePaths = new ArrayList<>();
+            for (var instanceFile : instanceFiles) {
+                config.instancePaths.add(instanceFile.getPath());
+            }
+        }
+
+        return config;
     }
 }

@@ -10,11 +10,11 @@ import java.util.Map;
 import java.util.Random;
 
 public final class RandomGeneratorConfig {
-    private final Random rand;
-
     private final int seed;
     private final int nInventory;
     private final int nHours;
+    private int lastHour = 0;
+
     private final double density;
 
     private final Map<Integer, Map<Integer, RandomDrawDistribution<Double>>> ratingDistribution;
@@ -60,7 +60,6 @@ public final class RandomGeneratorConfig {
         this.audienceTypeDistribution = audienceTypeDistribution;
         this.groupDistribution = groupDistribution;
         this.suitableInvDistribution = suitableInvDistribution;
-        this.rand = rand;
     }
 
     public int getSeed() {
@@ -104,7 +103,9 @@ public final class RandomGeneratorConfig {
     }
 
     public int sampleHour() {
-        return rand.nextInt(0, nHours);
+        if (lastHour + 1 >= nHours) lastHour = 0;
+        else lastHour++;
+        return lastHour;
     }
 
     public double sampleRating(int audienceType, int minute) {
