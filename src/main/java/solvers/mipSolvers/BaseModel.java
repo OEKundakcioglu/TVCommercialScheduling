@@ -19,7 +19,7 @@ public abstract class BaseModel {
         this.env = new GRBEnv();
         this.model = new GRBModel(env);
 
-        model.set(GRB.DoubleParam.SoftMemLimit, 50);
+        model.set(GRB.DoubleParam.SoftMemLimit, 120);
     }
 
     public abstract GRBModel getModel();
