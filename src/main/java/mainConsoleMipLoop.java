@@ -9,7 +9,7 @@ import org.yaml.snakeyaml.Yaml;
 
 import runParameters.MipRunSettings;
 
-import solvers.mipSolvers.IModel;
+import solvers.mipSolvers.BaseModel;
 import solvers.mipSolvers.ModelSolver;
 import solvers.mipSolvers.continuousTimeModel.ContinuousTimeModel;
 import solvers.mipSolvers.discreteTimeModel.DiscreteTimeModel;
@@ -57,7 +57,7 @@ public class mainConsoleMipLoop {
                     continue;
                 }
 
-                IModel model;
+                BaseModel model;
                 if (mipConfig.modelType.equals("Discrete")) model = new DiscreteTimeModel(parameters);
                 else if (mipConfig.modelType.equals("Continuous"))
                     model = new ContinuousTimeModel(parameters);

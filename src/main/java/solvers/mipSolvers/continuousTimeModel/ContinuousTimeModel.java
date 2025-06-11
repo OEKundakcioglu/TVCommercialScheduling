@@ -4,24 +4,16 @@ import com.gurobi.gurobi.*;
 
 import data.*;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-
-import solvers.mipSolvers.IModel;
+import solvers.mipSolvers.BaseModel;
 
 import java.util.*;
 
-public class ContinuousTimeModel implements IModel {
-    private final Logger logger = LogManager.getLogger(ContinuousTimeModel.class);
-    private final GRBModel model;
-    private final GRBEnv env;
+public class ContinuousTimeModel extends BaseModel {
     private final ProblemParameters parameters;
     public double revenue;
     private ContinuousTimeVariables variables;
 
     public ContinuousTimeModel(ProblemParameters parameters) throws Exception {
-        this.env = new GRBEnv();
-        this.model = new GRBModel(this.env);
         this.parameters = parameters;
     }
 
@@ -69,8 +61,4 @@ public class ContinuousTimeModel implements IModel {
         return new Solution(solutions);
     }
 
-    public void dispose() throws GRBException {
-        this.model.dispose();
-        this.env.dispose();
-    }
 }

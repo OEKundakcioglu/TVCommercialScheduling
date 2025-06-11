@@ -15,14 +15,14 @@ import java.util.List;
 
 @SuppressWarnings("FieldCanBeLocal")
 public class ModelSolver {
-    private final IModel model;
+    private final BaseModel model;
     private final ProblemParameters parameters;
     private final MipRunSettings runSettings;
 
     private final List<CheckPoint> checkPoints;
     private SolverSolution solution;
 
-    public ModelSolver(IModel model, ProblemParameters parameters, MipRunSettings runSettings)
+    public ModelSolver(BaseModel model, ProblemParameters parameters, MipRunSettings runSettings)
             throws GRBException {
         this.model = model;
         this.parameters = parameters;
@@ -41,7 +41,7 @@ public class ModelSolver {
 
         model.getModel().set(GRB.IntParam.SolutionLimit, 1);
         model.getModel().set(GRB.DoubleParam.TimeLimit, runSettings.checkPointTimes().getLast());
-        model.getModel().optimize();
+        model.optimize();
 
         model.getModel().set(GRB.IntParam.SolutionLimit, GRB.MAXINT);
 
@@ -53,7 +53,7 @@ public class ModelSolver {
             }
 
             this.model.getModel().set(GRB.DoubleParam.TimeLimit, checkPointTime - passedTime);
-            this.model.getModel().optimize();
+            this.model.optimize();
 
             if (model.getModel().get(GRB.IntAttr.Status) == GRB.Status.OPTIMAL) {
                 var sol = model.generateSolution();

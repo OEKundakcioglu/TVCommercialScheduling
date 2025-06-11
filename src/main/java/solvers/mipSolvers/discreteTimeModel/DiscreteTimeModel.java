@@ -1,29 +1,26 @@
 package solvers.mipSolvers.discreteTimeModel;
 
 import com.gurobi.gurobi.GRB;
-import com.gurobi.gurobi.GRBEnv;
 import com.gurobi.gurobi.GRBException;
 import com.gurobi.gurobi.GRBModel;
 
 import data.*;
 import data.enums.ATTENTION;
 
-import solvers.mipSolvers.IModel;
+import solvers.mipSolvers.BaseModel;
 
 import java.util.*;
 import java.util.stream.IntStream;
 
 @SuppressWarnings("FieldCanBeLocal")
-public class DiscreteTimeModel implements IModel {
-
+public class DiscreteTimeModel extends BaseModel {
     private final ProblemParameters parameters;
     private final Map<Commercial, Map<Inventory, List<Integer>>> feasibleTimePoints;
     private final Map<Commercial, Map<Integer, List<Integer>>> timeCoverages;
-    private GRBEnv env;
-    private GRBModel model;
     private DiscreteTimeVariables variables;
 
-    public DiscreteTimeModel(ProblemParameters parameters) {
+    public DiscreteTimeModel(ProblemParameters parameters) throws GRBException {
+        super();
         this.parameters = parameters;
         this.feasibleTimePoints = computeFeasibleTimePoints();
         this.timeCoverages = computeTimeCoverages();
@@ -35,9 +32,6 @@ public class DiscreteTimeModel implements IModel {
     }
 
     public void build() throws GRBException {
-        this.env = new GRBEnv();
-        this.model = new GRBModel(env);
-
         this.variables = new DiscreteTimeVariables(feasibleTimePoints, parameters, model);
         DiscreteTimeObjective.setObjective(model, variables, parameters, feasibleTimePoints);
         DiscreteTimeConstraints.setConstraints(
@@ -136,11 +130,5 @@ public class DiscreteTimeModel implements IModel {
         }
 
         return new Solution(solutionDataList);
-    }
-
-    @Override
-    public void dispose() throws GRBException {
-        model.dispose();
-        env.dispose();
     }
 }
