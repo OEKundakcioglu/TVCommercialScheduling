@@ -41,6 +41,11 @@ public class mainConsoleLoopBee {
 
         var loopSetups = consoleConfigLoop.getLoopSetups();
 
+        var totalRunTime = loopSetups.stream()
+                .mapToInt(BeeColonySettings::timeLimit)
+                .sum();
+        System.out.println("Expected total run time: " + totalRunTime / 3600 + " hours");
+
         var orienteeringMap = new HashMap<String, OrienteeringData>();
         var problemDataMap = new HashMap<String, ProblemParameters>();
 

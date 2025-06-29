@@ -20,6 +20,8 @@ alphaGeneratorOptions:
     maxAlpha: 0.5
 
 localSearchRandomProbabilities:
+  - 0
+  - 0.25
   - 0.5
 
 localSearchMoves:
@@ -30,7 +32,7 @@ localSearchMoves:
   - "intraSwap"
   - "shift"
 
-timeLimit: 1
+timeLimit: 300
 
 randomRunN: 1
 

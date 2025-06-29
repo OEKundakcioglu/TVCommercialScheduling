@@ -45,6 +45,9 @@ public class mainConsoleLoop {
 
         var loopSetups = consoleConfigLoop.getLoopSetups();
 
+        var totalRunTime = loopSetups.stream().mapToInt(i -> i.getGraspSettings().timeLimit()).sum();
+        System.out.println("Expected total run time: " + totalRunTime / 3600 + " hours");
+
         for (var loopSetUp : loopSetups) {
             var parameters = new JsonParser().readData(loopSetUp.getInstancePath());
             var outputDirPath = loopSetUp.getOutputDirPath(consoleConfigLoop.outputDirectory);
