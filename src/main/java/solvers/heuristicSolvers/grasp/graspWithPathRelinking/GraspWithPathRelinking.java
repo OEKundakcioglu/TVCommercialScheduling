@@ -68,14 +68,14 @@ public class GraspWithPathRelinking {
                                 graspSettings.constructiveHeuristicSettings())
                         .getSolution();
 
-        ProgressBar pb =
-                new ProgressBarBuilder()
-                        .setUnit("s", 1)
-                        .setInitialMax(graspSettings.timeLimit())
-                        .hideEta()
-                        .setConsumer(new ConsoleProgressBarConsumer(System.out, 120))
-                        .setTaskName("Reactive Grasp with Path Relinking")
-                        .build();
+//        ProgressBar pb =
+//                new ProgressBarBuilder()
+//                        .setUnit("s", 1)
+//                        .setInitialMax(graspSettings.timeLimit())
+//                        .hideEta()
+//                        .setConsumer(new ConsoleProgressBarConsumer(System.out, 120))
+//                        .setTaskName("Reactive Grasp with Path Relinking")
+//                        .build();
 
         var startTime = System.currentTimeMillis() / 1000;
 
@@ -109,42 +109,43 @@ public class GraspWithPathRelinking {
                                         pathRelinkingUtils)
                                 .getBestFoundSolution();
 
-                randomSolution =
-                        new LocalSearch(
-                                        randomSolution,
-                                        parameters,
-                                        graspSettings.getSearchMode(),
-                                        graspSettings.localSearchSettings(),
-                                        random)
-                                .getSolution();
+//                randomSolution =
+//                        new LocalSearch(
+//                                        randomSolution,
+//                                        parameters,
+//                                        graspSettings.getSearchMode(),
+//                                        graspSettings.localSearchSettings(),
+//                                        random)
+//                                .getSolution();
             }
 
-            this.updateEliteSolutions(randomSolution, pb, startTime, iterationsPerSecond);
+            this.updateEliteSolutions(randomSolution, startTime, iterationsPerSecond);
 
-            pb.stepTo((int) (System.currentTimeMillis() / 1000 - startTime));
+//            pb.stepTo((int) (System.currentTimeMillis() / 1000 - startTime));
 
             if (iteration % 10 == 0) {
                 iterationsPerSecond =
                         iteration / (double) (System.currentTimeMillis() / 1000 - startTime);
+                System.out.printf("Iteration: %d, Iteration per second: %f, Best solution: %d found at %ds%n",
+                        iteration, iterationsPerSecond, bestSolution.revenue, foundSolutionAt);
             }
 
-            pb.setExtraMessage(
-                    String.format(
-                            "%.2f iter/s Best solution: %d found at %ds %.2f",
-                            iterationsPerSecond,
-                            bestSolution.revenue,
-                            foundSolutionAt,
-                            graspSettings.localSearchSettings().randomMoveProbability));
+//            pb.setExtraMessage(
+//                    String.format(
+//                            "%.2f iter/s Best solution: %d found at %ds %.2f",
+//                            iterationsPerSecond,
+//                            bestSolution.revenue,
+//                            foundSolutionAt,
+//                            graspSettings.localSearchSettings().randomMoveProbability));
 
             iteration++;
         }
-        pb.stepTo(graspSettings.timeLimit());
-        pb.close();
+//        pb.stepTo(graspSettings.timeLimit());
+//        pb.close();
     }
 
     private void updateEliteSolutions(
             Solution newFoundLocalOptima,
-            ProgressBar pb,
             long startTime,
             double iterationsPerSecond) {
         if (newFoundLocalOptima.revenue > bestSolution.revenue) {

@@ -131,4 +131,15 @@ public class DiscreteTimeModel extends BaseModel {
 
         return new Solution(solutionDataList);
     }
+
+    public void giveWarmStart(Solution solution) throws GRBException {
+        for (var solutionData : solution.getSortedSolutionData()) {
+            var commercial = solutionData.getCommercial();
+            var inventory = solutionData.getInventory();
+            var startTime = solutionData.getStartTime();
+
+            var x = variables.getX(commercial, inventory, startTime);
+            x.set(GRB.DoubleAttr.Start, 1.0);
+        }
+    }
 }

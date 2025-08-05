@@ -229,9 +229,9 @@ public class PathRelinkingUtils {
             }
         }
 
-        if (random.nextDouble() < localSearchSettings.randomMoveProbability) {
-            return randomMove;
-        }
+//        if (random.nextDouble() < localSearchSettings.randomMoveProbability) {
+//            return randomMove;
+//        }
 
         return bestMove;
     }
