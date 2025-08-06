@@ -2,7 +2,6 @@ package solvers.heuristicSolvers.grasp;
 
 import data.Commercial;
 import data.Inventory;
-import data.Solution;
 import runParameters.GraspSettings;
 
 import java.util.List;

@@ -1,7 +1,5 @@
 package solvers.heuristicSolvers.beeColonyYu;
 
-import data.Solution;
-
 public class BeeColonyCheckPoint {
     private final BeeColonySolution solution;
     private final double time;

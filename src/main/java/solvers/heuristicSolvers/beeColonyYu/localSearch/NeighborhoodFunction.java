@@ -8,19 +8,17 @@ import java.util.Random;
 
 public class NeighborhoodFunction {
 
-    private List<IMove> moves;
-    private BeeColonyUtils beeColonyUtils;
+    private final List<IMove> moves;
 
-    public NeighborhoodFunction(BeeColonyUtils beeColonyUtils, Random random) {
-        this.beeColonyUtils = beeColonyUtils;
+    public NeighborhoodFunction(BeeColonyUtils beeColonyUtils) {
         this.moves =
                 List.of(
-                        new InsertMove(beeColonyUtils, random),
-                        new SwapMove(beeColonyUtils, random),
-                        new InversionMove(beeColonyUtils, random));
+                        new InsertMove(beeColonyUtils),
+                        new SwapMove(beeColonyUtils),
+                        new InversionMove(beeColonyUtils));
     }
 
-    public BeeColonySolution apply(BeeColonySolution solution) throws Exception {
+    public BeeColonySolution apply(BeeColonySolution solution) {
         var index = new Random().nextInt(moves.size());
         return moves.get(index).apply(solution);
     }

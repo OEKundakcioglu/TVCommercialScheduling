@@ -2,38 +2,27 @@ package runParameters;
 
 import solvers.heuristicSolvers.grasp.localSearch.SearchMode;
 import solvers.heuristicSolvers.grasp.reactiveGrasp.AlphaGenerator;
-import solvers.heuristicSolvers.grasp.reactiveGrasp.AlphaGeneratorUniform;
-
-import java.util.Random;
 
 public class GraspSettings {
     private final SearchMode searchMode;
     private final int timeLimit;
     private final LocalSearchSettings localSearchSettings;
     private final ConstructiveHeuristicSettings constructiveHeuristicSettings;
-    private transient final Random random;
     private final AlphaGenerator alphaGenerator;
     private final int randomRunN;
     private final String instancePath;
 
     // Constructor
     public GraspSettings(SearchMode searchMode, int timeLimit, LocalSearchSettings localSearchSettings,
-                         ConstructiveHeuristicSettings constructiveHeuristicSettings, Random random,
+                         ConstructiveHeuristicSettings constructiveHeuristicSettings,
                          AlphaGenerator alphaGenerator, int randomRunN, String instancePath) {
         this.searchMode = searchMode;
         this.timeLimit = timeLimit;
         this.localSearchSettings = localSearchSettings;
         this.constructiveHeuristicSettings = constructiveHeuristicSettings;
-        this.random = random;
         this.alphaGenerator = alphaGenerator;
         this.randomRunN = randomRunN;
         this.instancePath = instancePath;
-
-        this.random.setSeed(hashCode());
-
-        if (alphaGenerator instanceof AlphaGeneratorUniform) {
-            ((AlphaGeneratorUniform) alphaGenerator).setRandom(random);
-        }
     }
 
     // Getters similar to record
@@ -51,10 +40,6 @@ public class GraspSettings {
 
     public ConstructiveHeuristicSettings constructiveHeuristicSettings() {
         return constructiveHeuristicSettings;
-    }
-
-    public Random random() {
-        return random;
     }
 
     public AlphaGenerator alphaGenerator() {

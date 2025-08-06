@@ -1,10 +1,10 @@
 package solvers.heuristicSolvers.beeColonyYu;
 
+import data.ProblemParameters;
 import solvers.heuristicSolvers.beeColonyYu.data.Customer;
 import solvers.heuristicSolvers.beeColonyYu.data.Depot;
 import solvers.heuristicSolvers.beeColonyYu.data.Node;
 import solvers.heuristicSolvers.beeColonyYu.data.Vehicle;
-import data.ProblemParameters;
 
 import java.util.ArrayList;
 
@@ -41,8 +41,7 @@ public class ReduceProblemToVRP {
 
         var depot = new Depot(customers.size());
 
-        var allNodes = new ArrayList<Node>();
-        allNodes.addAll(customers);
+        var allNodes = new ArrayList<Node>(customers);
         allNodes.add(depot);
 
         for (var customer : allNodes) {

@@ -1,16 +1,14 @@
 package solvers.heuristicSolvers.grasp.localSearch;
 
+import data.ProblemParameters;
 import data.Solution;
 import solvers.heuristicSolvers.grasp.localSearch.move.TransferMove;
-import data.ProblemParameters;
-
-import java.util.Random;
 
 public class TransferSearch extends BaseSearch {
     private final double[] totalCommercialDurationOfHour;
 
-    public TransferSearch(Solution currentSolution, ProblemParameters parameters, boolean getAllNeighborhood, SearchMode searchMode, Random random) throws Exception {
-        super(currentSolution, parameters, getAllNeighborhood, searchMode, random);
+    public TransferSearch(Solution currentSolution, ProblemParameters parameters, boolean getAllNeighborhood, SearchMode searchMode) throws Exception {
+        super(currentSolution, parameters, getAllNeighborhood, searchMode);
         this.totalCommercialDurationOfHour = new double[parameters.getSetOfHours().size() + 1];
         for (var solutionDataList : currentSolution.solution) {
             if (solutionDataList.isEmpty()) continue;

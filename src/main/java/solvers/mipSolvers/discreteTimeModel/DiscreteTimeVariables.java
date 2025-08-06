@@ -4,12 +4,10 @@ import com.gurobi.gurobi.GRB;
 import com.gurobi.gurobi.GRBException;
 import com.gurobi.gurobi.GRBModel;
 import com.gurobi.gurobi.GRBVar;
-
 import data.Commercial;
 import data.Inventory;
 import data.ProblemParameters;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 

@@ -1,12 +1,14 @@
 package solvers.heuristicSolvers.grasp.constructiveHeuristic;
 
 import data.*;
-import data.ProblemParameters;
 import data.enums.ATTENTION;
-
 import runParameters.ConstructiveHeuristicSettings;
+import solvers.GlobalRandom;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class ConstructiveHeuristic implements IConstructiveHeuristic {
     private final double firstAttentionBoost;
@@ -14,7 +16,6 @@ public class ConstructiveHeuristic implements IConstructiveHeuristic {
     private final double f30AttentionBoost;
     private final double f60AttentionBoost;
     private final ProblemParameters parameters;
-    private final Random random;
     private final double alpha;
     private final List<List<Commercial>> solutionList;
     private final List<Commercial> unassignedCommercials;
@@ -29,25 +30,23 @@ public class ConstructiveHeuristic implements IConstructiveHeuristic {
     public ConstructiveHeuristic(
             ProblemParameters parameters,
             double alpha,
-            Random random,
             ConstructiveHeuristicSettings constructiveHeuristicSettings) {
-        this.random = random;
         this.alpha = alpha;
 
         this.firstAttentionBoost =
-                random.nextDouble(
+                GlobalRandom.getRandom().nextDouble(
                         constructiveHeuristicSettings.lowerBound(),
                         constructiveHeuristicSettings.upperBound());
         this.lastAttentionBoost =
-                random.nextDouble(
+                GlobalRandom.getRandom().nextDouble(
                         constructiveHeuristicSettings.lowerBound(),
                         constructiveHeuristicSettings.upperBound());
         this.f30AttentionBoost =
-                random.nextDouble(
+                GlobalRandom.getRandom().nextDouble(
                         constructiveHeuristicSettings.lowerBound(),
                         constructiveHeuristicSettings.upperBound());
         this.f60AttentionBoost =
-                random.nextDouble(
+                GlobalRandom.getRandom().nextDouble(
                         constructiveHeuristicSettings.lowerBound(),
                         constructiveHeuristicSettings.upperBound());
 
@@ -192,7 +191,7 @@ public class ConstructiveHeuristic implements IConstructiveHeuristic {
         for (int i = 0; i < commercials.size(); i++) {
             if (scores[i] >= threshold) {
                 count++;
-                if (random.nextInt(count) == 0) {
+                if (GlobalRandom.getRandom().nextInt(count) == 0) {
                     selectedCommercial = commercials.get(i);
                     selectedInventory = inventories.get(i);
                 }

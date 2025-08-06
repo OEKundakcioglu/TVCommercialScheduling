@@ -2,11 +2,8 @@ package solvers.mipSolvers;
 
 import com.gurobi.gurobi.GRB;
 import com.gurobi.gurobi.GRBException;
-
 import data.ProblemParameters;
-
 import runParameters.MipRunSettings;
-
 import solvers.CheckPoint;
 import solvers.SolverSolution;
 

@@ -1,15 +1,14 @@
 import com.beust.jcommander.JCommander;
 import com.beust.jcommander.Parameter;
 import com.beust.jcommander.Parameters;
-
 import data.ProblemParameters;
 import data.Utils;
 import data.problemBuilders.JsonParser;
-
 import org.yaml.snakeyaml.Yaml;
-
-import runParameters.*;
-
+import runParameters.ConstructiveHeuristicSettings;
+import runParameters.GraspSettings;
+import runParameters.LocalSearchSettings;
+import runParameters.LoopSetup;
 import solvers.SolverSolution;
 import solvers.heuristicSolvers.grasp.graspWithPathRelinking.GraspWithPathRelinking;
 import solvers.heuristicSolvers.grasp.localSearch.SearchMode;
@@ -25,7 +24,6 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 @Parameters(separators = "=")
 public class mainConsoleLoop {
@@ -108,7 +106,7 @@ class AlphaGeneratorWrapper {
         if (type.equals("Fixed")) {
             return new AlphaGeneratorConstant(alpha);
         }
-        return new AlphaGeneratorUniform(new Random(), minAlpha, maxAlpha);
+        return new AlphaGeneratorUniform(minAlpha, maxAlpha);
     }
 }
 
@@ -155,7 +153,6 @@ class ConsoleConfigLoop {
                                             timeLimit,
                                             localSearchSettings,
                                             constructiveHeuristicSettings,
-                                            new Random(),
                                             alphaGeneratorWrapper.getAlphaGenerator(),
                                             randomRun,
                                             instancePath);

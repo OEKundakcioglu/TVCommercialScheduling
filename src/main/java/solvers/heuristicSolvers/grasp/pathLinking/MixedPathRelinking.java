@@ -4,19 +4,15 @@ import data.ProblemParameters;
 import data.Solution;
 import data.Utils;
 
-import solvers.heuristicSolvers.grasp.localSearch.move.IMove;
-
-import java.util.ArrayList;
-import java.util.List;
-
 public class MixedPathRelinking {
 
     private final Solution guidingSolution;
     private final Solution initialSolution;
     private final ProblemParameters parameters;
     private final PathRelinkingUtils pathRelinkingUtils;
-    public List<IMove> madeMoves = new ArrayList<>();
+
     private Solution bestFoundSolution;
+    private double bestFoundRevenue = Double.NEGATIVE_INFINITY;
 
     public MixedPathRelinking(
             ProblemParameters parameters,
@@ -35,7 +31,6 @@ public class MixedPathRelinking {
     public void solve() throws Exception {
         var currentSolution = initialSolution;
         var _guidingSolution = guidingSolution;
-        this.bestFoundSolution = currentSolution;
 
         var anyFeasibleMoveFromGuiding = false;
         var anyFeasibleMoveFromCurrent = false;
@@ -63,13 +58,14 @@ public class MixedPathRelinking {
             }
 
             currentSolution = move.applyMove();
-            madeMoves.add(move);
-            if (currentSolution.revenue > bestFoundSolution.revenue) {
+            if (currentSolution.revenue > bestFoundRevenue) {
                 bestFoundSolution = currentSolution;
+                bestFoundRevenue = currentSolution.revenue;
             }
 
             var temp = currentSolution;
             currentSolution = _guidingSolution;
+            pathRelinkingUtils.distance(currentSolution, _guidingSolution);
             _guidingSolution = temp;
             if (isDirectionTowardsGuiding) anyFeasibleMoveFromCurrent = true;
             else anyFeasibleMoveFromGuiding = true;

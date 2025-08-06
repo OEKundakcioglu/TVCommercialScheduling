@@ -3,13 +3,11 @@ package data.problemBuilders;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
-
 import data.Commercial;
 import data.Inventory;
 import data.ProblemParameters;
 import data.enums.ATTENTION;
 import data.enums.PRICING_TYPE;
-
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -28,7 +26,6 @@ public class JsonParser {
     private final List<Commercial> setOfF60Commercials;
     private final Map<Inventory, Map<Integer, Map<Integer, Double>>>
             ratings; // inventory -> minute -> audienceType -> rating
-    private String instance;
 
     public JsonParser() {
         this.setOfCommercials = new ArrayList<>();
@@ -43,7 +40,7 @@ public class JsonParser {
 
     public ProblemParameters readData(String jsonPath) throws Exception {
         var asd = jsonPath.split("/");
-        this.instance = asd[asd.length - 1].split("\\.")[0];
+        String instance = asd[asd.length - 1].split("\\.")[0];
         this.logger.info("Reading data from {}...", jsonPath);
         FileReader reader = new FileReader(jsonPath);
         JsonElement scenarioElement = com.google.gson.JsonParser.parseReader(reader);
@@ -80,7 +77,7 @@ public class JsonParser {
                 this.setOfF30Commercials,
                 this.setOfF60Commercials,
                 this.ratings,
-                this.instance);
+                instance);
     }
 
     private void populateInventories(JsonArray inventoryArray) {

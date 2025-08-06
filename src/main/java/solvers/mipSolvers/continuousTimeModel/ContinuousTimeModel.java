@@ -1,12 +1,13 @@
 package solvers.mipSolvers.continuousTimeModel;
 
-import com.gurobi.gurobi.*;
-
+import com.gurobi.gurobi.GRB;
+import com.gurobi.gurobi.GRBException;
+import com.gurobi.gurobi.GRBModel;
 import data.*;
-
 import solvers.mipSolvers.BaseModel;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ContinuousTimeModel extends BaseModel {
     private final ProblemParameters parameters;
@@ -39,7 +40,7 @@ public class ContinuousTimeModel extends BaseModel {
         }
 
         var solutions = new ArrayList<List<SolutionData>>();
-        for (var inventory : parameters.getSetOfInventories()) {
+        for (var ignored : parameters.getSetOfInventories()) {
             solutions.add(new ArrayList<>());
         }
         for (var n = 0; n < 100; n++) {

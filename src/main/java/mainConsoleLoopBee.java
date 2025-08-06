@@ -1,13 +1,10 @@
 import com.beust.jcommander.JCommander;
 import com.beust.jcommander.Parameter;
 import com.beust.jcommander.Parameters;
-
 import data.ProblemParameters;
 import data.Utils;
 import data.problemBuilders.JsonParser;
-
 import org.yaml.snakeyaml.Yaml;
-
 import solvers.heuristicSolvers.beeColonyYu.BeeColonyAlgorithm;
 import solvers.heuristicSolvers.beeColonyYu.BeeColonySettings;
 import solvers.heuristicSolvers.beeColonyYu.OrienteeringData;

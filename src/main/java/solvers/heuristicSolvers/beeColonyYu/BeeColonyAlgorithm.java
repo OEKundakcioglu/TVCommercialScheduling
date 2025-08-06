@@ -1,13 +1,10 @@
 package solvers.heuristicSolvers.beeColonyYu;
 
 import data.ProblemParameters;
-
 import me.tongfei.progressbar.ConsoleProgressBarConsumer;
 import me.tongfei.progressbar.ProgressBar;
 import me.tongfei.progressbar.ProgressBarBuilder;
-
 import runParameters.ConstructiveHeuristicSettings;
-
 import solvers.CheckPoint;
 import solvers.SolverSolution;
 import solvers.heuristicSolvers.beeColonyYu.localSearch.NeighborhoodFunction;
@@ -34,8 +31,7 @@ public class BeeColonyAlgorithm {
     public BeeColonyAlgorithm(
             OrienteeringData orienteeringData,
             BeeColonySettings beeColonySettings,
-            ProblemParameters parameters)
-            throws Exception {
+            ProblemParameters parameters) {
         this.orienteeringData = orienteeringData;
         this.beeColonySettings = beeColonySettings;
         this.parameters = parameters;
@@ -90,8 +86,8 @@ public class BeeColonyAlgorithm {
         }
     }
 
-    private void solve() throws Exception {
-        var neighborhoodFunction = new NeighborhoodFunction(beeColonyUtils, random);
+    private void solve() {
+        var neighborhoodFunction = new NeighborhoodFunction(beeColonyUtils);
 
         int G = 0;
         double T = beeColonySettings.T0();
@@ -198,7 +194,7 @@ public class BeeColonyAlgorithm {
     private int[] generateRandomSolution() {
         var constructive =
                 new ConstructiveHeuristic(
-                        parameters, 0.5, this.random, new ConstructiveHeuristicSettings(0.5, 5));
+                        parameters, 0.5, new ConstructiveHeuristicSettings(0.5, 5));
         var sol = constructive.getSolution();
 
         var solString = new ArrayList<Integer>();

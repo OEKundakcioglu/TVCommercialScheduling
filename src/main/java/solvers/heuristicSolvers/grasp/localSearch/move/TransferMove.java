@@ -92,7 +92,7 @@ public class TransferMove implements IMove {
                 n2
         );
 
-        newSolution.revenue += calculateRevenueGain();
+        newSolution.revenue += (int) calculateRevenueGain();
 
         if (LoopSetup.isDebug) Utils.feasibilityCheck(newSolution);
 
@@ -133,12 +133,12 @@ public class TransferMove implements IMove {
     public boolean checkFeasibility() {
         if (isFeasibilityChecked) return isFeasible;
 
-        if (!generalCheck()){ //
+        if (!conditionalCheck()) { //
             isFeasible = false;
             return false;
         }
 
-        if (!conditionalCheck()){ //
+        if (!generalCheck()) { //
             isFeasible = false;
             return false;
         }
@@ -149,6 +149,20 @@ public class TransferMove implements IMove {
     }
 
     private boolean generalCheck(){
+        if (n2Utilization + n1Commercial.getDuration() > n2Inventory.getDuration())
+            return false;
+
+        if (!MoveUtils.isGroupConstraintsSatisfied(
+                n1 - 1 >= 0 ? n1InventoryList.get(n1 - 1).getCommercial() : null,
+                n1 + 1 <= lastIndexOfN1 ? n1InventoryList.get(n1 + 1).getCommercial() : null
+                                                  )) return false;
+
+        if (!MoveUtils.isGroupConstraintsSatisfied(
+                n2 - 1 >= 0 ? n2InventoryList.get(n2 - 1).getCommercial() : null,
+                n1Commercial,
+                n2 <= lastIndexOfN2 ? n2InventoryList.get(n2).getCommercial() : null
+                                                  )) return false;
+
         for (var i = n2; i <= lastIndexOfN2; i++) {
             var solutionData = n2InventoryList.get(i);
             if (!MoveUtils.isAttentionSatisfied(
@@ -158,20 +172,6 @@ public class TransferMove implements IMove {
                     solutionData.getStartTime() + n1Commercial.getDuration(),
                     lastIndexOfN2 + 1)) return false;
         }
-
-        if (!MoveUtils.isGroupConstraintsSatisfied(
-                n1 - 1 >= 0 ? n1InventoryList.get(n1 - 1).getCommercial() : null,
-                n1 + 1 <= lastIndexOfN1 ? n1InventoryList.get(n1 + 1).getCommercial() : null
-        )) return false;
-
-        if (!MoveUtils.isGroupConstraintsSatisfied(
-                n2 - 1 >= 0 ? n2InventoryList.get(n2 - 1).getCommercial() : null,
-                n1Commercial,
-                n2 <= lastIndexOfN2 ? n2InventoryList.get(n2).getCommercial() : null
-        )) return false;
-
-        if (n2Utilization + n1Commercial.getDuration() > n2Inventory.getDuration())
-            return false;
 
         return true;
     }

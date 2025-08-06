@@ -1,11 +1,11 @@
 package data;
 
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-
 import data.serializers.JsonSerializableObject;
 import data.serializers.ProblemDataSerializer;
 
-import java.util.*;
+import java.util.List;
+import java.util.Map;
 
 @JsonSerialize(using = ProblemDataSerializer.class)
 public class ProblemParameters extends JsonSerializableObject {

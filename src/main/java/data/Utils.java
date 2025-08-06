@@ -3,7 +3,6 @@ package data;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import data.enums.ATTENTION;
-import solvers.heuristicSolvers.grasp.localSearch.move.IMove;
 
 import java.io.FileWriter;
 import java.io.IOException;

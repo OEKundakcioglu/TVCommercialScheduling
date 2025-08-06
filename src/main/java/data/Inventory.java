@@ -1,7 +1,6 @@
 package data;
 
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-
 import data.serializers.InventorySerializer;
 import data.serializers.JsonSerializableObject;
 

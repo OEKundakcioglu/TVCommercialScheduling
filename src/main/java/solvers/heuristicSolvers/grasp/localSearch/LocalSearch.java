@@ -1,27 +1,21 @@
 package solvers.heuristicSolvers.grasp.localSearch;
 
-import data.Solution;
 import data.ProblemParameters;
+import data.Solution;
 import runParameters.LocalSearchSettings;
-
-import java.util.List;
-import java.util.Random;
+import solvers.GlobalRandom;
 
 public class LocalSearch {
     private Solution bestFoundSolution;
     private final Solution currentSolution;
     private final ProblemParameters parameters;
     private final LocalSearchSettings localSearchSettings;
-    private transient final Random random;
 
-    private boolean didRandomMove = false;
-
-    public LocalSearch(Solution currentSolution, ProblemParameters parameters, SearchMode searchMode, LocalSearchSettings localSearchSettings, Random random) throws Exception {
+    public LocalSearch(Solution currentSolution, ProblemParameters parameters, SearchMode searchMode, LocalSearchSettings localSearchSettings) throws Exception {
         this.currentSolution = currentSolution;
         this.bestFoundSolution = currentSolution;
         this.parameters = parameters;
         this.localSearchSettings = localSearchSettings;
-        this.random = random;
         this.search(searchMode);
     }
 
@@ -31,6 +25,11 @@ public class LocalSearch {
 
         var solution = currentSolution;
         while (k < localSearchSettings.moves.size()){
+            if (GlobalRandom.getRandom().nextDouble() < localSearchSettings.neighborhoodSkipProbability) {
+                k++;
+                continue;
+            }
+
             var moveString = localSearchSettings.moves.get(k);
             solution = applySearch(moveString, solution, searchMode);
             if (solution.revenue > bestFoundSolution.revenue){
@@ -45,18 +44,14 @@ public class LocalSearch {
 
     @SuppressWarnings("IfCanBeSwitch")
     public Solution applySearch(String key, Solution solution, SearchMode searchMode) throws Exception {
-        searchMode = random.nextDouble() < localSearchSettings.randomMoveProbability ? SearchMode.RANDOM : searchMode;
-
-        didRandomMove = searchMode == SearchMode.RANDOM;
-
         BaseSearch search;
 
-        if (key.equals("insert")) search = new InsertSearch(solution, parameters, false, searchMode, random);
-        else if (key.equals("transfer")) search = new TransferSearch(solution, parameters, false, searchMode, random);
-        else if (key.equals("outOfPool")) search = new OutOfPoolSwapSearch(solution, parameters, false, searchMode, random);
-        else if (key.equals("intraSwap")) search = new IntraSwapSearch(solution, parameters, false, searchMode, random);
-        else if (key.equals("interSwap")) search = new InterSwapSearch(solution, parameters, false, searchMode, random);
-        else if (key.equals("shift")) search = new ShiftSearch(solution, parameters, false, searchMode, random);
+        if (key.equals("insert")) search = new InsertSearch(solution, parameters, false, searchMode);
+        else if (key.equals("transfer")) search = new TransferSearch(solution, parameters, false, searchMode);
+        else if (key.equals("outOfPool")) search = new OutOfPoolSwapSearch(solution, parameters, false, searchMode);
+        else if (key.equals("intraSwap")) search = new IntraSwapSearch(solution, parameters, false, searchMode);
+        else if (key.equals("interSwap")) search = new InterSwapSearch(solution, parameters, false, searchMode);
+        else if (key.equals("shift")) search = new ShiftSearch(solution, parameters, false, searchMode);
         else throw new RuntimeException("Invalid key");
 
         return search.getSolution();
