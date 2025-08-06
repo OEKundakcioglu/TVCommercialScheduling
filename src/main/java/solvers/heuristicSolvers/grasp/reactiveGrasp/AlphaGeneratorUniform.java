@@ -22,9 +22,4 @@ public class AlphaGeneratorUniform implements AlphaGenerator {
                 this.upperBound
         );
     }
-
-    @Override
-    public int hashCode() {
-        return String.format("Uniform_lowerBound_%f_upperBound_%f", this.lowerBound, this.upperBound).hashCode();
-    }
 }

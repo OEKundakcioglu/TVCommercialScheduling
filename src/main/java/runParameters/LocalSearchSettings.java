@@ -13,11 +13,6 @@ public class LocalSearchSettings {
 
     @SuppressWarnings("unused")
     public String getStringIdentifier() {
-        return "randomMoveProb_" + neighborhoodSkipProbability;
-    }
-
-    @Override
-    public int hashCode() {
-        return moves.hashCode() + Double.hashCode(neighborhoodSkipProbability);
+        return "neighborhoodSkipProbability_" + neighborhoodSkipProbability;
     }
 }

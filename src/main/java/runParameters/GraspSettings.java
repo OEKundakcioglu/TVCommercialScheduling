@@ -48,28 +48,16 @@ public class GraspSettings {
 
     public String getStringIdentifier() {
         return String.format(
-                "isBestMove=%s_timeLimit=%ds_seed=%d_alphaGenerator=%s_localSearch=%s_constructiveHeuristic=%s",
+                "isBestMove=%s_timeLimit=%ds_alphaGenerator=%s_localSearch=%s_constructiveHeuristic=%s_randomRun=%d",
                 searchMode,
                 timeLimit,
-                hashCode(),
                 alphaGenerator.getStringIdentifier(),
                 localSearchSettings.getStringIdentifier(),
-                constructiveHeuristicSettings.getStringIdentifier()
+                constructiveHeuristicSettings.getStringIdentifier(),
+                randomRunN
         );
     }
 
-    @Override
-    public int hashCode() {
-        return String.format(
-                "%d_%d_%d_%d_%d_%d",
-                searchMode.hashCode(),
-                localSearchSettings.hashCode(),
-                constructiveHeuristicSettings.hashCode(),
-                alphaGenerator.hashCode(),
-                randomRunN,
-                instancePath.hashCode()
-        ).hashCode();
-    }
 }
 
 

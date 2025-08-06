@@ -14,9 +14,4 @@ public record ConstructiveHeuristicSettings(
                 this.upperBound
         );
     }
-
-    @Override
-    public int hashCode() {
-        return String.format("%f_%f", lowerBound, upperBound).hashCode();
-    }
 }

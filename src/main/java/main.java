@@ -2,7 +2,6 @@ import data.problemBuilders.JsonParser;
 import runParameters.ConstructiveHeuristicSettings;
 import runParameters.GraspSettings;
 import runParameters.LocalSearchSettings;
-import solvers.GlobalRandom;
 import solvers.heuristicSolvers.grasp.graspWithPathRelinking.GraspWithPathRelinking;
 import solvers.heuristicSolvers.grasp.localSearch.SearchMode;
 import solvers.heuristicSolvers.grasp.reactiveGrasp.AlphaGeneratorUniform;
@@ -37,8 +36,6 @@ public class main {
                 0,
                 "instances/1.json"
         );
-
-        GlobalRandom.setSeed(0);
 
         var grasp = new GraspWithPathRelinking(problem, parameters);
         var bestSolution = grasp.getSolution().getBestSolution();

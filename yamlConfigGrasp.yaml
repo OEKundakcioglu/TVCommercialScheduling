@@ -19,21 +19,19 @@ alphaGeneratorOptions:
     minAlpha: 0.1
     maxAlpha: 0.5
 
-localSearchRandomProbabilities:
+neighborhoodSkipProbabilities:
   - 0
   - 0.25
   - 0.5
 
 localSearchMoves:
+  - "insert"
   - "outOfPool"
   - "interSwap"
-  - "insert"
-  - "transfer"
-  - "intraSwap"
   - "shift"
 
-timeLimit: 300
+timeLimit: 1
 
-randomRunN: 1
+randomRunN: 2
 
-outputDirectory: "outputAfterReview/outputGrasp"
+outputDirectory: "test/outputGrasp"
