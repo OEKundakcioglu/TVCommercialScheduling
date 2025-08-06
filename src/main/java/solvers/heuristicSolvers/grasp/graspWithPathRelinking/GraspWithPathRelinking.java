@@ -2,14 +2,9 @@ package solvers.heuristicSolvers.grasp.graspWithPathRelinking;
 
 import data.ProblemParameters;
 import data.Solution;
-
-import me.tongfei.progressbar.ConsoleProgressBarConsumer;
-import me.tongfei.progressbar.ProgressBar;
-import me.tongfei.progressbar.ProgressBarBuilder;
-
 import runParameters.GraspSettings;
-
 import solvers.CheckPoint;
+import solvers.GlobalRandom;
 import solvers.SolverSolution;
 import solvers.heuristicSolvers.grasp.GraspInformation;
 import solvers.heuristicSolvers.grasp.constructiveHeuristic.ConstructiveHeuristic;
@@ -17,7 +12,10 @@ import solvers.heuristicSolvers.grasp.localSearch.LocalSearch;
 import solvers.heuristicSolvers.grasp.pathLinking.MixedPathRelinking;
 import solvers.heuristicSolvers.grasp.pathLinking.PathRelinkingUtils;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.LinkedList;
+import java.util.List;
 
 public class GraspWithPathRelinking {
     @SuppressWarnings("FieldCanBeLocal")
@@ -25,9 +23,7 @@ public class GraspWithPathRelinking {
 
     private final ProblemParameters parameters;
     private final List<Solution> eliteSolutions;
-    private final Random random;
     private final GraspSettings graspSettings;
-    private final GraspInformation graspInformation;
     private final List<CheckPoint> checkPoints;
     private final SolverSolution solverSolution;
     private final PathRelinkingUtils pathRelinkingUtils;
@@ -36,20 +32,18 @@ public class GraspWithPathRelinking {
 
     public GraspWithPathRelinking(ProblemParameters parameters, GraspSettings graspSettings)
             throws Exception {
-        random = graspSettings.random();
 
         this.parameters = parameters;
         this.eliteSolutions = new LinkedList<>();
         this.graspSettings = graspSettings;
 
-        this.graspInformation =
-                new GraspInformation(
-                        parameters.getSetOfCommercials(),
-                        parameters.getSetOfInventories(),
-                        graspSettings);
+        GraspInformation graspInformation = new GraspInformation(
+                parameters.getSetOfCommercials(),
+                parameters.getSetOfInventories(),
+                graspSettings);
         this.checkPoints = new ArrayList<>();
         this.pathRelinkingUtils =
-                new PathRelinkingUtils(random, graspSettings.localSearchSettings());
+                new PathRelinkingUtils();
 
         this.solve();
 
@@ -59,42 +53,30 @@ public class GraspWithPathRelinking {
     }
 
     private void solve() throws Exception {
-        double iterationsPerSecond = 1;
+        double iterationsPerSecond;
         this.bestSolution =
                 new ConstructiveHeuristic(
                                 parameters,
                                 this.graspSettings.alphaGenerator().generateAlpha(),
-                                random,
                                 graspSettings.constructiveHeuristicSettings())
                         .getSolution();
-
-//        ProgressBar pb =
-//                new ProgressBarBuilder()
-//                        .setUnit("s", 1)
-//                        .setInitialMax(graspSettings.timeLimit())
-//                        .hideEta()
-//                        .setConsumer(new ConsoleProgressBarConsumer(System.out, 120))
-//                        .setTaskName("Reactive Grasp with Path Relinking")
-//                        .build();
 
         var startTime = System.currentTimeMillis() / 1000;
 
         int iteration = 1;
         while (System.currentTimeMillis() / 1000 - startTime < graspSettings.timeLimit()) {
-            var randomSolution =
-                    new ConstructiveHeuristic(
-                                    parameters,
-                                    this.graspSettings.alphaGenerator().generateAlpha(),
-                                    random,
-                                    graspSettings.constructiveHeuristicSettings())
-                            .getSolution();
+            var randomSolution = new ConstructiveHeuristic(
+                    parameters,
+                    this.graspSettings.alphaGenerator().generateAlpha(),
+                    graspSettings.constructiveHeuristicSettings())
+                    .getSolution();
+
             randomSolution =
                     new LocalSearch(
                                     randomSolution,
                                     parameters,
                                     graspSettings.getSearchMode(),
-                                    graspSettings.localSearchSettings(),
-                                    random)
+                            graspSettings.localSearchSettings())
                             .getSolution();
 
             if (this.eliteSolutions.size() > 2) {
@@ -109,45 +91,31 @@ public class GraspWithPathRelinking {
                                         pathRelinkingUtils)
                                 .getBestFoundSolution();
 
-//                randomSolution =
-//                        new LocalSearch(
-//                                        randomSolution,
-//                                        parameters,
-//                                        graspSettings.getSearchMode(),
-//                                        graspSettings.localSearchSettings(),
-//                                        random)
-//                                .getSolution();
+                randomSolution =
+                        new LocalSearch(
+                                randomSolution,
+                                parameters,
+                                graspSettings.getSearchMode(),
+                                graspSettings.localSearchSettings())
+                                .getSolution();
             }
 
-            this.updateEliteSolutions(randomSolution, startTime, iterationsPerSecond);
+            this.updateEliteSolutions(randomSolution, startTime);
 
-//            pb.stepTo((int) (System.currentTimeMillis() / 1000 - startTime));
-
-            if (iteration % 10 == 0) {
-                iterationsPerSecond =
-                        iteration / (double) (System.currentTimeMillis() / 1000 - startTime);
-                System.out.printf("Iteration: %d, Iteration per second: %f, Best solution: %d found at %ds%n",
-                        iteration, iterationsPerSecond, bestSolution.revenue, foundSolutionAt);
-            }
-
-//            pb.setExtraMessage(
-//                    String.format(
-//                            "%.2f iter/s Best solution: %d found at %ds %.2f",
-//                            iterationsPerSecond,
-//                            bestSolution.revenue,
-//                            foundSolutionAt,
-//                            graspSettings.localSearchSettings().randomMoveProbability));
+//            if (iteration % 10 == 0) {
+//                iterationsPerSecond =
+//                        iteration / (double) (System.currentTimeMillis() / 1000 - startTime);
+//                System.out.printf("Seconds: %d, Iteration: %d, Iteration per second: %f, Best solution: %d found at %ds%n",
+//                        System.currentTimeMillis() / 1000 - startTime, iteration, iterationsPerSecond, bestSolution.revenue, foundSolutionAt);
+//            }
 
             iteration++;
         }
-//        pb.stepTo(graspSettings.timeLimit());
-//        pb.close();
     }
 
     private void updateEliteSolutions(
             Solution newFoundLocalOptima,
-            long startTime,
-            double iterationsPerSecond) {
+            long startTime) {
         if (newFoundLocalOptima.revenue > bestSolution.revenue) {
             this.foundSolutionAt = (int) (System.currentTimeMillis() / 1000 - startTime);
 
@@ -200,6 +168,6 @@ public class GraspWithPathRelinking {
     }
 
     private Solution getGuidingSolution() {
-        return eliteSolutions.get(random.nextInt(eliteSolutions.size()));
+        return eliteSolutions.get(GlobalRandom.getRandom().nextInt(eliteSolutions.size()));
     }
 }

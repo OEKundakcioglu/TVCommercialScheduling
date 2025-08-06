@@ -1,15 +1,15 @@
 import com.beust.jcommander.JCommander;
 import com.beust.jcommander.Parameter;
 import com.beust.jcommander.Parameters;
-
 import data.ProblemParameters;
 import data.Utils;
 import data.problemBuilders.JsonParser;
-
 import org.yaml.snakeyaml.Yaml;
-
-import runParameters.*;
-
+import runParameters.ConstructiveHeuristicSettings;
+import runParameters.GraspSettings;
+import runParameters.LocalSearchSettings;
+import runParameters.LoopSetup;
+import solvers.GlobalRandom;
 import solvers.SolverSolution;
 import solvers.heuristicSolvers.grasp.graspWithPathRelinking.GraspWithPathRelinking;
 import solvers.heuristicSolvers.grasp.localSearch.SearchMode;
@@ -25,7 +25,6 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 @Parameters(separators = "=")
 public class mainConsoleLoop {
@@ -57,6 +56,13 @@ public class mainConsoleLoop {
                 continue;
             }
 
+            System.out.println(
+                    "Running heuristic for "
+                            + loopSetUp.getInstancePath()
+                            + " with settings: "
+                            + loopSetUp.getGraspSettings().getStringIdentifier());
+
+            GlobalRandom.init();
             var solverSolution = runHeuristic(parameters, loopSetUp.getGraspSettings());
             Utils.feasibilityCheck(solverSolution.getBestSolution());
 
@@ -67,6 +73,7 @@ public class mainConsoleLoop {
 
             Utils.feasibilityCheck(solverSolution.getBestSolution());
             Utils.writeObjectToJson(solverSolution, file.getPath());
+            GlobalRandom.close();
         }
     }
 
@@ -108,7 +115,7 @@ class AlphaGeneratorWrapper {
         if (type.equals("Fixed")) {
             return new AlphaGeneratorConstant(alpha);
         }
-        return new AlphaGeneratorUniform(new Random(), minAlpha, maxAlpha);
+        return new AlphaGeneratorUniform(minAlpha, maxAlpha);
     }
 }
 
@@ -118,7 +125,7 @@ class ConsoleConfigLoop {
     public List<SearchMode> searchModes;
     public List<String> localSearchMoves;
     public List<AlphaGeneratorWrapper> alphaGeneratorOptions;
-    public List<Double> localSearchRandomProbabilities;
+    public List<Double> neighborhoodSkipProbabilities;
     public int timeLimit;
     public int randomRunN;
     public String outputDirectory;
@@ -131,7 +138,7 @@ class ConsoleConfigLoop {
                         + instancePaths.size()
                                 * searchModes.size()
                                 * alphaGeneratorOptions.size()
-                                * localSearchRandomProbabilities.size()
+                        * neighborhoodSkipProbabilities.size()
                                 * timeLimit
                                 * randomRunN
                                 / 60
@@ -141,7 +148,7 @@ class ConsoleConfigLoop {
         for (var instancePath : instancePaths) {
             for (var searchMode : searchModes) {
                 for (var alphaGeneratorWrapper : alphaGeneratorOptions) {
-                    for (var localSearchRandomProbability : localSearchRandomProbabilities) {
+                    for (var localSearchRandomProbability : neighborhoodSkipProbabilities) {
                         for (int randomRun = 0; randomRun < randomRunN; randomRun++) {
                             var constructiveHeuristicSettings =
                                     new ConstructiveHeuristicSettings(0.5, 2);
@@ -155,7 +162,6 @@ class ConsoleConfigLoop {
                                             timeLimit,
                                             localSearchSettings,
                                             constructiveHeuristicSettings,
-                                            new Random(),
                                             alphaGeneratorWrapper.getAlphaGenerator(),
                                             randomRun,
                                             instancePath);

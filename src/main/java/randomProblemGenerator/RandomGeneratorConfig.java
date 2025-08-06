@@ -2,12 +2,10 @@ package randomProblemGenerator;
 
 import data.enums.ATTENTION;
 import data.enums.PRICING_TYPE;
-
 import org.apache.commons.math3.distribution.BinomialDistribution;
 
 import java.util.List;
 import java.util.Map;
-import java.util.Random;
 
 public final class RandomGeneratorConfig {
     private final int seed;
@@ -30,7 +28,6 @@ public final class RandomGeneratorConfig {
     private final List<Integer> audienceTypes;
 
     public RandomGeneratorConfig(
-            Random rand,
             int seed,
             int nInventory,
             int nHours,

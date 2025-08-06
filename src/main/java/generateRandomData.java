@@ -1,5 +1,4 @@
 import org.apache.commons.math3.util.Pair;
-
 import randomProblemGenerator.DistributionsJsonLoader;
 import randomProblemGenerator.RandomProblemGenerator;
 

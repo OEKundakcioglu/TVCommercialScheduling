@@ -1,19 +1,19 @@
 package solvers.heuristicSolvers.grasp.localSearch;
 
-import data.Solution;
-import solvers.heuristicSolvers.grasp.localSearch.move.InsertMove;
 import data.ProblemParameters;
+import data.Solution;
+import solvers.GlobalRandom;
+import solvers.heuristicSolvers.grasp.localSearch.move.InsertMove;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Random;
 
 @SuppressWarnings("DuplicatedCode")
 public class InsertSearch extends BaseSearch {
     private final double[] totalCommercialDurationOfHour;
 
-    public InsertSearch(Solution currentSolution, ProblemParameters parameters, boolean getAllNeighborhood, SearchMode searchMode, Random random) throws Exception {
-        super(currentSolution, parameters, getAllNeighborhood, searchMode, random);
+    public InsertSearch(Solution currentSolution, ProblemParameters parameters, boolean getAllNeighborhood, SearchMode searchMode) throws Exception {
+        super(currentSolution, parameters, getAllNeighborhood, searchMode);
         this.totalCommercialDurationOfHour = new double[parameters.getSetOfHours().size() + 1];
         for (var solutionDataList : currentSolution.solution) {
             if (solutionDataList.isEmpty()) continue;
@@ -37,7 +37,7 @@ public class InsertSearch extends BaseSearch {
             }
         }
 
-        Collections.shuffle(unassignedCommercials, random);
+        Collections.shuffle(unassignedCommercials, GlobalRandom.getRandom());
 
         for (var commercial : unassignedCommercials) {
             for (var inventory : super.getShuffledList(commercial.getSetOfSuitableInv())) {
@@ -64,7 +64,7 @@ public class InsertSearch extends BaseSearch {
             }
         }
 
-        Collections.shuffle(unassignedCommercials, random);
+        Collections.shuffle(unassignedCommercials, GlobalRandom.getRandom());
 
         for (var commercial : unassignedCommercials) {
             for (var inventory : commercial.getSetOfSuitableInv()) {

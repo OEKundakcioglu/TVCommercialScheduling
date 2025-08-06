@@ -2,10 +2,13 @@ package solvers.heuristicSolvers.grasp.localSearch;
 
 import data.ProblemParameters;
 import data.Solution;
-
+import solvers.GlobalRandom;
 import solvers.heuristicSolvers.grasp.localSearch.move.IMove;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.List;
 
 public abstract class BaseSearch {
     protected final List<IMove> neighborhood;
@@ -14,7 +17,6 @@ public abstract class BaseSearch {
     protected ProblemParameters parameters;
     protected boolean getAllNeighborhood;
     protected SearchMode searchMode;
-    protected Random random;
 
     public static int moveCount = 0;
 
@@ -22,9 +24,7 @@ public abstract class BaseSearch {
             Solution currentSolution,
             ProblemParameters parameters,
             boolean getAllNeighborhood,
-            SearchMode searchMode,
-            Random random) {
-        this.random = random;
+            SearchMode searchMode) {
 
         this.currentSolution = currentSolution;
         this.parameters = parameters;
@@ -58,7 +58,7 @@ public abstract class BaseSearch {
 
     protected <T> List<T> getShuffledList(Collection<T> list) {
         var shuffledList = new ArrayList<>(list);
-        Collections.shuffle(shuffledList, random);
+        Collections.shuffle(shuffledList, GlobalRandom.getRandom());
         return shuffledList;
     }
 
@@ -67,7 +67,7 @@ public abstract class BaseSearch {
         for (var i = start; i < excludedEnd; i++) {
             shuffledList.add(i);
         }
-        Collections.shuffle(shuffledList, random);
+        Collections.shuffle(shuffledList, GlobalRandom.getRandom());
         return shuffledList;
     }
 }

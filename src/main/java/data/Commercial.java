@@ -1,13 +1,15 @@
 package data;
 
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-
 import data.enums.ATTENTION;
 import data.enums.PRICING_TYPE;
 import data.serializers.CommercialSerializer;
 import data.serializers.JsonSerializableObject;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 @JsonSerialize(using = CommercialSerializer.class)
 public class Commercial extends JsonSerializableObject {

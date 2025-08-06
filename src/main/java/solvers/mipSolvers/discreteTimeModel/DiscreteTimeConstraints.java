@@ -4,7 +4,6 @@ import com.gurobi.gurobi.GRB;
 import com.gurobi.gurobi.GRBException;
 import com.gurobi.gurobi.GRBLinExpr;
 import com.gurobi.gurobi.GRBModel;
-
 import data.Commercial;
 import data.Inventory;
 import data.ProblemParameters;
@@ -32,7 +31,7 @@ public class DiscreteTimeConstraints {
         DiscreteTimeConstraints.setHourlyDurationConstraint(
                 problemParameters, model, variables, feasibleTimePoints);
         DiscreteTimeConstraints.setNoIdleTime(
-                problemParameters, model, variables, feasibleTimePoints);
+                problemParameters, model, variables);
         DiscreteTimeConstraints.setLastAttentionConstraint(
                 problemParameters, model, variables, feasibleTimePoints);
     }
@@ -45,7 +44,6 @@ public class DiscreteTimeConstraints {
             throws GRBException {
         System.out.println("Setting last attention constraint");
 
-        int count = 0;
         for (var commercial : problemParameters.getSetOfLastCommercials()) {
             for (var inventory : commercial.getSetOfSuitableInv()) {
                 if (commercial.getAttentionMap().get(inventory) != ATTENTION.LAST) continue;
@@ -67,7 +65,6 @@ public class DiscreteTimeConstraints {
 
                     model.addConstr(lhs, GRB.LESS_EQUAL, rhs, "lastAttentionConstraint");
 
-                    count++;
                 }
             }
         }
@@ -184,8 +181,7 @@ public class DiscreteTimeConstraints {
     private static void setNoIdleTime(
             ProblemParameters problemParameters,
             GRBModel model,
-            DiscreteTimeVariables variables,
-            Map<Commercial, Map<Inventory, List<Integer>>> feasibleTimePoints)
+            DiscreteTimeVariables variables)
             throws GRBException {
         for (var inventory : problemParameters.getSetOfInventories()) {
             for (var t = 0; t <= inventory.getDuration(); t++) {

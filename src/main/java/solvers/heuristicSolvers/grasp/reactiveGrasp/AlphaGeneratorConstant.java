@@ -17,9 +17,4 @@ public class AlphaGeneratorConstant implements AlphaGenerator {
                 this.alpha
         );
     }
-
-    @Override
-    public int hashCode() {
-        return String.format("Constant_alpha_%f", this.alpha).hashCode();
-    }
 }

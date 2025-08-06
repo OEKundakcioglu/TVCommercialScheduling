@@ -1,15 +1,13 @@
 package solvers.heuristicSolvers.grasp.localSearch;
 
+import data.ProblemParameters;
 import data.Solution;
 import solvers.heuristicSolvers.grasp.localSearch.move.IntraSwapMove;
-import data.ProblemParameters;
-
-import java.util.Random;
 
 public class IntraSwapSearch extends BaseSearch {
 
-    public IntraSwapSearch(Solution currentSolution, ProblemParameters parameters, boolean getAllNeighborhood, SearchMode searchMode, Random random) throws Exception {
-        super(currentSolution, parameters, getAllNeighborhood, searchMode, random);
+    public IntraSwapSearch(Solution currentSolution, ProblemParameters parameters, boolean getAllNeighborhood, SearchMode searchMode) throws Exception {
+        super(currentSolution, parameters, getAllNeighborhood, searchMode);
 
         if (searchMode == SearchMode.FIRST_IMPROVEMENT) this.firstImprovingSearch();
         else if(searchMode == SearchMode.BEST_IMPROVEMENT) this.bestImprovingSearch();

@@ -9,17 +9,10 @@ public record BeeColonySettings(
         int n,
         String instancePath) {
 
-    public int getSeed() {
+    public String getStringIdentifier() {
         return String.format(
-                        "%d_%f_%d_%f_%d_%s",
-                        populationSize, alpha, nIter, T0, n, instancePath)
-                .hashCode();
-    }
-
-    private String getStringIdentifier() {
-        return String.format(
-                "%d_%d_%f_%d_%f_%d",
-                timeLimit, populationSize, alpha, nIter, T0, n);
+                "%d_%f_%d_%f_%d",
+                populationSize, alpha, nIter, T0, n);
     }
 
     public String getOutputDirPath(String dirName){

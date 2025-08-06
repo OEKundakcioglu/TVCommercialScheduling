@@ -3,7 +3,6 @@ package data.serializers;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.databind.JsonSerializer;
 import com.fasterxml.jackson.databind.SerializerProvider;
-
 import data.Commercial;
 import data.enums.ATTENTION;
 import data.enums.PRICING_TYPE;

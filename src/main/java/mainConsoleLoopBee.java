@@ -1,13 +1,11 @@
 import com.beust.jcommander.JCommander;
 import com.beust.jcommander.Parameter;
 import com.beust.jcommander.Parameters;
-
 import data.ProblemParameters;
 import data.Utils;
 import data.problemBuilders.JsonParser;
-
 import org.yaml.snakeyaml.Yaml;
-
+import solvers.GlobalRandom;
 import solvers.heuristicSolvers.beeColonyYu.BeeColonyAlgorithm;
 import solvers.heuristicSolvers.beeColonyYu.BeeColonySettings;
 import solvers.heuristicSolvers.beeColonyYu.OrienteeringData;
@@ -71,6 +69,14 @@ public class mainConsoleLoopBee {
                 continue;
             }
 
+            System.out.println(
+                    "Running Bee Colony Algorithm for "
+                            + loopSetUp.instancePath()
+                            + " with settings: "
+                            + loopSetUp.getStringIdentifier()
+                              );
+
+            GlobalRandom.init();
             var beeColonyAlgorithm =
                     new BeeColonyAlgorithm(orienteeringData, loopSetUp, parameters);
 
@@ -85,6 +91,8 @@ public class mainConsoleLoopBee {
 
             Utils.feasibilityCheck(solverSolution.getBestSolution());
             Utils.writeObjectToJson(solverSolution, outputFile.getPath());
+
+            GlobalRandom.close();
         }
     }
 
@@ -122,7 +130,7 @@ class BeeConsoleConfig {
 
     public List<BeeColonySettings> getLoopSetups() {
         var loopSetups = new ArrayList<BeeColonySettings>();
-
+        System.out.println(randomRunN);
         for (var instancePath : instancePaths) {
             for (var T0 : T0Options) {
                 for (var alpha : alphaOptions) {

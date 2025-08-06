@@ -1,17 +1,14 @@
 package solvers.heuristicSolvers.beeColonyYu.localSearch;
 
+import solvers.GlobalRandom;
 import solvers.heuristicSolvers.beeColonyYu.BeeColonySolution;
 import solvers.heuristicSolvers.beeColonyYu.BeeColonyUtils;
 
-import java.util.Random;
-
 public class InsertMove implements IMove {
     private final BeeColonyUtils beeColonyUtils;
-    private final Random random;
 
-    public InsertMove(BeeColonyUtils beeColonyUtils, Random random) {
+    public InsertMove(BeeColonyUtils beeColonyUtils) {
         this.beeColonyUtils = beeColonyUtils;
-        this.random = random;
     }
 
     public BeeColonySolution apply(BeeColonySolution solution) {
@@ -36,7 +33,7 @@ public class InsertMove implements IMove {
 
     private BeeColonySolution random(BeeColonySolution solution) {
         var randoms =
-                random.ints(0, solution.getSolutionString().length).distinct().limit(2).toArray();
+                GlobalRandom.getRandom().ints(0, solution.getSolutionString().length).distinct().limit(2).toArray();
 
         return apply(solution, randoms[0], randoms[1]);
     }

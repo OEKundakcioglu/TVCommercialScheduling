@@ -1,10 +1,5 @@
 package solvers.heuristicSolvers.beeColonyYu;
 
-import data.Solution;
-import data.SolutionData;
-
-import java.util.ArrayList;
-
 public class BeeColonySolution {
     private final int[] solutionString;
     private final double fitness;

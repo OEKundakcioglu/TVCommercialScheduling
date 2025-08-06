@@ -1,12 +1,12 @@
 package solvers.heuristicSolvers.beeColonyYu;
 
+import data.ProblemParameters;
+import data.Solution;
+import data.SolutionData;
 import solvers.heuristicSolvers.beeColonyYu.data.Customer;
 import solvers.heuristicSolvers.beeColonyYu.data.Depot;
 import solvers.heuristicSolvers.beeColonyYu.data.Node;
 import solvers.heuristicSolvers.beeColonyYu.data.Vehicle;
-import data.Solution;
-import data.SolutionData;
-import data.ProblemParameters;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,8 +28,8 @@ public class BeeColonyUtils {
         var vehicle = orienteeringData.getVehicles().getFirst();
         Node node = orienteeringData.getDepot();
         var time = 0;
-        for (var i = 0; i < solutionString.length; i++) {
-            var currentNode = orienteeringData.getNodes().get(solutionString[i]);
+        for (int j : solutionString) {
+            var currentNode = orienteeringData.getNodes().get(j);
             if (currentNode instanceof Depot) {
                 time = 0;
                 int nextVehicleId = vehicle.id() + 1;
@@ -56,6 +56,7 @@ public class BeeColonyUtils {
         return fitness;
     }
 
+    @SuppressWarnings("RedundantIfStatement")
     private boolean isExclude(int time, Node from, Customer customer, Vehicle vehicle, int hourUtilization) {
         if (hourUtilization + customer.getServiceTime() > 720) return true;
         if (Double.isInfinite(from.distanceTo(customer, vehicle))) return true;
@@ -80,7 +81,7 @@ public class BeeColonyUtils {
 
     public Solution toSolution(BeeColonySolution beeColonySolution) {
         var solutionDataList = new ArrayList<List<SolutionData>>();
-        for (var vehicle : orienteeringData.getVehicles()) {
+        for (var ignored : orienteeringData.getVehicles()) {
             solutionDataList.add(new ArrayList<>());
         }
         int[] hourUtilizations = new int[orienteeringData.getHours().length];

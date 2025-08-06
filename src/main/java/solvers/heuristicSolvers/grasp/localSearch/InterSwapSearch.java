@@ -4,16 +4,13 @@ import data.Commercial;
 import data.Inventory;
 import data.ProblemParameters;
 import data.Solution;
-
 import solvers.heuristicSolvers.grasp.localSearch.move.InterSwapMove;
-
-import java.util.Random;
 
 public class InterSwapSearch extends BaseSearch{
     private final double[] totalCommercialDurationOfHour;
 
-    InterSwapSearch(Solution currentSolution, ProblemParameters parameters, boolean getAllNeighborhood, SearchMode searchMode, Random random) throws Exception {
-        super(currentSolution, parameters, getAllNeighborhood, searchMode, random);
+    InterSwapSearch(Solution currentSolution, ProblemParameters parameters, boolean getAllNeighborhood, SearchMode searchMode) throws Exception {
+        super(currentSolution, parameters, getAllNeighborhood, searchMode);
 
         this.totalCommercialDurationOfHour = new double[parameters.getSetOfHours().size() + 1];
         for (var solutionDataList : currentSolution.solution) {

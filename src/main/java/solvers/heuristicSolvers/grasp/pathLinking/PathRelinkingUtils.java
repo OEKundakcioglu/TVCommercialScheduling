@@ -1,25 +1,16 @@
 package solvers.heuristicSolvers.grasp.pathLinking;
 
 import data.Solution;
-
-import runParameters.LocalSearchSettings;
-
+import solvers.GlobalRandom;
 import solvers.heuristicSolvers.grasp.localSearch.move.IMove;
 import solvers.heuristicSolvers.grasp.localSearch.move.InsertMove;
 import solvers.heuristicSolvers.grasp.localSearch.move.RemoveMove;
 import solvers.heuristicSolvers.grasp.localSearch.move.TransferMove;
 
-import java.util.Random;
+import java.util.ArrayList;
 
-@SuppressWarnings({"DuplicatedCode", "SpellCheckingInspection"})
+@SuppressWarnings({"DuplicatedCode"})
 public class PathRelinkingUtils {
-    private final Random random;
-    private final LocalSearchSettings localSearchSettings;
-
-    public PathRelinkingUtils(Random random, LocalSearchSettings localSearchSettings) {
-        this.random = random;
-        this.localSearchSettings = localSearchSettings;
-    }
 
     public int distance(Solution solution1, Solution solution2) {
         int numberOfCommercialsInDifferentInventories = 0;
@@ -33,12 +24,9 @@ public class PathRelinkingUtils {
         while (i < solution1Datas.length && j < solution2Datas.length) {
             var solution1Data = solution1Datas[i];
             var solution2Data = solution2Datas[j];
-            if (solution1Data == null) {
-                i++;
-                continue;
-            }
-            if (solution2Data == null) {
-                j++;
+            if (solution1Data == null || solution2Data == null) {
+                if (solution1Data == null) i++;
+                if (solution2Data == null) j++;
                 continue;
             }
 
@@ -72,26 +60,18 @@ public class PathRelinkingUtils {
             Solution currentSolution,
             Solution guidingSolution,
             double[] totalCommercialDurationOfHour) {
-        IMove bestMove = null;
-        var bestRevenueGain = Double.NEGATIVE_INFINITY;
-
-        IMove randomMove = null;
-        int count = 0;
-
         var solution1Datas = currentSolution.getSortedSolutionData();
         var solution2Datas = guidingSolution.getSortedSolutionData();
+
+        var moves = new ArrayList<IMove>();
 
         int i = 0, j = 0;
         while (i < solution1Datas.length && j < solution2Datas.length) {
             var solution1Data = solution1Datas[i];
             var solution2Data = solution2Datas[j];
-
-            if (solution1Data == null) {
-                i++;
-                continue;
-            }
-            if (solution2Data == null) {
-                j++;
+            if (solution1Data == null || solution2Data == null) {
+                if (solution1Data == null) i++;
+                if (solution2Data == null) j++;
                 continue;
             }
 
@@ -115,13 +95,7 @@ public class PathRelinkingUtils {
                                         k,
                                         totalCommercialDurationOfHour);
                         if (move.checkFeasibility()) {
-                            count++;
-                            if (random.nextInt(count) == 0) randomMove = move;
-
-                            if (move.calculateRevenueGain() > bestRevenueGain) {
-                                bestRevenueGain = move.calculateRevenueGain();
-                                bestMove = move;
-                            }
+                            moves.add(move);
                         }
                     }
                 }
@@ -138,13 +112,7 @@ public class PathRelinkingUtils {
                                 solution1Data.getInventory(),
                                 solution1Data.getPosition());
                 if (move.checkFeasibility()) {
-                    count++;
-                    if (random.nextInt(count) == 0) randomMove = move;
-
-                    if (move.calculateRevenueGain() > bestRevenueGain) {
-                        bestRevenueGain = move.calculateRevenueGain();
-                        bestMove = move;
-                    }
+                    moves.add(move);
                 }
                 i++;
             }
@@ -166,13 +134,7 @@ public class PathRelinkingUtils {
                                     k,
                                     totalCommercialDurationOfHour);
                     if (move.checkFeasibility()) {
-                        count++;
-                        if (random.nextInt(count) == 0) randomMove = move;
-
-                        if (move.calculateRevenueGain() > bestRevenueGain) {
-                            bestRevenueGain = move.calculateRevenueGain();
-                            bestMove = move;
-                        }
+                        moves.add(move);
                     }
                 }
                 j++;
@@ -190,13 +152,7 @@ public class PathRelinkingUtils {
                                 solutionData.getInventory(),
                                 solutionData.getPosition());
                 if (move.checkFeasibility()) {
-                    count++;
-                    if (random.nextInt(count) == 0) randomMove = move;
-
-                    if (move.calculateRevenueGain() > bestRevenueGain) {
-                        bestRevenueGain = move.calculateRevenueGain();
-                        bestMove = move;
-                    }
+                    moves.add(move);
                 }
             }
         }
@@ -217,22 +173,13 @@ public class PathRelinkingUtils {
                                     l,
                                     totalCommercialDurationOfHour);
                     if (move.checkFeasibility()) {
-                        count++;
-                        if (random.nextInt(count) == 0) randomMove = move;
-
-                        if (move.calculateRevenueGain() > bestRevenueGain) {
-                            bestRevenueGain = move.calculateRevenueGain();
-                            bestMove = move;
-                        }
+                        moves.add(move);
                     }
                 }
             }
         }
+        if (moves.isEmpty()) return null;
 
-//        if (random.nextDouble() < localSearchSettings.randomMoveProbability) {
-//            return randomMove;
-//        }
-
-        return bestMove;
+        return moves.get(GlobalRandom.getRandom().nextInt(moves.size()));
     }
 }

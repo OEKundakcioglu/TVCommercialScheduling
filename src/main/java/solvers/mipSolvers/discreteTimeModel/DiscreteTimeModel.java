@@ -3,13 +3,14 @@ package solvers.mipSolvers.discreteTimeModel;
 import com.gurobi.gurobi.GRB;
 import com.gurobi.gurobi.GRBException;
 import com.gurobi.gurobi.GRBModel;
-
 import data.*;
 import data.enums.ATTENTION;
-
 import solvers.mipSolvers.BaseModel;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.stream.IntStream;
 
 @SuppressWarnings("FieldCanBeLocal")
@@ -104,7 +105,7 @@ public class DiscreteTimeModel extends BaseModel {
         if (model.get(GRB.IntAttr.SolCount) == 0) return new Solution(List.of());
 
         var solutionDataList = new ArrayList<List<SolutionData>>();
-        for (var inv : parameters.getSetOfInventories()){
+        for (var ignored : parameters.getSetOfInventories()){
             solutionDataList.add(new ArrayList<>());
         }
 

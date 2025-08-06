@@ -2,10 +2,8 @@ package randomProblemGenerator;
 
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
-
 import data.enums.ATTENTION;
 import data.enums.PRICING_TYPE;
-
 import org.apache.commons.math3.distribution.BinomialDistribution;
 import org.apache.commons.math3.random.JDKRandomGenerator;
 
@@ -50,7 +48,6 @@ public class DistributionsJsonLoader {
         loadSuitableInvDistribution();
 
         return new RandomGeneratorConfig(
-                random,
                 seed,
                 nInventory,
                 nHours,

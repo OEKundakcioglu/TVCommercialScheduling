@@ -1,14 +1,10 @@
 import com.beust.jcommander.JCommander;
 import com.beust.jcommander.Parameter;
 import com.beust.jcommander.Parameters;
-
 import data.Utils;
 import data.problemBuilders.JsonParser;
-
 import org.yaml.snakeyaml.Yaml;
-
 import runParameters.MipRunSettings;
-
 import solvers.mipSolvers.BaseModel;
 import solvers.mipSolvers.ModelSolver;
 import solvers.mipSolvers.continuousTimeModel.ContinuousTimeModel;

@@ -98,7 +98,7 @@ public class InterSwapMove implements IMove {
         var newSolutionData2StartTime = c1SolutionData.getStartTime();
         newSolutionData2.update(i1, newSolutionData2Revenue, newSolutionData2StartTime, n1);
 
-        newSolution.revenue += calculateRevenueGain();
+        newSolution.revenue += (int) calculateRevenueGain();
 
         if (LoopSetup.isDebug) Utils.feasibilityCheck(newSolution);
 
@@ -144,12 +144,12 @@ public class InterSwapMove implements IMove {
     public boolean checkFeasibility(){
         if (isFeasibilityChecked) return isFeasible;
 
-        if (!generalCheck()){
+        if (!conditionalCheck()) {
             isFeasible = false;
             return false;
         }
 
-        if (!conditionalCheck()){
+        if (!generalCheck()) {
             isFeasible = false;
             return false;
         }
@@ -160,16 +160,22 @@ public class InterSwapMove implements IMove {
     }
 
     private boolean generalCheck(){
-        for (var n = n1 + 1; n <= lastIndexOfInventory1; n++){
-            var solutionData = solutionDataList1.get(n);
-            if (!MoveUtils.isAttentionSatisfied(
-                    solutionData.getCommercial(),
-                    i1,
-                    n,
-                    solutionData.getStartTime() + (c2.getDuration() - c1.getDuration()),
-                    lastIndexOfInventory1
-            )) return false;
-        }
+        var doesNotExceedDuration = solutionDataList1.get(lastIndexOfInventory1).getEndTime()
+                + (c2.getDuration() - c1.getDuration()) <= i1.getDuration();
+
+        if (!doesNotExceedDuration) return false;
+
+        if (!MoveUtils.isGroupConstraintsSatisfied(
+                n1 - 1 >= 0 ? solutionDataList1.get(n1 - 1).getCommercial() : null,
+                c2,
+                n1 + 1 <= lastIndexOfInventory1 ? solutionDataList1.get(n1 + 1).getCommercial() : null
+                                                  )) return false;
+
+        if (!MoveUtils.isGroupConstraintsSatisfied(
+                n2 - 1 >= 0 ? solutionDataList2.get(n2 - 1).getCommercial() : null,
+                c1,
+                n2 + 1 <= lastIndexOfInventory2 ? solutionDataList2.get(n2 + 1).getCommercial() : null
+                                                  )) return false;
 
         if (!MoveUtils.isAttentionSatisfied(
                 c1,
@@ -177,7 +183,7 @@ public class InterSwapMove implements IMove {
                 n2,
                 c2SolutionData.getStartTime(),
                 lastIndexOfInventory2
-        )) return false;
+                                           )) return false;
 
         if (!MoveUtils.isAttentionSatisfied(
                 c2,
@@ -185,24 +191,18 @@ public class InterSwapMove implements IMove {
                 n1,
                 c1SolutionData.getStartTime(),
                 lastIndexOfInventory1
-        )) return false;
+                                           )) return false;
 
-        if (!MoveUtils.isGroupConstraintsSatisfied(
-                n1 - 1 >= 0 ? solutionDataList1.get(n1 - 1).getCommercial() : null,
-                c2,
-                n1 + 1 <= lastIndexOfInventory1 ? solutionDataList1.get(n1 + 1).getCommercial() : null
-        )) return false;
-
-        if (!MoveUtils.isGroupConstraintsSatisfied(
-                n2 - 1 >= 0 ? solutionDataList2.get(n2 - 1).getCommercial() : null,
-                c1,
-                n2 + 1 <= lastIndexOfInventory2 ? solutionDataList2.get(n2 + 1).getCommercial() : null
-        )) return false;
-
-        var doesNotExceedDuration = solutionDataList1.get(lastIndexOfInventory1).getEndTime()
-                + (c2.getDuration() - c1.getDuration()) <= i1.getDuration();
-
-        if (!doesNotExceedDuration) return false;
+        for (var n = n1 + 1; n <= lastIndexOfInventory1; n++) {
+            var solutionData = solutionDataList1.get(n);
+            if (!MoveUtils.isAttentionSatisfied(
+                    solutionData.getCommercial(),
+                    i1,
+                    n,
+                    solutionData.getStartTime() + (c2.getDuration() - c1.getDuration()),
+                    lastIndexOfInventory1
+                                               )) return false;
+        }
 
         return true;
     }

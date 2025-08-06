@@ -1,18 +1,18 @@
 package solvers.heuristicSolvers.grasp.localSearch;
 
-import data.Solution;
-import solvers.heuristicSolvers.grasp.localSearch.move.OutOfPoolSwapMove;
 import data.ProblemParameters;
+import data.Solution;
+import solvers.GlobalRandom;
+import solvers.heuristicSolvers.grasp.localSearch.move.OutOfPoolSwapMove;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Random;
 
 public class OutOfPoolSwapSearch extends BaseSearch {
     private final double[] totalCommercialDurationOfHour;
 
-    public OutOfPoolSwapSearch(Solution currentSolution, ProblemParameters parameters, boolean getAllNeighborhood, SearchMode searchMode, Random random) throws Exception {
-        super(currentSolution, parameters, getAllNeighborhood, searchMode, random);
+    public OutOfPoolSwapSearch(Solution currentSolution, ProblemParameters parameters, boolean getAllNeighborhood, SearchMode searchMode) throws Exception {
+        super(currentSolution, parameters, getAllNeighborhood, searchMode);
         this.totalCommercialDurationOfHour = new double[parameters.getSetOfHours().size() + 1];
         for (var solutionDataList : currentSolution.solution) {
             if (solutionDataList.isEmpty()) continue;
@@ -36,7 +36,7 @@ public class OutOfPoolSwapSearch extends BaseSearch {
             }
         }
 
-        Collections.shuffle(unassignedCommercials, random);
+        Collections.shuffle(unassignedCommercials, GlobalRandom.getRandom());
 
         for (var commercial : unassignedCommercials) {
             for (var inventory : super.getShuffledList(commercial.getSetOfSuitableInv())) {
@@ -63,7 +63,7 @@ public class OutOfPoolSwapSearch extends BaseSearch {
             }
         }
 
-        Collections.shuffle(unassignedCommercials, random);
+        Collections.shuffle(unassignedCommercials, GlobalRandom.getRandom());
 
         for (var commercial : unassignedCommercials) {
             for (var inventory : commercial.getSetOfSuitableInv()) {
