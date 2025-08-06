@@ -30,6 +30,7 @@ public class LoopSetup {
 
     public String getOutputDirPath(String dirName) {
         var instanceName = instancePath.split("/")[instancePath.split("/").length - 1];
+        instanceName = instanceName.replace(".json", "");
 
         return String.format(
                 "%s/%s/%s", dirName, instanceName, graspSettings.getStringIdentifier());
