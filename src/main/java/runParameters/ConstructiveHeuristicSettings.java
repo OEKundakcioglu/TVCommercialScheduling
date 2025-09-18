@@ -9,7 +9,7 @@ public record ConstructiveHeuristicSettings(
     @SuppressWarnings("unused")
     public String getStringIdentifier(){
         return String.format(
-                "lowerBound_%f_upperBound_%f",
+                "lowerBound=%.2f_upperBound=%.2f",
                 this.lowerBound,
                 this.upperBound
         );

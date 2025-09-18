@@ -13,6 +13,6 @@ public class LocalSearchSettings {
 
     @SuppressWarnings("unused")
     public String getStringIdentifier() {
-        return "neighborhoodSkipProbability_" + neighborhoodSkipProbability;
+        return "neighborhoodSkipProbability=" + neighborhoodSkipProbability;
     }
 }

@@ -10,13 +10,15 @@ public record BeeColonySettings(
         String instancePath) {
 
     public String getStringIdentifier() {
+
+
         return String.format(
                 "%d_%f_%d_%f_%d",
                 populationSize, alpha, nIter, T0, n);
     }
 
     public String getOutputDirPath(String dirName){
-        var instanceName = instancePath.split("/")[instancePath.split("/").length - 1];
+        var instanceName = instancePath.split("/")[instancePath.split("/").length - 1].replace(".json", "");
 
         return String.format("%s/%s/%s",
                 dirName,

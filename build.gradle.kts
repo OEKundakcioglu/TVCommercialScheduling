@@ -173,3 +173,146 @@ tasks.register<JavaExec>("runMip") {
     }
 }
 
+tasks.register<JavaExec>("runGrasp") {
+    mainClass.set("mainGraspRun")
+    classpath = sourceSets["main"].runtimeClasspath
+
+    doFirst {
+        // Collect all properties passed from the command line
+        val argsList = mutableListOf<String>()
+
+        if (project.hasProperty("instancePath")) {
+            argsList.add("--instancePath=${project.property("instancePath")}")
+        }
+
+        if (project.hasProperty("outputPath")) {
+            argsList.add("--outputPath=${project.property("outputPath")}")
+        }
+
+        if (project.hasProperty("timeLimit")) {
+            argsList.add("--timeLimit=${project.property("timeLimit")}")
+        }
+
+        if (project.hasProperty("searchMode")) {
+            argsList.add("--searchMode=${project.property("searchMode")}")
+        }
+
+        if (project.hasProperty("alphaType")) {
+            argsList.add("--alphaType=${project.property("alphaType")}")
+        }
+
+        if (project.hasProperty("alpha")) {
+            argsList.add("--alpha=${project.property("alpha")}")
+        }
+
+        if (project.hasProperty("minAlpha")) {
+            argsList.add("--minAlpha=${project.property("minAlpha")}")
+        }
+
+        if (project.hasProperty("maxAlpha")) {
+            argsList.add("--maxAlpha=${project.property("maxAlpha")}")
+        }
+
+        if (project.hasProperty("skipProbability")) {
+            argsList.add("--skipProbability=${project.property("skipProbability")}")
+        }
+
+        if (project.hasProperty("seed")) {
+            argsList.add("--seed=${project.property("seed")}")
+        }
+
+        if (project.hasProperty("verbose")) {
+            argsList.add("--verbose=${project.property("verbose")}")
+        }
+
+        // Print the arguments to the console
+        println("Running GRASP with arguments: ${argsList.joinToString(" ")}")
+
+        args = argsList
+    }
+}
+
+tasks.register<JavaExec>("runMipSolver") {
+    mainClass.set("mainMipRun")
+    classpath = sourceSets["main"].runtimeClasspath
+
+    doFirst {
+        val argsList = mutableListOf<String>()
+
+        if (project.hasProperty("instancePath")) {
+            argsList.add("--instancePath=${project.property("instancePath")}")
+        }
+
+        if (project.hasProperty("outputPath")) {
+            argsList.add("--outputPath=${project.property("outputPath")}")
+        }
+
+        if (project.hasProperty("modelType")) {
+            argsList.add("--modelType=${project.property("modelType")}")
+        }
+
+        if (project.hasProperty("checkPointTimes")) {
+            argsList.add("--checkPointTimes=${project.property("checkPointTimes")}")
+        }
+
+        if (project.hasProperty("logPath")) {
+            argsList.add("--logPath=${project.property("logPath")}")
+        }
+
+        if (project.hasProperty("verbose")) {
+            argsList.add("--verbose=${project.property("verbose")}")
+        }
+
+        println("Running MIP Solver with arguments: ${argsList.joinToString(" ")}")
+        args = argsList
+    }
+}
+
+tasks.register<JavaExec>("runBeeColony") {
+    mainClass.set("mainBeeColonyRun")
+    classpath = sourceSets["main"].runtimeClasspath
+
+    doFirst {
+        val argsList = mutableListOf<String>()
+
+        if (project.hasProperty("instancePath")) {
+            argsList.add("--instancePath=${project.property("instancePath")}")
+        }
+
+        if (project.hasProperty("outputPath")) {
+            argsList.add("--outputPath=${project.property("outputPath")}")
+        }
+
+        if (project.hasProperty("timeLimit")) {
+            argsList.add("--timeLimit=${project.property("timeLimit")}")
+        }
+
+        if (project.hasProperty("populationSize")) {
+            argsList.add("--populationSize=${project.property("populationSize")}")
+        }
+
+        if (project.hasProperty("alpha")) {
+            argsList.add("--alpha=${project.property("alpha")}")
+        }
+
+        if (project.hasProperty("nIter")) {
+            argsList.add("--nIter=${project.property("nIter")}")
+        }
+
+        if (project.hasProperty("T0")) {
+            argsList.add("--T0=${project.property("T0")}")
+        }
+
+        if (project.hasProperty("seed")) {
+            argsList.add("--seed=${project.property("seed")}")
+        }
+
+        if (project.hasProperty("verbose")) {
+            argsList.add("--verbose=${project.property("verbose")}")
+        }
+
+        println("Running Bee Colony with arguments: ${argsList.joinToString(" ")}")
+        args = argsList
+    }
+}
+

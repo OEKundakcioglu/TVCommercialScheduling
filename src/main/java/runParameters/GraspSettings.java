@@ -47,15 +47,19 @@ public class GraspSettings {
     }
 
     public String getStringIdentifier() {
-        return String.format(
-                "isBestMove=%s_timeLimit=%ds_alphaGenerator=%s_localSearch=%s_constructiveHeuristic=%s_randomRun=%d",
-                searchMode,
-                timeLimit,
-                alphaGenerator.getStringIdentifier(),
-                localSearchSettings.getStringIdentifier(),
-                constructiveHeuristicSettings.getStringIdentifier(),
-                randomRunN
-        );
+
+        String sb = "isBestMove=" + searchMode +
+                "/" +
+                "timeLimit=" + timeLimit +
+                "/" +
+                "alphaGenerator=" + alphaGenerator.getStringIdentifier() +
+                "/" +
+                "localSearch=" + localSearchSettings.getStringIdentifier() +
+                "/" +
+                "constructiveHeuristic=" + constructiveHeuristicSettings.getStringIdentifier() +
+                "/" +
+                "randomRun=" + randomRunN;
+        return sb;
     }
 
 }

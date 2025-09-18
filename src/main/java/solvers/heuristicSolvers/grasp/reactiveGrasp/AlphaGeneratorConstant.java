@@ -13,7 +13,7 @@ public class AlphaGeneratorConstant implements AlphaGenerator {
 
     public String getStringIdentifier(){
         return String.format(
-                "Constant_alpha_%f",
+                "Constant_alpha=%.2f",
                 this.alpha
         );
     }

@@ -17,7 +17,7 @@ public class AlphaGeneratorUniform implements AlphaGenerator {
 
     public String getStringIdentifier(){
         return String.format(
-                "Uniform_lowerBound_%f_upperBound_%f",
+                "Uniform_lowerBound=%f_upperBound=%f",
                 this.lowerBound,
                 this.upperBound
         );
