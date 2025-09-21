@@ -12,6 +12,8 @@ import solvers.heuristicSolvers.beeColonyYu.OrienteeringData;
 import solvers.heuristicSolvers.beeColonyYu.ReduceProblemToVRP;
 
 import java.io.File;
+import java.io.FileOutputStream;
+import java.io.PrintStream;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
@@ -142,8 +144,16 @@ public class mainBeeColonyRun {
 
 
         var restOfThePath = beeColonySettings.getOutputDirPath(outputPath);
-        var outputPathString = restOfThePath + "/solution.json";
-        var outputPath = Paths.get(outputPathString);
+        var outputDir = Paths.get(restOfThePath);
+
+        var logFile = outputDir.resolve("log.txt").toFile();
+        var ignored = logFile.getParentFile().mkdirs();
+
+        var outFile = new PrintStream(new FileOutputStream(logFile));
+        System.setOut(new PrintStream(outFile));
+        System.setErr(new PrintStream(outFile));
+
+        var outputPath = outputDir.resolve("solution.json");
 
         if (Files.exists(outputPath)) {
             System.out.println("Solution already exists at " + outputPath + ". Skipping execution.");

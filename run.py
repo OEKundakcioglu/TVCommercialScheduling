@@ -314,20 +314,20 @@ def run_commands_sequentially(commands: List[str], stop_on_error: bool = False, 
 
 
 def main():
-    config = "yamlConfigGrasp.yaml"
-    commands = generate_grasp_cli_commands(config, ".\gradlew runGrasp")
-    results = run_commands_sequentially(commands)
-
     config = "yamlConfigContinuous.yaml"
-    commands = generate_mip_cli_commands(config, ".\gradlew runMipSolver")
+    commands = generate_mip_cli_commands(config, "./gradlew runMipSolver")
     results = run_commands_sequentially(commands)
 
     config = "yamlConfigDiscrete.yaml"
-    commands = generate_mip_cli_commands(config, ".\gradlew runMipSolver")
+    commands = generate_mip_cli_commands(config, "./gradlew runMipSolver")
     results = run_commands_sequentially(commands)
 
     config = "yamlConfigBee.yaml"
-    commands = generate_bee_cli_commands(config, ".\gradlew runBeeColony")
+    commands = generate_bee_cli_commands(config, "./gradlew runBeeColony")
+    results = run_commands_sequentially(commands)
+
+    config = "yamlConfigGrasp.yaml"
+    commands = generate_grasp_cli_commands(config, "./gradlew runGrasp")
     results = run_commands_sequentially(commands)
 
     # Exit with error code if any commands failed
@@ -335,6 +335,20 @@ def main():
     if failed_count > 0:
         sys.exit(1)
 
+import glob
+import os
+
+def get_all_json_files(folder_path):
+    """
+    Retrieves all JSON files in a folder and its subfolders using glob.
+
+    Args:
+        folder_path (str): Path to the root folder.
+
+    Returns:
+        list: List of absolute paths to JSON files.
+    """
+    return glob.glob(os.path.join(folder_path, "**", "*.json"), recursive=True)
 
 if __name__ == "__main__":
     main()

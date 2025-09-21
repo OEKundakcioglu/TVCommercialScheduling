@@ -12,6 +12,9 @@ import solvers.mipSolvers.continuousTimeModel.ContinuousTimeModel;
 import solvers.mipSolvers.discreteTimeModel.DiscreteTimeModel;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.PrintStream;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Arrays;
@@ -64,31 +67,28 @@ public class mainMipRun {
             description = "Enable verbose output")
     private boolean verbose = false;
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         mainMipRun main = new mainMipRun();
         JCommander commander = JCommander.newBuilder()
                 .addObject(main)
                 .programName("mainMipRun")
                 .build();
 
-        try {
-            commander.parse(args);
+        commander.parse(args);
 
-            if (main.help) {
-                commander.usage();
-                return;
-            }
-
-            main.run();
-
-        } catch (Exception e) {
-            System.err.println("Error: " + e.getMessage());
+        if (main.help) {
             commander.usage();
-            System.exit(1);
+            return;
         }
+
+        main.run();
+
+
     }
 
     private void run() throws Exception {
+
+
         if (!new File(instancePath).exists()) {
             throw new IllegalArgumentException("Instance file does not exist: " + instancePath);
         }
@@ -117,9 +117,16 @@ public class mainMipRun {
         var outputPath = Paths.get(this.outputPath);
         var instancePath = Paths.get(this.instancePath);
         var instanceName = instancePath.getFileName().toString().replace(".json", "");
-        outputPath = outputPath.resolve(instanceName);
+        var outputDir = outputPath.resolve(instanceName);
 
-        outputPath = outputPath.resolve("solution.json");
+        var logFile = outputDir.resolve("log.txt").toFile();
+        var ignored = logFile.getParentFile().mkdirs();
+
+        var outFile = new PrintStream(new FileOutputStream(logFile));
+        System.setOut(new PrintStream(outFile));
+        System.setErr(new PrintStream(outFile));
+
+        outputPath = outputDir.resolve("solution.json");
 
         if (Files.exists(outputPath)) {
             System.out.println("Solution already exists at " + outputPath + ". Skipping execution.");

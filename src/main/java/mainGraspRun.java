@@ -15,6 +15,8 @@ import solvers.heuristicSolvers.grasp.reactiveGrasp.AlphaGenerator;
 import solvers.heuristicSolvers.grasp.reactiveGrasp.AlphaGeneratorConstant;
 import solvers.heuristicSolvers.grasp.reactiveGrasp.AlphaGeneratorUniform;
 
+import java.io.FileOutputStream;
+import java.io.PrintStream;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Arrays;
@@ -153,8 +155,16 @@ public class mainGraspRun {
         outputPath = outputPath.resolve(instanceName);
 
         var restOfThePath = graspSettings.getStringIdentifier();
-        outputPath = outputPath.resolve(restOfThePath);
-        outputPath = outputPath.resolve("solution.json");
+        var outputDir = outputPath.resolve(restOfThePath);
+
+        var logFile = outputDir.resolve("log.txt").toFile();
+        var ignored = logFile.getParentFile().mkdirs();
+
+        var outFile = new PrintStream(new FileOutputStream(logFile));
+        System.setOut(new PrintStream(outFile));
+        System.setErr(new PrintStream(outFile));
+
+        outputPath = outputDir.resolve("solution.json");
 
         if (Files.exists(outputPath)) {
             System.out.println("Solution already exists at " + outputPath + ". Skipping execution.");

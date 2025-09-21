@@ -36,19 +36,8 @@ public class ModelSolver {
     private void solve() throws GRBException {
         model.build();
 
-        model.getModel().set(GRB.IntParam.SolutionLimit, 1);
-        model.getModel().set(GRB.DoubleParam.TimeLimit, runSettings.checkPointTimes().getLast());
-        model.optimize();
-
-        model.getModel().set(GRB.IntParam.SolutionLimit, GRB.MAXINT);
-
-        double passedTime = model.getModel().get(GRB.DoubleAttr.Runtime);
-
+        double passedTime = 0;
         for (var checkPointTime : runSettings.checkPointTimes()) {
-            if (passedTime >= checkPointTime) {
-                continue;
-            }
-
             this.model.getModel().set(GRB.DoubleParam.TimeLimit, checkPointTime - passedTime);
             this.model.optimize();
 
@@ -62,6 +51,8 @@ public class ModelSolver {
             checkPoints.add(new CheckPoint(sol, checkPointTime));
             passedTime = checkPointTime;
         }
+
+
     }
 
     private void createSolverSolution() throws GRBException {
