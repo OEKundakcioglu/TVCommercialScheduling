@@ -9,7 +9,7 @@ import java.util.List;
 public class generateRandomData {
     private static final List<Integer> seeds = List.of(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
     private static final List<Pair<Integer, Integer>> nInvHourPair =
-            List.of(new Pair<>(10, 3), new Pair<>(15, 4), new Pair<>(20, 5));
+            List.of(new Pair<>(10, 3), new Pair<>(15, 5), new Pair<>(20, 7));
     private static final List<Double> densities = List.of(0.9, 1.1, 1.3);
 
     public static void main(String[] args) throws IOException {
