@@ -66,7 +66,7 @@ public class DistributionsJsonLoader {
 
     private void loadAudienceTypes() {
         audienceTypes = new ArrayList<>();
-        var values = jsonObject.getAsJsonArray("audience_type_list");
+        var values = jsonObject.getAsJsonArray("audience_types");
         for (var value : values) {
             audienceTypes.add(value.getAsInt());
         }
@@ -77,7 +77,7 @@ public class DistributionsJsonLoader {
     private void loadRatingDistribution() {
         ratingDistribution = new HashMap<>();
 
-        var ratingsJObject = jsonObject.getAsJsonObject("ratings");
+        var ratingsJObject = jsonObject.getAsJsonObject("rating_dist");
         for (var entry : ratingsJObject.entrySet()) {
             var audienceType = Integer.parseInt(entry.getKey());
             var minuteData = entry.getValue().getAsJsonObject();
@@ -98,7 +98,7 @@ public class DistributionsJsonLoader {
     }
 
     private void loadInventoryDurationDistribution() {
-        var invDurationObj = jsonObject.getAsJsonObject("inventory_duration");
+        var invDurationObj = jsonObject.getAsJsonObject("inventory_duration_dist");
         inventoryDurationDistribution =
                 new RandomDrawDistributionBuilder<Double>()
                         .setValues(invDurationObj, Double::parseDouble)
@@ -107,7 +107,7 @@ public class DistributionsJsonLoader {
     }
 
     private void loadCommercialDurationDistribution() {
-        var commDurationObj = jsonObject.getAsJsonObject("commercial_duration");
+        var commDurationObj = jsonObject.getAsJsonObject("commercial_duration_dist");
         commercialDurationDistribution =
                 new RandomDrawDistributionBuilder<Double>()
                         .setValues(commDurationObj, Double::parseDouble)
@@ -118,14 +118,14 @@ public class DistributionsJsonLoader {
     private void loadPricingDistribution() {
         pricingDistribution = new HashMap<>();
 
-        var pricingJObject = jsonObject.getAsJsonObject("commercial_price");
+        var pricingJObject = jsonObject.getAsJsonObject("commercial_price_dist");
         for (var entry : pricingJObject.entrySet()) {
             var audienceType = Integer.parseInt(entry.getKey());
             var pricingTypeData = entry.getValue().getAsJsonObject();
 
             Map<PRICING_TYPE, RandomDrawDistribution<Double>> audienceTypePricing = new HashMap<>();
             for (var ptEntry : pricingTypeData.entrySet()) {
-                PRICING_TYPE pricingType = PRICING_TYPE.fromString(ptEntry.getKey());
+                PRICING_TYPE pricingType = PRICING_TYPE.valueOf(ptEntry.getKey());
                 var distributionObject = ptEntry.getValue().getAsJsonObject();
 
                 var distribution =
@@ -144,14 +144,14 @@ public class DistributionsJsonLoader {
     private void loadPricingTypeDistribution() {
         pricingTypeDistribution = new HashMap<>();
 
-        var pricingTypeObj = jsonObject.getAsJsonObject("pricing_type");
+        var pricingTypeObj = jsonObject.getAsJsonObject("commercial_pricing_type_dist");
         for (var entry : pricingTypeObj.entrySet()) {
             var audienceType = Integer.parseInt(entry.getKey());
             var distributionObject = entry.getValue().getAsJsonObject();
 
             var distribution =
                     new RandomDrawDistributionBuilder<PRICING_TYPE>()
-                            .setValues(distributionObject, PRICING_TYPE::fromString)
+                            .setValues(distributionObject, PRICING_TYPE::valueOf)
                             .setRandom(random)
                             .build();
 
@@ -162,7 +162,7 @@ public class DistributionsJsonLoader {
     private void loadAttentionDistribution() {
         attentionDistribution = new HashMap<>();
 
-        var attentionObj = jsonObject.getAsJsonObject("commercial_flags");
+        var attentionObj = jsonObject.getAsJsonObject("commercial_flag_dist");
         for (var entry : attentionObj.entrySet()) {
             var audienceType = Integer.parseInt(entry.getKey());
             var distributionObject = entry.getValue().getAsJsonObject();
@@ -178,7 +178,7 @@ public class DistributionsJsonLoader {
     }
 
     private void loadAudienceTypeDistribution() {
-        var audienceTypeObj = jsonObject.getAsJsonObject("audience_type");
+        var audienceTypeObj = jsonObject.getAsJsonObject("commercial_audience_type_dist");
         audienceTypeDistribution =
                 new RandomDrawDistributionBuilder<Integer>()
                         .setValues(audienceTypeObj, Integer::parseInt)
@@ -187,7 +187,7 @@ public class DistributionsJsonLoader {
     }
 
     private void loadGroupDistribution() {
-        var groupObj = jsonObject.getAsJsonObject("commercial_groups");
+        var groupObj = jsonObject.getAsJsonObject("commercial_group_dist");
         groupDistribution =
                 new RandomDrawDistributionBuilder<Integer>()
                         .setValues(groupObj, Integer::parseInt)
@@ -196,7 +196,7 @@ public class DistributionsJsonLoader {
     }
 
     private void loadSuitableInvDistribution() {
-        var prob = jsonObject.get("suitability_probability").getAsDouble();
+        var prob = jsonObject.get("commercial_inv_suitability_dist").getAsDouble();
         var rng = new JDKRandomGenerator(seed);
         suitableInvDistribution = new BinomialDistribution(rng, 1, prob);
     }

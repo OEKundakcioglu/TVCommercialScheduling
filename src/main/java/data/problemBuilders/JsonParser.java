@@ -108,12 +108,7 @@ public class JsonParser {
             double price = commercialObject.get("price").getAsDouble();
             int audienceType = commercialObject.get("audience_type").getAsInt();
             String stringPricingType = commercialObject.get("pricing_type").getAsString();
-            PRICING_TYPE pricingType =
-                    switch (stringPricingType) {
-                        case "CPP" -> PRICING_TYPE.PRR;
-                        case "FixPrice" -> PRICING_TYPE.FIXED;
-                        default -> throw new Exception("Unrecognized pricing type");
-                    };
+            PRICING_TYPE pricingType = PRICING_TYPE.valueOf(stringPricingType);
             JsonObject suitableInvMapObject =
                     commercialObject.get("suitable_inventories").getAsJsonObject();
 
@@ -123,10 +118,10 @@ public class JsonParser {
                 ATTENTION attention =
                         switch (attentionString) {
                             case "NONE" -> ATTENTION.NONE;
-                            case "FIRST" -> ATTENTION.FIRST;
-                            case "LAST" -> ATTENTION.LAST;
-                            case "F30" -> ATTENTION.F30;
-                            case "F60" -> ATTENTION.F60;
+                            case "F" -> ATTENTION.FIRST;
+                            case "L" -> ATTENTION.LAST;
+                            case "H" -> ATTENTION.F30;
+                            case "M" -> ATTENTION.F60;
                             default -> throw new Exception("Unrecognized attention type");
                         };
                 JsonArray suitableInvArray = pair.getValue().getAsJsonArray();

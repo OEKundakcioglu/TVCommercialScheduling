@@ -5,7 +5,6 @@ import com.fasterxml.jackson.databind.JsonSerializer;
 import com.fasterxml.jackson.databind.SerializerProvider;
 import data.Commercial;
 import data.enums.ATTENTION;
-import data.enums.PRICING_TYPE;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -26,9 +25,7 @@ public class CommercialSerializer extends JsonSerializer<Commercial> {
         jsonGenerator.writeNumberField("duration", commercial.getDuration());
         jsonGenerator.writeNumberField("price", commercial.getPrice());
 
-        jsonGenerator.writeFieldName("pricing_type");
-        new PRICING_TYPE.Serializer()
-                .serialize(commercial.getPricingType(), jsonGenerator, serializerProvider);
+        jsonGenerator.writeStringField("pricing_type", commercial.getPricingType().name());
 
         serializeSuitableInventories(commercial, jsonGenerator);
 
