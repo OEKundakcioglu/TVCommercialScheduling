@@ -1,4 +1,5 @@
 Running MIP solver...
+Setting last attention constraint
 Exception in thread "main" com.gurobi.gurobi.GRBException: Memory limit exceeded during optimization.
 	at solvers.mipSolvers.BaseModel.optimize(BaseModel.java:35)
 	at solvers.mipSolvers.ModelSolver.solve(ModelSolver.java:42)
