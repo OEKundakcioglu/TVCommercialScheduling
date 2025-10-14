@@ -1,0 +1,33 @@
+Running GRASP algorithm...
+Error: Cannot read field "solution" because "currentSolution" is null
+Usage: mainGraspRun [options]
+  Options:
+    --alpha, -a
+      Alpha value for FIXED type (required when alphaType=FIXED)
+  * --alphaType, -at
+      Alpha generator type: FIXED or UNIFORM
+    --help, -h
+      Show help message
+  * --instancePath, -i
+      Path to the problem instance JSON file
+    --maxAlpha, -max
+      Maximum alpha value for UNIFORM type (required when alphaType=UNIFORM)
+    --minAlpha, -min
+      Minimum alpha value for UNIFORM type (required when alphaType=UNIFORM)
+  * --outputPath, -o
+      Path to save the solution JSON file
+  * --searchMode, -s
+      Local search mode: BEST_IMPROVEMENT or FIRST_IMPROVEMENT
+  * --seed, -seed
+      Random seed
+      Default: 0
+  * --skipProbability, -sp
+      Neighborhood skip probability
+      Default: 0.0
+  * --timeLimit, -t
+      Time limit in seconds
+      Default: 0
+    --verbose, -v
+      Enable verbose output
+      Default: false
+
