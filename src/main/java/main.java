@@ -1,39 +1,51 @@
-import data.Inventory;
 import data.problemBuilders.JsonParser;
-import runParameters.ConstructiveHeuristicSettings;
-import runParameters.GraspSettings;
-import runParameters.LocalSearchSettings;
-import solvers.heuristicSolvers.grasp.graspWithPathRelinking.GraspWithPathRelinking;
-import solvers.heuristicSolvers.grasp.localSearch.SearchMode;
-import solvers.heuristicSolvers.grasp.reactiveGrasp.AlphaGeneratorUniform;
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
+import solvers.GlobalRandom;
+import solvers.heuristicSolvers.beeColonyYu.BeeColonyAlgorithm;
+import solvers.heuristicSolvers.beeColonyYu.BeeColonySettings;
+import solvers.heuristicSolvers.beeColonyYu.OrienteeringData;
+import solvers.heuristicSolvers.beeColonyYu.ReduceProblemToVRP;
 
 public class main {
 
     public static void main(String[] args) throws Exception {
 //        solveWithDiscreteMip("instances/density=HIGH_nInventory=10_nHours=3_seed=1.json");
-        var problem = new JsonParser().readData("instances/density=MEDIUM_nInventory=20_nHours=5_seed=1.json");
+        var problem = new JsonParser().readData("instances\\density=LOW_nInventory=10_nHours=3_seed=1.json");
 
-        var hourInvMap = new HashMap<Integer, List<Inventory>>();
-        for (var hour : problem.getSetOfHours()){
-            var invs = problem.getSetOfInventories().stream()
-                    .filter(i -> i.getHour() == hour)
-                    .toList();
-            hourInvMap.put(hour, invs);
-        }
+//        var graspConfig = new GraspSettings(
+//                SearchMode.BEST_IMPROVEMENT,
+//                1,
+//                new LocalSearchSettings(
+//                        new ArrayList<>(
+//                                List.of(
+//                                        "insert",
+//                                        "outOfPool",
+//                                        "interSwap",
+//                                        "shift"
+//                                )
+//                        ),
+//                        0
+//                ),
+//                new ConstructiveHeuristicSettings(0.5, 2),
+//                new AlphaGeneratorConstant(0.25),
+//                0,
+//                "instances/1.json"
+//        );
 
-        var hourToTotalInvDur = new HashMap<Integer, Integer>();
-        for (var hour : problem.getSetOfHours()){
-            var totalDur = hourInvMap.get(hour).stream()
-                    .mapToInt(Inventory::getDuration)
-                    .sum();
-            hourToTotalInvDur.put(hour, totalDur);
-        }
+        var beeColonySettings = new BeeColonySettings(
+                1,
+                1000,
+                0.9,
+                10,
+                0.99,
+                1,
+                ""
+        );
 
-        var x=0;
+        GlobalRandom.init(0L);
+//        var grasp = new GraspWithPathRelinking(problem, graspConfig);
+
+        OrienteeringData orienteeringData = ReduceProblemToVRP.reduce(problem);
+        var beeColony = new BeeColonyAlgorithm(orienteeringData, beeColonySettings, problem);
     }
 
     private static void solveWithDiscreteMip(String fileName) throws Exception {

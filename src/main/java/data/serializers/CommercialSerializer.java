@@ -21,11 +21,11 @@ public class CommercialSerializer extends JsonSerializer<Commercial> {
         jsonGenerator.writeStartObject();
         jsonGenerator.writeNumberField("id", commercial.getId());
         jsonGenerator.writeNumberField("group", commercial.getGroup());
-        jsonGenerator.writeNumberField("audience_type", commercial.getAudienceType());
+        jsonGenerator.writeNumberField("audienceType", commercial.getAudienceType());
         jsonGenerator.writeNumberField("duration", commercial.getDuration());
         jsonGenerator.writeNumberField("price", commercial.getPrice());
 
-        jsonGenerator.writeStringField("pricing_type", commercial.getPricingType().name());
+        jsonGenerator.writeStringField("pricingType", commercial.getPricingType().name());
 
         serializeSuitableInventories(commercial, jsonGenerator);
 
@@ -48,7 +48,7 @@ public class CommercialSerializer extends JsonSerializer<Commercial> {
                     .add(inventory.getId());
         }
 
-        jsonGenerator.writeObjectFieldStart("suitable_inventories");
+        jsonGenerator.writeObjectFieldStart("suitableInventories");
         for (var entry : suitableInventories.entrySet()) {
             var attention = entry.getKey();
             var inventories = entry.getValue();

@@ -106,11 +106,11 @@ public class JsonParser {
             int id = commercialObject.get("id").getAsInt();
             int duration = commercialObject.get("duration").getAsInt();
             double price = commercialObject.get("price").getAsDouble();
-            int audienceType = commercialObject.get("audience_type").getAsInt();
-            String stringPricingType = commercialObject.get("pricing_type").getAsString();
+            int audienceType = commercialObject.get("audienceType").getAsInt();
+            String stringPricingType = commercialObject.get("pricingType").getAsString();
             PRICING_TYPE pricingType = PRICING_TYPE.valueOf(stringPricingType);
             JsonObject suitableInvMapObject =
-                    commercialObject.get("suitable_inventories").getAsJsonObject();
+                    commercialObject.get("suitableInventories").getAsJsonObject();
 
             Map<ATTENTION, List<Integer>> suitableInvMap = new HashMap<>();
             for (Map.Entry<String, JsonElement> pair : suitableInvMapObject.entrySet()) {
@@ -204,7 +204,7 @@ public class JsonParser {
         for (JsonElement ratingElement : ratingArray) {
             JsonObject ratingObject = ratingElement.getAsJsonObject();
 
-            int inventoryId = ratingObject.get("inventory_id").getAsInt();
+            int inventoryId = ratingObject.get("inventoryId").getAsInt();
             Inventory inventory =
                     this.setOfInventories.stream()
                             .filter(inventory1 -> inventory1.getId() == inventoryId)
@@ -221,7 +221,7 @@ public class JsonParser {
                 this.ratings.put(inventory, new HashMap<>());
             }
 
-            int audienceType = ratingObject.get("audience_type").getAsInt();
+            int audienceType = ratingObject.get("audienceType").getAsInt();
 
             if (!this.ratings.get(inventory).containsKey(minute)) {
                 this.ratings.get(inventory).put(minute, new HashMap<>());

@@ -46,10 +46,10 @@ public class ProblemDataSerializer extends JsonSerializer<ProblemParameters> {
                                     .get(minute)
                                     .get(audienceType);
                     gen.writeStartObject();
-                    gen.writeNumberField("inventory_id", inventory.getId());
+                    gen.writeNumberField("inventoryId", inventory.getId());
                     gen.writeNumberField("minute", minute);
                     gen.writeNumberField("rating", rating);
-                    gen.writeNumberField("audience_type", audienceType);
+                    gen.writeNumberField("audienceType", audienceType);
                     gen.writeEndObject();
                 }
             }

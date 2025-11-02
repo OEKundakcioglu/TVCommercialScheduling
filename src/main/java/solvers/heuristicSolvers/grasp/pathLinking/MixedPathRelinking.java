@@ -24,6 +24,7 @@ public class MixedPathRelinking {
         this.initialSolution = initialSolution;
         this.guidingSolution = guidingSolution;
         this.pathRelinkingUtils = pathRelinkingUtils;
+        this.bestFoundSolution = initialSolution;
 
         solve();
     }

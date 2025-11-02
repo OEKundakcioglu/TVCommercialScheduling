@@ -20,7 +20,7 @@ public class InventorySerializer extends JsonSerializer<Inventory> {
         jsonGenerator.writeNumberField("duration", inventory.getDuration());
         jsonGenerator.writeNumberField("hour", inventory.getHour());
         jsonGenerator.writeNumberField(
-                "max_number_of_commercial", inventory.getMaxCommercialCount());
+                "maxNumberOfCommercial", inventory.getMaxCommercialCount());
         jsonGenerator.writeEndObject();
     }
 }

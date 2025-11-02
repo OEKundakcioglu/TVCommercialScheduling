@@ -21,7 +21,7 @@ public class generateRandomData {
                     var nHours = pair.getSecond();
 
                     var randomGeneratorConf =
-                            new DistributionsJsonLoader(Paths.get("C:\\Users\\ulvif\\Desktop\\Pycharm Projects\\tv-commercial-scheduling-python\\distribution_config.json"), seed)
+                            new DistributionsJsonLoader(Paths.get("distribution_config.json"), seed)
                                     .load(nInventory, nHours, density);
                     var problem = new RandomProblemGenerator(randomGeneratorConf).generate();
                     var fileName = getFileName(seed, density, nInventory, nHours);

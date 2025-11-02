@@ -126,7 +126,7 @@ public class Commercial extends JsonSerializableObject {
         int maxInvDur = this.setOfSuitableInv.stream().mapToInt(Inventory::getDuration).max().orElse(0);
         this.revenueMatrix = new double[maxInvId + 1][maxInvDur + 1];
         for (var inv : this.setOfSuitableInv) {
-            for (int i = 0; i <= inv.getDuration(); i++) {
+            for (int i = 0; i < inv.getDuration(); i++) {
                 this.revenueMatrix[inv.getId()][i] = this.calcRevenue(inv, i);
             }
         }
