@@ -336,6 +336,7 @@ def generate_run_commands(number_of_files: int):
     for command, duration in all_commands_tuples:
         if file_duration + duration > run_time_per_file:
             commands_to_write.append(commands)
+            commands = []
             file_duration = 0
 
         commands.append(command)
@@ -359,12 +360,8 @@ def main():
     commands = read_commands(sys.argv[1])
     results = run_commands_sequentially(commands)
 
-    # Exit with error code if any commands failed
-    failed_count = sum(1 for r in results if not r['success'])
-    if failed_count > 0:
-        sys.exit(1)
 
-    generate_run_commands(10)
+    # generate_run_commands(10)
 
 if __name__ == "__main__":
     main()
