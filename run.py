@@ -8,6 +8,8 @@ import os
 import subprocess
 import sys
 import time
+from os import write
+from pathlib import Path
 from typing import List, Dict, Any, Optional, Tuple
 
 import yaml
@@ -37,7 +39,7 @@ def read_grasp_config(config_path: str) -> Dict[str, Any]:
     return config
 
 
-def generate_bee_cli_commands(config_path: str, base_command: str = "gradlew runBeeColony") -> List[str]:
+def generate_bee_cli_commands(config_path: str, base_command: str = "gradlew runBeeColony") -> List[tuple[str, int]]:
     """
     Generate CLI commands for Bee Colony algorithm based on configuration file.
     
@@ -79,10 +81,10 @@ def generate_bee_cli_commands(config_path: str, base_command: str = "gradlew run
                         command = f"{base_command} {' '.join(params)}"
                         commands.append(command)
 
-    return commands
+    return list(zip(commands, [5 for _ in commands]))
 
 
-def generate_mip_cli_commands(config_path: str, base_command: str = "./gradlew runMipSolver") -> List[str]:
+def generate_mip_cli_commands(config_path: str, base_command: str = "./gradlew runMipSolver") -> List[tuple[str, int]]:
     """
     Generate CLI commands for MIP Solver based on configuration file.
     
@@ -121,10 +123,10 @@ def generate_mip_cli_commands(config_path: str, base_command: str = "./gradlew r
         command = f"{base_command} {' '.join(params)}"
         commands.append(command)
 
-    return commands
+    return list(zip(commands, [120 for _ in commands]))
 
 
-def generate_grasp_cli_commands(config_path: str, base_command: str = "./gradlew runGrasp") -> List[str]:
+def generate_grasp_cli_commands(config_path: str, base_command: str = "./gradlew runGrasp") -> List[tuple[str, int]]:
     """
     Generate CLI commands for GRASP algorithm based on configuration file.
     
@@ -176,7 +178,7 @@ def generate_grasp_cli_commands(config_path: str, base_command: str = "./gradlew
                         command = f"{base_command} {' '.join(params)}"
                         commands.append(command)
 
-    return commands
+    return list(zip(commands, [5 for _ in commands]))
 
 
 def _get_alpha_string(alpha_option: Dict[str, Any]) -> str:
@@ -312,22 +314,49 @@ def run_commands_sequentially(commands: List[str], stop_on_error: bool = False, 
 
     return results
 
+def generate_run_commands(number_of_files: int):
+    commands_folder = Path("commands")
+    if not commands_folder.exists():
+        commands_folder.mkdir()
+
+    grasp_commands = generate_grasp_cli_commands("yamlConfigGrasp.yaml", "./gradlew runGrasp")
+    mip_continuous_commands = generate_mip_cli_commands("yamlConfigContinuous.yaml", "./gradlew runMipSolver")
+    mip_discrete_commands = generate_mip_cli_commands("yamlConfigDiscrete.yaml", "./gradlew runMipSolver")
+    bee_commands = generate_bee_cli_commands("yamlConfigBee.yaml", "./gradlew runBeeColony")
+
+    all_commands_tuples = grasp_commands + bee_commands +  mip_discrete_commands + mip_continuous_commands
+    run_times = [command_tuple[1] for command_tuple in all_commands_tuples]
+    total_run_time = sum(run_times)
+
+    run_time_per_file = total_run_time // number_of_files
+
+    file_duration = 0
+    commands_to_write: list[list[str]] = []
+    commands: list[str] = []
+    for command, duration in all_commands_tuples:
+        if file_duration + duration > run_time_per_file:
+            commands_to_write.append(commands)
+            file_duration = 0
+
+        commands.append(command)
+        file_duration += duration
+
+    if len(commands_to_write) > number_of_files:
+        last_file_commands = commands_to_write.pop()
+        commands_to_write[-1].extend(last_file_commands)
+
+    for i, commands in enumerate(commands_to_write, 1):
+        with open(commands_folder / f"run_commands_{i}.txt", "w") as f:
+            f.write("\n".join(commands))
+
+
+def read_commands(path: str) -> list[str]:
+    with open(path, "r") as f:
+        return f.read().splitlines()
+
 
 def main():
-    config = "yamlConfigContinuous.yaml"
-    commands = generate_mip_cli_commands(config, "./gradlew runMipSolver")
-    results = run_commands_sequentially(commands)
-
-    config = "yamlConfigDiscrete.yaml"
-    commands = generate_mip_cli_commands(config, "./gradlew runMipSolver")
-    results = run_commands_sequentially(commands)
-
-    config = "yamlConfigBee.yaml"
-    commands = generate_bee_cli_commands(config, "./gradlew runBeeColony")
-    results = run_commands_sequentially(commands)
-
-    config = "yamlConfigGrasp.yaml"
-    commands = generate_grasp_cli_commands(config, "./gradlew runGrasp")
+    commands = read_commands(sys.argv[1])
     results = run_commands_sequentially(commands)
 
     # Exit with error code if any commands failed
@@ -335,20 +364,7 @@ def main():
     if failed_count > 0:
         sys.exit(1)
 
-import glob
-import os
-
-def get_all_json_files(folder_path):
-    """
-    Retrieves all JSON files in a folder and its subfolders using glob.
-
-    Args:
-        folder_path (str): Path to the root folder.
-
-    Returns:
-        list: List of absolute paths to JSON files.
-    """
-    return glob.glob(os.path.join(folder_path, "**", "*.json"), recursive=True)
+    generate_run_commands(10)
 
 if __name__ == "__main__":
     main()
