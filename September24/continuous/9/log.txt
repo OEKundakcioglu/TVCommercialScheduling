@@ -1,7 +1,0 @@
-Running MIP solver...
-Exception in thread "main" com.gurobi.gurobi.GRBException: Unable to retrieve attribute 'MIPGap'
-	at com.gurobi.gurobi.GRBModel.get(GRBModel.java:4962)
-	at solvers.mipSolvers.ModelSolver.createSolverSolution(ModelSolver.java:67)
-	at solvers.mipSolvers.ModelSolver.<init>(ModelSolver.java:31)
-	at mainMipRun.run(mainMipRun.java:146)
-	at mainMipRun.main(mainMipRun.java:84)

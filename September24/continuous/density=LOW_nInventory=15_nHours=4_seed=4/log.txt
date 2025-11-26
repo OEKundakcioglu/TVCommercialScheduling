@@ -1,7 +1,0 @@
-Running MIP solver...
-Exception in thread "main" com.gurobi.gurobi.GRBException: Memory limit exceeded during optimization.
-	at solvers.mipSolvers.BaseModel.optimize(BaseModel.java:35)
-	at solvers.mipSolvers.ModelSolver.solve(ModelSolver.java:42)
-	at solvers.mipSolvers.ModelSolver.<init>(ModelSolver.java:30)
-	at mainMipRun.run(mainMipRun.java:146)
-	at mainMipRun.main(mainMipRun.java:84)
