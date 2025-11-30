@@ -1,0 +1,7 @@
+Exception in thread "main" com.gurobi.gurobi.GRBException: Overage for too long, 3 active sessions and over the baseline for 33 minutes
+	at com.gurobi.gurobi.GRBEnv.<init>(GRBEnv.java:72)
+	at com.gurobi.gurobi.GRBEnv.<init>(GRBEnv.java:44)
+	at solvers.mipSolvers.BaseModel.<init>(BaseModel.java:17)
+	at solvers.mipSolvers.continuousTimeModel.ContinuousTimeModel.<init>(ContinuousTimeModel.java:17)
+	at mainMipRun.run(mainMipRun.java:140)
+	at mainMipRun.main(mainMipRun.java:84)

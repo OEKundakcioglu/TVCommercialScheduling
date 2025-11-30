@@ -1,0 +1,1382 @@
+{
+  "bestSolution": {
+    "revenue": 261656
+  },
+  "checkPoints": [
+    {
+      "solution": {
+        "revenue": 237183
+      },
+      "time": 0.9879999160766602
+    },
+    {
+      "solution": {
+        "revenue": 239615
+      },
+      "time": 1.003000020980835
+    },
+    {
+      "solution": {
+        "revenue": 240394
+      },
+      "time": 1.0329999923706055
+    },
+    {
+      "solution": {
+        "revenue": 242044
+      },
+      "time": 1.0529999732971191
+    },
+    {
+      "solution": {
+        "revenue": 244354
+      },
+      "time": 1.056999921798706
+    },
+    {
+      "solution": {
+        "revenue": 250729
+      },
+      "time": 1.1080000400543213
+    },
+    {
+      "solution": {
+        "revenue": 254470
+      },
+      "time": 1.1329998970031738
+    },
+    {
+      "solution": {
+        "revenue": 255072
+      },
+      "time": 1.1459999084472656
+    },
+    {
+      "solution": {
+        "revenue": 259374
+      },
+      "time": 1.2100000381469727
+    },
+    {
+      "solution": {
+        "revenue": 260960
+      },
+      "time": 1.4920001029968262
+    },
+    {
+      "solution": {
+        "revenue": 261024
+      },
+      "time": 1.5929999351501465
+    },
+    {
+      "solution": {
+        "revenue": 261296
+      },
+      "time": 1.7009999752044678
+    },
+    {
+      "solution": {
+        "revenue": 261297
+      },
+      "time": 1.806999921798706
+    },
+    {
+      "solution": {
+        "revenue": 261298
+      },
+      "time": 3.4519999027252197
+    },
+    {
+      "solution": {
+        "revenue": 261379
+      },
+      "time": 12.661999940872192
+    },
+    {
+      "solution": {
+        "revenue": 261655
+      },
+      "time": 22.022000074386597
+    },
+    {
+      "solution": {
+        "revenue": 261656
+      },
+      "time": 94.69000005722046
+    }
+  ],
+  "instance": "density\u003dLOW_nInventory\u003d10_nHours\u003d3_seed\u003d10",
+  "additionalInformation": {
+    "commercials": [
+      {
+        "id": 0,
+        "group": 10539,
+        "audienceType": 8,
+        "price": 18.46484455365739,
+        "duration": 15,
+        "pricingType": "PPR",
+        "attentionMap": {}
+      },
+      {
+        "id": 1,
+        "group": 4305,
+        "audienceType": 2,
+        "price": 61.40894159458047,
+        "duration": 25,
+        "pricingType": "PPR",
+        "attentionMap": {
+          "Inventory_4": "F30",
+          "Inventory_9": "NONE"
+        }
+      },
+      {
+        "id": 2,
+        "group": 4472,
+        "audienceType": 0,
+        "price": 153.66788232067736,
+        "duration": 20,
+        "pricingType": "PPR",
+        "attentionMap": {}
+      },
+      {
+        "id": 3,
+        "group": 1773,
+        "audienceType": 0,
+        "price": 93.04385090087949,
+        "duration": 20,
+        "pricingType": "PPR",
+        "attentionMap": {}
+      },
+      {
+        "id": 4,
+        "group": 101,
+        "audienceType": 4,
+        "price": 42.18614094668578,
+        "duration": 15,
+        "pricingType": "PPR",
+        "attentionMap": {}
+      },
+      {
+        "id": 5,
+        "group": 4940,
+        "audienceType": 6,
+        "price": 190.40860970075713,
+        "duration": 20,
+        "pricingType": "PPR",
+        "attentionMap": {}
+      },
+      {
+        "id": 6,
+        "group": 7498,
+        "audienceType": 15,
+        "price": 30.704470797290234,
+        "duration": 25,
+        "pricingType": "PPR",
+        "attentionMap": {}
+      },
+      {
+        "id": 7,
+        "group": 10858,
+        "audienceType": 17,
+        "price": 48.54461786132843,
+        "duration": 20,
+        "pricingType": "PPR",
+        "attentionMap": {
+          "Inventory_1": "NONE"
+        }
+      },
+      {
+        "id": 8,
+        "group": 10245,
+        "audienceType": 0,
+        "price": 150.1754304497529,
+        "duration": 20,
+        "pricingType": "PPR",
+        "attentionMap": {
+          "Inventory_2": "NONE"
+        }
+      },
+      {
+        "id": 9,
+        "group": 1856,
+        "audienceType": 0,
+        "price": 64.88728767992241,
+        "duration": 8,
+        "pricingType": "PPR",
+        "attentionMap": {
+          "Inventory_6": "NONE"
+        }
+      },
+      {
+        "id": 10,
+        "group": 218,
+        "audienceType": 8,
+        "price": 63.87569570054117,
+        "duration": 8,
+        "pricingType": "PPR",
+        "attentionMap": {}
+      },
+      {
+        "id": 11,
+        "group": 740,
+        "audienceType": 2,
+        "price": 110.13551348639426,
+        "duration": 10,
+        "pricingType": "PPR",
+        "attentionMap": {
+          "Inventory_3": "NONE",
+          "Inventory_7": "NONE"
+        }
+      },
+      {
+        "id": 12,
+        "group": 8602,
+        "audienceType": 0,
+        "price": 238.01076212594643,
+        "duration": 20,
+        "pricingType": "PPR",
+        "attentionMap": {}
+      },
+      {
+        "id": 13,
+        "group": 8620,
+        "audienceType": 16,
+        "price": 129.22071922420596,
+        "duration": 15,
+        "pricingType": "PPR",
+        "attentionMap": {}
+      },
+      {
+        "id": 14,
+        "group": 8602,
+        "audienceType": 0,
+        "price": 170.57437952359493,
+        "duration": 30,
+        "pricingType": "PPR",
+        "attentionMap": {
+          "Inventory_3": "NONE",
+          "Inventory_6": "NONE"
+        }
+      },
+      {
+        "id": 15,
+        "group": 7655,
+        "audienceType": 0,
+        "price": 104.63599311599327,
+        "duration": 20,
+        "pricingType": "PPR",
+        "attentionMap": {
+          "Inventory_9": "NONE"
+        }
+      },
+      {
+        "id": 16,
+        "group": 7210,
+        "audienceType": 2,
+        "price": 61.40894159458047,
+        "duration": 15,
+        "pricingType": "PPR",
+        "attentionMap": {
+          "Inventory_3": "NONE",
+          "Inventory_9": "NONE"
+        }
+      },
+      {
+        "id": 17,
+        "group": 14224,
+        "audienceType": 7,
+        "price": 64.62857501166195,
+        "duration": 20,
+        "pricingType": "PPR",
+        "attentionMap": {}
+      },
+      {
+        "id": 18,
+        "group": 9400,
+        "audienceType": 0,
+        "price": 73.21542595801587,
+        "duration": 20,
+        "pricingType": "PPR",
+        "attentionMap": {
+          "Inventory_0": "NONE",
+          "Inventory_9": "NONE"
+        }
+      },
+      {
+        "id": 19,
+        "group": 1933,
+        "audienceType": 1,
+        "price": 142.1916854728195,
+        "duration": 20,
+        "pricingType": "PPR",
+        "attentionMap": {
+          "Inventory_4": "NONE"
+        }
+      },
+      {
+        "id": 20,
+        "group": 1157,
+        "audienceType": 0,
+        "price": 75.33133568233913,
+        "duration": 25,
+        "pricingType": "PPR",
+        "attentionMap": {}
+      },
+      {
+        "id": 21,
+        "group": 1366,
+        "audienceType": 4,
+        "price": 75.33133568233913,
+        "duration": 8,
+        "pricingType": "PPR",
+        "attentionMap": {
+          "Inventory_2": "LAST"
+        }
+      },
+      {
+        "id": 22,
+        "group": 10038,
+        "audienceType": 11,
+        "price": 36.675423471260494,
+        "duration": 15,
+        "pricingType": "PPR",
+        "attentionMap": {}
+      },
+      {
+        "id": 23,
+        "group": 14274,
+        "audienceType": 0,
+        "price": 386.67940868480576,
+        "duration": 15,
+        "pricingType": "FIXED",
+        "attentionMap": {}
+      },
+      {
+        "id": 24,
+        "group": 5288,
+        "audienceType": 0,
+        "price": 20.869845835673047,
+        "duration": 20,
+        "pricingType": "PPR",
+        "attentionMap": {
+          "Inventory_2": "NONE",
+          "Inventory_8": "NONE"
+        }
+      },
+      {
+        "id": 25,
+        "group": 14105,
+        "audienceType": 1,
+        "price": 147.6962218736843,
+        "duration": 25,
+        "pricingType": "PPR",
+        "attentionMap": {}
+      },
+      {
+        "id": 26,
+        "group": 5549,
+        "audienceType": 4,
+        "price": 50.567310272217114,
+        "duration": 40,
+        "pricingType": "PPR",
+        "attentionMap": {
+          "Inventory_0": "NONE"
+        }
+      },
+      {
+        "id": 27,
+        "group": 11664,
+        "audienceType": 0,
+        "price": 74.29124241614305,
+        "duration": 15,
+        "pricingType": "PPR",
+        "attentionMap": {
+          "Inventory_1": "NONE"
+        }
+      },
+      {
+        "id": 28,
+        "group": 7662,
+        "audienceType": 0,
+        "price": 86.61618754539649,
+        "duration": 8,
+        "pricingType": "PPR",
+        "attentionMap": {}
+      },
+      {
+        "id": 29,
+        "group": 6194,
+        "audienceType": 0,
+        "price": 106.0308388012674,
+        "duration": 6,
+        "pricingType": "PPR",
+        "attentionMap": {}
+      },
+      {
+        "id": 30,
+        "group": 4434,
+        "audienceType": 11,
+        "price": 15.325869183186425,
+        "duration": 35,
+        "pricingType": "PPR",
+        "attentionMap": {
+          "Inventory_5": "NONE"
+        }
+      },
+      {
+        "id": 31,
+        "group": 341,
+        "audienceType": 0,
+        "price": 150.1754304497529,
+        "duration": 30,
+        "pricingType": "PPR",
+        "attentionMap": {
+          "Inventory_3": "NONE"
+        }
+      },
+      {
+        "id": 32,
+        "group": 4809,
+        "audienceType": 0,
+        "price": 104.63599311599327,
+        "duration": 15,
+        "pricingType": "PPR",
+        "attentionMap": {}
+      },
+      {
+        "id": 33,
+        "group": 1695,
+        "audienceType": 0,
+        "price": 59.93779134146068,
+        "duration": 50,
+        "pricingType": "PPR",
+        "attentionMap": {}
+      },
+      {
+        "id": 34,
+        "group": 9625,
+        "audienceType": 13,
+        "price": 54.87207588584743,
+        "duration": 8,
+        "pricingType": "PPR",
+        "attentionMap": {
+          "Inventory_4": "NONE"
+        }
+      },
+      {
+        "id": 35,
+        "group": 4678,
+        "audienceType": 16,
+        "price": 70.16943410707272,
+        "duration": 15,
+        "pricingType": "PPR",
+        "attentionMap": {}
+      },
+      {
+        "id": 36,
+        "group": 4840,
+        "audienceType": 0,
+        "price": 166.6075334881625,
+        "duration": 10,
+        "pricingType": "PPR",
+        "attentionMap": {
+          "Inventory_3": "NONE",
+          "Inventory_8": "NONE"
+        }
+      },
+      {
+        "id": 37,
+        "group": 1569,
+        "audienceType": 0,
+        "price": 61.40894159458047,
+        "duration": 20,
+        "pricingType": "PPR",
+        "attentionMap": {}
+      },
+      {
+        "id": 38,
+        "group": 8602,
+        "audienceType": 5,
+        "price": 150.2310018761438,
+        "duration": 15,
+        "pricingType": "PPR",
+        "attentionMap": {}
+      },
+      {
+        "id": 39,
+        "group": 10753,
+        "audienceType": 0,
+        "price": 18.151796866122297,
+        "duration": 8,
+        "pricingType": "PPR",
+        "attentionMap": {}
+      },
+      {
+        "id": 40,
+        "group": 345,
+        "audienceType": 6,
+        "price": 132.4421104232199,
+        "duration": 20,
+        "pricingType": "PPR",
+        "attentionMap": {
+          "Inventory_4": "NONE"
+        }
+      },
+      {
+        "id": 41,
+        "group": 10858,
+        "audienceType": 4,
+        "price": 13.630785158888894,
+        "duration": 15,
+        "pricingType": "PPR",
+        "attentionMap": {
+          "Inventory_2": "LAST"
+        }
+      },
+      {
+        "id": 42,
+        "group": 8189,
+        "audienceType": 0,
+        "price": 144.06767872225075,
+        "duration": 30,
+        "pricingType": "PPR",
+        "attentionMap": {
+          "Inventory_5": "NONE",
+          "Inventory_6": "NONE"
+        }
+      },
+      {
+        "id": 43,
+        "group": 5841,
+        "audienceType": 0,
+        "price": 88.1620756520685,
+        "duration": 8,
+        "pricingType": "PPR",
+        "attentionMap": {
+          "Inventory_6": "NONE"
+        }
+      },
+      {
+        "id": 44,
+        "group": 14369,
+        "audienceType": 0,
+        "price": 72.88064920570996,
+        "duration": 15,
+        "pricingType": "PPR",
+        "attentionMap": {}
+      },
+      {
+        "id": 45,
+        "group": 2348,
+        "audienceType": 1,
+        "price": 147.6962218736843,
+        "duration": 10,
+        "pricingType": "PPR",
+        "attentionMap": {
+          "Inventory_0": "NONE",
+          "Inventory_3": "NONE"
+        }
+      },
+      {
+        "id": 46,
+        "group": 9345,
+        "audienceType": 16,
+        "price": 129.22071922420596,
+        "duration": 8,
+        "pricingType": "PPR",
+        "attentionMap": {}
+      },
+      {
+        "id": 47,
+        "group": 101,
+        "audienceType": 7,
+        "price": 55.508602475521236,
+        "duration": 50,
+        "pricingType": "PPR",
+        "attentionMap": {}
+      },
+      {
+        "id": 48,
+        "group": 8277,
+        "audienceType": 0,
+        "price": 174.54122555902737,
+        "duration": 8,
+        "pricingType": "PPR",
+        "attentionMap": {}
+      },
+      {
+        "id": 49,
+        "group": 11554,
+        "audienceType": 2,
+        "price": 61.40894159458047,
+        "duration": 10,
+        "pricingType": "PPR",
+        "attentionMap": {}
+      },
+      {
+        "id": 50,
+        "group": 19,
+        "audienceType": 12,
+        "price": 99.41440247229536,
+        "duration": 50,
+        "pricingType": "PPR",
+        "attentionMap": {}
+      },
+      {
+        "id": 51,
+        "group": 174,
+        "audienceType": 8,
+        "price": 18.46484455365739,
+        "duration": 35,
+        "pricingType": "PPR",
+        "attentionMap": {
+          "Inventory_7": "NONE"
+        }
+      },
+      {
+        "id": 52,
+        "group": 8277,
+        "audienceType": 0,
+        "price": 85.37881343760512,
+        "duration": 15,
+        "pricingType": "PPR",
+        "attentionMap": {}
+      },
+      {
+        "id": 53,
+        "group": 4678,
+        "audienceType": 0,
+        "price": 108.78865487930787,
+        "duration": 50,
+        "pricingType": "PPR",
+        "attentionMap": {}
+      },
+      {
+        "id": 54,
+        "group": 861,
+        "audienceType": 0,
+        "price": 186.4417636653247,
+        "duration": 35,
+        "pricingType": "PPR",
+        "attentionMap": {
+          "Inventory_2": "NONE"
+        }
+      },
+      {
+        "id": 55,
+        "group": 8598,
+        "audienceType": 0,
+        "price": 86.9865813100409,
+        "duration": 30,
+        "pricingType": "PPR",
+        "attentionMap": {
+          "Inventory_4": "NONE",
+          "Inventory_5": "NONE"
+        }
+      },
+      {
+        "id": 56,
+        "group": 8277,
+        "audienceType": 22,
+        "price": 111.71023216431207,
+        "duration": 15,
+        "pricingType": "PPR",
+        "attentionMap": {
+          "Inventory_8": "NONE"
+        }
+      },
+      {
+        "id": 57,
+        "group": 8602,
+        "audienceType": 0,
+        "price": 86.61618754539649,
+        "duration": 10,
+        "pricingType": "PPR",
+        "attentionMap": {}
+      },
+      {
+        "id": 58,
+        "group": 8277,
+        "audienceType": 0,
+        "price": 72.88064920570996,
+        "duration": 10,
+        "pricingType": "PPR",
+        "attentionMap": {
+          "Inventory_8": "NONE"
+        }
+      },
+      {
+        "id": 59,
+        "group": 11054,
+        "audienceType": 0,
+        "price": 74.83961920288132,
+        "duration": 20,
+        "pricingType": "PPR",
+        "attentionMap": {}
+      },
+      {
+        "id": 60,
+        "group": 50,
+        "audienceType": 0,
+        "price": 130.5954705372264,
+        "duration": 8,
+        "pricingType": "PPR",
+        "attentionMap": {
+          "Inventory_8": "NONE"
+        }
+      },
+      {
+        "id": 61,
+        "group": 4411,
+        "audienceType": 1,
+        "price": 82.74542394235041,
+        "duration": 8,
+        "pricingType": "PPR",
+        "attentionMap": {
+          "Inventory_3": "NONE"
+        }
+      },
+      {
+        "id": 62,
+        "group": 1366,
+        "audienceType": 5,
+        "price": 51.721751049213516,
+        "duration": 8,
+        "pricingType": "PPR",
+        "attentionMap": {}
+      },
+      {
+        "id": 63,
+        "group": 1695,
+        "audienceType": 0,
+        "price": 20.869845835673047,
+        "duration": 15,
+        "pricingType": "PPR",
+        "attentionMap": {
+          "Inventory_0": "FIRST"
+        }
+      },
+      {
+        "id": 64,
+        "group": 14105,
+        "audienceType": 0,
+        "price": 84.48790407999532,
+        "duration": 25,
+        "pricingType": "PPR",
+        "attentionMap": {}
+      },
+      {
+        "id": 65,
+        "group": 11593,
+        "audienceType": 1,
+        "price": 82.74542394235041,
+        "duration": 30,
+        "pricingType": "PPR",
+        "attentionMap": {}
+      },
+      {
+        "id": 66,
+        "group": 11033,
+        "audienceType": 0,
+        "price": 86.61618754539649,
+        "duration": 15,
+        "pricingType": "PPR",
+        "attentionMap": {
+          "Inventory_2": "NONE",
+          "Inventory_8": "NONE"
+        }
+      },
+      {
+        "id": 67,
+        "group": 11350,
+        "audienceType": 6,
+        "price": 132.4421104232199,
+        "duration": 8,
+        "pricingType": "PPR",
+        "attentionMap": {}
+      },
+      {
+        "id": 68,
+        "group": 8695,
+        "audienceType": 0,
+        "price": 28.571812751219053,
+        "duration": 8,
+        "pricingType": "PPR",
+        "attentionMap": {
+          "Inventory_0": "NONE"
+        }
+      },
+      {
+        "id": 69,
+        "group": 1157,
+        "audienceType": 3,
+        "price": 47.14133348915161,
+        "duration": 20,
+        "pricingType": "PPR",
+        "attentionMap": {}
+      },
+      {
+        "id": 70,
+        "group": 4434,
+        "audienceType": 1,
+        "price": 82.3518988169219,
+        "duration": 8,
+        "pricingType": "PPR",
+        "attentionMap": {}
+      },
+      {
+        "id": 71,
+        "group": 6435,
+        "audienceType": 0,
+        "price": 92.80305808435338,
+        "duration": 8,
+        "pricingType": "PPR",
+        "attentionMap": {
+          "Inventory_0": "NONE"
+        }
+      },
+      {
+        "id": 72,
+        "group": 9753,
+        "audienceType": 14,
+        "price": 105.20190682165459,
+        "duration": 15,
+        "pricingType": "PPR",
+        "attentionMap": {
+          "Inventory_2": "NONE",
+          "Inventory_3": "NONE"
+        }
+      },
+      {
+        "id": 73,
+        "group": 8598,
+        "audienceType": 0,
+        "price": 145.10607837469598,
+        "duration": 35,
+        "pricingType": "PPR",
+        "attentionMap": {
+          "Inventory_6": "NONE"
+        }
+      },
+      {
+        "id": 74,
+        "group": 341,
+        "audienceType": 0,
+        "price": 606.8077232666054,
+        "duration": 15,
+        "pricingType": "FIXED",
+        "attentionMap": {}
+      },
+      {
+        "id": 75,
+        "group": 8277,
+        "audienceType": 0,
+        "price": 62.63873858040078,
+        "duration": 10,
+        "pricingType": "PPR",
+        "attentionMap": {
+          "Inventory_1": "NONE"
+        }
+      },
+      {
+        "id": 76,
+        "group": 8745,
+        "audienceType": 7,
+        "price": 132.71317109513046,
+        "duration": 40,
+        "pricingType": "PPR",
+        "attentionMap": {}
+      },
+      {
+        "id": 77,
+        "group": 4550,
+        "audienceType": 0,
+        "price": 59.9586392688838,
+        "duration": 6,
+        "pricingType": "PPR",
+        "attentionMap": {
+          "Inventory_2": "F60",
+          "Inventory_7": "NONE",
+          "Inventory_8": "NONE"
+        }
+      },
+      {
+        "id": 78,
+        "group": 14369,
+        "audienceType": 0,
+        "price": 103.52593161642685,
+        "duration": 15,
+        "pricingType": "PPR",
+        "attentionMap": {}
+      },
+      {
+        "id": 79,
+        "group": 8598,
+        "audienceType": 0,
+        "price": 70.33687944956228,
+        "duration": 25,
+        "pricingType": "PPR",
+        "attentionMap": {}
+      },
+      {
+        "id": 80,
+        "group": 14117,
+        "audienceType": 0,
+        "price": 60.68077232666054,
+        "duration": 20,
+        "pricingType": "PPR",
+        "attentionMap": {
+          "Inventory_3": "NONE"
+        }
+      },
+      {
+        "id": 81,
+        "group": 11343,
+        "audienceType": 0,
+        "price": 110.13551348639426,
+        "duration": 15,
+        "pricingType": "PPR",
+        "attentionMap": {
+          "Inventory_5": "NONE"
+        }
+      },
+      {
+        "id": 82,
+        "group": 2234,
+        "audienceType": 0,
+        "price": 84.48790407999532,
+        "duration": 10,
+        "pricingType": "PPR",
+        "attentionMap": {
+          "Inventory_2": "NONE"
+        }
+      },
+      {
+        "id": 83,
+        "group": 1973,
+        "audienceType": 0,
+        "price": 210.24283987791932,
+        "duration": 35,
+        "pricingType": "PPR",
+        "attentionMap": {
+          "Inventory_8": "NONE"
+        }
+      },
+      {
+        "id": 84,
+        "group": 7295,
+        "audienceType": 0,
+        "price": 77.137331465532,
+        "duration": 20,
+        "pricingType": "PPR",
+        "attentionMap": {}
+      },
+      {
+        "id": 85,
+        "group": 1631,
+        "audienceType": 13,
+        "price": 35.61556797092796,
+        "duration": 25,
+        "pricingType": "PPR",
+        "attentionMap": {
+          "Inventory_9": "NONE"
+        }
+      },
+      {
+        "id": 86,
+        "group": 4352,
+        "audienceType": 0,
+        "price": 130.5954705372264,
+        "duration": 20,
+        "pricingType": "PPR",
+        "attentionMap": {}
+      },
+      {
+        "id": 87,
+        "group": 7662,
+        "audienceType": 0,
+        "price": 167.6376898043753,
+        "duration": 20,
+        "pricingType": "PPR",
+        "attentionMap": {
+          "Inventory_2": "NONE"
+        }
+      },
+      {
+        "id": 88,
+        "group": 7932,
+        "audienceType": 0,
+        "price": 115.56230913549524,
+        "duration": 15,
+        "pricingType": "PPR",
+        "attentionMap": {
+          "Inventory_3": "NONE",
+          "Inventory_9": "NONE"
+        }
+      },
+      {
+        "id": 89,
+        "group": 7498,
+        "audienceType": 0,
+        "price": 61.40894159458047,
+        "duration": 15,
+        "pricingType": "PPR",
+        "attentionMap": {}
+      },
+      {
+        "id": 90,
+        "group": 8598,
+        "audienceType": 0,
+        "price": 75.47982057527409,
+        "duration": 15,
+        "pricingType": "PPR",
+        "attentionMap": {
+          "Inventory_0": "NONE",
+          "Inventory_4": "NONE"
+        }
+      },
+      {
+        "id": 91,
+        "group": 2234,
+        "audienceType": 5,
+        "price": 94.03954736220639,
+        "duration": 20,
+        "pricingType": "PPR",
+        "attentionMap": {}
+      },
+      {
+        "id": 92,
+        "group": 4940,
+        "audienceType": 9,
+        "price": 68.77963273985884,
+        "duration": 15,
+        "pricingType": "PPR",
+        "attentionMap": {}
+      },
+      {
+        "id": 93,
+        "group": 4305,
+        "audienceType": 9,
+        "price": 51.58270186248323,
+        "duration": 10,
+        "pricingType": "PPR",
+        "attentionMap": {
+          "Inventory_5": "NONE",
+          "Inventory_7": "NONE"
+        }
+      },
+      {
+        "id": 94,
+        "group": 8277,
+        "audienceType": 0,
+        "price": 70.38969589892622,
+        "duration": 20,
+        "pricingType": "PPR",
+        "attentionMap": {
+          "Inventory_7": "NONE"
+        }
+      },
+      {
+        "id": 95,
+        "group": 14349,
+        "audienceType": 0,
+        "price": 166.87199013090037,
+        "duration": 40,
+        "pricingType": "PPR",
+        "attentionMap": {}
+      },
+      {
+        "id": 96,
+        "group": 11638,
+        "audienceType": 0,
+        "price": 20.21727953067273,
+        "duration": 6,
+        "pricingType": "PPR",
+        "attentionMap": {
+          "Inventory_0": "NONE"
+        }
+      },
+      {
+        "id": 97,
+        "group": 14105,
+        "audienceType": 1,
+        "price": 142.1916854728195,
+        "duration": 10,
+        "pricingType": "PPR",
+        "attentionMap": {}
+      },
+      {
+        "id": 98,
+        "group": 2234,
+        "audienceType": 21,
+        "price": 58.65807991577185,
+        "duration": 15,
+        "pricingType": "PPR",
+        "attentionMap": {
+          "Inventory_1": "NONE"
+        }
+      },
+      {
+        "id": 99,
+        "group": 5810,
+        "audienceType": 0,
+        "price": 86.61618754539649,
+        "duration": 15,
+        "pricingType": "PPR",
+        "attentionMap": {
+          "Inventory_3": "NONE"
+        }
+      },
+      {
+        "id": 100,
+        "group": 11241,
+        "audienceType": 5,
+        "price": 18.559314134644488,
+        "duration": 30,
+        "pricingType": "PPR",
+        "attentionMap": {
+          "Inventory_1": "NONE",
+          "Inventory_2": "NONE",
+          "Inventory_6": "NONE",
+          "Inventory_8": "NONE"
+        }
+      },
+      {
+        "id": 101,
+        "group": 8602,
+        "audienceType": 0,
+        "price": 138.6747709625943,
+        "duration": 20,
+        "pricingType": "PPR",
+        "attentionMap": {
+          "Inventory_6": "NONE"
+        }
+      },
+      {
+        "id": 102,
+        "group": 10038,
+        "audienceType": 0,
+        "price": 64.88728767992241,
+        "duration": 20,
+        "pricingType": "PPR",
+        "attentionMap": {}
+      },
+      {
+        "id": 103,
+        "group": 7002,
+        "audienceType": 0,
+        "price": 82.48584059841994,
+        "duration": 20,
+        "pricingType": "FIXED",
+        "attentionMap": {
+          "Inventory_7": "NONE"
+        }
+      },
+      {
+        "id": 104,
+        "group": 4346,
+        "audienceType": 6,
+        "price": 69.54421047117475,
+        "duration": 50,
+        "pricingType": "PPR",
+        "attentionMap": {}
+      },
+      {
+        "id": 105,
+        "group": 8602,
+        "audienceType": 0,
+        "price": 136.44056631930806,
+        "duration": 10,
+        "pricingType": "PPR",
+        "attentionMap": {}
+      },
+      {
+        "id": 106,
+        "group": 8602,
+        "audienceType": 0,
+        "price": 86.61618754539649,
+        "duration": 6,
+        "pricingType": "PPR",
+        "attentionMap": {}
+      },
+      {
+        "id": 107,
+        "group": 1782,
+        "audienceType": 3,
+        "price": 47.14133348915161,
+        "duration": 8,
+        "pricingType": "PPR",
+        "attentionMap": {}
+      },
+      {
+        "id": 108,
+        "group": 8602,
+        "audienceType": 0,
+        "price": 30.93219022440748,
+        "duration": 20,
+        "pricingType": "PPR",
+        "attentionMap": {
+          "Inventory_8": "NONE"
+        }
+      },
+      {
+        "id": 109,
+        "group": 95,
+        "audienceType": 0,
+        "price": 68.77582296334964,
+        "duration": 15,
+        "pricingType": "PPR",
+        "attentionMap": {
+          "Inventory_8": "NONE"
+        }
+      },
+      {
+        "id": 110,
+        "group": 10038,
+        "audienceType": 6,
+        "price": 206.27599384248688,
+        "duration": 8,
+        "pricingType": "PPR",
+        "attentionMap": {}
+      },
+      {
+        "id": 111,
+        "group": 7522,
+        "audienceType": 0,
+        "price": 108.16632135082355,
+        "duration": 40,
+        "pricingType": "PPR",
+        "attentionMap": {
+          "Inventory_0": "NONE",
+          "Inventory_7": "NONE"
+        }
+      },
+      {
+        "id": 112,
+        "group": 7327,
+        "audienceType": 6,
+        "price": 85.11896487496894,
+        "duration": 15,
+        "pricingType": "PPR",
+        "attentionMap": {}
+      },
+      {
+        "id": 113,
+        "group": 14105,
+        "audienceType": 0,
+        "price": 21.212707588687675,
+        "duration": 20,
+        "pricingType": "PPR",
+        "attentionMap": {
+          "Inventory_9": "NONE"
+        }
+      },
+      {
+        "id": 114,
+        "group": 7932,
+        "audienceType": 0,
+        "price": 20.869845835673047,
+        "duration": 8,
+        "pricingType": "PPR",
+        "attentionMap": {
+          "Inventory_3": "NONE"
+        }
+      }
+    ],
+    "inventories": [
+      {
+        "id": 0,
+        "duration": 240,
+        "durationInMinutes": 4,
+        "maxCommercialCount": 20,
+        "hour": 1
+      },
+      {
+        "id": 1,
+        "duration": 240,
+        "durationInMinutes": 4,
+        "maxCommercialCount": 20,
+        "hour": 2
+      },
+      {
+        "id": 2,
+        "duration": 180,
+        "durationInMinutes": 3,
+        "maxCommercialCount": 20,
+        "hour": 0
+      },
+      {
+        "id": 3,
+        "duration": 280,
+        "durationInMinutes": 5,
+        "maxCommercialCount": 20,
+        "hour": 1
+      },
+      {
+        "id": 4,
+        "duration": 240,
+        "durationInMinutes": 4,
+        "maxCommercialCount": 20,
+        "hour": 2
+      },
+      {
+        "id": 5,
+        "duration": 280,
+        "durationInMinutes": 5,
+        "maxCommercialCount": 20,
+        "hour": 0
+      },
+      {
+        "id": 6,
+        "duration": 280,
+        "durationInMinutes": 5,
+        "maxCommercialCount": 20,
+        "hour": 1
+      },
+      {
+        "id": 7,
+        "duration": 240,
+        "durationInMinutes": 4,
+        "maxCommercialCount": 20,
+        "hour": 2
+      },
+      {
+        "id": 8,
+        "duration": 180,
+        "durationInMinutes": 3,
+        "maxCommercialCount": 20,
+        "hour": 0
+      },
+      {
+        "id": 9,
+        "duration": 240,
+        "durationInMinutes": 4,
+        "maxCommercialCount": 20,
+        "hour": 1
+      }
+    ],
+    "settings": {
+      "searchMode": "BEST_IMPROVEMENT",
+      "timeLimit": 300,
+      "localSearchSettings": {
+        "moves": [
+          "insert",
+          "outOfPool",
+          "interSwap",
+          "shift"
+        ],
+        "neighborhoodSkipProbability": 0.0
+      },
+      "constructiveHeuristicSettings": {
+        "lowerBound": 0.5,
+        "upperBound": 2.0
+      },
+      "alphaGenerator": {
+        "alpha": 0.5
+      },
+      "randomRunN": 0,
+      "instancePath": "instances/density\u003dLOW_nInventory\u003d10_nHours\u003d3_seed\u003d10.json"
+    }
+  }
+}
