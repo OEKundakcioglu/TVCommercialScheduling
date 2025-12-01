@@ -1,0 +1,1214 @@
+=== SLURM JOB SUMMARY ===
+Job ID:        152943
+Job Name:      runsh_cpu_full
+Partition:     longer_mdbf
+Node(s):       cn20
+Exclusive:     yes
+Mem request:   all-node (--mem=0)
+
+=== SLURM NODE DETAIL (scheduler view) ===
+NodeName=cn20
+CoresPerSocket=16
+CPUTot=32
+RealMemory=232098
+Sockets=2
+ThreadsPerCore=1
+
+=== OS VIEW (on allocated node) ===
+Architecture:        x86_64
+CPU op-mode(s):      32-bit, 64-bit
+Byte Order:          Little Endian
+CPU(s):              32
+On-line CPU(s) list: 0-31
+Thread(s) per core:  1
+Core(s) per socket:  16
+Socket(s):           2
+NUMA node(s):        1
+Vendor ID:           GenuineIntel
+CPU family:          6
+Model:               85
+Model name:          Intel(R) Xeon(R) Gold 6130 CPU @ 2.10GHz
+Stepping:            4
+CPU MHz:             2100.000
+CPU max MHz:         3700.0000
+CPU min MHz:         1000.0000
+BogoMIPS:            4200.00
+L1d cache:           32K
+L1i cache:           32K
+L2 cache:            1024K
+L3 cache:            22528K
+NUMA node0 CPU(s):   0-31
+Flags:               fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc art arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf pni pclmulqdq dtes64 monitor ds_cpl smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch cpuid_fault epb cat_l3 cdp_l3 invpcid_single pti intel_ppin ssbd mba ibrs ibpb stibp fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm cqm mpx rdt_a avx512f avx512dq rdseed adx smap clflushopt clwb intel_pt avx512cd avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local dtherm ida arat pln pts hwp hwp_act_window hwp_pkg_req pku ospke md_clear flush_l1d arch_capabilities
+
+              total        used        free      shared  buff/cache   available
+Mem:          251Gi       1.5Gi       237Gi        11Gi        12Gi       236Gi
+Swap:            0B          0B          0B
+
+available: 1 nodes (0)
+node 0 cpus: 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31
+node 0 size: 257581 MB
+node 0 free: 243692 MB
+node distances:
+node   0 
+  0:  10 
+
+[INFO] SLURM job 152943 starting on cn20 at Sun Nov 30 10:42:52 +03 2025
+[INFO] Launching run.sh with index 10 using 31 CPU threads
+[INFO] Project root: /cta/users/erhun.kundakcioglu/TVCommercialScheduling
+[INFO] Command index: 10
+[INFO] Command file: commands/run_commands_10.txt
+[INFO] Base Python: /cta/capps/python/3.11.7/gcc/13.2.0/drtq5ks/bin/python3
+[INFO] Virtualenv directory: /tmp/venv_erhun.kundakcioglu_152943_10
+[INFO] Creating virtualenv...
+[INFO] Using Python from venv: /tmp/venv_erhun.kundakcioglu_152943_10/bin/python
+[INFO] Installing dependencies from requirements.txt...
+Collecting PyYAML==6.0.3 (from -r /cta/users/erhun.kundakcioglu/TVCommercialScheduling/requirements.txt (line 1))
+  Using cached pyyaml-6.0.3-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (2.4 kB)
+Using cached pyyaml-6.0.3-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (806 kB)
+Installing collected packages: PyYAML
+Successfully installed PyYAML-6.0.3
+[INFO] Running: python run.py "commands/run_commands_10.txt"
+Starting execution of 33 commands...
+
+[1/33] Starting command 1...
+Executing: ./gradlew runMipSolver -PinstancePath="instances/density=HIGH_nInventory=15_nHours=4_seed=10.json" -PoutputPath="November2/continuous" -PmodelType="Continuous" -PcheckPointTimes="30,60,120,300,600,900,1800,3600,7200" -PlogPath="November2/continuous/density=HIGH_nInventory=15_nHours=4_seed=10.json/mip.log"
+Command failed with return code: 1
+Error: 
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':runMipSolver'.
+> Process 'command '/cta/users/erhun.kundakcioglu/jdk-21.0.3+9/bin/java'' finished with non-zero exit value 1
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights.
+> Get more help at https://help.gradle.org.
+
+BUİLD FAILED in 13s
+
+Starting a Gradle Daemon, 4 busy and 3 incompatible and 5 stopped Daemons could not be reused, use --status for details
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runMipSolver
+Running MIP Solver with arguments: --instancePath=instances/density=HIGH_nInventory=15_nHours=4_seed=10.json --outputPath=November2/continuous --modelType=Continuous --checkPointTimes=30,60,120,300,600,900,1800,3600,7200 --logPath=November2/continuous/density=HIGH_nInventory=15_nHours=4_seed=10.json/mip.log
+Loading problem instance...
+Set parameter WLSAccessID
+Set parameter WLSSecret
+Set parameter LicenseID to value 2736771
+
+> Task :runMipSolver FAILED
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 1 FAILED (Duration: 13.75s)
+
+[2/33] Starting command 2...
+Executing: ./gradlew runMipSolver -PinstancePath="instances/density=HIGH_nInventory=15_nHours=4_seed=4.json" -PoutputPath="November2/continuous" -PmodelType="Continuous" -PcheckPointTimes="30,60,120,300,600,900,1800,3600,7200" -PlogPath="November2/continuous/density=HIGH_nInventory=15_nHours=4_seed=4.json/mip.log"
+Command failed with return code: 1
+Error: 
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':runMipSolver'.
+> Process 'command '/cta/users/erhun.kundakcioglu/jdk-21.0.3+9/bin/java'' finished with non-zero exit value 1
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights.
+> Get more help at https://help.gradle.org.
+
+BUİLD FAILED in 4s
+
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runMipSolver
+Running MIP Solver with arguments: --instancePath=instances/density=HIGH_nInventory=15_nHours=4_seed=4.json --outputPath=November2/continuous --modelType=Continuous --checkPointTimes=30,60,120,300,600,900,1800,3600,7200 --logPath=November2/continuous/density=HIGH_nInventory=15_nHours=4_seed=4.json/mip.log
+Loading problem instance...
+Set parameter WLSAccessID
+Set parameter WLSSecret
+Set parameter LicenseID to value 2736771
+
+> Task :runMipSolver FAILED
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 2 FAILED (Duration: 4.88s)
+
+[3/33] Starting command 3...
+Executing: ./gradlew runMipSolver -PinstancePath="instances/density=LOW_nInventory=10_nHours=3_seed=2.json" -PoutputPath="November2/continuous" -PmodelType="Continuous" -PcheckPointTimes="30,60,120,300,600,900,1800,3600,7200" -PlogPath="November2/continuous/density=LOW_nInventory=10_nHours=3_seed=2.json/mip.log"
+Command failed with return code: 1
+Error: 
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':runMipSolver'.
+> Process 'command '/cta/users/erhun.kundakcioglu/jdk-21.0.3+9/bin/java'' finished with non-zero exit value 1
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights.
+> Get more help at https://help.gradle.org.
+
+BUİLD FAILED in 4s
+
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runMipSolver
+Running MIP Solver with arguments: --instancePath=instances/density=LOW_nInventory=10_nHours=3_seed=2.json --outputPath=November2/continuous --modelType=Continuous --checkPointTimes=30,60,120,300,600,900,1800,3600,7200 --logPath=November2/continuous/density=LOW_nInventory=10_nHours=3_seed=2.json/mip.log
+Loading problem instance...
+Set parameter WLSAccessID
+Set parameter WLSSecret
+Set parameter LicenseID to value 2736771
+
+> Task :runMipSolver FAILED
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 3 FAILED (Duration: 5.03s)
+
+[4/33] Starting command 4...
+Executing: ./gradlew runMipSolver -PinstancePath="instances/density=HIGH_nInventory=20_nHours=5_seed=8.json" -PoutputPath="November2/continuous" -PmodelType="Continuous" -PcheckPointTimes="30,60,120,300,600,900,1800,3600,7200" -PlogPath="November2/continuous/density=HIGH_nInventory=20_nHours=5_seed=8.json/mip.log"
+Command failed with return code: 1
+Error: 
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':runMipSolver'.
+> Process 'command '/cta/users/erhun.kundakcioglu/jdk-21.0.3+9/bin/java'' finished with non-zero exit value 1
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights.
+> Get more help at https://help.gradle.org.
+
+BUİLD FAILED in 4s
+
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runMipSolver
+Running MIP Solver with arguments: --instancePath=instances/density=HIGH_nInventory=20_nHours=5_seed=8.json --outputPath=November2/continuous --modelType=Continuous --checkPointTimes=30,60,120,300,600,900,1800,3600,7200 --logPath=November2/continuous/density=HIGH_nInventory=20_nHours=5_seed=8.json/mip.log
+Loading problem instance...
+Set parameter WLSAccessID
+Set parameter WLSSecret
+Set parameter LicenseID to value 2736771
+
+> Task :runMipSolver FAILED
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 4 FAILED (Duration: 5.04s)
+
+[5/33] Starting command 5...
+Executing: ./gradlew runMipSolver -PinstancePath="instances/density=HIGH_nInventory=15_nHours=4_seed=8.json" -PoutputPath="November2/continuous" -PmodelType="Continuous" -PcheckPointTimes="30,60,120,300,600,900,1800,3600,7200" -PlogPath="November2/continuous/density=HIGH_nInventory=15_nHours=4_seed=8.json/mip.log"
+Command failed with return code: 1
+Error: 
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':runMipSolver'.
+> Process 'command '/cta/users/erhun.kundakcioglu/jdk-21.0.3+9/bin/java'' finished with non-zero exit value 1
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights.
+> Get more help at https://help.gradle.org.
+
+BUİLD FAILED in 4s
+
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runMipSolver
+Running MIP Solver with arguments: --instancePath=instances/density=HIGH_nInventory=15_nHours=4_seed=8.json --outputPath=November2/continuous --modelType=Continuous --checkPointTimes=30,60,120,300,600,900,1800,3600,7200 --logPath=November2/continuous/density=HIGH_nInventory=15_nHours=4_seed=8.json/mip.log
+Loading problem instance...
+Set parameter WLSAccessID
+Set parameter WLSSecret
+Set parameter LicenseID to value 2736771
+
+> Task :runMipSolver FAILED
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 5 FAILED (Duration: 5.04s)
+
+[6/33] Starting command 6...
+Executing: ./gradlew runMipSolver -PinstancePath="instances/3.json" -PoutputPath="November2/continuous" -PmodelType="Continuous" -PcheckPointTimes="30,60,120,300,600,900,1800,3600,7200" -PlogPath="November2/continuous/3.json/mip.log"
+Command failed with return code: 1
+Error: 
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':runMipSolver'.
+> Process 'command '/cta/users/erhun.kundakcioglu/jdk-21.0.3+9/bin/java'' finished with non-zero exit value 1
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights.
+> Get more help at https://help.gradle.org.
+
+BUİLD FAILED in 4s
+
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runMipSolver
+Running MIP Solver with arguments: --instancePath=instances/3.json --outputPath=November2/continuous --modelType=Continuous --checkPointTimes=30,60,120,300,600,900,1800,3600,7200 --logPath=November2/continuous/3.json/mip.log
+Loading problem instance...
+Set parameter WLSAccessID
+Set parameter WLSSecret
+Set parameter LicenseID to value 2736771
+
+> Task :runMipSolver FAILED
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 6 FAILED (Duration: 5.07s)
+
+[7/33] Starting command 7...
+Executing: ./gradlew runMipSolver -PinstancePath="instances/density=MEDIUM_nInventory=10_nHours=3_seed=3.json" -PoutputPath="November2/continuous" -PmodelType="Continuous" -PcheckPointTimes="30,60,120,300,600,900,1800,3600,7200" -PlogPath="November2/continuous/density=MEDIUM_nInventory=10_nHours=3_seed=3.json/mip.log"
+Command failed with return code: 1
+Error: 
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':runMipSolver'.
+> Process 'command '/cta/users/erhun.kundakcioglu/jdk-21.0.3+9/bin/java'' finished with non-zero exit value 1
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights.
+> Get more help at https://help.gradle.org.
+
+BUİLD FAILED in 4s
+
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runMipSolver
+Running MIP Solver with arguments: --instancePath=instances/density=MEDIUM_nInventory=10_nHours=3_seed=3.json --outputPath=November2/continuous --modelType=Continuous --checkPointTimes=30,60,120,300,600,900,1800,3600,7200 --logPath=November2/continuous/density=MEDIUM_nInventory=10_nHours=3_seed=3.json/mip.log
+Loading problem instance...
+Set parameter WLSAccessID
+Set parameter WLSSecret
+Set parameter LicenseID to value 2736771
+
+> Task :runMipSolver FAILED
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 7 FAILED (Duration: 4.77s)
+
+[8/33] Starting command 8...
+Executing: ./gradlew runMipSolver -PinstancePath="instances/density=LOW_nInventory=10_nHours=3_seed=5.json" -PoutputPath="November2/continuous" -PmodelType="Continuous" -PcheckPointTimes="30,60,120,300,600,900,1800,3600,7200" -PlogPath="November2/continuous/density=LOW_nInventory=10_nHours=3_seed=5.json/mip.log"
+Command failed with return code: 1
+Error: 
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':runMipSolver'.
+> Process 'command '/cta/users/erhun.kundakcioglu/jdk-21.0.3+9/bin/java'' finished with non-zero exit value 1
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights.
+> Get more help at https://help.gradle.org.
+
+BUİLD FAILED in 4s
+
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runMipSolver
+Running MIP Solver with arguments: --instancePath=instances/density=LOW_nInventory=10_nHours=3_seed=5.json --outputPath=November2/continuous --modelType=Continuous --checkPointTimes=30,60,120,300,600,900,1800,3600,7200 --logPath=November2/continuous/density=LOW_nInventory=10_nHours=3_seed=5.json/mip.log
+Loading problem instance...
+Set parameter WLSAccessID
+Set parameter WLSSecret
+Set parameter LicenseID to value 2736771
+
+> Task :runMipSolver FAILED
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 8 FAILED (Duration: 4.72s)
+
+[9/33] Starting command 9...
+Executing: ./gradlew runMipSolver -PinstancePath="instances/density=MEDIUM_nInventory=10_nHours=3_seed=8.json" -PoutputPath="November2/continuous" -PmodelType="Continuous" -PcheckPointTimes="30,60,120,300,600,900,1800,3600,7200" -PlogPath="November2/continuous/density=MEDIUM_nInventory=10_nHours=3_seed=8.json/mip.log"
+Command failed with return code: 1
+Error: 
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':runMipSolver'.
+> Process 'command '/cta/users/erhun.kundakcioglu/jdk-21.0.3+9/bin/java'' finished with non-zero exit value 1
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights.
+> Get more help at https://help.gradle.org.
+
+BUİLD FAILED in 4s
+
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runMipSolver
+Running MIP Solver with arguments: --instancePath=instances/density=MEDIUM_nInventory=10_nHours=3_seed=8.json --outputPath=November2/continuous --modelType=Continuous --checkPointTimes=30,60,120,300,600,900,1800,3600,7200 --logPath=November2/continuous/density=MEDIUM_nInventory=10_nHours=3_seed=8.json/mip.log
+Loading problem instance...
+Set parameter WLSAccessID
+Set parameter WLSSecret
+Set parameter LicenseID to value 2736771
+
+> Task :runMipSolver FAILED
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 9 FAILED (Duration: 4.58s)
+
+[10/33] Starting command 10...
+Executing: ./gradlew runMipSolver -PinstancePath="instances/8.json" -PoutputPath="November2/continuous" -PmodelType="Continuous" -PcheckPointTimes="30,60,120,300,600,900,1800,3600,7200" -PlogPath="November2/continuous/8.json/mip.log"
+Command failed with return code: 1
+Error: 
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':runMipSolver'.
+> Process 'command '/cta/users/erhun.kundakcioglu/jdk-21.0.3+9/bin/java'' finished with non-zero exit value 1
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights.
+> Get more help at https://help.gradle.org.
+
+BUİLD FAILED in 4s
+
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runMipSolver
+Running MIP Solver with arguments: --instancePath=instances/8.json --outputPath=November2/continuous --modelType=Continuous --checkPointTimes=30,60,120,300,600,900,1800,3600,7200 --logPath=November2/continuous/8.json/mip.log
+Loading problem instance...
+Set parameter WLSAccessID
+Set parameter WLSSecret
+Set parameter LicenseID to value 2736771
+
+> Task :runMipSolver FAILED
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 10 FAILED (Duration: 4.57s)
+
+[11/33] Starting command 11...
+Executing: ./gradlew runMipSolver -PinstancePath="instances/density=HIGH_nInventory=15_nHours=4_seed=3.json" -PoutputPath="November2/continuous" -PmodelType="Continuous" -PcheckPointTimes="30,60,120,300,600,900,1800,3600,7200" -PlogPath="November2/continuous/density=HIGH_nInventory=15_nHours=4_seed=3.json/mip.log"
+Command failed with return code: 1
+Error: 
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':runMipSolver'.
+> Process 'command '/cta/users/erhun.kundakcioglu/jdk-21.0.3+9/bin/java'' finished with non-zero exit value 1
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights.
+> Get more help at https://help.gradle.org.
+
+BUİLD FAILED in 4s
+
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runMipSolver
+Running MIP Solver with arguments: --instancePath=instances/density=HIGH_nInventory=15_nHours=4_seed=3.json --outputPath=November2/continuous --modelType=Continuous --checkPointTimes=30,60,120,300,600,900,1800,3600,7200 --logPath=November2/continuous/density=HIGH_nInventory=15_nHours=4_seed=3.json/mip.log
+Loading problem instance...
+Set parameter WLSAccessID
+Set parameter WLSSecret
+Set parameter LicenseID to value 2736771
+
+> Task :runMipSolver FAILED
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 11 FAILED (Duration: 4.58s)
+
+[12/33] Starting command 12...
+Executing: ./gradlew runMipSolver -PinstancePath="instances/density=LOW_nInventory=20_nHours=5_seed=6.json" -PoutputPath="November2/continuous" -PmodelType="Continuous" -PcheckPointTimes="30,60,120,300,600,900,1800,3600,7200" -PlogPath="November2/continuous/density=LOW_nInventory=20_nHours=5_seed=6.json/mip.log"
+Command failed with return code: 1
+Error: 
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':runMipSolver'.
+> Process 'command '/cta/users/erhun.kundakcioglu/jdk-21.0.3+9/bin/java'' finished with non-zero exit value 1
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights.
+> Get more help at https://help.gradle.org.
+
+BUİLD FAILED in 4s
+
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runMipSolver
+Running MIP Solver with arguments: --instancePath=instances/density=LOW_nInventory=20_nHours=5_seed=6.json --outputPath=November2/continuous --modelType=Continuous --checkPointTimes=30,60,120,300,600,900,1800,3600,7200 --logPath=November2/continuous/density=LOW_nInventory=20_nHours=5_seed=6.json/mip.log
+Loading problem instance...
+Set parameter WLSAccessID
+Set parameter WLSSecret
+Set parameter LicenseID to value 2736771
+
+> Task :runMipSolver FAILED
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 12 FAILED (Duration: 4.61s)
+
+[13/33] Starting command 13...
+Executing: ./gradlew runMipSolver -PinstancePath="instances/density=HIGH_nInventory=20_nHours=5_seed=3.json" -PoutputPath="November2/continuous" -PmodelType="Continuous" -PcheckPointTimes="30,60,120,300,600,900,1800,3600,7200" -PlogPath="November2/continuous/density=HIGH_nInventory=20_nHours=5_seed=3.json/mip.log"
+Command failed with return code: 1
+Error: 
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':runMipSolver'.
+> Process 'command '/cta/users/erhun.kundakcioglu/jdk-21.0.3+9/bin/java'' finished with non-zero exit value 1
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights.
+> Get more help at https://help.gradle.org.
+
+BUİLD FAILED in 4s
+
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runMipSolver
+Running MIP Solver with arguments: --instancePath=instances/density=HIGH_nInventory=20_nHours=5_seed=3.json --outputPath=November2/continuous --modelType=Continuous --checkPointTimes=30,60,120,300,600,900,1800,3600,7200 --logPath=November2/continuous/density=HIGH_nInventory=20_nHours=5_seed=3.json/mip.log
+Loading problem instance...
+Set parameter WLSAccessID
+Set parameter WLSSecret
+Set parameter LicenseID to value 2736771
+
+> Task :runMipSolver FAILED
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 13 FAILED (Duration: 4.83s)
+
+[14/33] Starting command 14...
+Executing: ./gradlew runMipSolver -PinstancePath="instances/density=LOW_nInventory=15_nHours=4_seed=6.json" -PoutputPath="November2/continuous" -PmodelType="Continuous" -PcheckPointTimes="30,60,120,300,600,900,1800,3600,7200" -PlogPath="November2/continuous/density=LOW_nInventory=15_nHours=4_seed=6.json/mip.log"
+Command failed with return code: 1
+Error: 
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':runMipSolver'.
+> Process 'command '/cta/users/erhun.kundakcioglu/jdk-21.0.3+9/bin/java'' finished with non-zero exit value 1
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights.
+> Get more help at https://help.gradle.org.
+
+BUİLD FAILED in 11s
+
+Starting a Gradle Daemon, 3 busy and 3 incompatible and 10 stopped Daemons could not be reused, use --status for details
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runMipSolver
+Running MIP Solver with arguments: --instancePath=instances/density=LOW_nInventory=15_nHours=4_seed=6.json --outputPath=November2/continuous --modelType=Continuous --checkPointTimes=30,60,120,300,600,900,1800,3600,7200 --logPath=November2/continuous/density=LOW_nInventory=15_nHours=4_seed=6.json/mip.log
+Loading problem instance...
+Set parameter WLSAccessID
+Set parameter WLSSecret
+Set parameter LicenseID to value 2736771
+
+> Task :runMipSolver FAILED
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 14 FAILED (Duration: 12.57s)
+
+[15/33] Starting command 15...
+Executing: ./gradlew runMipSolver -PinstancePath="instances/density=LOW_nInventory=10_nHours=3_seed=9.json" -PoutputPath="November2/continuous" -PmodelType="Continuous" -PcheckPointTimes="30,60,120,300,600,900,1800,3600,7200" -PlogPath="November2/continuous/density=LOW_nInventory=10_nHours=3_seed=9.json/mip.log"
+Command failed with return code: 1
+Error: 
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':runMipSolver'.
+> Process 'command '/cta/users/erhun.kundakcioglu/jdk-21.0.3+9/bin/java'' finished with non-zero exit value 1
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights.
+> Get more help at https://help.gradle.org.
+
+BUİLD FAILED in 4s
+
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runMipSolver
+Running MIP Solver with arguments: --instancePath=instances/density=LOW_nInventory=10_nHours=3_seed=9.json --outputPath=November2/continuous --modelType=Continuous --checkPointTimes=30,60,120,300,600,900,1800,3600,7200 --logPath=November2/continuous/density=LOW_nInventory=10_nHours=3_seed=9.json/mip.log
+Loading problem instance...
+Set parameter WLSAccessID
+Set parameter WLSSecret
+Set parameter LicenseID to value 2736771
+
+> Task :runMipSolver FAILED
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 15 FAILED (Duration: 4.88s)
+
+[16/33] Starting command 16...
+Executing: ./gradlew runMipSolver -PinstancePath="instances/density=MEDIUM_nInventory=10_nHours=3_seed=4.json" -PoutputPath="November2/continuous" -PmodelType="Continuous" -PcheckPointTimes="30,60,120,300,600,900,1800,3600,7200" -PlogPath="November2/continuous/density=MEDIUM_nInventory=10_nHours=3_seed=4.json/mip.log"
+Command failed with return code: 1
+Error: 
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':runMipSolver'.
+> Process 'command '/cta/users/erhun.kundakcioglu/jdk-21.0.3+9/bin/java'' finished with non-zero exit value 1
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights.
+> Get more help at https://help.gradle.org.
+
+BUİLD FAILED in 14s
+
+Starting a Gradle Daemon, 5 busy and 1 incompatible and 11 stopped Daemons could not be reused, use --status for details
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runMipSolver
+Running MIP Solver with arguments: --instancePath=instances/density=MEDIUM_nInventory=10_nHours=3_seed=4.json --outputPath=November2/continuous --modelType=Continuous --checkPointTimes=30,60,120,300,600,900,1800,3600,7200 --logPath=November2/continuous/density=MEDIUM_nInventory=10_nHours=3_seed=4.json/mip.log
+Loading problem instance...
+Set parameter WLSAccessID
+Set parameter WLSSecret
+Set parameter LicenseID to value 2736771
+
+> Task :runMipSolver FAILED
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 16 FAILED (Duration: 14.90s)
+
+[17/33] Starting command 17...
+Executing: ./gradlew runMipSolver -PinstancePath="instances/4.json" -PoutputPath="November2/continuous" -PmodelType="Continuous" -PcheckPointTimes="30,60,120,300,600,900,1800,3600,7200" -PlogPath="November2/continuous/4.json/mip.log"
+Command failed with return code: 1
+Error: 
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':runMipSolver'.
+> Process 'command '/cta/users/erhun.kundakcioglu/jdk-21.0.3+9/bin/java'' finished with non-zero exit value 1
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights.
+> Get more help at https://help.gradle.org.
+
+BUİLD FAILED in 4s
+
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runMipSolver
+Running MIP Solver with arguments: --instancePath=instances/4.json --outputPath=November2/continuous --modelType=Continuous --checkPointTimes=30,60,120,300,600,900,1800,3600,7200 --logPath=November2/continuous/4.json/mip.log
+Loading problem instance...
+Set parameter WLSAccessID
+Set parameter WLSSecret
+Set parameter LicenseID to value 2736771
+
+> Task :runMipSolver FAILED
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 17 FAILED (Duration: 4.88s)
+
+[18/33] Starting command 18...
+Executing: ./gradlew runMipSolver -PinstancePath="instances/density=MEDIUM_nInventory=20_nHours=5_seed=7.json" -PoutputPath="November2/continuous" -PmodelType="Continuous" -PcheckPointTimes="30,60,120,300,600,900,1800,3600,7200" -PlogPath="November2/continuous/density=MEDIUM_nInventory=20_nHours=5_seed=7.json/mip.log"
+Command failed with return code: 1
+Error: 
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':runMipSolver'.
+> Process 'command '/cta/users/erhun.kundakcioglu/jdk-21.0.3+9/bin/java'' finished with non-zero exit value 1
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights.
+> Get more help at https://help.gradle.org.
+
+BUİLD FAILED in 4s
+
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runMipSolver
+Running MIP Solver with arguments: --instancePath=instances/density=MEDIUM_nInventory=20_nHours=5_seed=7.json --outputPath=November2/continuous --modelType=Continuous --checkPointTimes=30,60,120,300,600,900,1800,3600,7200 --logPath=November2/continuous/density=MEDIUM_nInventory=20_nHours=5_seed=7.json/mip.log
+Loading problem instance...
+Set parameter WLSAccessID
+Set parameter WLSSecret
+Set parameter LicenseID to value 2736771
+
+> Task :runMipSolver FAILED
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 18 FAILED (Duration: 5.11s)
+
+[19/33] Starting command 19...
+Executing: ./gradlew runMipSolver -PinstancePath="instances/density=MEDIUM_nInventory=15_nHours=4_seed=7.json" -PoutputPath="November2/continuous" -PmodelType="Continuous" -PcheckPointTimes="30,60,120,300,600,900,1800,3600,7200" -PlogPath="November2/continuous/density=MEDIUM_nInventory=15_nHours=4_seed=7.json/mip.log"
+Command failed with return code: 1
+Error: 
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':runMipSolver'.
+> Process 'command '/cta/users/erhun.kundakcioglu/jdk-21.0.3+9/bin/java'' finished with non-zero exit value 1
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights.
+> Get more help at https://help.gradle.org.
+
+BUİLD FAILED in 4s
+
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runMipSolver
+Running MIP Solver with arguments: --instancePath=instances/density=MEDIUM_nInventory=15_nHours=4_seed=7.json --outputPath=November2/continuous --modelType=Continuous --checkPointTimes=30,60,120,300,600,900,1800,3600,7200 --logPath=November2/continuous/density=MEDIUM_nInventory=15_nHours=4_seed=7.json/mip.log
+Loading problem instance...
+Set parameter WLSAccessID
+Set parameter WLSSecret
+Set parameter LicenseID to value 2736771
+
+> Task :runMipSolver FAILED
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 19 FAILED (Duration: 4.61s)
+
+[20/33] Starting command 20...
+Executing: ./gradlew runMipSolver -PinstancePath="instances/density=MEDIUM_nInventory=15_nHours=4_seed=6.json" -PoutputPath="November2/continuous" -PmodelType="Continuous" -PcheckPointTimes="30,60,120,300,600,900,1800,3600,7200" -PlogPath="November2/continuous/density=MEDIUM_nInventory=15_nHours=4_seed=6.json/mip.log"
+Command failed with return code: 1
+Error: 
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':runMipSolver'.
+> Process 'command '/cta/users/erhun.kundakcioglu/jdk-21.0.3+9/bin/java'' finished with non-zero exit value 1
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights.
+> Get more help at https://help.gradle.org.
+
+BUİLD FAILED in 4s
+
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runMipSolver
+Running MIP Solver with arguments: --instancePath=instances/density=MEDIUM_nInventory=15_nHours=4_seed=6.json --outputPath=November2/continuous --modelType=Continuous --checkPointTimes=30,60,120,300,600,900,1800,3600,7200 --logPath=November2/continuous/density=MEDIUM_nInventory=15_nHours=4_seed=6.json/mip.log
+Loading problem instance...
+Set parameter WLSAccessID
+Set parameter WLSSecret
+Set parameter LicenseID to value 2736771
+
+> Task :runMipSolver FAILED
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 20 FAILED (Duration: 4.69s)
+
+[21/33] Starting command 21...
+Executing: ./gradlew runMipSolver -PinstancePath="instances/density=MEDIUM_nInventory=20_nHours=5_seed=6.json" -PoutputPath="November2/continuous" -PmodelType="Continuous" -PcheckPointTimes="30,60,120,300,600,900,1800,3600,7200" -PlogPath="November2/continuous/density=MEDIUM_nInventory=20_nHours=5_seed=6.json/mip.log"
+Command failed with return code: 1
+Error: 
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':runMipSolver'.
+> Process 'command '/cta/users/erhun.kundakcioglu/jdk-21.0.3+9/bin/java'' finished with non-zero exit value 1
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights.
+> Get more help at https://help.gradle.org.
+
+BUİLD FAILED in 4s
+
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runMipSolver
+Running MIP Solver with arguments: --instancePath=instances/density=MEDIUM_nInventory=20_nHours=5_seed=6.json --outputPath=November2/continuous --modelType=Continuous --checkPointTimes=30,60,120,300,600,900,1800,3600,7200 --logPath=November2/continuous/density=MEDIUM_nInventory=20_nHours=5_seed=6.json/mip.log
+Loading problem instance...
+Set parameter WLSAccessID
+Set parameter WLSSecret
+Set parameter LicenseID to value 2736771
+
+> Task :runMipSolver FAILED
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 21 FAILED (Duration: 5.24s)
+
+[22/33] Starting command 22...
+Executing: ./gradlew runMipSolver -PinstancePath="instances/density=MEDIUM_nInventory=10_nHours=3_seed=10.json" -PoutputPath="November2/continuous" -PmodelType="Continuous" -PcheckPointTimes="30,60,120,300,600,900,1800,3600,7200" -PlogPath="November2/continuous/density=MEDIUM_nInventory=10_nHours=3_seed=10.json/mip.log"
+Command failed with return code: 1
+Error: 
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':runMipSolver'.
+> Process 'command '/cta/users/erhun.kundakcioglu/jdk-21.0.3+9/bin/java'' finished with non-zero exit value 1
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights.
+> Get more help at https://help.gradle.org.
+
+BUİLD FAILED in 12s
+
+Starting a Gradle Daemon, 4 busy and 2 incompatible and 16 stopped Daemons could not be reused, use --status for details
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runMipSolver
+Running MIP Solver with arguments: --instancePath=instances/density=MEDIUM_nInventory=10_nHours=3_seed=10.json --outputPath=November2/continuous --modelType=Continuous --checkPointTimes=30,60,120,300,600,900,1800,3600,7200 --logPath=November2/continuous/density=MEDIUM_nInventory=10_nHours=3_seed=10.json/mip.log
+Loading problem instance...
+Set parameter WLSAccessID
+Set parameter WLSSecret
+Set parameter LicenseID to value 2736771
+
+> Task :runMipSolver FAILED
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 22 FAILED (Duration: 13.11s)
+
+[23/33] Starting command 23...
+Executing: ./gradlew runMipSolver -PinstancePath="instances/5.json" -PoutputPath="November2/continuous" -PmodelType="Continuous" -PcheckPointTimes="30,60,120,300,600,900,1800,3600,7200" -PlogPath="November2/continuous/5.json/mip.log"
+Command failed with return code: 1
+Error: 
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':runMipSolver'.
+> Process 'command '/cta/users/erhun.kundakcioglu/jdk-21.0.3+9/bin/java'' finished with non-zero exit value 1
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights.
+> Get more help at https://help.gradle.org.
+
+BUİLD FAILED in 4s
+
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runMipSolver
+Running MIP Solver with arguments: --instancePath=instances/5.json --outputPath=November2/continuous --modelType=Continuous --checkPointTimes=30,60,120,300,600,900,1800,3600,7200 --logPath=November2/continuous/5.json/mip.log
+Loading problem instance...
+Set parameter WLSAccessID
+Set parameter WLSSecret
+Set parameter LicenseID to value 2736771
+
+> Task :runMipSolver FAILED
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 23 FAILED (Duration: 4.68s)
+
+[24/33] Starting command 24...
+Executing: ./gradlew runMipSolver -PinstancePath="instances/density=LOW_nInventory=10_nHours=3_seed=8.json" -PoutputPath="November2/continuous" -PmodelType="Continuous" -PcheckPointTimes="30,60,120,300,600,900,1800,3600,7200" -PlogPath="November2/continuous/density=LOW_nInventory=10_nHours=3_seed=8.json/mip.log"
+Command failed with return code: 1
+Error: 
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':runMipSolver'.
+> Process 'command '/cta/users/erhun.kundakcioglu/jdk-21.0.3+9/bin/java'' finished with non-zero exit value 1
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights.
+> Get more help at https://help.gradle.org.
+
+BUİLD FAILED in 4s
+
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runMipSolver
+Running MIP Solver with arguments: --instancePath=instances/density=LOW_nInventory=10_nHours=3_seed=8.json --outputPath=November2/continuous --modelType=Continuous --checkPointTimes=30,60,120,300,600,900,1800,3600,7200 --logPath=November2/continuous/density=LOW_nInventory=10_nHours=3_seed=8.json/mip.log
+Loading problem instance...
+Set parameter WLSAccessID
+Set parameter WLSSecret
+Set parameter LicenseID to value 2736771
+
+> Task :runMipSolver FAILED
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 24 FAILED (Duration: 4.74s)
+
+[25/33] Starting command 25...
+Executing: ./gradlew runMipSolver -PinstancePath="instances/density=MEDIUM_nInventory=10_nHours=3_seed=5.json" -PoutputPath="November2/continuous" -PmodelType="Continuous" -PcheckPointTimes="30,60,120,300,600,900,1800,3600,7200" -PlogPath="November2/continuous/density=MEDIUM_nInventory=10_nHours=3_seed=5.json/mip.log"
+Command failed with return code: 1
+Error: 
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':runMipSolver'.
+> Process 'command '/cta/users/erhun.kundakcioglu/jdk-21.0.3+9/bin/java'' finished with non-zero exit value 1
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights.
+> Get more help at https://help.gradle.org.
+
+BUİLD FAILED in 4s
+
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runMipSolver
+Running MIP Solver with arguments: --instancePath=instances/density=MEDIUM_nInventory=10_nHours=3_seed=5.json --outputPath=November2/continuous --modelType=Continuous --checkPointTimes=30,60,120,300,600,900,1800,3600,7200 --logPath=November2/continuous/density=MEDIUM_nInventory=10_nHours=3_seed=5.json/mip.log
+Loading problem instance...
+Set parameter WLSAccessID
+Set parameter WLSSecret
+Set parameter LicenseID to value 2736771
+
+> Task :runMipSolver FAILED
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 25 FAILED (Duration: 4.77s)
+
+[26/33] Starting command 26...
+Executing: ./gradlew runMipSolver -PinstancePath="instances/density=HIGH_nInventory=10_nHours=3_seed=1.json" -PoutputPath="November2/continuous" -PmodelType="Continuous" -PcheckPointTimes="30,60,120,300,600,900,1800,3600,7200" -PlogPath="November2/continuous/density=HIGH_nInventory=10_nHours=3_seed=1.json/mip.log"
+Command failed with return code: 1
+Error: 
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':runMipSolver'.
+> Process 'command '/cta/users/erhun.kundakcioglu/jdk-21.0.3+9/bin/java'' finished with non-zero exit value 1
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights.
+> Get more help at https://help.gradle.org.
+
+BUİLD FAILED in 14s
+
+Starting a Gradle Daemon, 5 busy and 1 incompatible and 19 stopped Daemons could not be reused, use --status for details
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runMipSolver
+Running MIP Solver with arguments: --instancePath=instances/density=HIGH_nInventory=10_nHours=3_seed=1.json --outputPath=November2/continuous --modelType=Continuous --checkPointTimes=30,60,120,300,600,900,1800,3600,7200 --logPath=November2/continuous/density=HIGH_nInventory=10_nHours=3_seed=1.json/mip.log
+Loading problem instance...
+Set parameter WLSAccessID
+Set parameter WLSSecret
+Set parameter LicenseID to value 2736771
+
+> Task :runMipSolver FAILED
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 26 FAILED (Duration: 15.50s)
+
+[27/33] Starting command 27...
+Executing: ./gradlew runMipSolver -PinstancePath="instances/density=LOW_nInventory=15_nHours=4_seed=7.json" -PoutputPath="November2/continuous" -PmodelType="Continuous" -PcheckPointTimes="30,60,120,300,600,900,1800,3600,7200" -PlogPath="November2/continuous/density=LOW_nInventory=15_nHours=4_seed=7.json/mip.log"
+Command failed with return code: 1
+Error: 
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':runMipSolver'.
+> Process 'command '/cta/users/erhun.kundakcioglu/jdk-21.0.3+9/bin/java'' finished with non-zero exit value 1
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights.
+> Get more help at https://help.gradle.org.
+
+BUİLD FAILED in 4s
+
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runMipSolver
+Running MIP Solver with arguments: --instancePath=instances/density=LOW_nInventory=15_nHours=4_seed=7.json --outputPath=November2/continuous --modelType=Continuous --checkPointTimes=30,60,120,300,600,900,1800,3600,7200 --logPath=November2/continuous/density=LOW_nInventory=15_nHours=4_seed=7.json/mip.log
+Loading problem instance...
+Set parameter WLSAccessID
+Set parameter WLSSecret
+Set parameter LicenseID to value 2736771
+
+> Task :runMipSolver FAILED
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 27 FAILED (Duration: 4.66s)
+
+[28/33] Starting command 28...
+Executing: ./gradlew runMipSolver -PinstancePath="instances/density=MEDIUM_nInventory=20_nHours=5_seed=10.json" -PoutputPath="November2/continuous" -PmodelType="Continuous" -PcheckPointTimes="30,60,120,300,600,900,1800,3600,7200" -PlogPath="November2/continuous/density=MEDIUM_nInventory=20_nHours=5_seed=10.json/mip.log"
+Command failed with return code: 1
+Error: 
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':runMipSolver'.
+> Process 'command '/cta/users/erhun.kundakcioglu/jdk-21.0.3+9/bin/java'' finished with non-zero exit value 1
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights.
+> Get more help at https://help.gradle.org.
+
+BUİLD FAILED in 4s
+
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runMipSolver
+Running MIP Solver with arguments: --instancePath=instances/density=MEDIUM_nInventory=20_nHours=5_seed=10.json --outputPath=November2/continuous --modelType=Continuous --checkPointTimes=30,60,120,300,600,900,1800,3600,7200 --logPath=November2/continuous/density=MEDIUM_nInventory=20_nHours=5_seed=10.json/mip.log
+Loading problem instance...
+Set parameter WLSAccessID
+Set parameter WLSSecret
+Set parameter LicenseID to value 2736771
+
+> Task :runMipSolver FAILED
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 28 FAILED (Duration: 4.92s)
+
+[29/33] Starting command 29...
+Executing: ./gradlew runMipSolver -PinstancePath="instances/density=HIGH_nInventory=20_nHours=5_seed=2.json" -PoutputPath="November2/continuous" -PmodelType="Continuous" -PcheckPointTimes="30,60,120,300,600,900,1800,3600,7200" -PlogPath="November2/continuous/density=HIGH_nInventory=20_nHours=5_seed=2.json/mip.log"
+Command failed with return code: 1
+Error: 
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':runMipSolver'.
+> Process 'command '/cta/users/erhun.kundakcioglu/jdk-21.0.3+9/bin/java'' finished with non-zero exit value 1
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights.
+> Get more help at https://help.gradle.org.
+
+BUİLD FAILED in 4s
+
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runMipSolver
+Running MIP Solver with arguments: --instancePath=instances/density=HIGH_nInventory=20_nHours=5_seed=2.json --outputPath=November2/continuous --modelType=Continuous --checkPointTimes=30,60,120,300,600,900,1800,3600,7200 --logPath=November2/continuous/density=HIGH_nInventory=20_nHours=5_seed=2.json/mip.log
+Loading problem instance...
+Set parameter WLSAccessID
+Set parameter WLSSecret
+Set parameter LicenseID to value 2736771
+
+> Task :runMipSolver FAILED
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 29 FAILED (Duration: 5.23s)
+
+[30/33] Starting command 30...
+Executing: ./gradlew runMipSolver -PinstancePath="instances/density=LOW_nInventory=20_nHours=5_seed=7.json" -PoutputPath="November2/continuous" -PmodelType="Continuous" -PcheckPointTimes="30,60,120,300,600,900,1800,3600,7200" -PlogPath="November2/continuous/density=LOW_nInventory=20_nHours=5_seed=7.json/mip.log"
+Command failed with return code: 1
+Error: 
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':runMipSolver'.
+> Process 'command '/cta/users/erhun.kundakcioglu/jdk-21.0.3+9/bin/java'' finished with non-zero exit value 1
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights.
+> Get more help at https://help.gradle.org.
+
+BUİLD FAILED in 4s
+
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runMipSolver
+Running MIP Solver with arguments: --instancePath=instances/density=LOW_nInventory=20_nHours=5_seed=7.json --outputPath=November2/continuous --modelType=Continuous --checkPointTimes=30,60,120,300,600,900,1800,3600,7200 --logPath=November2/continuous/density=LOW_nInventory=20_nHours=5_seed=7.json/mip.log
+Loading problem instance...
+Set parameter WLSAccessID
+Set parameter WLSSecret
+Set parameter LicenseID to value 2736771
+
+> Task :runMipSolver FAILED
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 30 FAILED (Duration: 4.54s)
+
+[31/33] Starting command 31...
+Executing: ./gradlew runMipSolver -PinstancePath="instances/density=LOW_nInventory=15_nHours=4_seed=10.json" -PoutputPath="November2/continuous" -PmodelType="Continuous" -PcheckPointTimes="30,60,120,300,600,900,1800,3600,7200" -PlogPath="November2/continuous/density=LOW_nInventory=15_nHours=4_seed=10.json/mip.log"
+Command failed with return code: 1
+Error: 
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':runMipSolver'.
+> Process 'command '/cta/users/erhun.kundakcioglu/jdk-21.0.3+9/bin/java'' finished with non-zero exit value 1
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights.
+> Get more help at https://help.gradle.org.
+
+BUİLD FAILED in 4s
+
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runMipSolver
+Running MIP Solver with arguments: --instancePath=instances/density=LOW_nInventory=15_nHours=4_seed=10.json --outputPath=November2/continuous --modelType=Continuous --checkPointTimes=30,60,120,300,600,900,1800,3600,7200 --logPath=November2/continuous/density=LOW_nInventory=15_nHours=4_seed=10.json/mip.log
+Loading problem instance...
+Set parameter WLSAccessID
+Set parameter WLSSecret
+Set parameter LicenseID to value 2736771
+
+> Task :runMipSolver FAILED
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 31 FAILED (Duration: 4.84s)
+
+[32/33] Starting command 32...
+Executing: ./gradlew runMipSolver -PinstancePath="instances/density=HIGH_nInventory=15_nHours=4_seed=2.json" -PoutputPath="November2/continuous" -PmodelType="Continuous" -PcheckPointTimes="30,60,120,300,600,900,1800,3600,7200" -PlogPath="November2/continuous/density=HIGH_nInventory=15_nHours=4_seed=2.json/mip.log"
+Command failed with return code: 1
+Error: 
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':runMipSolver'.
+> Process 'command '/cta/users/erhun.kundakcioglu/jdk-21.0.3+9/bin/java'' finished with non-zero exit value 1
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights.
+> Get more help at https://help.gradle.org.
+
+BUİLD FAILED in 12s
+
+Starting a Gradle Daemon, 4 busy and 1 incompatible and 22 stopped Daemons could not be reused, use --status for details
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runMipSolver
+Running MIP Solver with arguments: --instancePath=instances/density=HIGH_nInventory=15_nHours=4_seed=2.json --outputPath=November2/continuous --modelType=Continuous --checkPointTimes=30,60,120,300,600,900,1800,3600,7200 --logPath=November2/continuous/density=HIGH_nInventory=15_nHours=4_seed=2.json/mip.log
+Loading problem instance...
+Set parameter WLSAccessID
+Set parameter WLSSecret
+Set parameter LicenseID to value 2736771
+
+> Task :runMipSolver FAILED
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 32 FAILED (Duration: 13.31s)
+
+[33/33] Starting command 33...
+Executing: ./gradlew runMipSolver -PinstancePath="instances/9.json" -PoutputPath="November2/continuous" -PmodelType="Continuous" -PcheckPointTimes="30,60,120,300,600,900,1800,3600,7200" -PlogPath="November2/continuous/9.json/mip.log"
+Command failed with return code: 1
+Error: 
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':runMipSolver'.
+> Process 'command '/cta/users/erhun.kundakcioglu/jdk-21.0.3+9/bin/java'' finished with non-zero exit value 1
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights.
+> Get more help at https://help.gradle.org.
+
+BUİLD FAILED in 4s
+
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runMipSolver
+Running MIP Solver with arguments: --instancePath=instances/9.json --outputPath=November2/continuous --modelType=Continuous --checkPointTimes=30,60,120,300,600,900,1800,3600,7200 --logPath=November2/continuous/9.json/mip.log
+Loading problem instance...
+Set parameter WLSAccessID
+Set parameter WLSSecret
+Set parameter LicenseID to value 2736771
+
+> Task :runMipSolver FAILED
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 33 FAILED (Duration: 4.48s)
+
+================================================================================
+Execution Summary:
+Total commands: 33
+Executed: 33
+Successful: 0
+Failed: 33
+Total duration: 213.13s
+Average duration per command: 6.46s
+[INFO] Done.
+[INFO] SLURM job 152943 finished at Sun Nov 30 10:46:35 +03 2025
+
+=== HUMAN SUMMARY ===
+CPU: 3.7 GHz Intel(R) Xeon(R) Gold 6130 CPU @ 2.10GHz (32-logical)  RAM: 251Gi  GPU: none
+

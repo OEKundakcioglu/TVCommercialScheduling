@@ -1,0 +1,6 @@
+Running MIP solver...
+Setting last attention constraint
+Exception in thread "main" java.lang.IllegalArgumentException: Inventory duration regulation is not satisfied!
+	at data.Utils.feasibilityCheck(Utils.java:40)
+	at mainMipRun.run(mainMipRun.java:152)
+	at mainMipRun.main(mainMipRun.java:84)
