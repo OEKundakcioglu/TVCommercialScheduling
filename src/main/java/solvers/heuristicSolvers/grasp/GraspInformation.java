@@ -8,13 +8,11 @@ import java.util.List;
 
 @SuppressWarnings({"FieldCanBeLocal", "unused"})
 public class GraspInformation {
-    private final List<Commercial> commercials;
-    private final List<Inventory> inventories;
     private final GraspSettings settings;
+    private final double iterationsPerSecond;
 
-    public GraspInformation(List<Commercial> commercials, List<Inventory> inventories, GraspSettings settings) {
-        this.commercials = commercials;
-        this.inventories = inventories;
+    public GraspInformation(GraspSettings settings, double iterationsPerSecond) {
         this.settings = settings;
+        this.iterationsPerSecond = iterationsPerSecond;
     }
 }

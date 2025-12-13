@@ -8,11 +8,10 @@ import os
 import subprocess
 import sys
 import time
+import yaml
 from os import write
 from pathlib import Path
 from typing import List, Dict, Any, Optional, Tuple
-
-import yaml
 
 
 def read_grasp_config(config_path: str) -> Dict[str, Any]:
@@ -73,9 +72,10 @@ def generate_bee_cli_commands(config_path: str, base_command: str = "gradlew run
 
                         # Build command parameters
                         params = [f'-PinstancePath="{instance_path}"', f'-PoutputPath="{output_directory}"',
-                            f'-PtimeLimit={time_limit}', f'-PpopulationSize={population_size}', f'-Palpha={alpha}',
-                            f'-PnIter=10',  # Default value from BeeColonySettings
-                            f'-PT0={T0}', f'-Pseed={run_number}']
+                                  f'-PtimeLimit={time_limit}', f'-PpopulationSize={population_size}',
+                                  f'-Palpha={alpha}',
+                                  f'-PnIter=10',  # Default value from BeeColonySettings
+                                  f'-PT0={T0}', f'-Pseed={run_number}']
 
                         # Construct full command
                         command = f"{base_command} {' '.join(params)}"
@@ -117,7 +117,8 @@ def generate_mip_cli_commands(config_path: str, base_command: str = "./gradlew r
 
         # Build command parameters
         params = [f'-PinstancePath="{instance_path}"', f'-PoutputPath="{output_directory}"',
-            f'-PmodelType="{model_type}"', f'-PcheckPointTimes="{checkpoint_times_str}"', f'-PlogPath="{log_path}"']
+                  f'-PmodelType="{model_type}"', f'-PcheckPointTimes="{checkpoint_times_str}"',
+                  f'-PlogPath="{log_path}"']
 
         # Construct full command
         command = f"{base_command} {' '.join(params)}"
@@ -314,17 +315,18 @@ def run_commands_sequentially(commands: List[str], stop_on_error: bool = False, 
 
     return results
 
+
 def generate_run_commands(number_of_files: int):
     commands_folder = Path("commands")
     if not commands_folder.exists():
         commands_folder.mkdir()
 
     grasp_commands = generate_grasp_cli_commands("yamlConfigGrasp.yaml", "./gradlew runGrasp")
-    mip_continuous_commands = generate_mip_cli_commands("yamlConfigContinuous.yaml", "./gradlew runMipSolver")
-    mip_discrete_commands = generate_mip_cli_commands("yamlConfigDiscrete.yaml", "./gradlew runMipSolver")
-    bee_commands = generate_bee_cli_commands("yamlConfigBee.yaml", "./gradlew runBeeColony")
+    # mip_continuous_commands = generate_mip_cli_commands("yamlConfigContinuous.yaml", "./gradlew runMipSolver")
+    # mip_discrete_commands = generate_mip_cli_commands("yamlConfigDiscrete.yaml", "./gradlew runMipSolver")
+    # bee_commands = generate_bee_cli_commands("yamlConfigBee.yaml", "./gradlew runBeeColony")
 
-    all_commands_tuples = grasp_commands + bee_commands +  mip_discrete_commands + mip_continuous_commands
+    all_commands_tuples = grasp_commands
     run_times = [command_tuple[1] for command_tuple in all_commands_tuples]
     total_run_time = sum(run_times)
 
@@ -360,8 +362,8 @@ def main():
     commands = read_commands(sys.argv[1])
     results = run_commands_sequentially(commands)
 
-
     # generate_run_commands(10)
+
 
 if __name__ == "__main__":
     main()

@@ -1,35 +1,43 @@
 import data.problemBuilders.JsonParser;
+import runParameters.ConstructiveHeuristicSettings;
+import runParameters.GraspSettings;
+import runParameters.LocalSearchSettings;
 import solvers.GlobalRandom;
-import solvers.heuristicSolvers.beeColonyYu.BeeColonyAlgorithm;
 import solvers.heuristicSolvers.beeColonyYu.BeeColonySettings;
-import solvers.heuristicSolvers.beeColonyYu.OrienteeringData;
-import solvers.heuristicSolvers.beeColonyYu.ReduceProblemToVRP;
+import solvers.heuristicSolvers.grasp.graspWithPathRelinking.GraspWithPathRelinking;
+import solvers.heuristicSolvers.grasp.localSearch.SearchMode;
+import solvers.heuristicSolvers.grasp.reactiveGrasp.AlphaGeneratorUniform;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class main {
 
     public static void main(String[] args) throws Exception {
 //        solveWithDiscreteMip("instances/density=HIGH_nInventory=10_nHours=3_seed=1.json");
-        var problem = new JsonParser().readData("instances\\density=LOW_nInventory=10_nHours=3_seed=1.json");
+        var problem = new JsonParser().readData("instances\\density=HIGH_nInventory=15_nHours=4_seed=1.json");
 
-//        var graspConfig = new GraspSettings(
-//                SearchMode.BEST_IMPROVEMENT,
-//                1,
-//                new LocalSearchSettings(
-//                        new ArrayList<>(
-//                                List.of(
-//                                        "insert",
-//                                        "outOfPool",
-//                                        "interSwap",
-//                                        "shift"
-//                                )
-//                        ),
-//                        0
-//                ),
-//                new ConstructiveHeuristicSettings(0.5, 2),
-//                new AlphaGeneratorConstant(0.25),
-//                0,
-//                "instances/1.json"
-//        );
+        var graspConfig = new GraspSettings(
+                SearchMode.FIRST_IMPROVEMENT,
+                300,
+                new LocalSearchSettings(
+                        new ArrayList<>(
+                                List.of(
+                                        "insert",
+                                        "outOfPool",
+                                        "interSwap",
+                                        "shift",
+                                        "transfer",
+                                        "intraSwap"
+                                )
+                        ),
+                        0.5
+                ),
+                new ConstructiveHeuristicSettings(0.5, 2),
+                new AlphaGeneratorUniform(0.1, 1),
+                0,
+                "instances/1.json"
+        );
 
         var beeColonySettings = new BeeColonySettings(
                 1,
@@ -42,10 +50,10 @@ public class main {
         );
 
         GlobalRandom.init(0L);
-//        var grasp = new GraspWithPathRelinking(problem, graspConfig);
+        var grasp = new GraspWithPathRelinking(problem, graspConfig);
 
-        OrienteeringData orienteeringData = ReduceProblemToVRP.reduce(problem);
-        var beeColony = new BeeColonyAlgorithm(orienteeringData, beeColonySettings, problem);
+//        OrienteeringData orienteeringData = ReduceProblemToVRP.reduce(problem);
+//        var beeColony = new BeeColonyAlgorithm(orienteeringData, beeColonySettings, problem);
     }
 
     private static void solveWithDiscreteMip(String fileName) throws Exception {
