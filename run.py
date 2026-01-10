@@ -317,34 +317,39 @@ def run_commands_sequentially(commands: List[str], stop_on_error: bool = False, 
 
 
 def generate_run_commands(number_of_files: int):
-    commands_folder = Path("commands")
+    commands_folder = Path("dicrete_mip_commands")
     if not commands_folder.exists():
         commands_folder.mkdir()
 
-    grasp_commands = generate_grasp_cli_commands("yamlConfigGrasp.yaml", "./gradlew runGrasp")
-    # mip_continuous_commands = generate_mip_cli_commands("yamlConfigContinuous.yaml", "./gradlew runMipSolver")
-    # mip_discrete_commands = generate_mip_cli_commands("yamlConfigDiscrete.yaml", "./gradlew runMipSolver")
+#     grasp_commands = generate_grasp_cli_commands("yamlConfigGrasp.yaml", "./gradlew runGrasp")
+#     mip_continuous_commands = generate_mip_cli_commands("yamlConfigContinuous.yaml", "./gradlew runMipSolver")
+    mip_discrete_commands = generate_mip_cli_commands("yamlConfigDiscrete.yaml", "./gradlew runMipSolver")
     # bee_commands = generate_bee_cli_commands("yamlConfigBee.yaml", "./gradlew runBeeColony")
 
-    all_commands_tuples = grasp_commands
+    all_commands_tuples = mip_discrete_commands
     run_times = [command_tuple[1] for command_tuple in all_commands_tuples]
     total_run_time = sum(run_times)
 
     run_time_per_file = total_run_time // number_of_files
+    print(f"Total run time: {total_run_time}mins, Run time per file: {run_time_per_file}mins")
 
     file_duration = 0
     commands_to_write: list[list[str]] = []
     commands: list[str] = []
     for command, duration in all_commands_tuples:
         if file_duration + duration > run_time_per_file:
-            commands_to_write.append(commands)
+            if len(commands) > 0:
+                commands_to_write.append(commands)
             commands = []
             file_duration = 0
 
         commands.append(command)
         file_duration += duration
 
-    if len(commands_to_write) > number_of_files:
+    if len(commands) > 0:
+        commands_to_write.append(commands)
+
+    while len(commands_to_write) > number_of_files:
         last_file_commands = commands_to_write.pop()
         commands_to_write[-1].extend(last_file_commands)
 
@@ -362,7 +367,7 @@ def main():
     commands = read_commands(sys.argv[1])
     results = run_commands_sequentially(commands)
 
-    # generate_run_commands(10)
+#     generate_run_commands(2)
 
 
 if __name__ == "__main__":
