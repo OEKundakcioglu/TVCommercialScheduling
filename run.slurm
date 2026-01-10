@@ -26,6 +26,21 @@ set -e
 
 module load python/3.11.7
 
+VENV_DIR="./venv_commercial"
+
+if [ ! -d "$VENV_DIR" ]; then
+    echo "[INFO] Creating virtual environment..."
+    python -m venv "$VENV_DIR"
+    source "$VENV_DIR/bin/activate"
+
+    echo "[INFO] Installing requirements..."
+    pip install --upgrade pip
+    pip install -r requirements.txt
+else
+    echo "[INFO] Activating existing environment..."
+    source "$VENV_DIR/bin/activate"
+fi
+
 # 2. Configure Threading
 export OMP_NUM_THREADS=$SLURM_CPUS_ON_NODE
 export MKL_NUM_THREADS=$SLURM_CPUS_ON_NODE
