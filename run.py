@@ -364,10 +364,10 @@ def read_commands(path: str) -> list[str]:
 
 
 def main():
-#     commands = read_commands(sys.argv[1])
-#     results = run_commands_sequentially(commands)
+    commands = read_commands(sys.argv[1])
+    results = run_commands_sequentially(commands)
 #
-    generate_run_commands(10)
+#     generate_run_commands(10)
 
 
 if __name__ == "__main__":
