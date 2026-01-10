@@ -71,6 +71,6 @@ echo ""
 
 # 4. Run Python Script
 # We assume your python script is named 'main.py' in the current folder.
-srun python run.py "$INPUT_FILE" --output output/TS
+srun python run.py "$INPUT_FILE"
 
 echo "[INFO] Job finished"
