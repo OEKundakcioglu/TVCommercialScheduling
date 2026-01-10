@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#SBATCH --job-name=soft-clurvrp               # Job name
+#SBATCH --job-name=tv-commercial               # Job name
 #SBATCH --output=logs/%x_%j.out                 # Stdout log -> logs/<jobname>_<jobid>.out
 #SBATCH --error=logs/%x_%j.err                  # Stderr log -> logs/<jobname>_<jobid>.err
 #SBATCH --time=7-00:00:00                      # Wall time limit
