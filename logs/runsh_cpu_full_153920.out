@@ -1,0 +1,59 @@
+=== SLURM JOB SUMMARY ===
+Job ID:        153920
+Job Name:      runsh_cpu_full
+Partition:     longer_mdbf
+Node(s):       cn19
+Exclusive:     yes
+Mem request:   all-node (--mem=0)
+
+=== SLURM NODE DETAIL (scheduler view) ===
+NodeName=cn19
+CoresPerSocket=16
+CPUTot=32
+RealMemory=232098
+Sockets=2
+ThreadsPerCore=1
+
+=== OS VIEW (on allocated node) ===
+Mimari:                         x86_64
+İşlemci işlem-kipi:             32-bit, 64-bit
+Bayt Sıralaması:                Little Endian
+İşlemciler:                     32
+Çevrimiçi işlemci(ler) listesi: 0-31
+Çekirdek başına iş parçacığı:   1
+Soket başına çekirdek:          16
+Soket(ler):                     2
+NUMA düğümü(leri):              2
+Sağlayıcı Kimliği:              GenuineIntel
+İşlemci ailesi:                 6
+Model:                          85
+Modem ismi:                     Intel(R) Xeon(R) Gold 6130 CPU @ 2.10GHz
+Adımlama:                       4
+İşlemci MHz:                    2173.049
+BogoMIPS:                       4200.00
+L1d önbelleği:                  32K
+L1i önbelleği:                  32K
+L2 önbelleği:                   1024K
+L3 önbelleği:                   22528K
+NUMA düğüm0 işlemci:            0-15
+NUMA düğüm1 işlemci:            16-31
+Bayraklar:                      fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc art arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf pni pclmulqdq dtes64 monitor ds_cpl smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch cpuid_fault epb cat_l3 cdp_l3 invpcid_single pti intel_ppin ssbd mba ibrs ibpb stibp fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm cqm mpx rdt_a avx512f avx512dq rdseed adx smap clflushopt clwb intel_pt avx512cd avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local dtherm ida arat pln pts pku ospke md_clear flush_l1d arch_capabilities
+
+              total        used        free      shared  buff/cache   available
+Mem:          251Gi       1,1Gi       244Gi       6,1Gi       6,2Gi       243Gi
+Swap:            0B          0B          0B
+
+available: 2 nodes (0-1)
+node 0 cpus: 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15
+node 0 size: 128605 MB
+node 0 free: 127206 MB
+node 1 cpus: 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31
+node 1 size: 128975 MB
+node 1 free: 122957 MB
+node distances:
+node   0   1 
+  0:  10  21 
+  1:  21  10 
+
+[INFO] SLURM job 153920 starting on cn19 at Pzt Ara 15 07:05:00 +03 2025
+[INFO] Launching run.sh with index 10 using 31 CPU threads

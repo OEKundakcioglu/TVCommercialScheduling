@@ -1,0 +1,3633 @@
+[INFO] Activating existing environment...
+==========================================
+ SLURM JOB STATISTICS
+==========================================
+Job ID:        154533
+Node:          cn23
+User:          ulvi.findik
+Date:          Mon Jan 12 12:53:18 +03 2026
+Input File:    grasp_commands/run_commands_2.txt
+------------------------------------------
+ CPU Details:
+Model name:          Intel(R) Xeon(R) Gold 6130 CPU @ 2.10GHz
+CPU Cores:     31
+------------------------------------------
+ Memory Details:
+              total        used        free      shared  buff/cache   available
+Mem:          251Gi       1.4Gi       237Gi        12Gi        12Gi       236Gi
+Swap:            0B          0B          0B
+==========================================
+
+Starting execution of 240 commands...
+
+[1/240] Starting command 1...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=MEDIUM_nInventory=20_nHours=5_seed=5.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="BEST_IMPROVEMENT" -PskipProbability=0 -Pseed=0 -PalphaType="FIXED" -Palpha=0.25
+Starting a Gradle Daemon, 3 busy and 3 incompatible Daemons could not be reused, use --status for details
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=MEDIUM_nInventory=20_nHours=5_seed=5.json --outputPath=output/grasp --timeLimit=300 --searchMode=BEST_IMPROVEMENT --alphaType=FIXED --alpha=0.25 --skipProbability=0 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 16s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 1 SUCCESS (Duration: 317.49s)
+
+[2/240] Starting command 2...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=MEDIUM_nInventory=20_nHours=5_seed=5.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="BEST_IMPROVEMENT" -PskipProbability=0.25 -Pseed=0 -PalphaType="FIXED" -Palpha=0.25
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=MEDIUM_nInventory=20_nHours=5_seed=5.json --outputPath=output/grasp --timeLimit=300 --searchMode=BEST_IMPROVEMENT --alphaType=FIXED --alpha=0.25 --skipProbability=0.25 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 5s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 2 SUCCESS (Duration: 305.63s)
+
+[3/240] Starting command 3...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=MEDIUM_nInventory=20_nHours=5_seed=5.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="BEST_IMPROVEMENT" -PskipProbability=0.5 -Pseed=0 -PalphaType="FIXED" -Palpha=0.25
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=MEDIUM_nInventory=20_nHours=5_seed=5.json --outputPath=output/grasp --timeLimit=300 --searchMode=BEST_IMPROVEMENT --alphaType=FIXED --alpha=0.25 --skipProbability=0.5 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 3 SUCCESS (Duration: 305.01s)
+
+[4/240] Starting command 4...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=MEDIUM_nInventory=20_nHours=5_seed=5.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="BEST_IMPROVEMENT" -PskipProbability=0 -Pseed=0 -PalphaType="FIXED" -Palpha=0.5
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=MEDIUM_nInventory=20_nHours=5_seed=5.json --outputPath=output/grasp --timeLimit=300 --searchMode=BEST_IMPROVEMENT --alphaType=FIXED --alpha=0.5 --skipProbability=0 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 4 SUCCESS (Duration: 305.00s)
+
+[5/240] Starting command 5...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=MEDIUM_nInventory=20_nHours=5_seed=5.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="BEST_IMPROVEMENT" -PskipProbability=0.25 -Pseed=0 -PalphaType="FIXED" -Palpha=0.5
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=MEDIUM_nInventory=20_nHours=5_seed=5.json --outputPath=output/grasp --timeLimit=300 --searchMode=BEST_IMPROVEMENT --alphaType=FIXED --alpha=0.5 --skipProbability=0.25 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 5 SUCCESS (Duration: 305.00s)
+
+[6/240] Starting command 6...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=MEDIUM_nInventory=20_nHours=5_seed=5.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="BEST_IMPROVEMENT" -PskipProbability=0.5 -Pseed=0 -PalphaType="FIXED" -Palpha=0.5
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=MEDIUM_nInventory=20_nHours=5_seed=5.json --outputPath=output/grasp --timeLimit=300 --searchMode=BEST_IMPROVEMENT --alphaType=FIXED --alpha=0.5 --skipProbability=0.5 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 6 SUCCESS (Duration: 305.03s)
+
+[7/240] Starting command 7...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=MEDIUM_nInventory=20_nHours=5_seed=5.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="BEST_IMPROVEMENT" -PskipProbability=0 -Pseed=0 -PalphaType="UNIFORM" -PminAlpha=0.1 -PmaxAlpha=1.0
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=MEDIUM_nInventory=20_nHours=5_seed=5.json --outputPath=output/grasp --timeLimit=300 --searchMode=BEST_IMPROVEMENT --alphaType=UNIFORM --minAlpha=0.1 --maxAlpha=1.0 --skipProbability=0 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 7 SUCCESS (Duration: 304.98s)
+
+[8/240] Starting command 8...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=MEDIUM_nInventory=20_nHours=5_seed=5.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="BEST_IMPROVEMENT" -PskipProbability=0.25 -Pseed=0 -PalphaType="UNIFORM" -PminAlpha=0.1 -PmaxAlpha=1.0
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=MEDIUM_nInventory=20_nHours=5_seed=5.json --outputPath=output/grasp --timeLimit=300 --searchMode=BEST_IMPROVEMENT --alphaType=UNIFORM --minAlpha=0.1 --maxAlpha=1.0 --skipProbability=0.25 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 8 SUCCESS (Duration: 305.00s)
+
+[9/240] Starting command 9...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=MEDIUM_nInventory=20_nHours=5_seed=5.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="BEST_IMPROVEMENT" -PskipProbability=0.5 -Pseed=0 -PalphaType="UNIFORM" -PminAlpha=0.1 -PmaxAlpha=1.0
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=MEDIUM_nInventory=20_nHours=5_seed=5.json --outputPath=output/grasp --timeLimit=300 --searchMode=BEST_IMPROVEMENT --alphaType=UNIFORM --minAlpha=0.1 --maxAlpha=1.0 --skipProbability=0.5 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 9 SUCCESS (Duration: 305.00s)
+
+[10/240] Starting command 10...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=MEDIUM_nInventory=20_nHours=5_seed=5.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="BEST_IMPROVEMENT" -PskipProbability=0 -Pseed=0 -PalphaType="UNIFORM" -PminAlpha=0.1 -PmaxAlpha=0.5
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=MEDIUM_nInventory=20_nHours=5_seed=5.json --outputPath=output/grasp --timeLimit=300 --searchMode=BEST_IMPROVEMENT --alphaType=UNIFORM --minAlpha=0.1 --maxAlpha=0.5 --skipProbability=0 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 10 SUCCESS (Duration: 305.03s)
+
+[11/240] Starting command 11...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=MEDIUM_nInventory=20_nHours=5_seed=5.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="BEST_IMPROVEMENT" -PskipProbability=0.25 -Pseed=0 -PalphaType="UNIFORM" -PminAlpha=0.1 -PmaxAlpha=0.5
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=MEDIUM_nInventory=20_nHours=5_seed=5.json --outputPath=output/grasp --timeLimit=300 --searchMode=BEST_IMPROVEMENT --alphaType=UNIFORM --minAlpha=0.1 --maxAlpha=0.5 --skipProbability=0.25 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 11 SUCCESS (Duration: 304.96s)
+
+[12/240] Starting command 12...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=MEDIUM_nInventory=20_nHours=5_seed=5.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="BEST_IMPROVEMENT" -PskipProbability=0.5 -Pseed=0 -PalphaType="UNIFORM" -PminAlpha=0.1 -PmaxAlpha=0.5
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=MEDIUM_nInventory=20_nHours=5_seed=5.json --outputPath=output/grasp --timeLimit=300 --searchMode=BEST_IMPROVEMENT --alphaType=UNIFORM --minAlpha=0.1 --maxAlpha=0.5 --skipProbability=0.5 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 12 SUCCESS (Duration: 305.01s)
+
+[13/240] Starting command 13...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=MEDIUM_nInventory=20_nHours=5_seed=5.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="FIRST_IMPROVEMENT" -PskipProbability=0 -Pseed=0 -PalphaType="FIXED" -Palpha=0.25
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=MEDIUM_nInventory=20_nHours=5_seed=5.json --outputPath=output/grasp --timeLimit=300 --searchMode=FIRST_IMPROVEMENT --alphaType=FIXED --alpha=0.25 --skipProbability=0 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 13 SUCCESS (Duration: 305.01s)
+
+[14/240] Starting command 14...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=MEDIUM_nInventory=20_nHours=5_seed=5.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="FIRST_IMPROVEMENT" -PskipProbability=0.25 -Pseed=0 -PalphaType="FIXED" -Palpha=0.25
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=MEDIUM_nInventory=20_nHours=5_seed=5.json --outputPath=output/grasp --timeLimit=300 --searchMode=FIRST_IMPROVEMENT --alphaType=FIXED --alpha=0.25 --skipProbability=0.25 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 14 SUCCESS (Duration: 304.98s)
+
+[15/240] Starting command 15...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=MEDIUM_nInventory=20_nHours=5_seed=5.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="FIRST_IMPROVEMENT" -PskipProbability=0.5 -Pseed=0 -PalphaType="FIXED" -Palpha=0.25
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=MEDIUM_nInventory=20_nHours=5_seed=5.json --outputPath=output/grasp --timeLimit=300 --searchMode=FIRST_IMPROVEMENT --alphaType=FIXED --alpha=0.25 --skipProbability=0.5 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 15 SUCCESS (Duration: 305.01s)
+
+[16/240] Starting command 16...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=MEDIUM_nInventory=20_nHours=5_seed=5.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="FIRST_IMPROVEMENT" -PskipProbability=0 -Pseed=0 -PalphaType="FIXED" -Palpha=0.5
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=MEDIUM_nInventory=20_nHours=5_seed=5.json --outputPath=output/grasp --timeLimit=300 --searchMode=FIRST_IMPROVEMENT --alphaType=FIXED --alpha=0.5 --skipProbability=0 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 16 SUCCESS (Duration: 305.00s)
+
+[17/240] Starting command 17...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=MEDIUM_nInventory=20_nHours=5_seed=5.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="FIRST_IMPROVEMENT" -PskipProbability=0.25 -Pseed=0 -PalphaType="FIXED" -Palpha=0.5
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=MEDIUM_nInventory=20_nHours=5_seed=5.json --outputPath=output/grasp --timeLimit=300 --searchMode=FIRST_IMPROVEMENT --alphaType=FIXED --alpha=0.5 --skipProbability=0.25 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 17 SUCCESS (Duration: 305.03s)
+
+[18/240] Starting command 18...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=MEDIUM_nInventory=20_nHours=5_seed=5.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="FIRST_IMPROVEMENT" -PskipProbability=0.5 -Pseed=0 -PalphaType="FIXED" -Palpha=0.5
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=MEDIUM_nInventory=20_nHours=5_seed=5.json --outputPath=output/grasp --timeLimit=300 --searchMode=FIRST_IMPROVEMENT --alphaType=FIXED --alpha=0.5 --skipProbability=0.5 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 18 SUCCESS (Duration: 304.96s)
+
+[19/240] Starting command 19...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=MEDIUM_nInventory=20_nHours=5_seed=5.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="FIRST_IMPROVEMENT" -PskipProbability=0 -Pseed=0 -PalphaType="UNIFORM" -PminAlpha=0.1 -PmaxAlpha=1.0
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=MEDIUM_nInventory=20_nHours=5_seed=5.json --outputPath=output/grasp --timeLimit=300 --searchMode=FIRST_IMPROVEMENT --alphaType=UNIFORM --minAlpha=0.1 --maxAlpha=1.0 --skipProbability=0 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 19 SUCCESS (Duration: 305.04s)
+
+[20/240] Starting command 20...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=MEDIUM_nInventory=20_nHours=5_seed=5.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="FIRST_IMPROVEMENT" -PskipProbability=0.25 -Pseed=0 -PalphaType="UNIFORM" -PminAlpha=0.1 -PmaxAlpha=1.0
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=MEDIUM_nInventory=20_nHours=5_seed=5.json --outputPath=output/grasp --timeLimit=300 --searchMode=FIRST_IMPROVEMENT --alphaType=UNIFORM --minAlpha=0.1 --maxAlpha=1.0 --skipProbability=0.25 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 20 SUCCESS (Duration: 305.00s)
+
+[21/240] Starting command 21...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=MEDIUM_nInventory=20_nHours=5_seed=5.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="FIRST_IMPROVEMENT" -PskipProbability=0.5 -Pseed=0 -PalphaType="UNIFORM" -PminAlpha=0.1 -PmaxAlpha=1.0
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=MEDIUM_nInventory=20_nHours=5_seed=5.json --outputPath=output/grasp --timeLimit=300 --searchMode=FIRST_IMPROVEMENT --alphaType=UNIFORM --minAlpha=0.1 --maxAlpha=1.0 --skipProbability=0.5 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 21 SUCCESS (Duration: 304.99s)
+
+[22/240] Starting command 22...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=MEDIUM_nInventory=20_nHours=5_seed=5.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="FIRST_IMPROVEMENT" -PskipProbability=0 -Pseed=0 -PalphaType="UNIFORM" -PminAlpha=0.1 -PmaxAlpha=0.5
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=MEDIUM_nInventory=20_nHours=5_seed=5.json --outputPath=output/grasp --timeLimit=300 --searchMode=FIRST_IMPROVEMENT --alphaType=UNIFORM --minAlpha=0.1 --maxAlpha=0.5 --skipProbability=0 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 22 SUCCESS (Duration: 304.99s)
+
+[23/240] Starting command 23...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=MEDIUM_nInventory=20_nHours=5_seed=5.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="FIRST_IMPROVEMENT" -PskipProbability=0.25 -Pseed=0 -PalphaType="UNIFORM" -PminAlpha=0.1 -PmaxAlpha=0.5
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=MEDIUM_nInventory=20_nHours=5_seed=5.json --outputPath=output/grasp --timeLimit=300 --searchMode=FIRST_IMPROVEMENT --alphaType=UNIFORM --minAlpha=0.1 --maxAlpha=0.5 --skipProbability=0.25 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 3s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 23 SUCCESS (Duration: 304.00s)
+
+[24/240] Starting command 24...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=MEDIUM_nInventory=20_nHours=5_seed=5.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="FIRST_IMPROVEMENT" -PskipProbability=0.5 -Pseed=0 -PalphaType="UNIFORM" -PminAlpha=0.1 -PmaxAlpha=0.5
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=MEDIUM_nInventory=20_nHours=5_seed=5.json --outputPath=output/grasp --timeLimit=300 --searchMode=FIRST_IMPROVEMENT --alphaType=UNIFORM --minAlpha=0.1 --maxAlpha=0.5 --skipProbability=0.5 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 3s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 24 SUCCESS (Duration: 303.99s)
+
+[25/240] Starting command 25...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=LOW_nInventory=20_nHours=5_seed=8.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="BEST_IMPROVEMENT" -PskipProbability=0 -Pseed=0 -PalphaType="FIXED" -Palpha=0.25
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=LOW_nInventory=20_nHours=5_seed=8.json --outputPath=output/grasp --timeLimit=300 --searchMode=BEST_IMPROVEMENT --alphaType=FIXED --alpha=0.25 --skipProbability=0 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 25 SUCCESS (Duration: 305.00s)
+
+[26/240] Starting command 26...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=LOW_nInventory=20_nHours=5_seed=8.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="BEST_IMPROVEMENT" -PskipProbability=0.25 -Pseed=0 -PalphaType="FIXED" -Palpha=0.25
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=LOW_nInventory=20_nHours=5_seed=8.json --outputPath=output/grasp --timeLimit=300 --searchMode=BEST_IMPROVEMENT --alphaType=FIXED --alpha=0.25 --skipProbability=0.25 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 26 SUCCESS (Duration: 304.99s)
+
+[27/240] Starting command 27...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=LOW_nInventory=20_nHours=5_seed=8.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="BEST_IMPROVEMENT" -PskipProbability=0.5 -Pseed=0 -PalphaType="FIXED" -Palpha=0.25
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=LOW_nInventory=20_nHours=5_seed=8.json --outputPath=output/grasp --timeLimit=300 --searchMode=BEST_IMPROVEMENT --alphaType=FIXED --alpha=0.25 --skipProbability=0.5 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 3s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 27 SUCCESS (Duration: 303.99s)
+
+[28/240] Starting command 28...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=LOW_nInventory=20_nHours=5_seed=8.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="BEST_IMPROVEMENT" -PskipProbability=0 -Pseed=0 -PalphaType="FIXED" -Palpha=0.5
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=LOW_nInventory=20_nHours=5_seed=8.json --outputPath=output/grasp --timeLimit=300 --searchMode=BEST_IMPROVEMENT --alphaType=FIXED --alpha=0.5 --skipProbability=0 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 3s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 28 SUCCESS (Duration: 304.03s)
+
+[29/240] Starting command 29...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=LOW_nInventory=20_nHours=5_seed=8.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="BEST_IMPROVEMENT" -PskipProbability=0.25 -Pseed=0 -PalphaType="FIXED" -Palpha=0.5
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=LOW_nInventory=20_nHours=5_seed=8.json --outputPath=output/grasp --timeLimit=300 --searchMode=BEST_IMPROVEMENT --alphaType=FIXED --alpha=0.5 --skipProbability=0.25 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 3s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 29 SUCCESS (Duration: 303.99s)
+
+[30/240] Starting command 30...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=LOW_nInventory=20_nHours=5_seed=8.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="BEST_IMPROVEMENT" -PskipProbability=0.5 -Pseed=0 -PalphaType="FIXED" -Palpha=0.5
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=LOW_nInventory=20_nHours=5_seed=8.json --outputPath=output/grasp --timeLimit=300 --searchMode=BEST_IMPROVEMENT --alphaType=FIXED --alpha=0.5 --skipProbability=0.5 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 30 SUCCESS (Duration: 305.02s)
+
+[31/240] Starting command 31...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=LOW_nInventory=20_nHours=5_seed=8.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="BEST_IMPROVEMENT" -PskipProbability=0 -Pseed=0 -PalphaType="UNIFORM" -PminAlpha=0.1 -PmaxAlpha=1.0
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=LOW_nInventory=20_nHours=5_seed=8.json --outputPath=output/grasp --timeLimit=300 --searchMode=BEST_IMPROVEMENT --alphaType=UNIFORM --minAlpha=0.1 --maxAlpha=1.0 --skipProbability=0 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 31 SUCCESS (Duration: 305.01s)
+
+[32/240] Starting command 32...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=LOW_nInventory=20_nHours=5_seed=8.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="BEST_IMPROVEMENT" -PskipProbability=0.25 -Pseed=0 -PalphaType="UNIFORM" -PminAlpha=0.1 -PmaxAlpha=1.0
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=LOW_nInventory=20_nHours=5_seed=8.json --outputPath=output/grasp --timeLimit=300 --searchMode=BEST_IMPROVEMENT --alphaType=UNIFORM --minAlpha=0.1 --maxAlpha=1.0 --skipProbability=0.25 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 32 SUCCESS (Duration: 305.00s)
+
+[33/240] Starting command 33...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=LOW_nInventory=20_nHours=5_seed=8.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="BEST_IMPROVEMENT" -PskipProbability=0.5 -Pseed=0 -PalphaType="UNIFORM" -PminAlpha=0.1 -PmaxAlpha=1.0
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=LOW_nInventory=20_nHours=5_seed=8.json --outputPath=output/grasp --timeLimit=300 --searchMode=BEST_IMPROVEMENT --alphaType=UNIFORM --minAlpha=0.1 --maxAlpha=1.0 --skipProbability=0.5 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 33 SUCCESS (Duration: 305.02s)
+
+[34/240] Starting command 34...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=LOW_nInventory=20_nHours=5_seed=8.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="BEST_IMPROVEMENT" -PskipProbability=0 -Pseed=0 -PalphaType="UNIFORM" -PminAlpha=0.1 -PmaxAlpha=0.5
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=LOW_nInventory=20_nHours=5_seed=8.json --outputPath=output/grasp --timeLimit=300 --searchMode=BEST_IMPROVEMENT --alphaType=UNIFORM --minAlpha=0.1 --maxAlpha=0.5 --skipProbability=0 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 3s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 34 SUCCESS (Duration: 303.98s)
+
+[35/240] Starting command 35...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=LOW_nInventory=20_nHours=5_seed=8.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="BEST_IMPROVEMENT" -PskipProbability=0.25 -Pseed=0 -PalphaType="UNIFORM" -PminAlpha=0.1 -PmaxAlpha=0.5
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=LOW_nInventory=20_nHours=5_seed=8.json --outputPath=output/grasp --timeLimit=300 --searchMode=BEST_IMPROVEMENT --alphaType=UNIFORM --minAlpha=0.1 --maxAlpha=0.5 --skipProbability=0.25 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 35 SUCCESS (Duration: 305.01s)
+
+[36/240] Starting command 36...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=LOW_nInventory=20_nHours=5_seed=8.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="BEST_IMPROVEMENT" -PskipProbability=0.5 -Pseed=0 -PalphaType="UNIFORM" -PminAlpha=0.1 -PmaxAlpha=0.5
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=LOW_nInventory=20_nHours=5_seed=8.json --outputPath=output/grasp --timeLimit=300 --searchMode=BEST_IMPROVEMENT --alphaType=UNIFORM --minAlpha=0.1 --maxAlpha=0.5 --skipProbability=0.5 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 3s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 36 SUCCESS (Duration: 303.98s)
+
+[37/240] Starting command 37...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=LOW_nInventory=20_nHours=5_seed=8.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="FIRST_IMPROVEMENT" -PskipProbability=0 -Pseed=0 -PalphaType="FIXED" -Palpha=0.25
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=LOW_nInventory=20_nHours=5_seed=8.json --outputPath=output/grasp --timeLimit=300 --searchMode=FIRST_IMPROVEMENT --alphaType=FIXED --alpha=0.25 --skipProbability=0 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 37 SUCCESS (Duration: 304.99s)
+
+[38/240] Starting command 38...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=LOW_nInventory=20_nHours=5_seed=8.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="FIRST_IMPROVEMENT" -PskipProbability=0.25 -Pseed=0 -PalphaType="FIXED" -Palpha=0.25
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=LOW_nInventory=20_nHours=5_seed=8.json --outputPath=output/grasp --timeLimit=300 --searchMode=FIRST_IMPROVEMENT --alphaType=FIXED --alpha=0.25 --skipProbability=0.25 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 3s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 38 SUCCESS (Duration: 304.00s)
+
+[39/240] Starting command 39...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=LOW_nInventory=20_nHours=5_seed=8.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="FIRST_IMPROVEMENT" -PskipProbability=0.5 -Pseed=0 -PalphaType="FIXED" -Palpha=0.25
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=LOW_nInventory=20_nHours=5_seed=8.json --outputPath=output/grasp --timeLimit=300 --searchMode=FIRST_IMPROVEMENT --alphaType=FIXED --alpha=0.25 --skipProbability=0.5 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 39 SUCCESS (Duration: 305.00s)
+
+[40/240] Starting command 40...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=LOW_nInventory=20_nHours=5_seed=8.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="FIRST_IMPROVEMENT" -PskipProbability=0 -Pseed=0 -PalphaType="FIXED" -Palpha=0.5
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=LOW_nInventory=20_nHours=5_seed=8.json --outputPath=output/grasp --timeLimit=300 --searchMode=FIRST_IMPROVEMENT --alphaType=FIXED --alpha=0.5 --skipProbability=0 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 40 SUCCESS (Duration: 305.04s)
+
+[41/240] Starting command 41...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=LOW_nInventory=20_nHours=5_seed=8.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="FIRST_IMPROVEMENT" -PskipProbability=0.25 -Pseed=0 -PalphaType="FIXED" -Palpha=0.5
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=LOW_nInventory=20_nHours=5_seed=8.json --outputPath=output/grasp --timeLimit=300 --searchMode=FIRST_IMPROVEMENT --alphaType=FIXED --alpha=0.5 --skipProbability=0.25 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 41 SUCCESS (Duration: 305.02s)
+
+[42/240] Starting command 42...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=LOW_nInventory=20_nHours=5_seed=8.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="FIRST_IMPROVEMENT" -PskipProbability=0.5 -Pseed=0 -PalphaType="FIXED" -Palpha=0.5
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=LOW_nInventory=20_nHours=5_seed=8.json --outputPath=output/grasp --timeLimit=300 --searchMode=FIRST_IMPROVEMENT --alphaType=FIXED --alpha=0.5 --skipProbability=0.5 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 42 SUCCESS (Duration: 304.96s)
+
+[43/240] Starting command 43...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=LOW_nInventory=20_nHours=5_seed=8.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="FIRST_IMPROVEMENT" -PskipProbability=0 -Pseed=0 -PalphaType="UNIFORM" -PminAlpha=0.1 -PmaxAlpha=1.0
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=LOW_nInventory=20_nHours=5_seed=8.json --outputPath=output/grasp --timeLimit=300 --searchMode=FIRST_IMPROVEMENT --alphaType=UNIFORM --minAlpha=0.1 --maxAlpha=1.0 --skipProbability=0 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 3s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 43 SUCCESS (Duration: 304.01s)
+
+[44/240] Starting command 44...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=LOW_nInventory=20_nHours=5_seed=8.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="FIRST_IMPROVEMENT" -PskipProbability=0.25 -Pseed=0 -PalphaType="UNIFORM" -PminAlpha=0.1 -PmaxAlpha=1.0
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=LOW_nInventory=20_nHours=5_seed=8.json --outputPath=output/grasp --timeLimit=300 --searchMode=FIRST_IMPROVEMENT --alphaType=UNIFORM --minAlpha=0.1 --maxAlpha=1.0 --skipProbability=0.25 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 44 SUCCESS (Duration: 304.99s)
+
+[45/240] Starting command 45...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=LOW_nInventory=20_nHours=5_seed=8.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="FIRST_IMPROVEMENT" -PskipProbability=0.5 -Pseed=0 -PalphaType="UNIFORM" -PminAlpha=0.1 -PmaxAlpha=1.0
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=LOW_nInventory=20_nHours=5_seed=8.json --outputPath=output/grasp --timeLimit=300 --searchMode=FIRST_IMPROVEMENT --alphaType=UNIFORM --minAlpha=0.1 --maxAlpha=1.0 --skipProbability=0.5 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 45 SUCCESS (Duration: 305.01s)
+
+[46/240] Starting command 46...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=LOW_nInventory=20_nHours=5_seed=8.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="FIRST_IMPROVEMENT" -PskipProbability=0 -Pseed=0 -PalphaType="UNIFORM" -PminAlpha=0.1 -PmaxAlpha=0.5
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=LOW_nInventory=20_nHours=5_seed=8.json --outputPath=output/grasp --timeLimit=300 --searchMode=FIRST_IMPROVEMENT --alphaType=UNIFORM --minAlpha=0.1 --maxAlpha=0.5 --skipProbability=0 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 46 SUCCESS (Duration: 305.02s)
+
+[47/240] Starting command 47...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=LOW_nInventory=20_nHours=5_seed=8.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="FIRST_IMPROVEMENT" -PskipProbability=0.25 -Pseed=0 -PalphaType="UNIFORM" -PminAlpha=0.1 -PmaxAlpha=0.5
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=LOW_nInventory=20_nHours=5_seed=8.json --outputPath=output/grasp --timeLimit=300 --searchMode=FIRST_IMPROVEMENT --alphaType=UNIFORM --minAlpha=0.1 --maxAlpha=0.5 --skipProbability=0.25 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 47 SUCCESS (Duration: 304.98s)
+
+[48/240] Starting command 48...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=LOW_nInventory=20_nHours=5_seed=8.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="FIRST_IMPROVEMENT" -PskipProbability=0.5 -Pseed=0 -PalphaType="UNIFORM" -PminAlpha=0.1 -PmaxAlpha=0.5
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=LOW_nInventory=20_nHours=5_seed=8.json --outputPath=output/grasp --timeLimit=300 --searchMode=FIRST_IMPROVEMENT --alphaType=UNIFORM --minAlpha=0.1 --maxAlpha=0.5 --skipProbability=0.5 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 3s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 48 SUCCESS (Duration: 303.99s)
+
+[49/240] Starting command 49...
+Executing: ./gradlew runGrasp -PinstancePath="instances/6.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="BEST_IMPROVEMENT" -PskipProbability=0 -Pseed=0 -PalphaType="FIXED" -Palpha=0.25
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/6.json --outputPath=output/grasp --timeLimit=300 --searchMode=BEST_IMPROVEMENT --alphaType=FIXED --alpha=0.25 --skipProbability=0 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 3s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 49 SUCCESS (Duration: 304.03s)
+
+[50/240] Starting command 50...
+Executing: ./gradlew runGrasp -PinstancePath="instances/6.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="BEST_IMPROVEMENT" -PskipProbability=0.25 -Pseed=0 -PalphaType="FIXED" -Palpha=0.25
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/6.json --outputPath=output/grasp --timeLimit=300 --searchMode=BEST_IMPROVEMENT --alphaType=FIXED --alpha=0.25 --skipProbability=0.25 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 50 SUCCESS (Duration: 304.99s)
+
+[51/240] Starting command 51...
+Executing: ./gradlew runGrasp -PinstancePath="instances/6.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="BEST_IMPROVEMENT" -PskipProbability=0.5 -Pseed=0 -PalphaType="FIXED" -Palpha=0.25
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/6.json --outputPath=output/grasp --timeLimit=300 --searchMode=BEST_IMPROVEMENT --alphaType=FIXED --alpha=0.25 --skipProbability=0.5 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 51 SUCCESS (Duration: 304.99s)
+
+[52/240] Starting command 52...
+Executing: ./gradlew runGrasp -PinstancePath="instances/6.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="BEST_IMPROVEMENT" -PskipProbability=0 -Pseed=0 -PalphaType="FIXED" -Palpha=0.5
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/6.json --outputPath=output/grasp --timeLimit=300 --searchMode=BEST_IMPROVEMENT --alphaType=FIXED --alpha=0.5 --skipProbability=0 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 52 SUCCESS (Duration: 305.03s)
+
+[53/240] Starting command 53...
+Executing: ./gradlew runGrasp -PinstancePath="instances/6.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="BEST_IMPROVEMENT" -PskipProbability=0.25 -Pseed=0 -PalphaType="FIXED" -Palpha=0.5
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/6.json --outputPath=output/grasp --timeLimit=300 --searchMode=BEST_IMPROVEMENT --alphaType=FIXED --alpha=0.5 --skipProbability=0.25 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 53 SUCCESS (Duration: 304.98s)
+
+[54/240] Starting command 54...
+Executing: ./gradlew runGrasp -PinstancePath="instances/6.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="BEST_IMPROVEMENT" -PskipProbability=0.5 -Pseed=0 -PalphaType="FIXED" -Palpha=0.5
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/6.json --outputPath=output/grasp --timeLimit=300 --searchMode=BEST_IMPROVEMENT --alphaType=FIXED --alpha=0.5 --skipProbability=0.5 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 54 SUCCESS (Duration: 304.99s)
+
+[55/240] Starting command 55...
+Executing: ./gradlew runGrasp -PinstancePath="instances/6.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="BEST_IMPROVEMENT" -PskipProbability=0 -Pseed=0 -PalphaType="UNIFORM" -PminAlpha=0.1 -PmaxAlpha=1.0
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/6.json --outputPath=output/grasp --timeLimit=300 --searchMode=BEST_IMPROVEMENT --alphaType=UNIFORM --minAlpha=0.1 --maxAlpha=1.0 --skipProbability=0 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 55 SUCCESS (Duration: 305.04s)
+
+[56/240] Starting command 56...
+Executing: ./gradlew runGrasp -PinstancePath="instances/6.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="BEST_IMPROVEMENT" -PskipProbability=0.25 -Pseed=0 -PalphaType="UNIFORM" -PminAlpha=0.1 -PmaxAlpha=1.0
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/6.json --outputPath=output/grasp --timeLimit=300 --searchMode=BEST_IMPROVEMENT --alphaType=UNIFORM --minAlpha=0.1 --maxAlpha=1.0 --skipProbability=0.25 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 56 SUCCESS (Duration: 304.96s)
+
+[57/240] Starting command 57...
+Executing: ./gradlew runGrasp -PinstancePath="instances/6.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="BEST_IMPROVEMENT" -PskipProbability=0.5 -Pseed=0 -PalphaType="UNIFORM" -PminAlpha=0.1 -PmaxAlpha=1.0
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/6.json --outputPath=output/grasp --timeLimit=300 --searchMode=BEST_IMPROVEMENT --alphaType=UNIFORM --minAlpha=0.1 --maxAlpha=1.0 --skipProbability=0.5 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 57 SUCCESS (Duration: 304.99s)
+
+[58/240] Starting command 58...
+Executing: ./gradlew runGrasp -PinstancePath="instances/6.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="BEST_IMPROVEMENT" -PskipProbability=0 -Pseed=0 -PalphaType="UNIFORM" -PminAlpha=0.1 -PmaxAlpha=0.5
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/6.json --outputPath=output/grasp --timeLimit=300 --searchMode=BEST_IMPROVEMENT --alphaType=UNIFORM --minAlpha=0.1 --maxAlpha=0.5 --skipProbability=0 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 3s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 58 SUCCESS (Duration: 304.02s)
+
+[59/240] Starting command 59...
+Executing: ./gradlew runGrasp -PinstancePath="instances/6.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="BEST_IMPROVEMENT" -PskipProbability=0.25 -Pseed=0 -PalphaType="UNIFORM" -PminAlpha=0.1 -PmaxAlpha=0.5
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/6.json --outputPath=output/grasp --timeLimit=300 --searchMode=BEST_IMPROVEMENT --alphaType=UNIFORM --minAlpha=0.1 --maxAlpha=0.5 --skipProbability=0.25 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 59 SUCCESS (Duration: 305.01s)
+
+[60/240] Starting command 60...
+Executing: ./gradlew runGrasp -PinstancePath="instances/6.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="BEST_IMPROVEMENT" -PskipProbability=0.5 -Pseed=0 -PalphaType="UNIFORM" -PminAlpha=0.1 -PmaxAlpha=0.5
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/6.json --outputPath=output/grasp --timeLimit=300 --searchMode=BEST_IMPROVEMENT --alphaType=UNIFORM --minAlpha=0.1 --maxAlpha=0.5 --skipProbability=0.5 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 60 SUCCESS (Duration: 305.00s)
+
+[61/240] Starting command 61...
+Executing: ./gradlew runGrasp -PinstancePath="instances/6.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="FIRST_IMPROVEMENT" -PskipProbability=0 -Pseed=0 -PalphaType="FIXED" -Palpha=0.25
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/6.json --outputPath=output/grasp --timeLimit=300 --searchMode=FIRST_IMPROVEMENT --alphaType=FIXED --alpha=0.25 --skipProbability=0 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 61 SUCCESS (Duration: 304.98s)
+
+[62/240] Starting command 62...
+Executing: ./gradlew runGrasp -PinstancePath="instances/6.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="FIRST_IMPROVEMENT" -PskipProbability=0.25 -Pseed=0 -PalphaType="FIXED" -Palpha=0.25
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/6.json --outputPath=output/grasp --timeLimit=300 --searchMode=FIRST_IMPROVEMENT --alphaType=FIXED --alpha=0.25 --skipProbability=0.25 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 62 SUCCESS (Duration: 305.01s)
+
+[63/240] Starting command 63...
+Executing: ./gradlew runGrasp -PinstancePath="instances/6.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="FIRST_IMPROVEMENT" -PskipProbability=0.5 -Pseed=0 -PalphaType="FIXED" -Palpha=0.25
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/6.json --outputPath=output/grasp --timeLimit=300 --searchMode=FIRST_IMPROVEMENT --alphaType=FIXED --alpha=0.25 --skipProbability=0.5 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 63 SUCCESS (Duration: 304.99s)
+
+[64/240] Starting command 64...
+Executing: ./gradlew runGrasp -PinstancePath="instances/6.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="FIRST_IMPROVEMENT" -PskipProbability=0 -Pseed=0 -PalphaType="FIXED" -Palpha=0.5
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/6.json --outputPath=output/grasp --timeLimit=300 --searchMode=FIRST_IMPROVEMENT --alphaType=FIXED --alpha=0.5 --skipProbability=0 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 64 SUCCESS (Duration: 305.04s)
+
+[65/240] Starting command 65...
+Executing: ./gradlew runGrasp -PinstancePath="instances/6.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="FIRST_IMPROVEMENT" -PskipProbability=0.25 -Pseed=0 -PalphaType="FIXED" -Palpha=0.5
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/6.json --outputPath=output/grasp --timeLimit=300 --searchMode=FIRST_IMPROVEMENT --alphaType=FIXED --alpha=0.5 --skipProbability=0.25 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 65 SUCCESS (Duration: 304.95s)
+
+[66/240] Starting command 66...
+Executing: ./gradlew runGrasp -PinstancePath="instances/6.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="FIRST_IMPROVEMENT" -PskipProbability=0.5 -Pseed=0 -PalphaType="FIXED" -Palpha=0.5
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/6.json --outputPath=output/grasp --timeLimit=300 --searchMode=FIRST_IMPROVEMENT --alphaType=FIXED --alpha=0.5 --skipProbability=0.5 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 66 SUCCESS (Duration: 304.98s)
+
+[67/240] Starting command 67...
+Executing: ./gradlew runGrasp -PinstancePath="instances/6.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="FIRST_IMPROVEMENT" -PskipProbability=0 -Pseed=0 -PalphaType="UNIFORM" -PminAlpha=0.1 -PmaxAlpha=1.0
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/6.json --outputPath=output/grasp --timeLimit=300 --searchMode=FIRST_IMPROVEMENT --alphaType=UNIFORM --minAlpha=0.1 --maxAlpha=1.0 --skipProbability=0 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 67 SUCCESS (Duration: 305.03s)
+
+[68/240] Starting command 68...
+Executing: ./gradlew runGrasp -PinstancePath="instances/6.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="FIRST_IMPROVEMENT" -PskipProbability=0.25 -Pseed=0 -PalphaType="UNIFORM" -PminAlpha=0.1 -PmaxAlpha=1.0
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/6.json --outputPath=output/grasp --timeLimit=300 --searchMode=FIRST_IMPROVEMENT --alphaType=UNIFORM --minAlpha=0.1 --maxAlpha=1.0 --skipProbability=0.25 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 68 SUCCESS (Duration: 305.00s)
+
+[69/240] Starting command 69...
+Executing: ./gradlew runGrasp -PinstancePath="instances/6.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="FIRST_IMPROVEMENT" -PskipProbability=0.5 -Pseed=0 -PalphaType="UNIFORM" -PminAlpha=0.1 -PmaxAlpha=1.0
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/6.json --outputPath=output/grasp --timeLimit=300 --searchMode=FIRST_IMPROVEMENT --alphaType=UNIFORM --minAlpha=0.1 --maxAlpha=1.0 --skipProbability=0.5 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 69 SUCCESS (Duration: 305.01s)
+
+[70/240] Starting command 70...
+Executing: ./gradlew runGrasp -PinstancePath="instances/6.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="FIRST_IMPROVEMENT" -PskipProbability=0 -Pseed=0 -PalphaType="UNIFORM" -PminAlpha=0.1 -PmaxAlpha=0.5
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/6.json --outputPath=output/grasp --timeLimit=300 --searchMode=FIRST_IMPROVEMENT --alphaType=UNIFORM --minAlpha=0.1 --maxAlpha=0.5 --skipProbability=0 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 70 SUCCESS (Duration: 304.98s)
+
+[71/240] Starting command 71...
+Executing: ./gradlew runGrasp -PinstancePath="instances/6.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="FIRST_IMPROVEMENT" -PskipProbability=0.25 -Pseed=0 -PalphaType="UNIFORM" -PminAlpha=0.1 -PmaxAlpha=0.5
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/6.json --outputPath=output/grasp --timeLimit=300 --searchMode=FIRST_IMPROVEMENT --alphaType=UNIFORM --minAlpha=0.1 --maxAlpha=0.5 --skipProbability=0.25 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 71 SUCCESS (Duration: 304.99s)
+
+[72/240] Starting command 72...
+Executing: ./gradlew runGrasp -PinstancePath="instances/6.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="FIRST_IMPROVEMENT" -PskipProbability=0.5 -Pseed=0 -PalphaType="UNIFORM" -PminAlpha=0.1 -PmaxAlpha=0.5
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/6.json --outputPath=output/grasp --timeLimit=300 --searchMode=FIRST_IMPROVEMENT --alphaType=UNIFORM --minAlpha=0.1 --maxAlpha=0.5 --skipProbability=0.5 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 72 SUCCESS (Duration: 305.02s)
+
+[73/240] Starting command 73...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=MEDIUM_nInventory=10_nHours=3_seed=6.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="BEST_IMPROVEMENT" -PskipProbability=0 -Pseed=0 -PalphaType="FIXED" -Palpha=0.25
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=MEDIUM_nInventory=10_nHours=3_seed=6.json --outputPath=output/grasp --timeLimit=300 --searchMode=BEST_IMPROVEMENT --alphaType=FIXED --alpha=0.25 --skipProbability=0 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 73 SUCCESS (Duration: 304.97s)
+
+[74/240] Starting command 74...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=MEDIUM_nInventory=10_nHours=3_seed=6.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="BEST_IMPROVEMENT" -PskipProbability=0.25 -Pseed=0 -PalphaType="FIXED" -Palpha=0.25
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=MEDIUM_nInventory=10_nHours=3_seed=6.json --outputPath=output/grasp --timeLimit=300 --searchMode=BEST_IMPROVEMENT --alphaType=FIXED --alpha=0.25 --skipProbability=0.25 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 74 SUCCESS (Duration: 304.99s)
+
+[75/240] Starting command 75...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=MEDIUM_nInventory=10_nHours=3_seed=6.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="BEST_IMPROVEMENT" -PskipProbability=0.5 -Pseed=0 -PalphaType="FIXED" -Palpha=0.25
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=MEDIUM_nInventory=10_nHours=3_seed=6.json --outputPath=output/grasp --timeLimit=300 --searchMode=BEST_IMPROVEMENT --alphaType=FIXED --alpha=0.25 --skipProbability=0.5 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 75 SUCCESS (Duration: 305.00s)
+
+[76/240] Starting command 76...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=MEDIUM_nInventory=10_nHours=3_seed=6.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="BEST_IMPROVEMENT" -PskipProbability=0 -Pseed=0 -PalphaType="FIXED" -Palpha=0.5
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=MEDIUM_nInventory=10_nHours=3_seed=6.json --outputPath=output/grasp --timeLimit=300 --searchMode=BEST_IMPROVEMENT --alphaType=FIXED --alpha=0.5 --skipProbability=0 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 76 SUCCESS (Duration: 305.03s)
+
+[77/240] Starting command 77...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=MEDIUM_nInventory=10_nHours=3_seed=6.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="BEST_IMPROVEMENT" -PskipProbability=0.25 -Pseed=0 -PalphaType="FIXED" -Palpha=0.5
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=MEDIUM_nInventory=10_nHours=3_seed=6.json --outputPath=output/grasp --timeLimit=300 --searchMode=BEST_IMPROVEMENT --alphaType=FIXED --alpha=0.5 --skipProbability=0.25 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 77 SUCCESS (Duration: 304.95s)
+
+[78/240] Starting command 78...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=MEDIUM_nInventory=10_nHours=3_seed=6.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="BEST_IMPROVEMENT" -PskipProbability=0.5 -Pseed=0 -PalphaType="FIXED" -Palpha=0.5
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=MEDIUM_nInventory=10_nHours=3_seed=6.json --outputPath=output/grasp --timeLimit=300 --searchMode=BEST_IMPROVEMENT --alphaType=FIXED --alpha=0.5 --skipProbability=0.5 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 78 SUCCESS (Duration: 305.03s)
+
+[79/240] Starting command 79...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=MEDIUM_nInventory=10_nHours=3_seed=6.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="BEST_IMPROVEMENT" -PskipProbability=0 -Pseed=0 -PalphaType="UNIFORM" -PminAlpha=0.1 -PmaxAlpha=1.0
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=MEDIUM_nInventory=10_nHours=3_seed=6.json --outputPath=output/grasp --timeLimit=300 --searchMode=BEST_IMPROVEMENT --alphaType=UNIFORM --minAlpha=0.1 --maxAlpha=1.0 --skipProbability=0 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 79 SUCCESS (Duration: 305.00s)
+
+[80/240] Starting command 80...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=MEDIUM_nInventory=10_nHours=3_seed=6.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="BEST_IMPROVEMENT" -PskipProbability=0.25 -Pseed=0 -PalphaType="UNIFORM" -PminAlpha=0.1 -PmaxAlpha=1.0
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=MEDIUM_nInventory=10_nHours=3_seed=6.json --outputPath=output/grasp --timeLimit=300 --searchMode=BEST_IMPROVEMENT --alphaType=UNIFORM --minAlpha=0.1 --maxAlpha=1.0 --skipProbability=0.25 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 80 SUCCESS (Duration: 305.00s)
+
+[81/240] Starting command 81...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=MEDIUM_nInventory=10_nHours=3_seed=6.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="BEST_IMPROVEMENT" -PskipProbability=0.5 -Pseed=0 -PalphaType="UNIFORM" -PminAlpha=0.1 -PmaxAlpha=1.0
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=MEDIUM_nInventory=10_nHours=3_seed=6.json --outputPath=output/grasp --timeLimit=300 --searchMode=BEST_IMPROVEMENT --alphaType=UNIFORM --minAlpha=0.1 --maxAlpha=1.0 --skipProbability=0.5 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 81 SUCCESS (Duration: 305.05s)
+
+[82/240] Starting command 82...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=MEDIUM_nInventory=10_nHours=3_seed=6.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="BEST_IMPROVEMENT" -PskipProbability=0 -Pseed=0 -PalphaType="UNIFORM" -PminAlpha=0.1 -PmaxAlpha=0.5
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=MEDIUM_nInventory=10_nHours=3_seed=6.json --outputPath=output/grasp --timeLimit=300 --searchMode=BEST_IMPROVEMENT --alphaType=UNIFORM --minAlpha=0.1 --maxAlpha=0.5 --skipProbability=0 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 82 SUCCESS (Duration: 304.97s)
+
+[83/240] Starting command 83...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=MEDIUM_nInventory=10_nHours=3_seed=6.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="BEST_IMPROVEMENT" -PskipProbability=0.25 -Pseed=0 -PalphaType="UNIFORM" -PminAlpha=0.1 -PmaxAlpha=0.5
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=MEDIUM_nInventory=10_nHours=3_seed=6.json --outputPath=output/grasp --timeLimit=300 --searchMode=BEST_IMPROVEMENT --alphaType=UNIFORM --minAlpha=0.1 --maxAlpha=0.5 --skipProbability=0.25 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 83 SUCCESS (Duration: 304.98s)
+
+[84/240] Starting command 84...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=MEDIUM_nInventory=10_nHours=3_seed=6.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="BEST_IMPROVEMENT" -PskipProbability=0.5 -Pseed=0 -PalphaType="UNIFORM" -PminAlpha=0.1 -PmaxAlpha=0.5
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=MEDIUM_nInventory=10_nHours=3_seed=6.json --outputPath=output/grasp --timeLimit=300 --searchMode=BEST_IMPROVEMENT --alphaType=UNIFORM --minAlpha=0.1 --maxAlpha=0.5 --skipProbability=0.5 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 84 SUCCESS (Duration: 305.01s)
+
+[85/240] Starting command 85...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=MEDIUM_nInventory=10_nHours=3_seed=6.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="FIRST_IMPROVEMENT" -PskipProbability=0 -Pseed=0 -PalphaType="FIXED" -Palpha=0.25
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=MEDIUM_nInventory=10_nHours=3_seed=6.json --outputPath=output/grasp --timeLimit=300 --searchMode=FIRST_IMPROVEMENT --alphaType=FIXED --alpha=0.25 --skipProbability=0 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 85 SUCCESS (Duration: 305.00s)
+
+[86/240] Starting command 86...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=MEDIUM_nInventory=10_nHours=3_seed=6.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="FIRST_IMPROVEMENT" -PskipProbability=0.25 -Pseed=0 -PalphaType="FIXED" -Palpha=0.25
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=MEDIUM_nInventory=10_nHours=3_seed=6.json --outputPath=output/grasp --timeLimit=300 --searchMode=FIRST_IMPROVEMENT --alphaType=FIXED --alpha=0.25 --skipProbability=0.25 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 86 SUCCESS (Duration: 304.99s)
+
+[87/240] Starting command 87...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=MEDIUM_nInventory=10_nHours=3_seed=6.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="FIRST_IMPROVEMENT" -PskipProbability=0.5 -Pseed=0 -PalphaType="FIXED" -Palpha=0.25
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=MEDIUM_nInventory=10_nHours=3_seed=6.json --outputPath=output/grasp --timeLimit=300 --searchMode=FIRST_IMPROVEMENT --alphaType=FIXED --alpha=0.25 --skipProbability=0.5 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 3s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 87 SUCCESS (Duration: 304.01s)
+
+[88/240] Starting command 88...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=MEDIUM_nInventory=10_nHours=3_seed=6.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="FIRST_IMPROVEMENT" -PskipProbability=0 -Pseed=0 -PalphaType="FIXED" -Palpha=0.5
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=MEDIUM_nInventory=10_nHours=3_seed=6.json --outputPath=output/grasp --timeLimit=300 --searchMode=FIRST_IMPROVEMENT --alphaType=FIXED --alpha=0.5 --skipProbability=0 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 88 SUCCESS (Duration: 305.01s)
+
+[89/240] Starting command 89...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=MEDIUM_nInventory=10_nHours=3_seed=6.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="FIRST_IMPROVEMENT" -PskipProbability=0.25 -Pseed=0 -PalphaType="FIXED" -Palpha=0.5
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=MEDIUM_nInventory=10_nHours=3_seed=6.json --outputPath=output/grasp --timeLimit=300 --searchMode=FIRST_IMPROVEMENT --alphaType=FIXED --alpha=0.5 --skipProbability=0.25 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 3s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 89 SUCCESS (Duration: 303.98s)
+
+[90/240] Starting command 90...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=MEDIUM_nInventory=10_nHours=3_seed=6.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="FIRST_IMPROVEMENT" -PskipProbability=0.5 -Pseed=0 -PalphaType="FIXED" -Palpha=0.5
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=MEDIUM_nInventory=10_nHours=3_seed=6.json --outputPath=output/grasp --timeLimit=300 --searchMode=FIRST_IMPROVEMENT --alphaType=FIXED --alpha=0.5 --skipProbability=0.5 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 90 SUCCESS (Duration: 305.01s)
+
+[91/240] Starting command 91...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=MEDIUM_nInventory=10_nHours=3_seed=6.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="FIRST_IMPROVEMENT" -PskipProbability=0 -Pseed=0 -PalphaType="UNIFORM" -PminAlpha=0.1 -PmaxAlpha=1.0
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=MEDIUM_nInventory=10_nHours=3_seed=6.json --outputPath=output/grasp --timeLimit=300 --searchMode=FIRST_IMPROVEMENT --alphaType=UNIFORM --minAlpha=0.1 --maxAlpha=1.0 --skipProbability=0 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 3s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 91 SUCCESS (Duration: 303.98s)
+
+[92/240] Starting command 92...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=MEDIUM_nInventory=10_nHours=3_seed=6.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="FIRST_IMPROVEMENT" -PskipProbability=0.25 -Pseed=0 -PalphaType="UNIFORM" -PminAlpha=0.1 -PmaxAlpha=1.0
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=MEDIUM_nInventory=10_nHours=3_seed=6.json --outputPath=output/grasp --timeLimit=300 --searchMode=FIRST_IMPROVEMENT --alphaType=UNIFORM --minAlpha=0.1 --maxAlpha=1.0 --skipProbability=0.25 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 92 SUCCESS (Duration: 305.00s)
+
+[93/240] Starting command 93...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=MEDIUM_nInventory=10_nHours=3_seed=6.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="FIRST_IMPROVEMENT" -PskipProbability=0.5 -Pseed=0 -PalphaType="UNIFORM" -PminAlpha=0.1 -PmaxAlpha=1.0
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=MEDIUM_nInventory=10_nHours=3_seed=6.json --outputPath=output/grasp --timeLimit=300 --searchMode=FIRST_IMPROVEMENT --alphaType=UNIFORM --minAlpha=0.1 --maxAlpha=1.0 --skipProbability=0.5 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 3s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 93 SUCCESS (Duration: 303.99s)
+
+[94/240] Starting command 94...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=MEDIUM_nInventory=10_nHours=3_seed=6.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="FIRST_IMPROVEMENT" -PskipProbability=0 -Pseed=0 -PalphaType="UNIFORM" -PminAlpha=0.1 -PmaxAlpha=0.5
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=MEDIUM_nInventory=10_nHours=3_seed=6.json --outputPath=output/grasp --timeLimit=300 --searchMode=FIRST_IMPROVEMENT --alphaType=UNIFORM --minAlpha=0.1 --maxAlpha=0.5 --skipProbability=0 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 94 SUCCESS (Duration: 304.99s)
+
+[95/240] Starting command 95...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=MEDIUM_nInventory=10_nHours=3_seed=6.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="FIRST_IMPROVEMENT" -PskipProbability=0.25 -Pseed=0 -PalphaType="UNIFORM" -PminAlpha=0.1 -PmaxAlpha=0.5
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=MEDIUM_nInventory=10_nHours=3_seed=6.json --outputPath=output/grasp --timeLimit=300 --searchMode=FIRST_IMPROVEMENT --alphaType=UNIFORM --minAlpha=0.1 --maxAlpha=0.5 --skipProbability=0.25 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 3s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 95 SUCCESS (Duration: 304.02s)
+
+[96/240] Starting command 96...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=MEDIUM_nInventory=10_nHours=3_seed=6.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="FIRST_IMPROVEMENT" -PskipProbability=0.5 -Pseed=0 -PalphaType="UNIFORM" -PminAlpha=0.1 -PmaxAlpha=0.5
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=MEDIUM_nInventory=10_nHours=3_seed=6.json --outputPath=output/grasp --timeLimit=300 --searchMode=FIRST_IMPROVEMENT --alphaType=UNIFORM --minAlpha=0.1 --maxAlpha=0.5 --skipProbability=0.5 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 96 SUCCESS (Duration: 305.00s)
+
+[97/240] Starting command 97...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=MEDIUM_nInventory=10_nHours=3_seed=7.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="BEST_IMPROVEMENT" -PskipProbability=0 -Pseed=0 -PalphaType="FIXED" -Palpha=0.25
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=MEDIUM_nInventory=10_nHours=3_seed=7.json --outputPath=output/grasp --timeLimit=300 --searchMode=BEST_IMPROVEMENT --alphaType=FIXED --alpha=0.25 --skipProbability=0 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 97 SUCCESS (Duration: 305.02s)
+
+[98/240] Starting command 98...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=MEDIUM_nInventory=10_nHours=3_seed=7.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="BEST_IMPROVEMENT" -PskipProbability=0.25 -Pseed=0 -PalphaType="FIXED" -Palpha=0.25
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=MEDIUM_nInventory=10_nHours=3_seed=7.json --outputPath=output/grasp --timeLimit=300 --searchMode=BEST_IMPROVEMENT --alphaType=FIXED --alpha=0.25 --skipProbability=0.25 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 98 SUCCESS (Duration: 304.98s)
+
+[99/240] Starting command 99...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=MEDIUM_nInventory=10_nHours=3_seed=7.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="BEST_IMPROVEMENT" -PskipProbability=0.5 -Pseed=0 -PalphaType="FIXED" -Palpha=0.25
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=MEDIUM_nInventory=10_nHours=3_seed=7.json --outputPath=output/grasp --timeLimit=300 --searchMode=BEST_IMPROVEMENT --alphaType=FIXED --alpha=0.25 --skipProbability=0.5 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 3s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 99 SUCCESS (Duration: 303.98s)
+
+[100/240] Starting command 100...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=MEDIUM_nInventory=10_nHours=3_seed=7.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="BEST_IMPROVEMENT" -PskipProbability=0 -Pseed=0 -PalphaType="FIXED" -Palpha=0.5
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=MEDIUM_nInventory=10_nHours=3_seed=7.json --outputPath=output/grasp --timeLimit=300 --searchMode=BEST_IMPROVEMENT --alphaType=FIXED --alpha=0.5 --skipProbability=0 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 3s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 100 SUCCESS (Duration: 304.01s)
+
+[101/240] Starting command 101...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=MEDIUM_nInventory=10_nHours=3_seed=7.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="BEST_IMPROVEMENT" -PskipProbability=0.25 -Pseed=0 -PalphaType="FIXED" -Palpha=0.5
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=MEDIUM_nInventory=10_nHours=3_seed=7.json --outputPath=output/grasp --timeLimit=300 --searchMode=BEST_IMPROVEMENT --alphaType=FIXED --alpha=0.5 --skipProbability=0.25 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 101 SUCCESS (Duration: 305.00s)
+
+[102/240] Starting command 102...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=MEDIUM_nInventory=10_nHours=3_seed=7.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="BEST_IMPROVEMENT" -PskipProbability=0.5 -Pseed=0 -PalphaType="FIXED" -Palpha=0.5
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=MEDIUM_nInventory=10_nHours=3_seed=7.json --outputPath=output/grasp --timeLimit=300 --searchMode=BEST_IMPROVEMENT --alphaType=FIXED --alpha=0.5 --skipProbability=0.5 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 3s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 102 SUCCESS (Duration: 304.00s)
+
+[103/240] Starting command 103...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=MEDIUM_nInventory=10_nHours=3_seed=7.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="BEST_IMPROVEMENT" -PskipProbability=0 -Pseed=0 -PalphaType="UNIFORM" -PminAlpha=0.1 -PmaxAlpha=1.0
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=MEDIUM_nInventory=10_nHours=3_seed=7.json --outputPath=output/grasp --timeLimit=300 --searchMode=BEST_IMPROVEMENT --alphaType=UNIFORM --minAlpha=0.1 --maxAlpha=1.0 --skipProbability=0 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 103 SUCCESS (Duration: 304.99s)
+
+[104/240] Starting command 104...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=MEDIUM_nInventory=10_nHours=3_seed=7.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="BEST_IMPROVEMENT" -PskipProbability=0.25 -Pseed=0 -PalphaType="UNIFORM" -PminAlpha=0.1 -PmaxAlpha=1.0
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=MEDIUM_nInventory=10_nHours=3_seed=7.json --outputPath=output/grasp --timeLimit=300 --searchMode=BEST_IMPROVEMENT --alphaType=UNIFORM --minAlpha=0.1 --maxAlpha=1.0 --skipProbability=0.25 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 3s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 104 SUCCESS (Duration: 304.03s)
+
+[105/240] Starting command 105...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=MEDIUM_nInventory=10_nHours=3_seed=7.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="BEST_IMPROVEMENT" -PskipProbability=0.5 -Pseed=0 -PalphaType="UNIFORM" -PminAlpha=0.1 -PmaxAlpha=1.0
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=MEDIUM_nInventory=10_nHours=3_seed=7.json --outputPath=output/grasp --timeLimit=300 --searchMode=BEST_IMPROVEMENT --alphaType=UNIFORM --minAlpha=0.1 --maxAlpha=1.0 --skipProbability=0.5 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 105 SUCCESS (Duration: 304.97s)
+
+[106/240] Starting command 106...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=MEDIUM_nInventory=10_nHours=3_seed=7.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="BEST_IMPROVEMENT" -PskipProbability=0 -Pseed=0 -PalphaType="UNIFORM" -PminAlpha=0.1 -PmaxAlpha=0.5
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=MEDIUM_nInventory=10_nHours=3_seed=7.json --outputPath=output/grasp --timeLimit=300 --searchMode=BEST_IMPROVEMENT --alphaType=UNIFORM --minAlpha=0.1 --maxAlpha=0.5 --skipProbability=0 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 106 SUCCESS (Duration: 305.02s)
+
+[107/240] Starting command 107...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=MEDIUM_nInventory=10_nHours=3_seed=7.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="BEST_IMPROVEMENT" -PskipProbability=0.25 -Pseed=0 -PalphaType="UNIFORM" -PminAlpha=0.1 -PmaxAlpha=0.5
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=MEDIUM_nInventory=10_nHours=3_seed=7.json --outputPath=output/grasp --timeLimit=300 --searchMode=BEST_IMPROVEMENT --alphaType=UNIFORM --minAlpha=0.1 --maxAlpha=0.5 --skipProbability=0.25 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 3s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 107 SUCCESS (Duration: 304.00s)
+
+[108/240] Starting command 108...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=MEDIUM_nInventory=10_nHours=3_seed=7.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="BEST_IMPROVEMENT" -PskipProbability=0.5 -Pseed=0 -PalphaType="UNIFORM" -PminAlpha=0.1 -PmaxAlpha=0.5
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=MEDIUM_nInventory=10_nHours=3_seed=7.json --outputPath=output/grasp --timeLimit=300 --searchMode=BEST_IMPROVEMENT --alphaType=UNIFORM --minAlpha=0.1 --maxAlpha=0.5 --skipProbability=0.5 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 108 SUCCESS (Duration: 305.00s)
+
+[109/240] Starting command 109...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=MEDIUM_nInventory=10_nHours=3_seed=7.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="FIRST_IMPROVEMENT" -PskipProbability=0 -Pseed=0 -PalphaType="FIXED" -Palpha=0.25
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=MEDIUM_nInventory=10_nHours=3_seed=7.json --outputPath=output/grasp --timeLimit=300 --searchMode=FIRST_IMPROVEMENT --alphaType=FIXED --alpha=0.25 --skipProbability=0 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 3s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 109 SUCCESS (Duration: 304.01s)
+
+[110/240] Starting command 110...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=MEDIUM_nInventory=10_nHours=3_seed=7.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="FIRST_IMPROVEMENT" -PskipProbability=0.25 -Pseed=0 -PalphaType="FIXED" -Palpha=0.25
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=MEDIUM_nInventory=10_nHours=3_seed=7.json --outputPath=output/grasp --timeLimit=300 --searchMode=FIRST_IMPROVEMENT --alphaType=FIXED --alpha=0.25 --skipProbability=0.25 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 110 SUCCESS (Duration: 305.01s)
+
+[111/240] Starting command 111...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=MEDIUM_nInventory=10_nHours=3_seed=7.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="FIRST_IMPROVEMENT" -PskipProbability=0.5 -Pseed=0 -PalphaType="FIXED" -Palpha=0.25
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=MEDIUM_nInventory=10_nHours=3_seed=7.json --outputPath=output/grasp --timeLimit=300 --searchMode=FIRST_IMPROVEMENT --alphaType=FIXED --alpha=0.25 --skipProbability=0.5 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 3s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 111 SUCCESS (Duration: 303.97s)
+
+[112/240] Starting command 112...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=MEDIUM_nInventory=10_nHours=3_seed=7.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="FIRST_IMPROVEMENT" -PskipProbability=0 -Pseed=0 -PalphaType="FIXED" -Palpha=0.5
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=MEDIUM_nInventory=10_nHours=3_seed=7.json --outputPath=output/grasp --timeLimit=300 --searchMode=FIRST_IMPROVEMENT --alphaType=FIXED --alpha=0.5 --skipProbability=0 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 112 SUCCESS (Duration: 305.00s)
+
+[113/240] Starting command 113...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=MEDIUM_nInventory=10_nHours=3_seed=7.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="FIRST_IMPROVEMENT" -PskipProbability=0.25 -Pseed=0 -PalphaType="FIXED" -Palpha=0.5
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=MEDIUM_nInventory=10_nHours=3_seed=7.json --outputPath=output/grasp --timeLimit=300 --searchMode=FIRST_IMPROVEMENT --alphaType=FIXED --alpha=0.5 --skipProbability=0.25 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 113 SUCCESS (Duration: 305.04s)
+
+[114/240] Starting command 114...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=MEDIUM_nInventory=10_nHours=3_seed=7.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="FIRST_IMPROVEMENT" -PskipProbability=0.5 -Pseed=0 -PalphaType="FIXED" -Palpha=0.5
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=MEDIUM_nInventory=10_nHours=3_seed=7.json --outputPath=output/grasp --timeLimit=300 --searchMode=FIRST_IMPROVEMENT --alphaType=FIXED --alpha=0.5 --skipProbability=0.5 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 3s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 114 SUCCESS (Duration: 303.98s)
+
+[115/240] Starting command 115...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=MEDIUM_nInventory=10_nHours=3_seed=7.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="FIRST_IMPROVEMENT" -PskipProbability=0 -Pseed=0 -PalphaType="UNIFORM" -PminAlpha=0.1 -PmaxAlpha=1.0
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=MEDIUM_nInventory=10_nHours=3_seed=7.json --outputPath=output/grasp --timeLimit=300 --searchMode=FIRST_IMPROVEMENT --alphaType=UNIFORM --minAlpha=0.1 --maxAlpha=1.0 --skipProbability=0 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 115 SUCCESS (Duration: 304.98s)
+
+[116/240] Starting command 116...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=MEDIUM_nInventory=10_nHours=3_seed=7.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="FIRST_IMPROVEMENT" -PskipProbability=0.25 -Pseed=0 -PalphaType="UNIFORM" -PminAlpha=0.1 -PmaxAlpha=1.0
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=MEDIUM_nInventory=10_nHours=3_seed=7.json --outputPath=output/grasp --timeLimit=300 --searchMode=FIRST_IMPROVEMENT --alphaType=UNIFORM --minAlpha=0.1 --maxAlpha=1.0 --skipProbability=0.25 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 116 SUCCESS (Duration: 305.03s)
+
+[117/240] Starting command 117...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=MEDIUM_nInventory=10_nHours=3_seed=7.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="FIRST_IMPROVEMENT" -PskipProbability=0.5 -Pseed=0 -PalphaType="UNIFORM" -PminAlpha=0.1 -PmaxAlpha=1.0
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=MEDIUM_nInventory=10_nHours=3_seed=7.json --outputPath=output/grasp --timeLimit=300 --searchMode=FIRST_IMPROVEMENT --alphaType=UNIFORM --minAlpha=0.1 --maxAlpha=1.0 --skipProbability=0.5 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 117 SUCCESS (Duration: 305.00s)
+
+[118/240] Starting command 118...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=MEDIUM_nInventory=10_nHours=3_seed=7.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="FIRST_IMPROVEMENT" -PskipProbability=0 -Pseed=0 -PalphaType="UNIFORM" -PminAlpha=0.1 -PmaxAlpha=0.5
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=MEDIUM_nInventory=10_nHours=3_seed=7.json --outputPath=output/grasp --timeLimit=300 --searchMode=FIRST_IMPROVEMENT --alphaType=UNIFORM --minAlpha=0.1 --maxAlpha=0.5 --skipProbability=0 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 118 SUCCESS (Duration: 304.99s)
+
+[119/240] Starting command 119...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=MEDIUM_nInventory=10_nHours=3_seed=7.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="FIRST_IMPROVEMENT" -PskipProbability=0.25 -Pseed=0 -PalphaType="UNIFORM" -PminAlpha=0.1 -PmaxAlpha=0.5
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=MEDIUM_nInventory=10_nHours=3_seed=7.json --outputPath=output/grasp --timeLimit=300 --searchMode=FIRST_IMPROVEMENT --alphaType=UNIFORM --minAlpha=0.1 --maxAlpha=0.5 --skipProbability=0.25 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 119 SUCCESS (Duration: 305.00s)
+
+[120/240] Starting command 120...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=MEDIUM_nInventory=10_nHours=3_seed=7.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="FIRST_IMPROVEMENT" -PskipProbability=0.5 -Pseed=0 -PalphaType="UNIFORM" -PminAlpha=0.1 -PmaxAlpha=0.5
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=MEDIUM_nInventory=10_nHours=3_seed=7.json --outputPath=output/grasp --timeLimit=300 --searchMode=FIRST_IMPROVEMENT --alphaType=UNIFORM --minAlpha=0.1 --maxAlpha=0.5 --skipProbability=0.5 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 120 SUCCESS (Duration: 305.01s)
+
+[121/240] Starting command 121...
+Executing: ./gradlew runGrasp -PinstancePath="instances/7.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="BEST_IMPROVEMENT" -PskipProbability=0 -Pseed=0 -PalphaType="FIXED" -Palpha=0.25
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/7.json --outputPath=output/grasp --timeLimit=300 --searchMode=BEST_IMPROVEMENT --alphaType=FIXED --alpha=0.25 --skipProbability=0 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 121 SUCCESS (Duration: 305.03s)
+
+[122/240] Starting command 122...
+Executing: ./gradlew runGrasp -PinstancePath="instances/7.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="BEST_IMPROVEMENT" -PskipProbability=0.25 -Pseed=0 -PalphaType="FIXED" -Palpha=0.25
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/7.json --outputPath=output/grasp --timeLimit=300 --searchMode=BEST_IMPROVEMENT --alphaType=FIXED --alpha=0.25 --skipProbability=0.25 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 122 SUCCESS (Duration: 304.99s)
+
+[123/240] Starting command 123...
+Executing: ./gradlew runGrasp -PinstancePath="instances/7.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="BEST_IMPROVEMENT" -PskipProbability=0.5 -Pseed=0 -PalphaType="FIXED" -Palpha=0.25
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/7.json --outputPath=output/grasp --timeLimit=300 --searchMode=BEST_IMPROVEMENT --alphaType=FIXED --alpha=0.25 --skipProbability=0.5 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 123 SUCCESS (Duration: 304.99s)
+
+[124/240] Starting command 124...
+Executing: ./gradlew runGrasp -PinstancePath="instances/7.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="BEST_IMPROVEMENT" -PskipProbability=0 -Pseed=0 -PalphaType="FIXED" -Palpha=0.5
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/7.json --outputPath=output/grasp --timeLimit=300 --searchMode=BEST_IMPROVEMENT --alphaType=FIXED --alpha=0.5 --skipProbability=0 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 124 SUCCESS (Duration: 305.07s)
+
+[125/240] Starting command 125...
+Executing: ./gradlew runGrasp -PinstancePath="instances/7.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="BEST_IMPROVEMENT" -PskipProbability=0.25 -Pseed=0 -PalphaType="FIXED" -Palpha=0.5
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/7.json --outputPath=output/grasp --timeLimit=300 --searchMode=BEST_IMPROVEMENT --alphaType=FIXED --alpha=0.5 --skipProbability=0.25 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 125 SUCCESS (Duration: 304.92s)
+
+[126/240] Starting command 126...
+Executing: ./gradlew runGrasp -PinstancePath="instances/7.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="BEST_IMPROVEMENT" -PskipProbability=0.5 -Pseed=0 -PalphaType="FIXED" -Palpha=0.5
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/7.json --outputPath=output/grasp --timeLimit=300 --searchMode=BEST_IMPROVEMENT --alphaType=FIXED --alpha=0.5 --skipProbability=0.5 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 126 SUCCESS (Duration: 305.00s)
+
+[127/240] Starting command 127...
+Executing: ./gradlew runGrasp -PinstancePath="instances/7.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="BEST_IMPROVEMENT" -PskipProbability=0 -Pseed=0 -PalphaType="UNIFORM" -PminAlpha=0.1 -PmaxAlpha=1.0
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/7.json --outputPath=output/grasp --timeLimit=300 --searchMode=BEST_IMPROVEMENT --alphaType=UNIFORM --minAlpha=0.1 --maxAlpha=1.0 --skipProbability=0 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 127 SUCCESS (Duration: 304.98s)
+
+[128/240] Starting command 128...
+Executing: ./gradlew runGrasp -PinstancePath="instances/7.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="BEST_IMPROVEMENT" -PskipProbability=0.25 -Pseed=0 -PalphaType="UNIFORM" -PminAlpha=0.1 -PmaxAlpha=1.0
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/7.json --outputPath=output/grasp --timeLimit=300 --searchMode=BEST_IMPROVEMENT --alphaType=UNIFORM --minAlpha=0.1 --maxAlpha=1.0 --skipProbability=0.25 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 128 SUCCESS (Duration: 305.03s)
+
+[129/240] Starting command 129...
+Executing: ./gradlew runGrasp -PinstancePath="instances/7.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="BEST_IMPROVEMENT" -PskipProbability=0.5 -Pseed=0 -PalphaType="UNIFORM" -PminAlpha=0.1 -PmaxAlpha=1.0
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/7.json --outputPath=output/grasp --timeLimit=300 --searchMode=BEST_IMPROVEMENT --alphaType=UNIFORM --minAlpha=0.1 --maxAlpha=1.0 --skipProbability=0.5 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 129 SUCCESS (Duration: 304.98s)
+
+[130/240] Starting command 130...
+Executing: ./gradlew runGrasp -PinstancePath="instances/7.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="BEST_IMPROVEMENT" -PskipProbability=0 -Pseed=0 -PalphaType="UNIFORM" -PminAlpha=0.1 -PmaxAlpha=0.5
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/7.json --outputPath=output/grasp --timeLimit=300 --searchMode=BEST_IMPROVEMENT --alphaType=UNIFORM --minAlpha=0.1 --maxAlpha=0.5 --skipProbability=0 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 130 SUCCESS (Duration: 305.09s)
+
+[131/240] Starting command 131...
+Executing: ./gradlew runGrasp -PinstancePath="instances/7.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="BEST_IMPROVEMENT" -PskipProbability=0.25 -Pseed=0 -PalphaType="UNIFORM" -PminAlpha=0.1 -PmaxAlpha=0.5
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/7.json --outputPath=output/grasp --timeLimit=300 --searchMode=BEST_IMPROVEMENT --alphaType=UNIFORM --minAlpha=0.1 --maxAlpha=0.5 --skipProbability=0.25 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 131 SUCCESS (Duration: 304.94s)
+
+[132/240] Starting command 132...
+Executing: ./gradlew runGrasp -PinstancePath="instances/7.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="BEST_IMPROVEMENT" -PskipProbability=0.5 -Pseed=0 -PalphaType="UNIFORM" -PminAlpha=0.1 -PmaxAlpha=0.5
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/7.json --outputPath=output/grasp --timeLimit=300 --searchMode=BEST_IMPROVEMENT --alphaType=UNIFORM --minAlpha=0.1 --maxAlpha=0.5 --skipProbability=0.5 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 132 SUCCESS (Duration: 305.00s)
+
+[133/240] Starting command 133...
+Executing: ./gradlew runGrasp -PinstancePath="instances/7.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="FIRST_IMPROVEMENT" -PskipProbability=0 -Pseed=0 -PalphaType="FIXED" -Palpha=0.25
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/7.json --outputPath=output/grasp --timeLimit=300 --searchMode=FIRST_IMPROVEMENT --alphaType=FIXED --alpha=0.25 --skipProbability=0 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 133 SUCCESS (Duration: 305.00s)
+
+[134/240] Starting command 134...
+Executing: ./gradlew runGrasp -PinstancePath="instances/7.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="FIRST_IMPROVEMENT" -PskipProbability=0.25 -Pseed=0 -PalphaType="FIXED" -Palpha=0.25
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/7.json --outputPath=output/grasp --timeLimit=300 --searchMode=FIRST_IMPROVEMENT --alphaType=FIXED --alpha=0.25 --skipProbability=0.25 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 134 SUCCESS (Duration: 304.98s)
+
+[135/240] Starting command 135...
+Executing: ./gradlew runGrasp -PinstancePath="instances/7.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="FIRST_IMPROVEMENT" -PskipProbability=0.5 -Pseed=0 -PalphaType="FIXED" -Palpha=0.25
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/7.json --outputPath=output/grasp --timeLimit=300 --searchMode=FIRST_IMPROVEMENT --alphaType=FIXED --alpha=0.25 --skipProbability=0.5 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 135 SUCCESS (Duration: 305.03s)
+
+[136/240] Starting command 136...
+Executing: ./gradlew runGrasp -PinstancePath="instances/7.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="FIRST_IMPROVEMENT" -PskipProbability=0 -Pseed=0 -PalphaType="FIXED" -Palpha=0.5
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/7.json --outputPath=output/grasp --timeLimit=300 --searchMode=FIRST_IMPROVEMENT --alphaType=FIXED --alpha=0.5 --skipProbability=0 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 136 SUCCESS (Duration: 305.02s)
+
+[137/240] Starting command 137...
+Executing: ./gradlew runGrasp -PinstancePath="instances/7.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="FIRST_IMPROVEMENT" -PskipProbability=0.25 -Pseed=0 -PalphaType="FIXED" -Palpha=0.5
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/7.json --outputPath=output/grasp --timeLimit=300 --searchMode=FIRST_IMPROVEMENT --alphaType=FIXED --alpha=0.5 --skipProbability=0.25 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 137 SUCCESS (Duration: 304.98s)
+
+[138/240] Starting command 138...
+Executing: ./gradlew runGrasp -PinstancePath="instances/7.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="FIRST_IMPROVEMENT" -PskipProbability=0.5 -Pseed=0 -PalphaType="FIXED" -Palpha=0.5
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/7.json --outputPath=output/grasp --timeLimit=300 --searchMode=FIRST_IMPROVEMENT --alphaType=FIXED --alpha=0.5 --skipProbability=0.5 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 138 SUCCESS (Duration: 305.00s)
+
+[139/240] Starting command 139...
+Executing: ./gradlew runGrasp -PinstancePath="instances/7.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="FIRST_IMPROVEMENT" -PskipProbability=0 -Pseed=0 -PalphaType="UNIFORM" -PminAlpha=0.1 -PmaxAlpha=1.0
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/7.json --outputPath=output/grasp --timeLimit=300 --searchMode=FIRST_IMPROVEMENT --alphaType=UNIFORM --minAlpha=0.1 --maxAlpha=1.0 --skipProbability=0 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 139 SUCCESS (Duration: 304.99s)
+
+[140/240] Starting command 140...
+Executing: ./gradlew runGrasp -PinstancePath="instances/7.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="FIRST_IMPROVEMENT" -PskipProbability=0.25 -Pseed=0 -PalphaType="UNIFORM" -PminAlpha=0.1 -PmaxAlpha=1.0
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/7.json --outputPath=output/grasp --timeLimit=300 --searchMode=FIRST_IMPROVEMENT --alphaType=UNIFORM --minAlpha=0.1 --maxAlpha=1.0 --skipProbability=0.25 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 140 SUCCESS (Duration: 305.01s)
+
+[141/240] Starting command 141...
+Executing: ./gradlew runGrasp -PinstancePath="instances/7.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="FIRST_IMPROVEMENT" -PskipProbability=0.5 -Pseed=0 -PalphaType="UNIFORM" -PminAlpha=0.1 -PmaxAlpha=1.0
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/7.json --outputPath=output/grasp --timeLimit=300 --searchMode=FIRST_IMPROVEMENT --alphaType=UNIFORM --minAlpha=0.1 --maxAlpha=1.0 --skipProbability=0.5 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 141 SUCCESS (Duration: 305.01s)
+
+[142/240] Starting command 142...
+Executing: ./gradlew runGrasp -PinstancePath="instances/7.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="FIRST_IMPROVEMENT" -PskipProbability=0 -Pseed=0 -PalphaType="UNIFORM" -PminAlpha=0.1 -PmaxAlpha=0.5
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/7.json --outputPath=output/grasp --timeLimit=300 --searchMode=FIRST_IMPROVEMENT --alphaType=UNIFORM --minAlpha=0.1 --maxAlpha=0.5 --skipProbability=0 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 142 SUCCESS (Duration: 304.98s)
+
+[143/240] Starting command 143...
+Executing: ./gradlew runGrasp -PinstancePath="instances/7.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="FIRST_IMPROVEMENT" -PskipProbability=0.25 -Pseed=0 -PalphaType="UNIFORM" -PminAlpha=0.1 -PmaxAlpha=0.5
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/7.json --outputPath=output/grasp --timeLimit=300 --searchMode=FIRST_IMPROVEMENT --alphaType=UNIFORM --minAlpha=0.1 --maxAlpha=0.5 --skipProbability=0.25 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 143 SUCCESS (Duration: 304.99s)
+
+[144/240] Starting command 144...
+Executing: ./gradlew runGrasp -PinstancePath="instances/7.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="FIRST_IMPROVEMENT" -PskipProbability=0.5 -Pseed=0 -PalphaType="UNIFORM" -PminAlpha=0.1 -PmaxAlpha=0.5
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/7.json --outputPath=output/grasp --timeLimit=300 --searchMode=FIRST_IMPROVEMENT --alphaType=UNIFORM --minAlpha=0.1 --maxAlpha=0.5 --skipProbability=0.5 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 144 SUCCESS (Duration: 305.03s)
+
+[145/240] Starting command 145...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=LOW_nInventory=20_nHours=5_seed=10.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="BEST_IMPROVEMENT" -PskipProbability=0 -Pseed=0 -PalphaType="FIXED" -Palpha=0.25
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=LOW_nInventory=20_nHours=5_seed=10.json --outputPath=output/grasp --timeLimit=300 --searchMode=BEST_IMPROVEMENT --alphaType=FIXED --alpha=0.25 --skipProbability=0 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 145 SUCCESS (Duration: 304.98s)
+
+[146/240] Starting command 146...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=LOW_nInventory=20_nHours=5_seed=10.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="BEST_IMPROVEMENT" -PskipProbability=0.25 -Pseed=0 -PalphaType="FIXED" -Palpha=0.25
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=LOW_nInventory=20_nHours=5_seed=10.json --outputPath=output/grasp --timeLimit=300 --searchMode=BEST_IMPROVEMENT --alphaType=FIXED --alpha=0.25 --skipProbability=0.25 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 146 SUCCESS (Duration: 305.02s)
+
+[147/240] Starting command 147...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=LOW_nInventory=20_nHours=5_seed=10.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="BEST_IMPROVEMENT" -PskipProbability=0.5 -Pseed=0 -PalphaType="FIXED" -Palpha=0.25
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=LOW_nInventory=20_nHours=5_seed=10.json --outputPath=output/grasp --timeLimit=300 --searchMode=BEST_IMPROVEMENT --alphaType=FIXED --alpha=0.25 --skipProbability=0.5 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 147 SUCCESS (Duration: 304.97s)
+
+[148/240] Starting command 148...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=LOW_nInventory=20_nHours=5_seed=10.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="BEST_IMPROVEMENT" -PskipProbability=0 -Pseed=0 -PalphaType="FIXED" -Palpha=0.5
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=LOW_nInventory=20_nHours=5_seed=10.json --outputPath=output/grasp --timeLimit=300 --searchMode=BEST_IMPROVEMENT --alphaType=FIXED --alpha=0.5 --skipProbability=0 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 3s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 148 SUCCESS (Duration: 304.02s)
+
+[149/240] Starting command 149...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=LOW_nInventory=20_nHours=5_seed=10.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="BEST_IMPROVEMENT" -PskipProbability=0.25 -Pseed=0 -PalphaType="FIXED" -Palpha=0.5
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=LOW_nInventory=20_nHours=5_seed=10.json --outputPath=output/grasp --timeLimit=300 --searchMode=BEST_IMPROVEMENT --alphaType=FIXED --alpha=0.5 --skipProbability=0.25 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 149 SUCCESS (Duration: 304.99s)
+
+[150/240] Starting command 150...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=LOW_nInventory=20_nHours=5_seed=10.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="BEST_IMPROVEMENT" -PskipProbability=0.5 -Pseed=0 -PalphaType="FIXED" -Palpha=0.5
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=LOW_nInventory=20_nHours=5_seed=10.json --outputPath=output/grasp --timeLimit=300 --searchMode=BEST_IMPROVEMENT --alphaType=FIXED --alpha=0.5 --skipProbability=0.5 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 3s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 150 SUCCESS (Duration: 303.97s)
+
+[151/240] Starting command 151...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=LOW_nInventory=20_nHours=5_seed=10.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="BEST_IMPROVEMENT" -PskipProbability=0 -Pseed=0 -PalphaType="UNIFORM" -PminAlpha=0.1 -PmaxAlpha=1.0
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=LOW_nInventory=20_nHours=5_seed=10.json --outputPath=output/grasp --timeLimit=300 --searchMode=BEST_IMPROVEMENT --alphaType=UNIFORM --minAlpha=0.1 --maxAlpha=1.0 --skipProbability=0 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 151 SUCCESS (Duration: 305.03s)
+
+[152/240] Starting command 152...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=LOW_nInventory=20_nHours=5_seed=10.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="BEST_IMPROVEMENT" -PskipProbability=0.25 -Pseed=0 -PalphaType="UNIFORM" -PminAlpha=0.1 -PmaxAlpha=1.0
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=LOW_nInventory=20_nHours=5_seed=10.json --outputPath=output/grasp --timeLimit=300 --searchMode=BEST_IMPROVEMENT --alphaType=UNIFORM --minAlpha=0.1 --maxAlpha=1.0 --skipProbability=0.25 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 3s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 152 SUCCESS (Duration: 303.99s)
+
+[153/240] Starting command 153...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=LOW_nInventory=20_nHours=5_seed=10.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="BEST_IMPROVEMENT" -PskipProbability=0.5 -Pseed=0 -PalphaType="UNIFORM" -PminAlpha=0.1 -PmaxAlpha=1.0
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=LOW_nInventory=20_nHours=5_seed=10.json --outputPath=output/grasp --timeLimit=300 --searchMode=BEST_IMPROVEMENT --alphaType=UNIFORM --minAlpha=0.1 --maxAlpha=1.0 --skipProbability=0.5 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 153 SUCCESS (Duration: 305.01s)
+
+[154/240] Starting command 154...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=LOW_nInventory=20_nHours=5_seed=10.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="BEST_IMPROVEMENT" -PskipProbability=0 -Pseed=0 -PalphaType="UNIFORM" -PminAlpha=0.1 -PmaxAlpha=0.5
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=LOW_nInventory=20_nHours=5_seed=10.json --outputPath=output/grasp --timeLimit=300 --searchMode=BEST_IMPROVEMENT --alphaType=UNIFORM --minAlpha=0.1 --maxAlpha=0.5 --skipProbability=0 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 3s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 154 SUCCESS (Duration: 304.04s)
+
+[155/240] Starting command 155...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=LOW_nInventory=20_nHours=5_seed=10.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="BEST_IMPROVEMENT" -PskipProbability=0.25 -Pseed=0 -PalphaType="UNIFORM" -PminAlpha=0.1 -PmaxAlpha=0.5
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=LOW_nInventory=20_nHours=5_seed=10.json --outputPath=output/grasp --timeLimit=300 --searchMode=BEST_IMPROVEMENT --alphaType=UNIFORM --minAlpha=0.1 --maxAlpha=0.5 --skipProbability=0.25 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 155 SUCCESS (Duration: 304.96s)
+
+[156/240] Starting command 156...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=LOW_nInventory=20_nHours=5_seed=10.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="BEST_IMPROVEMENT" -PskipProbability=0.5 -Pseed=0 -PalphaType="UNIFORM" -PminAlpha=0.1 -PmaxAlpha=0.5
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=LOW_nInventory=20_nHours=5_seed=10.json --outputPath=output/grasp --timeLimit=300 --searchMode=BEST_IMPROVEMENT --alphaType=UNIFORM --minAlpha=0.1 --maxAlpha=0.5 --skipProbability=0.5 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 3s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 156 SUCCESS (Duration: 304.01s)
+
+[157/240] Starting command 157...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=LOW_nInventory=20_nHours=5_seed=10.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="FIRST_IMPROVEMENT" -PskipProbability=0 -Pseed=0 -PalphaType="FIXED" -Palpha=0.25
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=LOW_nInventory=20_nHours=5_seed=10.json --outputPath=output/grasp --timeLimit=300 --searchMode=FIRST_IMPROVEMENT --alphaType=FIXED --alpha=0.25 --skipProbability=0 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 3s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 157 SUCCESS (Duration: 303.97s)
+
+[158/240] Starting command 158...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=LOW_nInventory=20_nHours=5_seed=10.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="FIRST_IMPROVEMENT" -PskipProbability=0.25 -Pseed=0 -PalphaType="FIXED" -Palpha=0.25
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=LOW_nInventory=20_nHours=5_seed=10.json --outputPath=output/grasp --timeLimit=300 --searchMode=FIRST_IMPROVEMENT --alphaType=FIXED --alpha=0.25 --skipProbability=0.25 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 3s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 158 SUCCESS (Duration: 304.02s)
+
+[159/240] Starting command 159...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=LOW_nInventory=20_nHours=5_seed=10.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="FIRST_IMPROVEMENT" -PskipProbability=0.5 -Pseed=0 -PalphaType="FIXED" -Palpha=0.25
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=LOW_nInventory=20_nHours=5_seed=10.json --outputPath=output/grasp --timeLimit=300 --searchMode=FIRST_IMPROVEMENT --alphaType=FIXED --alpha=0.25 --skipProbability=0.5 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 159 SUCCESS (Duration: 305.00s)
+
+[160/240] Starting command 160...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=LOW_nInventory=20_nHours=5_seed=10.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="FIRST_IMPROVEMENT" -PskipProbability=0 -Pseed=0 -PalphaType="FIXED" -Palpha=0.5
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=LOW_nInventory=20_nHours=5_seed=10.json --outputPath=output/grasp --timeLimit=300 --searchMode=FIRST_IMPROVEMENT --alphaType=FIXED --alpha=0.5 --skipProbability=0 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 160 SUCCESS (Duration: 305.03s)
+
+[161/240] Starting command 161...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=LOW_nInventory=20_nHours=5_seed=10.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="FIRST_IMPROVEMENT" -PskipProbability=0.25 -Pseed=0 -PalphaType="FIXED" -Palpha=0.5
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=LOW_nInventory=20_nHours=5_seed=10.json --outputPath=output/grasp --timeLimit=300 --searchMode=FIRST_IMPROVEMENT --alphaType=FIXED --alpha=0.5 --skipProbability=0.25 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 161 SUCCESS (Duration: 304.98s)
+
+[162/240] Starting command 162...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=LOW_nInventory=20_nHours=5_seed=10.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="FIRST_IMPROVEMENT" -PskipProbability=0.5 -Pseed=0 -PalphaType="FIXED" -Palpha=0.5
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=LOW_nInventory=20_nHours=5_seed=10.json --outputPath=output/grasp --timeLimit=300 --searchMode=FIRST_IMPROVEMENT --alphaType=FIXED --alpha=0.5 --skipProbability=0.5 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 162 SUCCESS (Duration: 305.00s)
+
+[163/240] Starting command 163...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=LOW_nInventory=20_nHours=5_seed=10.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="FIRST_IMPROVEMENT" -PskipProbability=0 -Pseed=0 -PalphaType="UNIFORM" -PminAlpha=0.1 -PmaxAlpha=1.0
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=LOW_nInventory=20_nHours=5_seed=10.json --outputPath=output/grasp --timeLimit=300 --searchMode=FIRST_IMPROVEMENT --alphaType=UNIFORM --minAlpha=0.1 --maxAlpha=1.0 --skipProbability=0 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 3s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 163 SUCCESS (Duration: 303.99s)
+
+[164/240] Starting command 164...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=LOW_nInventory=20_nHours=5_seed=10.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="FIRST_IMPROVEMENT" -PskipProbability=0.25 -Pseed=0 -PalphaType="UNIFORM" -PminAlpha=0.1 -PmaxAlpha=1.0
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=LOW_nInventory=20_nHours=5_seed=10.json --outputPath=output/grasp --timeLimit=300 --searchMode=FIRST_IMPROVEMENT --alphaType=UNIFORM --minAlpha=0.1 --maxAlpha=1.0 --skipProbability=0.25 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 164 SUCCESS (Duration: 305.00s)
+
+[165/240] Starting command 165...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=LOW_nInventory=20_nHours=5_seed=10.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="FIRST_IMPROVEMENT" -PskipProbability=0.5 -Pseed=0 -PalphaType="UNIFORM" -PminAlpha=0.1 -PmaxAlpha=1.0
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=LOW_nInventory=20_nHours=5_seed=10.json --outputPath=output/grasp --timeLimit=300 --searchMode=FIRST_IMPROVEMENT --alphaType=UNIFORM --minAlpha=0.1 --maxAlpha=1.0 --skipProbability=0.5 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 165 SUCCESS (Duration: 305.00s)
+
+[166/240] Starting command 166...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=LOW_nInventory=20_nHours=5_seed=10.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="FIRST_IMPROVEMENT" -PskipProbability=0 -Pseed=0 -PalphaType="UNIFORM" -PminAlpha=0.1 -PmaxAlpha=0.5
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=LOW_nInventory=20_nHours=5_seed=10.json --outputPath=output/grasp --timeLimit=300 --searchMode=FIRST_IMPROVEMENT --alphaType=UNIFORM --minAlpha=0.1 --maxAlpha=0.5 --skipProbability=0 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 3s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 166 SUCCESS (Duration: 304.05s)
+
+[167/240] Starting command 167...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=LOW_nInventory=20_nHours=5_seed=10.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="FIRST_IMPROVEMENT" -PskipProbability=0.25 -Pseed=0 -PalphaType="UNIFORM" -PminAlpha=0.1 -PmaxAlpha=0.5
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=LOW_nInventory=20_nHours=5_seed=10.json --outputPath=output/grasp --timeLimit=300 --searchMode=FIRST_IMPROVEMENT --alphaType=UNIFORM --minAlpha=0.1 --maxAlpha=0.5 --skipProbability=0.25 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 167 SUCCESS (Duration: 304.98s)
+
+[168/240] Starting command 168...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=LOW_nInventory=20_nHours=5_seed=10.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="FIRST_IMPROVEMENT" -PskipProbability=0.5 -Pseed=0 -PalphaType="UNIFORM" -PminAlpha=0.1 -PmaxAlpha=0.5
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=LOW_nInventory=20_nHours=5_seed=10.json --outputPath=output/grasp --timeLimit=300 --searchMode=FIRST_IMPROVEMENT --alphaType=UNIFORM --minAlpha=0.1 --maxAlpha=0.5 --skipProbability=0.5 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 168 SUCCESS (Duration: 304.99s)
+
+[169/240] Starting command 169...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=MEDIUM_nInventory=20_nHours=5_seed=4.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="BEST_IMPROVEMENT" -PskipProbability=0 -Pseed=0 -PalphaType="FIXED" -Palpha=0.25
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=MEDIUM_nInventory=20_nHours=5_seed=4.json --outputPath=output/grasp --timeLimit=300 --searchMode=BEST_IMPROVEMENT --alphaType=FIXED --alpha=0.25 --skipProbability=0 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 169 SUCCESS (Duration: 304.98s)
+
+[170/240] Starting command 170...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=MEDIUM_nInventory=20_nHours=5_seed=4.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="BEST_IMPROVEMENT" -PskipProbability=0.25 -Pseed=0 -PalphaType="FIXED" -Palpha=0.25
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=MEDIUM_nInventory=20_nHours=5_seed=4.json --outputPath=output/grasp --timeLimit=300 --searchMode=BEST_IMPROVEMENT --alphaType=FIXED --alpha=0.25 --skipProbability=0.25 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 3s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 170 SUCCESS (Duration: 304.00s)
+
+[171/240] Starting command 171...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=MEDIUM_nInventory=20_nHours=5_seed=4.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="BEST_IMPROVEMENT" -PskipProbability=0.5 -Pseed=0 -PalphaType="FIXED" -Palpha=0.25
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=MEDIUM_nInventory=20_nHours=5_seed=4.json --outputPath=output/grasp --timeLimit=300 --searchMode=BEST_IMPROVEMENT --alphaType=FIXED --alpha=0.25 --skipProbability=0.5 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 171 SUCCESS (Duration: 305.01s)
+
+[172/240] Starting command 172...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=MEDIUM_nInventory=20_nHours=5_seed=4.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="BEST_IMPROVEMENT" -PskipProbability=0 -Pseed=0 -PalphaType="FIXED" -Palpha=0.5
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=MEDIUM_nInventory=20_nHours=5_seed=4.json --outputPath=output/grasp --timeLimit=300 --searchMode=BEST_IMPROVEMENT --alphaType=FIXED --alpha=0.5 --skipProbability=0 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 172 SUCCESS (Duration: 305.01s)
+
+[173/240] Starting command 173...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=MEDIUM_nInventory=20_nHours=5_seed=4.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="BEST_IMPROVEMENT" -PskipProbability=0.25 -Pseed=0 -PalphaType="FIXED" -Palpha=0.5
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=MEDIUM_nInventory=20_nHours=5_seed=4.json --outputPath=output/grasp --timeLimit=300 --searchMode=BEST_IMPROVEMENT --alphaType=FIXED --alpha=0.5 --skipProbability=0.25 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 3s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 173 SUCCESS (Duration: 303.96s)
+
+[174/240] Starting command 174...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=MEDIUM_nInventory=20_nHours=5_seed=4.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="BEST_IMPROVEMENT" -PskipProbability=0.5 -Pseed=0 -PalphaType="FIXED" -Palpha=0.5
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=MEDIUM_nInventory=20_nHours=5_seed=4.json --outputPath=output/grasp --timeLimit=300 --searchMode=BEST_IMPROVEMENT --alphaType=FIXED --alpha=0.5 --skipProbability=0.5 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 174 SUCCESS (Duration: 305.03s)
+
+[175/240] Starting command 175...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=MEDIUM_nInventory=20_nHours=5_seed=4.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="BEST_IMPROVEMENT" -PskipProbability=0 -Pseed=0 -PalphaType="UNIFORM" -PminAlpha=0.1 -PmaxAlpha=1.0
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=MEDIUM_nInventory=20_nHours=5_seed=4.json --outputPath=output/grasp --timeLimit=300 --searchMode=BEST_IMPROVEMENT --alphaType=UNIFORM --minAlpha=0.1 --maxAlpha=1.0 --skipProbability=0 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 175 SUCCESS (Duration: 305.00s)
+
+[176/240] Starting command 176...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=MEDIUM_nInventory=20_nHours=5_seed=4.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="BEST_IMPROVEMENT" -PskipProbability=0.25 -Pseed=0 -PalphaType="UNIFORM" -PminAlpha=0.1 -PmaxAlpha=1.0
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=MEDIUM_nInventory=20_nHours=5_seed=4.json --outputPath=output/grasp --timeLimit=300 --searchMode=BEST_IMPROVEMENT --alphaType=UNIFORM --minAlpha=0.1 --maxAlpha=1.0 --skipProbability=0.25 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 3s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 176 SUCCESS (Duration: 303.97s)
+
+[177/240] Starting command 177...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=MEDIUM_nInventory=20_nHours=5_seed=4.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="BEST_IMPROVEMENT" -PskipProbability=0.5 -Pseed=0 -PalphaType="UNIFORM" -PminAlpha=0.1 -PmaxAlpha=1.0
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=MEDIUM_nInventory=20_nHours=5_seed=4.json --outputPath=output/grasp --timeLimit=300 --searchMode=BEST_IMPROVEMENT --alphaType=UNIFORM --minAlpha=0.1 --maxAlpha=1.0 --skipProbability=0.5 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 177 SUCCESS (Duration: 305.03s)
+
+[178/240] Starting command 178...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=MEDIUM_nInventory=20_nHours=5_seed=4.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="BEST_IMPROVEMENT" -PskipProbability=0 -Pseed=0 -PalphaType="UNIFORM" -PminAlpha=0.1 -PmaxAlpha=0.5
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=MEDIUM_nInventory=20_nHours=5_seed=4.json --outputPath=output/grasp --timeLimit=300 --searchMode=BEST_IMPROVEMENT --alphaType=UNIFORM --minAlpha=0.1 --maxAlpha=0.5 --skipProbability=0 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 178 SUCCESS (Duration: 304.97s)
+
+[179/240] Starting command 179...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=MEDIUM_nInventory=20_nHours=5_seed=4.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="BEST_IMPROVEMENT" -PskipProbability=0.25 -Pseed=0 -PalphaType="UNIFORM" -PminAlpha=0.1 -PmaxAlpha=0.5
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=MEDIUM_nInventory=20_nHours=5_seed=4.json --outputPath=output/grasp --timeLimit=300 --searchMode=BEST_IMPROVEMENT --alphaType=UNIFORM --minAlpha=0.1 --maxAlpha=0.5 --skipProbability=0.25 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 179 SUCCESS (Duration: 305.04s)
+
+[180/240] Starting command 180...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=MEDIUM_nInventory=20_nHours=5_seed=4.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="BEST_IMPROVEMENT" -PskipProbability=0.5 -Pseed=0 -PalphaType="UNIFORM" -PminAlpha=0.1 -PmaxAlpha=0.5
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=MEDIUM_nInventory=20_nHours=5_seed=4.json --outputPath=output/grasp --timeLimit=300 --searchMode=BEST_IMPROVEMENT --alphaType=UNIFORM --minAlpha=0.1 --maxAlpha=0.5 --skipProbability=0.5 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 180 SUCCESS (Duration: 304.99s)
+
+[181/240] Starting command 181...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=MEDIUM_nInventory=20_nHours=5_seed=4.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="FIRST_IMPROVEMENT" -PskipProbability=0 -Pseed=0 -PalphaType="FIXED" -Palpha=0.25
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=MEDIUM_nInventory=20_nHours=5_seed=4.json --outputPath=output/grasp --timeLimit=300 --searchMode=FIRST_IMPROVEMENT --alphaType=FIXED --alpha=0.25 --skipProbability=0 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 181 SUCCESS (Duration: 304.99s)
+
+[182/240] Starting command 182...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=MEDIUM_nInventory=20_nHours=5_seed=4.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="FIRST_IMPROVEMENT" -PskipProbability=0.25 -Pseed=0 -PalphaType="FIXED" -Palpha=0.25
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=MEDIUM_nInventory=20_nHours=5_seed=4.json --outputPath=output/grasp --timeLimit=300 --searchMode=FIRST_IMPROVEMENT --alphaType=FIXED --alpha=0.25 --skipProbability=0.25 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 3s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 182 SUCCESS (Duration: 304.00s)
+
+[183/240] Starting command 183...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=MEDIUM_nInventory=20_nHours=5_seed=4.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="FIRST_IMPROVEMENT" -PskipProbability=0.5 -Pseed=0 -PalphaType="FIXED" -Palpha=0.25
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=MEDIUM_nInventory=20_nHours=5_seed=4.json --outputPath=output/grasp --timeLimit=300 --searchMode=FIRST_IMPROVEMENT --alphaType=FIXED --alpha=0.25 --skipProbability=0.5 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 183 SUCCESS (Duration: 305.01s)
+
+[184/240] Starting command 184...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=MEDIUM_nInventory=20_nHours=5_seed=4.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="FIRST_IMPROVEMENT" -PskipProbability=0 -Pseed=0 -PalphaType="FIXED" -Palpha=0.5
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=MEDIUM_nInventory=20_nHours=5_seed=4.json --outputPath=output/grasp --timeLimit=300 --searchMode=FIRST_IMPROVEMENT --alphaType=FIXED --alpha=0.5 --skipProbability=0 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 184 SUCCESS (Duration: 305.01s)
+
+[185/240] Starting command 185...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=MEDIUM_nInventory=20_nHours=5_seed=4.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="FIRST_IMPROVEMENT" -PskipProbability=0.25 -Pseed=0 -PalphaType="FIXED" -Palpha=0.5
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=MEDIUM_nInventory=20_nHours=5_seed=4.json --outputPath=output/grasp --timeLimit=300 --searchMode=FIRST_IMPROVEMENT --alphaType=FIXED --alpha=0.5 --skipProbability=0.25 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 185 SUCCESS (Duration: 305.00s)
+
+[186/240] Starting command 186...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=MEDIUM_nInventory=20_nHours=5_seed=4.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="FIRST_IMPROVEMENT" -PskipProbability=0.5 -Pseed=0 -PalphaType="FIXED" -Palpha=0.5
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=MEDIUM_nInventory=20_nHours=5_seed=4.json --outputPath=output/grasp --timeLimit=300 --searchMode=FIRST_IMPROVEMENT --alphaType=FIXED --alpha=0.5 --skipProbability=0.5 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 186 SUCCESS (Duration: 304.99s)
+
+[187/240] Starting command 187...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=MEDIUM_nInventory=20_nHours=5_seed=4.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="FIRST_IMPROVEMENT" -PskipProbability=0 -Pseed=0 -PalphaType="UNIFORM" -PminAlpha=0.1 -PmaxAlpha=1.0
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=MEDIUM_nInventory=20_nHours=5_seed=4.json --outputPath=output/grasp --timeLimit=300 --searchMode=FIRST_IMPROVEMENT --alphaType=UNIFORM --minAlpha=0.1 --maxAlpha=1.0 --skipProbability=0 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 187 SUCCESS (Duration: 305.05s)
+
+[188/240] Starting command 188...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=MEDIUM_nInventory=20_nHours=5_seed=4.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="FIRST_IMPROVEMENT" -PskipProbability=0.25 -Pseed=0 -PalphaType="UNIFORM" -PminAlpha=0.1 -PmaxAlpha=1.0
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=MEDIUM_nInventory=20_nHours=5_seed=4.json --outputPath=output/grasp --timeLimit=300 --searchMode=FIRST_IMPROVEMENT --alphaType=UNIFORM --minAlpha=0.1 --maxAlpha=1.0 --skipProbability=0.25 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 188 SUCCESS (Duration: 304.97s)
+
+[189/240] Starting command 189...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=MEDIUM_nInventory=20_nHours=5_seed=4.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="FIRST_IMPROVEMENT" -PskipProbability=0.5 -Pseed=0 -PalphaType="UNIFORM" -PminAlpha=0.1 -PmaxAlpha=1.0
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=MEDIUM_nInventory=20_nHours=5_seed=4.json --outputPath=output/grasp --timeLimit=300 --searchMode=FIRST_IMPROVEMENT --alphaType=UNIFORM --minAlpha=0.1 --maxAlpha=1.0 --skipProbability=0.5 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 189 SUCCESS (Duration: 305.00s)
+
+[190/240] Starting command 190...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=MEDIUM_nInventory=20_nHours=5_seed=4.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="FIRST_IMPROVEMENT" -PskipProbability=0 -Pseed=0 -PalphaType="UNIFORM" -PminAlpha=0.1 -PmaxAlpha=0.5
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=MEDIUM_nInventory=20_nHours=5_seed=4.json --outputPath=output/grasp --timeLimit=300 --searchMode=FIRST_IMPROVEMENT --alphaType=UNIFORM --minAlpha=0.1 --maxAlpha=0.5 --skipProbability=0 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 190 SUCCESS (Duration: 305.01s)
+
+[191/240] Starting command 191...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=MEDIUM_nInventory=20_nHours=5_seed=4.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="FIRST_IMPROVEMENT" -PskipProbability=0.25 -Pseed=0 -PalphaType="UNIFORM" -PminAlpha=0.1 -PmaxAlpha=0.5
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=MEDIUM_nInventory=20_nHours=5_seed=4.json --outputPath=output/grasp --timeLimit=300 --searchMode=FIRST_IMPROVEMENT --alphaType=UNIFORM --minAlpha=0.1 --maxAlpha=0.5 --skipProbability=0.25 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 191 SUCCESS (Duration: 304.98s)
+
+[192/240] Starting command 192...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=MEDIUM_nInventory=20_nHours=5_seed=4.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="FIRST_IMPROVEMENT" -PskipProbability=0.5 -Pseed=0 -PalphaType="UNIFORM" -PminAlpha=0.1 -PmaxAlpha=0.5
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=MEDIUM_nInventory=20_nHours=5_seed=4.json --outputPath=output/grasp --timeLimit=300 --searchMode=FIRST_IMPROVEMENT --alphaType=UNIFORM --minAlpha=0.1 --maxAlpha=0.5 --skipProbability=0.5 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 192 SUCCESS (Duration: 305.00s)
+
+[193/240] Starting command 193...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=LOW_nInventory=20_nHours=5_seed=9.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="BEST_IMPROVEMENT" -PskipProbability=0 -Pseed=0 -PalphaType="FIXED" -Palpha=0.25
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=LOW_nInventory=20_nHours=5_seed=9.json --outputPath=output/grasp --timeLimit=300 --searchMode=BEST_IMPROVEMENT --alphaType=FIXED --alpha=0.25 --skipProbability=0 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 193 SUCCESS (Duration: 305.00s)
+
+[194/240] Starting command 194...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=LOW_nInventory=20_nHours=5_seed=9.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="BEST_IMPROVEMENT" -PskipProbability=0.25 -Pseed=0 -PalphaType="FIXED" -Palpha=0.25
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=LOW_nInventory=20_nHours=5_seed=9.json --outputPath=output/grasp --timeLimit=300 --searchMode=BEST_IMPROVEMENT --alphaType=FIXED --alpha=0.25 --skipProbability=0.25 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 194 SUCCESS (Duration: 305.01s)
+
+[195/240] Starting command 195...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=LOW_nInventory=20_nHours=5_seed=9.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="BEST_IMPROVEMENT" -PskipProbability=0.5 -Pseed=0 -PalphaType="FIXED" -Palpha=0.25
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=LOW_nInventory=20_nHours=5_seed=9.json --outputPath=output/grasp --timeLimit=300 --searchMode=BEST_IMPROVEMENT --alphaType=FIXED --alpha=0.25 --skipProbability=0.5 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 195 SUCCESS (Duration: 304.98s)
+
+[196/240] Starting command 196...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=LOW_nInventory=20_nHours=5_seed=9.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="BEST_IMPROVEMENT" -PskipProbability=0 -Pseed=0 -PalphaType="FIXED" -Palpha=0.5
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=LOW_nInventory=20_nHours=5_seed=9.json --outputPath=output/grasp --timeLimit=300 --searchMode=BEST_IMPROVEMENT --alphaType=FIXED --alpha=0.5 --skipProbability=0 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 196 SUCCESS (Duration: 305.00s)
+
+[197/240] Starting command 197...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=LOW_nInventory=20_nHours=5_seed=9.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="BEST_IMPROVEMENT" -PskipProbability=0.25 -Pseed=0 -PalphaType="FIXED" -Palpha=0.5
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=LOW_nInventory=20_nHours=5_seed=9.json --outputPath=output/grasp --timeLimit=300 --searchMode=BEST_IMPROVEMENT --alphaType=FIXED --alpha=0.5 --skipProbability=0.25 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 197 SUCCESS (Duration: 304.99s)
+
+[198/240] Starting command 198...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=LOW_nInventory=20_nHours=5_seed=9.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="BEST_IMPROVEMENT" -PskipProbability=0.5 -Pseed=0 -PalphaType="FIXED" -Palpha=0.5
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=LOW_nInventory=20_nHours=5_seed=9.json --outputPath=output/grasp --timeLimit=300 --searchMode=BEST_IMPROVEMENT --alphaType=FIXED --alpha=0.5 --skipProbability=0.5 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 3s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 198 SUCCESS (Duration: 304.03s)
+
+[199/240] Starting command 199...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=LOW_nInventory=20_nHours=5_seed=9.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="BEST_IMPROVEMENT" -PskipProbability=0 -Pseed=0 -PalphaType="UNIFORM" -PminAlpha=0.1 -PmaxAlpha=1.0
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=LOW_nInventory=20_nHours=5_seed=9.json --outputPath=output/grasp --timeLimit=300 --searchMode=BEST_IMPROVEMENT --alphaType=UNIFORM --minAlpha=0.1 --maxAlpha=1.0 --skipProbability=0 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 199 SUCCESS (Duration: 305.00s)
+
+[200/240] Starting command 200...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=LOW_nInventory=20_nHours=5_seed=9.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="BEST_IMPROVEMENT" -PskipProbability=0.25 -Pseed=0 -PalphaType="UNIFORM" -PminAlpha=0.1 -PmaxAlpha=1.0
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=LOW_nInventory=20_nHours=5_seed=9.json --outputPath=output/grasp --timeLimit=300 --searchMode=BEST_IMPROVEMENT --alphaType=UNIFORM --minAlpha=0.1 --maxAlpha=1.0 --skipProbability=0.25 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 200 SUCCESS (Duration: 304.99s)
+
+[201/240] Starting command 201...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=LOW_nInventory=20_nHours=5_seed=9.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="BEST_IMPROVEMENT" -PskipProbability=0.5 -Pseed=0 -PalphaType="UNIFORM" -PminAlpha=0.1 -PmaxAlpha=1.0
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=LOW_nInventory=20_nHours=5_seed=9.json --outputPath=output/grasp --timeLimit=300 --searchMode=BEST_IMPROVEMENT --alphaType=UNIFORM --minAlpha=0.1 --maxAlpha=1.0 --skipProbability=0.5 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 201 SUCCESS (Duration: 305.00s)
+
+[202/240] Starting command 202...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=LOW_nInventory=20_nHours=5_seed=9.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="BEST_IMPROVEMENT" -PskipProbability=0 -Pseed=0 -PalphaType="UNIFORM" -PminAlpha=0.1 -PmaxAlpha=0.5
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=LOW_nInventory=20_nHours=5_seed=9.json --outputPath=output/grasp --timeLimit=300 --searchMode=BEST_IMPROVEMENT --alphaType=UNIFORM --minAlpha=0.1 --maxAlpha=0.5 --skipProbability=0 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 202 SUCCESS (Duration: 305.01s)
+
+[203/240] Starting command 203...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=LOW_nInventory=20_nHours=5_seed=9.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="BEST_IMPROVEMENT" -PskipProbability=0.25 -Pseed=0 -PalphaType="UNIFORM" -PminAlpha=0.1 -PmaxAlpha=0.5
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=LOW_nInventory=20_nHours=5_seed=9.json --outputPath=output/grasp --timeLimit=300 --searchMode=BEST_IMPROVEMENT --alphaType=UNIFORM --minAlpha=0.1 --maxAlpha=0.5 --skipProbability=0.25 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 203 SUCCESS (Duration: 304.99s)
+
+[204/240] Starting command 204...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=LOW_nInventory=20_nHours=5_seed=9.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="BEST_IMPROVEMENT" -PskipProbability=0.5 -Pseed=0 -PalphaType="UNIFORM" -PminAlpha=0.1 -PmaxAlpha=0.5
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=LOW_nInventory=20_nHours=5_seed=9.json --outputPath=output/grasp --timeLimit=300 --searchMode=BEST_IMPROVEMENT --alphaType=UNIFORM --minAlpha=0.1 --maxAlpha=0.5 --skipProbability=0.5 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 204 SUCCESS (Duration: 304.99s)
+
+[205/240] Starting command 205...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=LOW_nInventory=20_nHours=5_seed=9.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="FIRST_IMPROVEMENT" -PskipProbability=0 -Pseed=0 -PalphaType="FIXED" -Palpha=0.25
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=LOW_nInventory=20_nHours=5_seed=9.json --outputPath=output/grasp --timeLimit=300 --searchMode=FIRST_IMPROVEMENT --alphaType=FIXED --alpha=0.25 --skipProbability=0 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 205 SUCCESS (Duration: 305.00s)
+
+[206/240] Starting command 206...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=LOW_nInventory=20_nHours=5_seed=9.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="FIRST_IMPROVEMENT" -PskipProbability=0.25 -Pseed=0 -PalphaType="FIXED" -Palpha=0.25
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=LOW_nInventory=20_nHours=5_seed=9.json --outputPath=output/grasp --timeLimit=300 --searchMode=FIRST_IMPROVEMENT --alphaType=FIXED --alpha=0.25 --skipProbability=0.25 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 206 SUCCESS (Duration: 304.99s)
+
+[207/240] Starting command 207...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=LOW_nInventory=20_nHours=5_seed=9.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="FIRST_IMPROVEMENT" -PskipProbability=0.5 -Pseed=0 -PalphaType="FIXED" -Palpha=0.25
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=LOW_nInventory=20_nHours=5_seed=9.json --outputPath=output/grasp --timeLimit=300 --searchMode=FIRST_IMPROVEMENT --alphaType=FIXED --alpha=0.25 --skipProbability=0.5 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 207 SUCCESS (Duration: 305.08s)
+
+[208/240] Starting command 208...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=LOW_nInventory=20_nHours=5_seed=9.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="FIRST_IMPROVEMENT" -PskipProbability=0 -Pseed=0 -PalphaType="FIXED" -Palpha=0.5
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=LOW_nInventory=20_nHours=5_seed=9.json --outputPath=output/grasp --timeLimit=300 --searchMode=FIRST_IMPROVEMENT --alphaType=FIXED --alpha=0.5 --skipProbability=0 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 208 SUCCESS (Duration: 304.92s)
+
+[209/240] Starting command 209...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=LOW_nInventory=20_nHours=5_seed=9.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="FIRST_IMPROVEMENT" -PskipProbability=0.25 -Pseed=0 -PalphaType="FIXED" -Palpha=0.5
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=LOW_nInventory=20_nHours=5_seed=9.json --outputPath=output/grasp --timeLimit=300 --searchMode=FIRST_IMPROVEMENT --alphaType=FIXED --alpha=0.5 --skipProbability=0.25 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 3s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 209 SUCCESS (Duration: 304.01s)
+
+[210/240] Starting command 210...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=LOW_nInventory=20_nHours=5_seed=9.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="FIRST_IMPROVEMENT" -PskipProbability=0.5 -Pseed=0 -PalphaType="FIXED" -Palpha=0.5
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=LOW_nInventory=20_nHours=5_seed=9.json --outputPath=output/grasp --timeLimit=300 --searchMode=FIRST_IMPROVEMENT --alphaType=FIXED --alpha=0.5 --skipProbability=0.5 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 3s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 210 SUCCESS (Duration: 303.98s)
+
+[211/240] Starting command 211...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=LOW_nInventory=20_nHours=5_seed=9.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="FIRST_IMPROVEMENT" -PskipProbability=0 -Pseed=0 -PalphaType="UNIFORM" -PminAlpha=0.1 -PmaxAlpha=1.0
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=LOW_nInventory=20_nHours=5_seed=9.json --outputPath=output/grasp --timeLimit=300 --searchMode=FIRST_IMPROVEMENT --alphaType=UNIFORM --minAlpha=0.1 --maxAlpha=1.0 --skipProbability=0 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 211 SUCCESS (Duration: 305.01s)
+
+[212/240] Starting command 212...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=LOW_nInventory=20_nHours=5_seed=9.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="FIRST_IMPROVEMENT" -PskipProbability=0.25 -Pseed=0 -PalphaType="UNIFORM" -PminAlpha=0.1 -PmaxAlpha=1.0
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=LOW_nInventory=20_nHours=5_seed=9.json --outputPath=output/grasp --timeLimit=300 --searchMode=FIRST_IMPROVEMENT --alphaType=UNIFORM --minAlpha=0.1 --maxAlpha=1.0 --skipProbability=0.25 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 3s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 212 SUCCESS (Duration: 303.99s)
+
+[213/240] Starting command 213...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=LOW_nInventory=20_nHours=5_seed=9.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="FIRST_IMPROVEMENT" -PskipProbability=0.5 -Pseed=0 -PalphaType="UNIFORM" -PminAlpha=0.1 -PmaxAlpha=1.0
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=LOW_nInventory=20_nHours=5_seed=9.json --outputPath=output/grasp --timeLimit=300 --searchMode=FIRST_IMPROVEMENT --alphaType=UNIFORM --minAlpha=0.1 --maxAlpha=1.0 --skipProbability=0.5 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 213 SUCCESS (Duration: 305.01s)
+
+[214/240] Starting command 214...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=LOW_nInventory=20_nHours=5_seed=9.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="FIRST_IMPROVEMENT" -PskipProbability=0 -Pseed=0 -PalphaType="UNIFORM" -PminAlpha=0.1 -PmaxAlpha=0.5
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=LOW_nInventory=20_nHours=5_seed=9.json --outputPath=output/grasp --timeLimit=300 --searchMode=FIRST_IMPROVEMENT --alphaType=UNIFORM --minAlpha=0.1 --maxAlpha=0.5 --skipProbability=0 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 214 SUCCESS (Duration: 305.03s)
+
+[215/240] Starting command 215...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=LOW_nInventory=20_nHours=5_seed=9.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="FIRST_IMPROVEMENT" -PskipProbability=0.25 -Pseed=0 -PalphaType="UNIFORM" -PminAlpha=0.1 -PmaxAlpha=0.5
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=LOW_nInventory=20_nHours=5_seed=9.json --outputPath=output/grasp --timeLimit=300 --searchMode=FIRST_IMPROVEMENT --alphaType=UNIFORM --minAlpha=0.1 --maxAlpha=0.5 --skipProbability=0.25 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 215 SUCCESS (Duration: 304.96s)
+
+[216/240] Starting command 216...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=LOW_nInventory=20_nHours=5_seed=9.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="FIRST_IMPROVEMENT" -PskipProbability=0.5 -Pseed=0 -PalphaType="UNIFORM" -PminAlpha=0.1 -PmaxAlpha=0.5
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=LOW_nInventory=20_nHours=5_seed=9.json --outputPath=output/grasp --timeLimit=300 --searchMode=FIRST_IMPROVEMENT --alphaType=UNIFORM --minAlpha=0.1 --maxAlpha=0.5 --skipProbability=0.5 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 216 SUCCESS (Duration: 305.02s)
+
+[217/240] Starting command 217...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=MEDIUM_nInventory=15_nHours=4_seed=4.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="BEST_IMPROVEMENT" -PskipProbability=0 -Pseed=0 -PalphaType="FIXED" -Palpha=0.25
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=MEDIUM_nInventory=15_nHours=4_seed=4.json --outputPath=output/grasp --timeLimit=300 --searchMode=BEST_IMPROVEMENT --alphaType=FIXED --alpha=0.25 --skipProbability=0 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 217 SUCCESS (Duration: 305.01s)
+
+[218/240] Starting command 218...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=MEDIUM_nInventory=15_nHours=4_seed=4.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="BEST_IMPROVEMENT" -PskipProbability=0.25 -Pseed=0 -PalphaType="FIXED" -Palpha=0.25
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=MEDIUM_nInventory=15_nHours=4_seed=4.json --outputPath=output/grasp --timeLimit=300 --searchMode=BEST_IMPROVEMENT --alphaType=FIXED --alpha=0.25 --skipProbability=0.25 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 3s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 218 SUCCESS (Duration: 303.97s)
+
+[219/240] Starting command 219...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=MEDIUM_nInventory=15_nHours=4_seed=4.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="BEST_IMPROVEMENT" -PskipProbability=0.5 -Pseed=0 -PalphaType="FIXED" -Palpha=0.25
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=MEDIUM_nInventory=15_nHours=4_seed=4.json --outputPath=output/grasp --timeLimit=300 --searchMode=BEST_IMPROVEMENT --alphaType=FIXED --alpha=0.25 --skipProbability=0.5 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 219 SUCCESS (Duration: 305.02s)
+
+[220/240] Starting command 220...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=MEDIUM_nInventory=15_nHours=4_seed=4.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="BEST_IMPROVEMENT" -PskipProbability=0 -Pseed=0 -PalphaType="FIXED" -Palpha=0.5
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=MEDIUM_nInventory=15_nHours=4_seed=4.json --outputPath=output/grasp --timeLimit=300 --searchMode=BEST_IMPROVEMENT --alphaType=FIXED --alpha=0.5 --skipProbability=0 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 220 SUCCESS (Duration: 305.00s)
+
+[221/240] Starting command 221...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=MEDIUM_nInventory=15_nHours=4_seed=4.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="BEST_IMPROVEMENT" -PskipProbability=0.25 -Pseed=0 -PalphaType="FIXED" -Palpha=0.5
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=MEDIUM_nInventory=15_nHours=4_seed=4.json --outputPath=output/grasp --timeLimit=300 --searchMode=BEST_IMPROVEMENT --alphaType=FIXED --alpha=0.5 --skipProbability=0.25 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 221 SUCCESS (Duration: 304.99s)
+
+[222/240] Starting command 222...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=MEDIUM_nInventory=15_nHours=4_seed=4.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="BEST_IMPROVEMENT" -PskipProbability=0.5 -Pseed=0 -PalphaType="FIXED" -Palpha=0.5
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=MEDIUM_nInventory=15_nHours=4_seed=4.json --outputPath=output/grasp --timeLimit=300 --searchMode=BEST_IMPROVEMENT --alphaType=FIXED --alpha=0.5 --skipProbability=0.5 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 3s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 222 SUCCESS (Duration: 304.00s)
+
+[223/240] Starting command 223...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=MEDIUM_nInventory=15_nHours=4_seed=4.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="BEST_IMPROVEMENT" -PskipProbability=0 -Pseed=0 -PalphaType="UNIFORM" -PminAlpha=0.1 -PmaxAlpha=1.0
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=MEDIUM_nInventory=15_nHours=4_seed=4.json --outputPath=output/grasp --timeLimit=300 --searchMode=BEST_IMPROVEMENT --alphaType=UNIFORM --minAlpha=0.1 --maxAlpha=1.0 --skipProbability=0 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 3s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 223 SUCCESS (Duration: 304.00s)
+
+[224/240] Starting command 224...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=MEDIUM_nInventory=15_nHours=4_seed=4.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="BEST_IMPROVEMENT" -PskipProbability=0.25 -Pseed=0 -PalphaType="UNIFORM" -PminAlpha=0.1 -PmaxAlpha=1.0
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=MEDIUM_nInventory=15_nHours=4_seed=4.json --outputPath=output/grasp --timeLimit=300 --searchMode=BEST_IMPROVEMENT --alphaType=UNIFORM --minAlpha=0.1 --maxAlpha=1.0 --skipProbability=0.25 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 224 SUCCESS (Duration: 305.02s)
+
+[225/240] Starting command 225...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=MEDIUM_nInventory=15_nHours=4_seed=4.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="BEST_IMPROVEMENT" -PskipProbability=0.5 -Pseed=0 -PalphaType="UNIFORM" -PminAlpha=0.1 -PmaxAlpha=1.0
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=MEDIUM_nInventory=15_nHours=4_seed=4.json --outputPath=output/grasp --timeLimit=300 --searchMode=BEST_IMPROVEMENT --alphaType=UNIFORM --minAlpha=0.1 --maxAlpha=1.0 --skipProbability=0.5 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 3s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 225 SUCCESS (Duration: 303.97s)
+
+[226/240] Starting command 226...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=MEDIUM_nInventory=15_nHours=4_seed=4.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="BEST_IMPROVEMENT" -PskipProbability=0 -Pseed=0 -PalphaType="UNIFORM" -PminAlpha=0.1 -PmaxAlpha=0.5
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=MEDIUM_nInventory=15_nHours=4_seed=4.json --outputPath=output/grasp --timeLimit=300 --searchMode=BEST_IMPROVEMENT --alphaType=UNIFORM --minAlpha=0.1 --maxAlpha=0.5 --skipProbability=0 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 3s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 226 SUCCESS (Duration: 304.00s)
+
+[227/240] Starting command 227...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=MEDIUM_nInventory=15_nHours=4_seed=4.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="BEST_IMPROVEMENT" -PskipProbability=0.25 -Pseed=0 -PalphaType="UNIFORM" -PminAlpha=0.1 -PmaxAlpha=0.5
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=MEDIUM_nInventory=15_nHours=4_seed=4.json --outputPath=output/grasp --timeLimit=300 --searchMode=BEST_IMPROVEMENT --alphaType=UNIFORM --minAlpha=0.1 --maxAlpha=0.5 --skipProbability=0.25 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 3s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 227 SUCCESS (Duration: 303.98s)
+
+[228/240] Starting command 228...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=MEDIUM_nInventory=15_nHours=4_seed=4.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="BEST_IMPROVEMENT" -PskipProbability=0.5 -Pseed=0 -PalphaType="UNIFORM" -PminAlpha=0.1 -PmaxAlpha=0.5
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=MEDIUM_nInventory=15_nHours=4_seed=4.json --outputPath=output/grasp --timeLimit=300 --searchMode=BEST_IMPROVEMENT --alphaType=UNIFORM --minAlpha=0.1 --maxAlpha=0.5 --skipProbability=0.5 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 228 SUCCESS (Duration: 305.03s)
+
+[229/240] Starting command 229...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=MEDIUM_nInventory=15_nHours=4_seed=4.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="FIRST_IMPROVEMENT" -PskipProbability=0 -Pseed=0 -PalphaType="FIXED" -Palpha=0.25
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=MEDIUM_nInventory=15_nHours=4_seed=4.json --outputPath=output/grasp --timeLimit=300 --searchMode=FIRST_IMPROVEMENT --alphaType=FIXED --alpha=0.25 --skipProbability=0 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 3s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 229 SUCCESS (Duration: 304.01s)
+
+[230/240] Starting command 230...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=MEDIUM_nInventory=15_nHours=4_seed=4.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="FIRST_IMPROVEMENT" -PskipProbability=0.25 -Pseed=0 -PalphaType="FIXED" -Palpha=0.25
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=MEDIUM_nInventory=15_nHours=4_seed=4.json --outputPath=output/grasp --timeLimit=300 --searchMode=FIRST_IMPROVEMENT --alphaType=FIXED --alpha=0.25 --skipProbability=0.25 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 230 SUCCESS (Duration: 304.97s)
+
+[231/240] Starting command 231...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=MEDIUM_nInventory=15_nHours=4_seed=4.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="FIRST_IMPROVEMENT" -PskipProbability=0.5 -Pseed=0 -PalphaType="FIXED" -Palpha=0.25
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=MEDIUM_nInventory=15_nHours=4_seed=4.json --outputPath=output/grasp --timeLimit=300 --searchMode=FIRST_IMPROVEMENT --alphaType=FIXED --alpha=0.25 --skipProbability=0.5 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 3s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 231 SUCCESS (Duration: 304.02s)
+
+[232/240] Starting command 232...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=MEDIUM_nInventory=15_nHours=4_seed=4.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="FIRST_IMPROVEMENT" -PskipProbability=0 -Pseed=0 -PalphaType="FIXED" -Palpha=0.5
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=MEDIUM_nInventory=15_nHours=4_seed=4.json --outputPath=output/grasp --timeLimit=300 --searchMode=FIRST_IMPROVEMENT --alphaType=FIXED --alpha=0.5 --skipProbability=0 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 232 SUCCESS (Duration: 305.00s)
+
+[233/240] Starting command 233...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=MEDIUM_nInventory=15_nHours=4_seed=4.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="FIRST_IMPROVEMENT" -PskipProbability=0.25 -Pseed=0 -PalphaType="FIXED" -Palpha=0.5
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=MEDIUM_nInventory=15_nHours=4_seed=4.json --outputPath=output/grasp --timeLimit=300 --searchMode=FIRST_IMPROVEMENT --alphaType=FIXED --alpha=0.5 --skipProbability=0.25 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 233 SUCCESS (Duration: 305.01s)
+
+[234/240] Starting command 234...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=MEDIUM_nInventory=15_nHours=4_seed=4.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="FIRST_IMPROVEMENT" -PskipProbability=0.5 -Pseed=0 -PalphaType="FIXED" -Palpha=0.5
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=MEDIUM_nInventory=15_nHours=4_seed=4.json --outputPath=output/grasp --timeLimit=300 --searchMode=FIRST_IMPROVEMENT --alphaType=FIXED --alpha=0.5 --skipProbability=0.5 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 234 SUCCESS (Duration: 304.99s)
+
+[235/240] Starting command 235...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=MEDIUM_nInventory=15_nHours=4_seed=4.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="FIRST_IMPROVEMENT" -PskipProbability=0 -Pseed=0 -PalphaType="UNIFORM" -PminAlpha=0.1 -PmaxAlpha=1.0
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=MEDIUM_nInventory=15_nHours=4_seed=4.json --outputPath=output/grasp --timeLimit=300 --searchMode=FIRST_IMPROVEMENT --alphaType=UNIFORM --minAlpha=0.1 --maxAlpha=1.0 --skipProbability=0 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 235 SUCCESS (Duration: 305.02s)
+
+[236/240] Starting command 236...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=MEDIUM_nInventory=15_nHours=4_seed=4.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="FIRST_IMPROVEMENT" -PskipProbability=0.25 -Pseed=0 -PalphaType="UNIFORM" -PminAlpha=0.1 -PmaxAlpha=1.0
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=MEDIUM_nInventory=15_nHours=4_seed=4.json --outputPath=output/grasp --timeLimit=300 --searchMode=FIRST_IMPROVEMENT --alphaType=UNIFORM --minAlpha=0.1 --maxAlpha=1.0 --skipProbability=0.25 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 236 SUCCESS (Duration: 304.98s)
+
+[237/240] Starting command 237...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=MEDIUM_nInventory=15_nHours=4_seed=4.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="FIRST_IMPROVEMENT" -PskipProbability=0.5 -Pseed=0 -PalphaType="UNIFORM" -PminAlpha=0.1 -PmaxAlpha=1.0
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=MEDIUM_nInventory=15_nHours=4_seed=4.json --outputPath=output/grasp --timeLimit=300 --searchMode=FIRST_IMPROVEMENT --alphaType=UNIFORM --minAlpha=0.1 --maxAlpha=1.0 --skipProbability=0.5 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 237 SUCCESS (Duration: 305.00s)
+
+[238/240] Starting command 238...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=MEDIUM_nInventory=15_nHours=4_seed=4.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="FIRST_IMPROVEMENT" -PskipProbability=0 -Pseed=0 -PalphaType="UNIFORM" -PminAlpha=0.1 -PmaxAlpha=0.5
+Starting a Gradle Daemon, 3 busy and 3 incompatible and 2 stopped Daemons could not be reused, use --status for details
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=MEDIUM_nInventory=15_nHours=4_seed=4.json --outputPath=output/grasp --timeLimit=300 --searchMode=FIRST_IMPROVEMENT --alphaType=UNIFORM --minAlpha=0.1 --maxAlpha=0.5 --skipProbability=0 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 17s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 238 SUCCESS (Duration: 318.36s)
+
+[239/240] Starting command 239...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=MEDIUM_nInventory=15_nHours=4_seed=4.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="FIRST_IMPROVEMENT" -PskipProbability=0.25 -Pseed=0 -PalphaType="UNIFORM" -PminAlpha=0.1 -PmaxAlpha=0.5
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=MEDIUM_nInventory=15_nHours=4_seed=4.json --outputPath=output/grasp --timeLimit=300 --searchMode=FIRST_IMPROVEMENT --alphaType=UNIFORM --minAlpha=0.1 --maxAlpha=0.5 --skipProbability=0.25 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 239 SUCCESS (Duration: 304.65s)
+
+[240/240] Starting command 240...
+Executing: ./gradlew runGrasp -PinstancePath="instances/density=MEDIUM_nInventory=15_nHours=4_seed=4.json" -PoutputPath="output/grasp" -PtimeLimit=300 -PsearchMode="FIRST_IMPROVEMENT" -PskipProbability=0.5 -Pseed=0 -PalphaType="UNIFORM" -PminAlpha=0.1 -PmaxAlpha=0.5
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/density=MEDIUM_nInventory=15_nHours=4_seed=4.json --outputPath=output/grasp --timeLimit=300 --searchMode=FIRST_IMPROVEMENT --alphaType=UNIFORM --minAlpha=0.1 --maxAlpha=0.5 --skipProbability=0.5 --seed=0
+Loading problem instance...
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 240 SUCCESS (Duration: 305.02s)
+
+================================================================================
+Execution Summary:
+Total commands: 240
+Executed: 240
+Successful: 240
+Failed: 0
+Total duration: 73176.11s
+Average duration per command: 304.90s
+[INFO] Job finished

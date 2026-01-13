@@ -1,0 +1,105 @@
+{
+  "bestSolution": {
+    "revenue": 245980
+  },
+  "checkPoints": [
+    {
+      "solution": {
+        "revenue": 237184
+      },
+      "time": 0.6530001163482666
+    },
+    {
+      "solution": {
+        "revenue": 238049
+      },
+      "time": 0.6779999732971191
+    },
+    {
+      "solution": {
+        "revenue": 241677
+      },
+      "time": 0.8480000495910645
+    },
+    {
+      "solution": {
+        "revenue": 241949
+      },
+      "time": 0.9479999542236328
+    },
+    {
+      "solution": {
+        "revenue": 243047
+      },
+      "time": 1.1070001125335693
+    },
+    {
+      "solution": {
+        "revenue": 244467
+      },
+      "time": 1.309000015258789
+    },
+    {
+      "solution": {
+        "revenue": 244486
+      },
+      "time": 1.4200000762939453
+    },
+    {
+      "solution": {
+        "revenue": 245449
+      },
+      "time": 2.1640000343322754
+    },
+    {
+      "solution": {
+        "revenue": 245899
+      },
+      "time": 3.0920000076293945
+    },
+    {
+      "solution": {
+        "revenue": 245900
+      },
+      "time": 5.240000009536743
+    },
+    {
+      "solution": {
+        "revenue": 245979
+      },
+      "time": 27.006999969482422
+    },
+    {
+      "solution": {
+        "revenue": 245980
+      },
+      "time": 135.7960000038147
+    }
+  ],
+  "instance": "density\u003dLOW_nInventory\u003d10_nHours\u003d3_seed\u003d10",
+  "additionalInformation": {
+    "settings": {
+      "searchMode": "BEST_IMPROVEMENT",
+      "timeLimit": 300,
+      "localSearchSettings": {
+        "moves": [
+          "insert",
+          "outOfPool",
+          "interSwap",
+          "shift"
+        ],
+        "neighborhoodSkipProbability": 0.0
+      },
+      "constructiveHeuristicSettings": {
+        "lowerBound": 0.5,
+        "upperBound": 2.0
+      },
+      "alphaGenerator": {
+        "alpha": 0.25
+      },
+      "randomRunN": 0,
+      "instancePath": "instances/density\u003dLOW_nInventory\u003d10_nHours\u003d3_seed\u003d10.json"
+    },
+    "iterationsPerSecond": 510.67333333333335
+  }
+}
