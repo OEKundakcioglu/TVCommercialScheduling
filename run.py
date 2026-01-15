@@ -327,7 +327,7 @@ def run_commands_sequentially(commands: List[str], stop_on_error: bool = False, 
 
 
 def generate_run_commands(number_of_files: int):
-    commands_folder = Path("grasp_commands")
+    commands_folder = Path("grasp_parallel_commands")
     if not commands_folder.exists():
         commands_folder.mkdir()
 
