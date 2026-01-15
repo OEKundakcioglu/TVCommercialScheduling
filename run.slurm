@@ -45,7 +45,7 @@ fi
 export OMP_NUM_THREADS=$SLURM_CPUS_ON_NODE
 export MKL_NUM_THREADS=$SLURM_CPUS_ON_NODE
 
-export JAVA_HOME=$HOME/jdk-21.0.9
+export JAVA_HOME=$HOME/jdk-25.0.1
 export PATH=$JAVA_HOME/bin:$PATH
 
 # 3. Handle Arguments (File Path)
