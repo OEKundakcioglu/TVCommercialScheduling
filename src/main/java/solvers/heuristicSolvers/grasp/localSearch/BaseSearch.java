@@ -66,6 +66,7 @@ public abstract class BaseSearch {
     }
 
     public Solution getSolution() throws Exception {
+        if (bestMove == null) return currentSolution;
         if (bestMoveUsed) return bestFoundSolution;
         bestMoveUsed = true;
         bestFoundSolution = bestMove.applyMove();

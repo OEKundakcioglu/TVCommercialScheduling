@@ -95,13 +95,11 @@ public class ParallelGraspWithPathRelinking {
                     });
         }
 
-        try {
-            executor.invokeAll(tasks);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        } finally {
-            executor.shutdown();
+        var features = executor.invokeAll(tasks);
+        for (var feature : features) {
+            feature.get();
         }
+        executor.shutdown();
 
         var endTime = System.currentTimeMillis() / 1000;
         iterationsPerSecond = iterations.get() / (double) (endTime - startTime);
