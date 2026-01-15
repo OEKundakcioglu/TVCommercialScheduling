@@ -1,13 +1,15 @@
 import com.beust.jcommander.JCommander;
 import com.beust.jcommander.Parameter;
 import com.beust.jcommander.Parameters;
+
 import data.ProblemParameters;
 import data.Utils;
 import data.problemBuilders.JsonParser;
+
 import runParameters.ConstructiveHeuristicSettings;
 import runParameters.GraspSettings;
 import runParameters.LocalSearchSettings;
-import solvers.GlobalRandom;
+
 import solvers.SolverSolution;
 import solvers.heuristicSolvers.grasp.graspWithPathRelinking.GraspWithPathRelinking;
 import solvers.heuristicSolvers.grasp.localSearch.SearchMode;
@@ -19,7 +21,6 @@ import java.io.FileOutputStream;
 import java.io.PrintStream;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -127,6 +128,18 @@ public class mainGraspRun {
         }
     }
 
+    @Parameter(
+            names = {"--parallel", "-p"},
+            description = "Run in parallel mode")
+    private boolean parallel = false;
+
+    @Parameter(
+            names = {"--threads", "-th"},
+            description = "Number of threads for parallel mode (default: available processors)")
+    private int threads = 0;
+
+    // ... existing parameters ...
+
     private void run() throws Exception {
         if (verbose) {
             System.out.println("=== GRASP Algorithm Configuration ===");
@@ -142,6 +155,10 @@ public class mainGraspRun {
             }
             System.out.println("Skip probability: " + skipProbability);
             System.out.println("Random seed: " + seed);
+            if (parallel) {
+                System.out.println("Parallel mode: enabled");
+                System.out.println("Threads: " + (threads > 0 ? threads : "default"));
+            }
             System.out.println("=====================================");
         }
 
@@ -150,7 +167,6 @@ public class mainGraspRun {
         ProblemParameters parameters = new JsonParser().readData(instancePath);
 
         // Initialize global random with seed
-        GlobalRandom.init((long) seed);
 
         // Create GRASP settings
         GraspSettings graspSettings = createGraspSettings();
@@ -164,7 +180,7 @@ public class mainGraspRun {
         var outputDir = outputPath.resolve(restOfThePath);
 
         var logFile = outputDir.resolve("log.txt").toFile();
-        var ignored = logFile.getParentFile().mkdirs();
+        logFile.getParentFile().mkdirs();
 
         var outFile = new PrintStream(new FileOutputStream(logFile));
         System.setOut(new PrintStream(outFile));
@@ -181,7 +197,18 @@ public class mainGraspRun {
         System.out.println("Running GRASP algorithm...");
         long startTime = System.currentTimeMillis();
 
-        SolverSolution solution = new GraspWithPathRelinking(parameters, graspSettings).getSolution();
+        SolverSolution solution;
+        if (parallel) {
+            solution =
+                    new solvers.heuristicSolvers
+                                    .grasp
+                                    .graspWithPathRelinking
+                                    .ParallelGraspWithPathRelinking(
+                                    parameters, graspSettings, threads)
+                            .getSolution();
+        } else {
+            solution = new GraspWithPathRelinking(parameters, graspSettings).getSolution();
+        }
 
         long endTime = System.currentTimeMillis();
         double executionTime = (endTime - startTime) / 1000.0;
@@ -193,9 +220,9 @@ public class mainGraspRun {
         Utils.writeObjectToJson(solution, outputPath.toString());
 
         // Cleanup
-        GlobalRandom.close();
 
-        System.out.println("GRASP algorithm completed successfully!");
+        System.out.println(
+                "GRASP algorithm completed successfully in " + executionTime + " seconds!");
     }
 
     private GraspSettings createGraspSettings() {
@@ -212,7 +239,10 @@ public class mainGraspRun {
         try {
             mode = SearchMode.valueOf(searchMode.toUpperCase());
         } catch (IllegalArgumentException e) {
-            throw new IllegalArgumentException("Invalid search mode: " + searchMode + ". Use BEST_IMPROVEMENT or FIRST_IMPROVEMENT.");
+            throw new IllegalArgumentException(
+                    "Invalid search mode: "
+                            + searchMode
+                            + ". Use BEST_IMPROVEMENT or FIRST_IMPROVEMENT.");
         }
 
         // Create local search settings with default moves
@@ -229,7 +259,6 @@ public class mainGraspRun {
                 constructiveSettings,
                 alphaGenerator,
                 seed,
-                instancePath
-        );
+                instancePath);
     }
 }

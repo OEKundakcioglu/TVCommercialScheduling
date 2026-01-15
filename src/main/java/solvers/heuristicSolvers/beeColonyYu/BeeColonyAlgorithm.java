@@ -1,15 +1,17 @@
 package solvers.heuristicSolvers.beeColonyYu;
 
 import data.ProblemParameters;
+
 import runParameters.ConstructiveHeuristicSettings;
+
 import solvers.CheckPoint;
-import solvers.GlobalRandom;
 import solvers.SolverSolution;
 import solvers.heuristicSolvers.beeColonyYu.localSearch.NeighborhoodFunction;
 import solvers.heuristicSolvers.grasp.constructiveHeuristic.ConstructiveHeuristic;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class BeeColonyAlgorithm {
     private final OrienteeringData orienteeringData;
@@ -22,14 +24,18 @@ public class BeeColonyAlgorithm {
     private BeeColonySolution bestSolution;
     private double totalFitness = 0;
 
+    private final Random random;
+
     public BeeColonyAlgorithm(
             OrienteeringData orienteeringData,
             BeeColonySettings beeColonySettings,
-            ProblemParameters parameters) {
+            ProblemParameters parameters,
+            Random random) {
         this.orienteeringData = orienteeringData;
         this.beeColonySettings = beeColonySettings;
         this.parameters = parameters;
         this.checkPoints = new ArrayList<>();
+        this.random = random;
 
         this.beeColonyUtils = new BeeColonyUtils(orienteeringData, parameters);
 
@@ -67,7 +73,7 @@ public class BeeColonyAlgorithm {
     }
 
     private void solve() {
-        var neighborhoodFunction = new NeighborhoodFunction(beeColonyUtils);
+        var neighborhoodFunction = new NeighborhoodFunction(beeColonyUtils, random);
 
         int G = 0;
         double T = beeColonySettings.T0();
@@ -91,7 +97,7 @@ public class BeeColonyAlgorithm {
                                 newSol, (System.currentTimeMillis() / 1000 - startTime), G);
                     }
                 } else {
-                    double r = GlobalRandom.getRandom().nextDouble();
+                    double r = random.nextDouble();
                     if (r < Math.exp(delta / T)) {
                         employedBees.set(i, newSol);
                         totalFitness += newSol.getFitness();
@@ -115,7 +121,7 @@ public class BeeColonyAlgorithm {
                                 newSol, (System.currentTimeMillis() / 1000 - startTime), G);
                     }
                 } else {
-                    double r = GlobalRandom.getRandom().nextDouble();
+                    double r = random.nextDouble();
                     if (r < Math.exp(delta / T)) {
                         employedBees.set(bee, newSol);
                         totalFitness += newSol.getFitness();
@@ -130,7 +136,7 @@ public class BeeColonyAlgorithm {
 
     private int selectEmployedBee() {
         double summedFitness = totalFitness;
-        double r = GlobalRandom.getRandom().nextDouble() * summedFitness;
+        double r = random.nextDouble() * summedFitness;
 
         double currentSum = 0;
         for (var i = 0; i < beeColonySettings.populationSize(); i++) {
@@ -152,7 +158,7 @@ public class BeeColonyAlgorithm {
     private int[] generateRandomSolution() {
         var constructive =
                 new ConstructiveHeuristic(
-                        parameters, 0.5, new ConstructiveHeuristicSettings(0.5, 5));
+                        parameters, 0.5, new ConstructiveHeuristicSettings(0.5, 5), random);
         var sol = constructive.getSolution();
 
         var solString = new ArrayList<Integer>();

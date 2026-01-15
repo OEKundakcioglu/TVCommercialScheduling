@@ -13,9 +13,14 @@ public class GraspSettings {
     private final String instancePath;
 
     // Constructor
-    public GraspSettings(SearchMode searchMode, int timeLimit, LocalSearchSettings localSearchSettings,
-                         ConstructiveHeuristicSettings constructiveHeuristicSettings,
-                         AlphaGenerator alphaGenerator, int randomRunN, String instancePath) {
+    public GraspSettings(
+            SearchMode searchMode,
+            int timeLimit,
+            LocalSearchSettings localSearchSettings,
+            ConstructiveHeuristicSettings constructiveHeuristicSettings,
+            AlphaGenerator alphaGenerator,
+            int randomRunN,
+            String instancePath) {
         this.searchMode = searchMode;
         this.timeLimit = timeLimit;
         this.localSearchSettings = localSearchSettings;
@@ -46,6 +51,10 @@ public class GraspSettings {
         return alphaGenerator;
     }
 
+    public int seed() {
+        return randomRunN;
+    }
+
     public String getStringIdentifier() {
 
         String sb = "isBestMove=" + searchMode +
@@ -63,5 +72,3 @@ public class GraspSettings {
     }
 
 }
-
-

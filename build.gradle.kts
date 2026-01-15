@@ -46,7 +46,7 @@ tasks.named<Test>("test") {
 }
 
 application {
-    mainClass = "asd"
+    mainClass = "mainGraspRun"
 }
 
 tasks.register<JavaExec>("runGraspLoop"){
@@ -225,8 +225,17 @@ tasks.register<JavaExec>("runGrasp") {
             argsList.add("--seed=${project.property("seed")}")
         }
 
+
         if (project.hasProperty("verbose")) {
             argsList.add("--verbose=${project.property("verbose")}")
+        }
+
+        if (project.hasProperty("parallel")) {
+            argsList.add("--parallel")
+        }
+
+        if (project.hasProperty("threads")) {
+            argsList.add("--threads=${project.property("threads")}")
         }
 
         // Print the arguments to the console

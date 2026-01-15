@@ -1,21 +1,22 @@
 package solvers.heuristicSolvers.beeColonyYu.localSearch;
 
-import solvers.GlobalRandom;
 import solvers.heuristicSolvers.beeColonyYu.BeeColonySolution;
 import solvers.heuristicSolvers.beeColonyYu.BeeColonyUtils;
 
-public class SwapMove implements IMove{
-    private final BeeColonyUtils beeColonyUtils;
+import java.util.Random;
 
-    public SwapMove(BeeColonyUtils beeColonyUtils) {
+public class SwapMove implements IMove {
+    private final BeeColonyUtils beeColonyUtils;
+    private final Random random;
+
+    public SwapMove(BeeColonyUtils beeColonyUtils, Random random) {
         this.beeColonyUtils = beeColonyUtils;
+        this.random = random;
     }
 
-    public BeeColonySolution apply(BeeColonySolution solution){
-        var randoms = GlobalRandom.getRandom().ints(0, solution.getSolutionString().length)
-                .distinct()
-                .limit(2)
-                .toArray();
+    public BeeColonySolution apply(BeeColonySolution solution) {
+        var randoms =
+                random.ints(0, solution.getSolutionString().length).distinct().limit(2).toArray();
 
         return apply(solution, randoms[0], randoms[1]);
     }

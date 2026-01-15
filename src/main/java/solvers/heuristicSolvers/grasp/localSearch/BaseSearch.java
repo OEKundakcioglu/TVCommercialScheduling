@@ -2,13 +2,14 @@ package solvers.heuristicSolvers.grasp.localSearch;
 
 import data.ProblemParameters;
 import data.Solution;
-import solvers.GlobalRandom;
+
 import solvers.heuristicSolvers.grasp.localSearch.move.IMove;
 
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
+import java.util.Random;
 
 public abstract class BaseSearch {
     protected final List<IMove> neighborhood;
@@ -20,11 +21,18 @@ public abstract class BaseSearch {
 
     public static int moveCount = 0;
 
+    protected Random random;
+    protected IMove bestMove;
+    protected double bestRevenue;
+
+    protected boolean bestMoveUsed = false;
+
     BaseSearch(
             Solution currentSolution,
             ProblemParameters parameters,
             boolean getAllNeighborhood,
-            SearchMode searchMode) {
+            SearchMode searchMode,
+            Random random) {
 
         this.currentSolution = currentSolution;
         this.parameters = parameters;
@@ -32,6 +40,8 @@ public abstract class BaseSearch {
         this.bestFoundSolution = currentSolution;
         this.searchMode = searchMode;
         this.neighborhood = new ArrayList<>();
+        this.random = random;
+        this.bestRevenue = currentSolution.revenue;
     }
 
     protected boolean update(IMove move) throws Exception {
@@ -43,22 +53,28 @@ public abstract class BaseSearch {
             return false;
         }
 
-        if (revenueGain + currentSolution.revenue > bestFoundSolution.revenue) {
-            bestFoundSolution = move.applyMove();
+        if (revenueGain + currentSolution.revenue > bestRevenue) {
+            bestRevenue = revenueGain + currentSolution.revenue;
+            bestMove = move;
 
-            return searchMode != SearchMode.FIRST_IMPROVEMENT;
+            if (searchMode == SearchMode.FIRST_IMPROVEMENT) {
+                return false;
+            }
         }
 
         return true;
     }
 
-    public Solution getSolution() {
-        return bestFoundSolution != null ? bestFoundSolution : currentSolution;
+    public Solution getSolution() throws Exception {
+        if (bestMoveUsed) return bestFoundSolution;
+        bestMoveUsed = true;
+        bestFoundSolution = bestMove.applyMove();
+        return bestFoundSolution;
     }
 
     protected <T> List<T> getShuffledList(Collection<T> list) {
         var shuffledList = new ArrayList<>(list);
-        Collections.shuffle(shuffledList, GlobalRandom.getRandom());
+        Collections.shuffle(shuffledList, this.random);
         return shuffledList;
     }
 
@@ -67,7 +83,7 @@ public abstract class BaseSearch {
         for (var i = start; i < excludedEnd; i++) {
             shuffledList.add(i);
         }
-        Collections.shuffle(shuffledList, GlobalRandom.getRandom());
+        Collections.shuffle(shuffledList, this.random);
         return shuffledList;
     }
 }

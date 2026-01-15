@@ -1,0 +1,251 @@
+package solvers.heuristicSolvers.grasp.graspWithPathRelinking;
+
+import data.ProblemParameters;
+import data.Solution;
+
+import runParameters.GraspSettings;
+
+import solvers.CheckPoint;
+import solvers.SolverSolution;
+import solvers.heuristicSolvers.grasp.GraspInformation;
+import solvers.heuristicSolvers.grasp.constructiveHeuristic.ConstructiveHeuristic;
+import solvers.heuristicSolvers.grasp.localSearch.LocalSearch;
+import solvers.heuristicSolvers.grasp.pathLinking.MixedPathRelinking;
+import solvers.heuristicSolvers.grasp.pathLinking.PathRelinkingUtils;
+
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ThreadLocalRandom;
+import java.util.concurrent.atomic.AtomicInteger;
+
+public class ParallelGraspWithPathRelinking {
+    @SuppressWarnings("FieldCanBeLocal")
+    private final int eliteSolutionsSize = 10;
+
+    private final int threadCount;
+
+    private final ProblemParameters parameters;
+    private final List<Solution> eliteSolutions;
+    private final GraspSettings graspSettings;
+    private final List<CheckPoint> checkPoints;
+    private final SolverSolution solverSolution;
+    private final PathRelinkingUtils pathRelinkingUtils;
+    private final AtomicInteger iterations = new AtomicInteger(0);
+    private final Object lock = new Object();
+    private Solution bestSolution;
+    private int foundSolutionAt;
+    private double iterationsPerSecond;
+
+    public ParallelGraspWithPathRelinking(
+            ProblemParameters parameters, GraspSettings graspSettings, int threadCount)
+            throws Exception {
+
+        this.parameters = parameters;
+        this.eliteSolutions = new LinkedList<>();
+        this.graspSettings = graspSettings;
+        this.threadCount =
+                threadCount <= 0 ? Runtime.getRuntime().availableProcessors() : threadCount;
+        System.out.println(
+                "Running with "
+                        + this.threadCount
+                        + " threads (Available processors: "
+                        + Runtime.getRuntime().availableProcessors()
+                        + ").");
+
+        this.checkPoints = new ArrayList<>();
+        this.pathRelinkingUtils = new PathRelinkingUtils();
+
+        this.solve();
+
+        GraspInformation graspInformation =
+                new GraspInformation(graspSettings, iterationsPerSecond);
+
+        this.solverSolution =
+                new SolverSolution(
+                        bestSolution, checkPoints, graspInformation, parameters.getInstance());
+    }
+
+    private void solve() throws Exception {
+        // Initial solution (single threaded to start)
+        this.bestSolution =
+                new ConstructiveHeuristic(
+                                parameters,
+                                this.graspSettings
+                                        .alphaGenerator()
+                                        .generateAlpha(ThreadLocalRandom.current()),
+                                graspSettings.constructiveHeuristicSettings(),
+                                ThreadLocalRandom.current())
+                        .getSolution();
+
+        var startTime = System.currentTimeMillis() / 1000;
+
+        ExecutorService executor = Executors.newFixedThreadPool(threadCount);
+        List<Callable<Void>> tasks = new ArrayList<>();
+
+        for (int i = 0; i < threadCount; i++) {
+            tasks.add(
+                    () -> {
+                        runGraspLoop(startTime);
+                        return null;
+                    });
+        }
+
+        try {
+            executor.invokeAll(tasks);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } finally {
+            executor.shutdown();
+        }
+
+        var endTime = System.currentTimeMillis() / 1000;
+        iterationsPerSecond = iterations.get() / (double) (endTime - startTime);
+    }
+
+    private void runGraspLoop(long startTime) throws Exception {
+
+        var random = ThreadLocalRandom.current();
+        while (System.currentTimeMillis() / 1000 - startTime < graspSettings.timeLimit()) {
+
+            // Constructive Phase
+            var randomSolution =
+                    new ConstructiveHeuristic(
+                                    parameters,
+                                    this.graspSettings.alphaGenerator().generateAlpha(random),
+                                    graspSettings.constructiveHeuristicSettings(),
+                                    random)
+                            .getSolution();
+
+            // Local Search Phase
+            randomSolution =
+                    new LocalSearch(
+                                    randomSolution,
+                                    parameters,
+                                    graspSettings.getSearchMode(),
+                                    graspSettings.localSearchSettings(),
+                                    random)
+                            .getSolution();
+
+            // Path Relinking Phase
+            boolean performPathRelinking = false;
+            Solution guidingSolution = null;
+            Solution initialSolution = randomSolution;
+
+            synchronized (lock) {
+                if (this.eliteSolutions.size() > 2) {
+                    performPathRelinking = true;
+                    guidingSolution = getGuidingSolution(random);
+                }
+            }
+
+            if (performPathRelinking) {
+                randomSolution =
+                        new MixedPathRelinking(
+                                        parameters,
+                                        initialSolution,
+                                        guidingSolution,
+                                        pathRelinkingUtils,
+                                        random)
+                                .getBestFoundSolution();
+
+                randomSolution =
+                        new LocalSearch(
+                                        randomSolution,
+                                        parameters,
+                                        graspSettings.getSearchMode(),
+                                        graspSettings.localSearchSettings(),
+                                        random)
+                                .getSolution();
+            }
+
+            // Update Global State
+            updateEliteSolutions(randomSolution, startTime);
+
+            int currentTotalIterations = iterations.incrementAndGet();
+
+            // Logging (only one thread usually, or periodically)
+            if (currentTotalIterations % 100 == 0) {
+                double currentIterationsPerSecond =
+                        currentTotalIterations
+                                / (double) (System.currentTimeMillis() / 1000 - startTime);
+                // Simple logging to avoid spam, synced print
+                synchronized (System.out) {
+                    System.out.printf(
+                            "Seconds: %d, Total Iterations: %d, Iteration per second: %f, Best solution: %d found at %ds%n",
+                            System.currentTimeMillis() / 1000 - startTime,
+                            currentTotalIterations,
+                            currentIterationsPerSecond,
+                            bestSolution.revenue,
+                            foundSolutionAt);
+                }
+            }
+        }
+    }
+
+    private void updateEliteSolutions(Solution newFoundLocalOptima, long startTime) {
+
+        synchronized (lock) {
+            if (newFoundLocalOptima.revenue > bestSolution.revenue) {
+                this.foundSolutionAt = (int) (System.currentTimeMillis() / 1000 - startTime);
+
+                bestSolution = newFoundLocalOptima;
+
+                this.checkPoints.add(
+                        new CheckPoint(
+                                newFoundLocalOptima,
+                                ((double) System.currentTimeMillis() / 1000 - startTime)));
+            }
+
+            if (eliteSolutions.size() < eliteSolutionsSize) {
+                if (eliteSolutions.isEmpty()) eliteSolutions.add(newFoundLocalOptima);
+                else {
+                    var minDistance =
+                            eliteSolutions.stream()
+                                    .map(
+                                            solution ->
+                                                    pathRelinkingUtils.distance(
+                                                            solution, newFoundLocalOptima))
+                                    .min(Comparator.comparing(distance -> distance))
+                                    .orElseThrow();
+                    if (minDistance > 0) eliteSolutions.add(newFoundLocalOptima);
+                }
+            } else {
+                int minDistance =
+                        eliteSolutions.stream()
+                                .map(
+                                        solution ->
+                                                pathRelinkingUtils.distance(
+                                                        solution, newFoundLocalOptima))
+                                .min(Comparator.comparing(distance -> distance))
+                                .orElseThrow();
+
+                if (minDistance == 0) return;
+
+                var worstSolution =
+                        eliteSolutions.stream()
+                                .min(Comparator.comparing(solution -> solution.revenue))
+                                .orElseThrow();
+                if (minDistance > 0 && newFoundLocalOptima.revenue > worstSolution.revenue) {
+                    eliteSolutions.remove(worstSolution);
+                    eliteSolutions.add(newFoundLocalOptima);
+                }
+            }
+        }
+    }
+
+    public SolverSolution getSolution() {
+        return solverSolution;
+    }
+
+    private Solution getGuidingSolution(java.util.Random random) {
+        // Must be called with lock held or handled for concurrent access if
+        // eliteSolutions is modified
+        // Since we are in synchronized(lock) when calling this loop, it is safe
+        return eliteSolutions.get(random.nextInt(eliteSolutions.size()));
+    }
+}

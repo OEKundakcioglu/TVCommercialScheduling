@@ -2,13 +2,22 @@ package solvers.heuristicSolvers.grasp.localSearch;
 
 import data.ProblemParameters;
 import data.Solution;
+
 import solvers.heuristicSolvers.grasp.localSearch.move.TransferMove;
+
+import java.util.Random;
 
 public class TransferSearch extends BaseSearch {
     private final double[] totalCommercialDurationOfHour;
 
-    public TransferSearch(Solution currentSolution, ProblemParameters parameters, boolean getAllNeighborhood, SearchMode searchMode) throws Exception {
-        super(currentSolution, parameters, getAllNeighborhood, searchMode);
+    public TransferSearch(
+            Solution currentSolution,
+            ProblemParameters parameters,
+            boolean getAllNeighborhood,
+            SearchMode searchMode,
+            Random random)
+            throws Exception {
+        super(currentSolution, parameters, getAllNeighborhood, searchMode, random);
         this.totalCommercialDurationOfHour = new double[parameters.getSetOfHours().size() + 1];
         for (var solutionDataList : currentSolution.solution) {
             if (solutionDataList.isEmpty()) continue;
@@ -20,7 +29,7 @@ public class TransferSearch extends BaseSearch {
         }
 
         if (searchMode == SearchMode.FIRST_IMPROVEMENT) this.firstImprovingSearch();
-        else if(searchMode == SearchMode.BEST_IMPROVEMENT) this.bestImprovingSearch();
+        else if (searchMode == SearchMode.BEST_IMPROVEMENT) this.bestImprovingSearch();
     }
 
     private void firstImprovingSearch() throws Exception {
@@ -37,7 +46,14 @@ public class TransferSearch extends BaseSearch {
 
                     var solutionDataList2 = currentSolution.solution.get(inventory2.getId());
                     for (var n2 : getShuffledIndexList(0, solutionDataList2.size())) {
-                        var transferMove = new TransferMove(currentSolution, inventory, inventory2, n1, n2, this.totalCommercialDurationOfHour);
+                        var transferMove =
+                                new TransferMove(
+                                        currentSolution,
+                                        inventory,
+                                        inventory2,
+                                        n1,
+                                        n2,
+                                        this.totalCommercialDurationOfHour);
 
                         if (!transferMove.checkFeasibility()) continue;
 
@@ -63,7 +79,14 @@ public class TransferSearch extends BaseSearch {
 
                     var solutionDataList2 = currentSolution.solution.get(inventory2.getId());
                     for (var n2 = 0; n2 < solutionDataList2.size(); n2++) {
-                        var transferMove = new TransferMove(currentSolution, inventory, inventory2, n1, n2, this.totalCommercialDurationOfHour);
+                        var transferMove =
+                                new TransferMove(
+                                        currentSolution,
+                                        inventory,
+                                        inventory2,
+                                        n1,
+                                        n2,
+                                        this.totalCommercialDurationOfHour);
 
                         if (!transferMove.checkFeasibility()) continue;
 

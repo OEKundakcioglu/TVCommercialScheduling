@@ -1,10 +1,11 @@
 import com.beust.jcommander.JCommander;
 import com.beust.jcommander.Parameter;
 import com.beust.jcommander.Parameters;
+
 import data.ProblemParameters;
 import data.Utils;
 import data.problemBuilders.JsonParser;
-import solvers.GlobalRandom;
+
 import solvers.SolverSolution;
 import solvers.heuristicSolvers.beeColonyYu.BeeColonyAlgorithm;
 import solvers.heuristicSolvers.beeColonyYu.BeeColonySettings;
@@ -16,6 +17,7 @@ import java.io.FileOutputStream;
 import java.io.PrintStream;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.Random;
 
 /**
  * Main class for running Bee Colony Algorithm from command line interface
@@ -132,16 +134,9 @@ public class mainBeeColonyRun {
         System.out.println("Reducing problem to VRP...");
         OrienteeringData orienteeringData = ReduceProblemToVRP.reduce(parameters);
 
-        BeeColonySettings beeColonySettings = new BeeColonySettings(
-                timeLimit,
-                populationSize,
-                alpha,
-                nIter,
-                T0,
-                seed,
-                instancePath
-        );
-
+        BeeColonySettings beeColonySettings =
+                new BeeColonySettings(
+                        timeLimit, populationSize, alpha, nIter, T0, seed, instancePath);
 
         var restOfThePath = beeColonySettings.getOutputDirPath(outputPath);
         var outputDir = Paths.get(restOfThePath);
@@ -160,16 +155,12 @@ public class mainBeeColonyRun {
             return;
         }
 
-        GlobalRandom.init((long) seed);
-
         System.out.println("Running Bee Colony Algorithm...");
         long startTime = System.currentTimeMillis();
 
-        BeeColonyAlgorithm beeColonyAlgorithm = new BeeColonyAlgorithm(
-                orienteeringData,
-                beeColonySettings,
-                parameters
-        );
+        Random random = new Random(seed);
+        BeeColonyAlgorithm beeColonyAlgorithm =
+                new BeeColonyAlgorithm(orienteeringData, beeColonySettings, parameters, random);
 
         SolverSolution solution = beeColonyAlgorithm.getSolverSolution();
 
@@ -178,10 +169,8 @@ public class mainBeeColonyRun {
 
         Utils.feasibilityCheck(solution.getBestSolution());
 
-
         Utils.writeObjectToJson(solution, outputPath.toString());
 
-        GlobalRandom.close();
         System.out.println("Bee Colony Algorithm completed successfully!");
     }
 

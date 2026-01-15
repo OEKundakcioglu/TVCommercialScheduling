@@ -1,13 +1,14 @@
 package solvers.heuristicSolvers.grasp.pathLinking;
 
 import data.Solution;
-import solvers.GlobalRandom;
+
 import solvers.heuristicSolvers.grasp.localSearch.move.IMove;
 import solvers.heuristicSolvers.grasp.localSearch.move.InsertMove;
 import solvers.heuristicSolvers.grasp.localSearch.move.RemoveMove;
 import solvers.heuristicSolvers.grasp.localSearch.move.TransferMove;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 @SuppressWarnings({"DuplicatedCode"})
 public class PathRelinkingUtils {
@@ -59,7 +60,8 @@ public class PathRelinkingUtils {
     public IMove getMove(
             Solution currentSolution,
             Solution guidingSolution,
-            double[] totalCommercialDurationOfHour) {
+            double[] totalCommercialDurationOfHour,
+            Random random) {
         var solution1Datas = currentSolution.getSortedSolutionData();
         var solution2Datas = guidingSolution.getSortedSolutionData();
 
@@ -180,6 +182,6 @@ public class PathRelinkingUtils {
         }
         if (moves.isEmpty()) return null;
 
-        return moves.get(GlobalRandom.getRandom().nextInt(moves.size()));
+        return moves.get(random.nextInt(moves.size()));
     }
 }

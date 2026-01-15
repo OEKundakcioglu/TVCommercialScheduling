@@ -4,12 +4,16 @@ import data.ProblemParameters;
 import data.Solution;
 import data.Utils;
 
+import java.util.Random;
+
 public class MixedPathRelinking {
 
     private final Solution guidingSolution;
     private final Solution initialSolution;
     private final ProblemParameters parameters;
     private final PathRelinkingUtils pathRelinkingUtils;
+
+    private final Random random;
 
     private Solution bestFoundSolution;
     private double bestFoundRevenue = Double.NEGATIVE_INFINITY;
@@ -18,12 +22,14 @@ public class MixedPathRelinking {
             ProblemParameters parameters,
             Solution initialSolution,
             Solution guidingSolution,
-            PathRelinkingUtils pathRelinkingUtils)
+            PathRelinkingUtils pathRelinkingUtils,
+            Random random)
             throws Exception {
         this.parameters = parameters;
         this.initialSolution = initialSolution;
         this.guidingSolution = guidingSolution;
         this.pathRelinkingUtils = pathRelinkingUtils;
+        this.random = random;
         this.bestFoundSolution = initialSolution;
 
         solve();
@@ -44,7 +50,7 @@ public class MixedPathRelinking {
             var target = isDirectionTowardsGuiding ? guidingSolution : initialSolution;
             var move =
                     pathRelinkingUtils.getMove(
-                            currentSolution, target, totalCommercialDurationOfHour);
+                            currentSolution, target, totalCommercialDurationOfHour, random);
             if (move == null) {
                 var temp = currentSolution;
                 currentSolution = _guidingSolution;

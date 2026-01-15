@@ -172,6 +172,12 @@ def generate_grasp_cli_commands(config_path: str, base_command: str = "./gradlew
                                   f'-PtimeLimit={time_limit}', f'-PsearchMode="{search_mode}"',
                                   f'-PskipProbability={skip_prob}', f'-PlocalSearchMoves="{local_search_moves_str}"',
                                   f'-Pseed={run_number}']
+                        
+                        if config.get('parallel', False):
+                            params.append('-Pparallel')
+                            threads = config.get('threads', 0)
+                            if threads > 0:
+                                params.append(f'-Pthreads={threads}')
 
                         # Add alpha parameters based on type
                         if alpha_option.get('type', '').lower() == 'fixed':

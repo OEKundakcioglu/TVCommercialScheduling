@@ -4,13 +4,22 @@ import data.Commercial;
 import data.Inventory;
 import data.ProblemParameters;
 import data.Solution;
+
 import solvers.heuristicSolvers.grasp.localSearch.move.InterSwapMove;
 
-public class InterSwapSearch extends BaseSearch{
+import java.util.Random;
+
+public class InterSwapSearch extends BaseSearch {
     private final double[] totalCommercialDurationOfHour;
 
-    InterSwapSearch(Solution currentSolution, ProblemParameters parameters, boolean getAllNeighborhood, SearchMode searchMode) throws Exception {
-        super(currentSolution, parameters, getAllNeighborhood, searchMode);
+    public InterSwapSearch(
+            Solution currentSolution,
+            ProblemParameters parameters,
+            boolean getAllNeighborhood,
+            SearchMode searchMode,
+            Random random)
+            throws Exception {
+        super(currentSolution, parameters, getAllNeighborhood, searchMode, random);
 
         this.totalCommercialDurationOfHour = new double[parameters.getSetOfHours().size() + 1];
         for (var solutionDataList : currentSolution.solution) {
@@ -24,18 +33,18 @@ public class InterSwapSearch extends BaseSearch{
         }
 
         if (searchMode == SearchMode.FIRST_IMPROVEMENT) this.firstImprovingSearch();
-        else if(searchMode == SearchMode.BEST_IMPROVEMENT) this.bestImprovingSearch();
+        else if (searchMode == SearchMode.BEST_IMPROVEMENT) this.bestImprovingSearch();
     }
 
     private void firstImprovingSearch() throws Exception {
         var allSolutionData = super.currentSolution.getSortedSolutionData();
         var randomIndices = super.getShuffledIndexList(0, allSolutionData.length);
 
-        for (var s1Index = 0; s1Index < randomIndices.size()-1; s1Index++){
+        for (var s1Index = 0; s1Index < randomIndices.size() - 1; s1Index++) {
             var s1 = allSolutionData[s1Index];
             if (s1 == null) continue;
 
-            for (var s2Index = s1Index + 1; s2Index < randomIndices.size()-1; s2Index++){
+            for (var s2Index = s1Index + 1; s2Index < randomIndices.size() - 1; s2Index++) {
                 var s2 = allSolutionData[s2Index];
                 if (s2 == null) continue;
 
@@ -48,7 +57,7 @@ public class InterSwapSearch extends BaseSearch{
                 int n1;
                 int n2;
 
-                if (s1.getCommercial().getDuration() <= s2.getCommercial().getDuration()){
+                if (s1.getCommercial().getDuration() <= s2.getCommercial().getDuration()) {
                     i1 = s1.getInventory();
                     i2 = s2.getInventory();
                     n1 = s1.getPosition();
@@ -80,11 +89,11 @@ public class InterSwapSearch extends BaseSearch{
     private void bestImprovingSearch() throws Exception {
         var allSolutionData = super.currentSolution.getSortedSolutionData();
 
-        for (var s1Index = 0; s1Index < allSolutionData.length-1; s1Index++){
+        for (var s1Index = 0; s1Index < allSolutionData.length - 1; s1Index++) {
             var s1 = allSolutionData[s1Index];
             if (s1 == null) continue;
 
-            for (var s2Index = s1Index + 1; s2Index < allSolutionData.length-1; s2Index++){
+            for (var s2Index = s1Index + 1; s2Index < allSolutionData.length - 1; s2Index++) {
                 var s2 = allSolutionData[s2Index];
                 if (s2 == null) continue;
 
@@ -97,7 +106,7 @@ public class InterSwapSearch extends BaseSearch{
                 int n1;
                 int n2;
 
-                if (s1.getCommercial().getDuration() <= s2.getCommercial().getDuration()){
+                if (s1.getCommercial().getDuration() <= s2.getCommercial().getDuration()) {
                     i1 = s1.getInventory();
                     i2 = s2.getInventory();
                     n1 = s1.getPosition();

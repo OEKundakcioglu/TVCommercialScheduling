@@ -1,7 +1,5 @@
 package solvers.heuristicSolvers.grasp.reactiveGrasp;
 
-import solvers.GlobalRandom;
-
 public class AlphaGeneratorUniform implements AlphaGenerator {
     private final double lowerBound;
     private final double upperBound;
@@ -11,15 +9,12 @@ public class AlphaGeneratorUniform implements AlphaGenerator {
         this.upperBound = upperBound;
     }
 
-    public double generateAlpha() {
-        return GlobalRandom.getRandom().nextDouble(lowerBound, upperBound);
+    public double generateAlpha(java.util.Random random) {
+        return random.nextDouble(lowerBound, upperBound);
     }
 
-    public String getStringIdentifier(){
+    public String getStringIdentifier() {
         return String.format(
-                "Uniform_lowerBound=%f_upperBound=%f",
-                this.lowerBound,
-                this.upperBound
-        );
+                "Uniform_lowerBound=%f_upperBound=%f", this.lowerBound, this.upperBound);
     }
 }

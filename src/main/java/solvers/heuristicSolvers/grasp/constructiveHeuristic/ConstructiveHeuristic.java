@@ -2,13 +2,14 @@ package solvers.heuristicSolvers.grasp.constructiveHeuristic;
 
 import data.*;
 import data.enums.ATTENTION;
+
 import runParameters.ConstructiveHeuristicSettings;
-import solvers.GlobalRandom;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 
 public class ConstructiveHeuristic implements IConstructiveHeuristic {
     private final double firstAttentionBoost;
@@ -27,26 +28,30 @@ public class ConstructiveHeuristic implements IConstructiveHeuristic {
     private Commercial tripleCommercial;
     private Inventory tripleInventory;
 
+    private final Random random;
+
     public ConstructiveHeuristic(
             ProblemParameters parameters,
             double alpha,
-            ConstructiveHeuristicSettings constructiveHeuristicSettings) {
+            ConstructiveHeuristicSettings constructiveHeuristicSettings,
+            Random random) {
+        this.random = random;
         this.alpha = alpha;
 
         this.firstAttentionBoost =
-                GlobalRandom.getRandom().nextDouble(
+                this.random.nextDouble(
                         constructiveHeuristicSettings.lowerBound(),
                         constructiveHeuristicSettings.upperBound());
         this.lastAttentionBoost =
-                GlobalRandom.getRandom().nextDouble(
+                this.random.nextDouble(
                         constructiveHeuristicSettings.lowerBound(),
                         constructiveHeuristicSettings.upperBound());
         this.f30AttentionBoost =
-                GlobalRandom.getRandom().nextDouble(
+                this.random.nextDouble(
                         constructiveHeuristicSettings.lowerBound(),
                         constructiveHeuristicSettings.upperBound());
         this.f60AttentionBoost =
-                GlobalRandom.getRandom().nextDouble(
+                this.random.nextDouble(
                         constructiveHeuristicSettings.lowerBound(),
                         constructiveHeuristicSettings.upperBound());
 
@@ -191,7 +196,7 @@ public class ConstructiveHeuristic implements IConstructiveHeuristic {
         for (int i = 0; i < commercials.size(); i++) {
             if (scores[i] >= threshold) {
                 count++;
-                if (GlobalRandom.getRandom().nextInt(count) == 0) {
+                if (this.random.nextInt(count) == 0) {
                     selectedCommercial = commercials.get(i);
                     selectedInventory = inventories.get(i);
                 }
