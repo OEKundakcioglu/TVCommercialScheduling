@@ -3,15 +3,15 @@
 #SBATCH --job-name=tv-commercial               # Job name
 #SBATCH --output=logs/%x_%j.out                 # Stdout log -> logs/<jobname>_<jobid>.out
 #SBATCH --error=logs/%x_%j.err                  # Stderr log -> logs/<jobname>_<jobid>.err
-#SBATCH --time=7-00:00:00                      # Wall time limit
+#SBATCH --time=1-00:00:00                      # Wall time limit
 #SBATCH --nodes=1                               # One node
 #SBATCH --ntasks=1                              # One task (process)
 #SBATCH --exclusive                             # Reserve entire node
 #SBATCH --mem=0                                 # Take all memory on the node
 
 # Pick ONE partition. Uncomment the one you want:
-#SBATCH --partition=long_mdbf                    # Typical default
-#SBATCH --qos=long_mdbf
+#SBATCH --partition=mid_mdbf                    # Typical default
+#SBATCH --qos=mid_mdbf
 
 # Ensure we never land on GPU nodes:
 #SBATCH --exclude=cn[05-06,08-13,15-16,17-18]   # Exclude K2 and P4 GPU nodes

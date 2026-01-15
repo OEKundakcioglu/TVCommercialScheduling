@@ -87,6 +87,12 @@ public class mainGraspRun {
     private int seed;
 
     @Parameter(
+            names = {"--moves", "-m"},
+            description = "Comma-separated list of local search moves to use",
+            required = true)
+    private List<String> moves;
+
+    @Parameter(
             names = {"--help", "-h"},
             description = "Show help message",
             help = true)
@@ -210,8 +216,7 @@ public class mainGraspRun {
         }
 
         // Create local search settings with default moves
-        List<String> localSearchMoves = Arrays.asList("insert", "outOfPool", "interSwap", "shift");
-        LocalSearchSettings localSearchSettings = new LocalSearchSettings(localSearchMoves, skipProbability);
+        LocalSearchSettings localSearchSettings = new LocalSearchSettings(moves, skipProbability);
 
         // Create constructive heuristic settings with default values
         ConstructiveHeuristicSettings constructiveSettings = new ConstructiveHeuristicSettings(0.5, 2);

@@ -146,6 +146,7 @@ def generate_grasp_cli_commands(config_path: str, base_command: str = "./gradlew
     search_modes = config.get('searchModes', ['BEST_IMPROVEMENT'])
     alpha_options = config.get('alphaGeneratorOptions', [])
     skip_probabilities = config.get('neighborhoodSkipProbabilities', [0.0])
+    local_search_moves = config.get('localSearchMoves', [])
     time_limit = config.get('timeLimit', 60)
     random_run_n = config.get('randomRunN', 1)
     output_directory = config.get('outputDirectory', 'output')
@@ -163,10 +164,14 @@ def generate_grasp_cli_commands(config_path: str, base_command: str = "./gradlew
                         # Create unique output path
                         alpha_str = _get_alpha_string(alpha_option)
 
+                        # Prepare local search moves string
+                        local_search_moves_str = ",".join(local_search_moves)
+
                         # Build command parameters
                         params = [f'-PinstancePath="{instance_path}"', f'-PoutputPath="{output_directory}"',
                                   f'-PtimeLimit={time_limit}', f'-PsearchMode="{search_mode}"',
-                                  f'-PskipProbability={skip_prob}', f'-Pseed={run_number}']
+                                  f'-PskipProbability={skip_prob}', f'-PlocalSearchMoves="{local_search_moves_str}"',
+                                  f'-Pseed={run_number}']
 
                         # Add alpha parameters based on type
                         if alpha_option.get('type', '').lower() == 'fixed':
@@ -366,7 +371,7 @@ def read_commands(path: str) -> list[str]:
 def main():
     commands = read_commands(sys.argv[1])
     results = run_commands_sequentially(commands)
-#
+
 #     generate_run_commands(10)
 
 

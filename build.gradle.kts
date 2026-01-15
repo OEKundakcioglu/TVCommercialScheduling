@@ -217,6 +217,10 @@ tasks.register<JavaExec>("runGrasp") {
             argsList.add("--skipProbability=${project.property("skipProbability")}")
         }
 
+        if (project.hasProperty("localSearchMoves")) {
+            argsList.add("--moves=${project.property("localSearchMoves")}")
+        }
+
         if (project.hasProperty("seed")) {
             argsList.add("--seed=${project.property("seed")}")
         }
