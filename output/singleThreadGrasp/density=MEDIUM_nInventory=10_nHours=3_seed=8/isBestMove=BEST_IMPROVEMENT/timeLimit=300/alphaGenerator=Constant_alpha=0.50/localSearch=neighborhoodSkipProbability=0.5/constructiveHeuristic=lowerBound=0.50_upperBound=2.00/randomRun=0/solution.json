@@ -1,0 +1,137 @@
+{
+  "bestSolution": {
+    "revenue": 336687
+  },
+  "checkPoints": [
+    {
+      "solution": {
+        "revenue": 310822
+      },
+      "time": 0.9790000915527344
+    },
+    {
+      "solution": {
+        "revenue": 317304
+      },
+      "time": 1.0069999694824219
+    },
+    {
+      "solution": {
+        "revenue": 332000
+      },
+      "time": 1.0480000972747803
+    },
+    {
+      "solution": {
+        "revenue": 332723
+      },
+      "time": 1.753999948501587
+    },
+    {
+      "solution": {
+        "revenue": 332768
+      },
+      "time": 1.8959999084472656
+    },
+    {
+      "solution": {
+        "revenue": 333553
+      },
+      "time": 2.0869998931884766
+    },
+    {
+      "solution": {
+        "revenue": 333907
+      },
+      "time": 2.178999900817871
+    },
+    {
+      "solution": {
+        "revenue": 334123
+      },
+      "time": 2.2720000743865967
+    },
+    {
+      "solution": {
+        "revenue": 334530
+      },
+      "time": 2.4119999408721924
+    },
+    {
+      "solution": {
+        "revenue": 334985
+      },
+      "time": 2.73799991607666
+    },
+    {
+      "solution": {
+        "revenue": 336147
+      },
+      "time": 2.74399995803833
+    },
+    {
+      "solution": {
+        "revenue": 336678
+      },
+      "time": 2.990000009536743
+    },
+    {
+      "solution": {
+        "revenue": 336679
+      },
+      "time": 5.117000102996826
+    },
+    {
+      "solution": {
+        "revenue": 336680
+      },
+      "time": 10.447999954223633
+    },
+    {
+      "solution": {
+        "revenue": 336684
+      },
+      "time": 29.575000047683716
+    },
+    {
+      "solution": {
+        "revenue": 336686
+      },
+      "time": 64.30399990081787
+    },
+    {
+      "solution": {
+        "revenue": 336687
+      },
+      "time": 178.4300000667572
+    }
+  ],
+  "instance": "density\u003dMEDIUM_nInventory\u003d10_nHours\u003d3_seed\u003d8",
+  "additionalInformation": {
+    "settings": {
+      "searchMode": "BEST_IMPROVEMENT",
+      "timeLimit": 300,
+      "localSearchSettings": {
+        "moves": [
+          "insert",
+          "outOfPool",
+          "interSwap",
+          "shift",
+          "transfer",
+          "intraSwap"
+        ],
+        "neighborhoodSkipProbability": 0.5
+      },
+      "constructiveHeuristicSettings": {
+        "lowerBound": 0.5,
+        "upperBound": 2.0
+      },
+      "alphaGenerator": {
+        "alpha": 0.5
+      },
+      "randomRunN": 0,
+      "instancePath": "instances/density\u003dMEDIUM_nInventory\u003d10_nHours\u003d3_seed\u003d8.json"
+    },
+    "iterationsPerSecond": 702.0333333333333
+  }
+}

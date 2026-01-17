@@ -1,0 +1,101 @@
+{
+  "bestSolution": {
+    "revenue": 379155
+  },
+  "checkPoints": [
+    {
+      "solution": {
+        "revenue": 376143
+      },
+      "time": 0.16199994087219238
+    },
+    {
+      "solution": {
+        "revenue": 378404
+      },
+      "time": 0.19000005722045898
+    },
+    {
+      "solution": {
+        "revenue": 378408
+      },
+      "time": 0.619999885559082
+    },
+    {
+      "solution": {
+        "revenue": 378429
+      },
+      "time": 1.121999979019165
+    },
+    {
+      "solution": {
+        "revenue": 378430
+      },
+      "time": 1.687000036239624
+    },
+    {
+      "solution": {
+        "revenue": 379133
+      },
+      "time": 2.252000093460083
+    },
+    {
+      "solution": {
+        "revenue": 379134
+      },
+      "time": 2.4590001106262207
+    },
+    {
+      "solution": {
+        "revenue": 379146
+      },
+      "time": 5.496000051498413
+    },
+    {
+      "solution": {
+        "revenue": 379152
+      },
+      "time": 9.16599988937378
+    },
+    {
+      "solution": {
+        "revenue": 379153
+      },
+      "time": 17.913000106811523
+    },
+    {
+      "solution": {
+        "revenue": 379155
+      },
+      "time": 137.46600008010864
+    }
+  ],
+  "instance": "density\u003dLOW_nInventory\u003d10_nHours\u003d3_seed\u003d7",
+  "additionalInformation": {
+    "settings": {
+      "searchMode": "BEST_IMPROVEMENT",
+      "timeLimit": 300,
+      "localSearchSettings": {
+        "moves": [
+          "insert",
+          "outOfPool",
+          "interSwap",
+          "shift",
+          "transfer",
+          "intraSwap"
+        ],
+        "neighborhoodSkipProbability": 0.25
+      },
+      "constructiveHeuristicSettings": {
+        "lowerBound": 0.5,
+        "upperBound": 2.0
+      },
+      "alphaGenerator": {
+        "alpha": 0.5
+      },
+      "randomRunN": 0,
+      "instancePath": "instances/density\u003dLOW_nInventory\u003d10_nHours\u003d3_seed\u003d7.json"
+    },
+    "iterationsPerSecond": 677.67
+  }
+}

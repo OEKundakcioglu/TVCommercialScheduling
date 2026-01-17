@@ -1,0 +1,415 @@
+[INFO] Activating existing environment...
+==========================================
+ SLURM JOB STATISTICS
+==========================================
+Job ID:        154790
+Node:          cn01
+User:          ulvi.findik
+Date:          Thu Jan 15 16:10:29 +03 2026
+Input File:    mip_discrete_commands/run_commands_2.txt
+------------------------------------------
+ CPU Details:
+Model name:          Intel(R) Xeon(R) CPU E5-2680 v2 @ 2.80GHz
+CPU Cores:     19
+------------------------------------------
+ Memory Details:
+              total        used        free      shared  buff/cache   available
+Mem:          251Gi       1.1Gi       240Gi        10Gi        10Gi       238Gi
+Swap:            0B          0B          0B
+==========================================
+
+Starting execution of 50 commands...
+
+[1/50] Starting command 1...
+Executing: ./gradlew runMipSolver -PinstancePath="instances/density=HIGH_nInventory=10_nHours=3_seed=9.json" -PoutputPath="output/discrete" -PmodelType="Discrete" -PcheckPointTimes="30,60,120,300,600,900,1800,3600,7200" -PlogPath="output/discrete/density=HIGH_nInventory=10_nHours=3_seed=9.json/mip.log"
+Command failed with return code: 1
+Error: WARNING: A restricted method in java.lang.System has been called
+WARNING: java.lang.System::load has been called by net.rubygrapefruit.platform.internal.NativeLibraryLoader in an unnamed module (file:/cta/users/ulvi.findik/.gradle/wrapper/dists/gradle-9.2.1-bin/2t0n5ozlw9xmuyvbp7dnzaxug/gradle-9.2.1/lib/native-platform-0.22-milestone-29.jar)
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Class org.gradle.jvm.toolchain.JvmVendorSpec does not have member field 'org.gradle.jvm.toolchain.JvmVendorSpec IBM_SEMERU'
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to generate a Build Scan (powered by Develocity).
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 24s
+
+Starting a Gradle Daemon, 30 stopped Daemons could not be reused, use --status for details
+
+Command 1 FAILED (Duration: 25.03s)
+
+[2/50] Starting command 2...
+Executing: ./gradlew runMipSolver -PinstancePath="instances/density=MEDIUM_nInventory=10_nHours=3_seed=2.json" -PoutputPath="output/discrete" -PmodelType="Discrete" -PcheckPointTimes="30,60,120,300,600,900,1800,3600,7200" -PlogPath="output/discrete/density=MEDIUM_nInventory=10_nHours=3_seed=2.json/mip.log"
+Command failed with return code: 1
+Error: WARNING: A restricted method in java.lang.System has been called
+WARNING: java.lang.System::load has been called by net.rubygrapefruit.platform.internal.NativeLibraryLoader in an unnamed module (file:/cta/users/ulvi.findik/.gradle/wrapper/dists/gradle-9.2.1-bin/2t0n5ozlw9xmuyvbp7dnzaxug/gradle-9.2.1/lib/native-platform-0.22-milestone-29.jar)
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Class org.gradle.jvm.toolchain.JvmVendorSpec does not have member field 'org.gradle.jvm.toolchain.JvmVendorSpec IBM_SEMERU'
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to generate a Build Scan (powered by Develocity).
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 24s
+
+Starting a Gradle Daemon, 1 stopped Daemon could not be reused, use --status for details
+
+Command 2 FAILED (Duration: 25.40s)
+
+[3/50] Starting command 3...
+Executing: ./gradlew runMipSolver -PinstancePath="instances/2.json" -PoutputPath="output/discrete" -PmodelType="Discrete" -PcheckPointTimes="30,60,120,300,600,900,1800,3600,7200" -PlogPath="output/discrete/2.json/mip.log"
+Command failed with return code: 1
+Error: WARNING: A restricted method in java.lang.System has been called
+WARNING: java.lang.System::load has been called by net.rubygrapefruit.platform.internal.NativeLibraryLoader in an unnamed module (file:/cta/users/ulvi.findik/.gradle/wrapper/dists/gradle-9.2.1-bin/2t0n5ozlw9xmuyvbp7dnzaxug/gradle-9.2.1/lib/native-platform-0.22-milestone-29.jar)
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Could not initialize class org.gradle.toolchains.foojay.DistributionsKt
+> Exception java.lang.NoSuchFieldError: Class org.gradle.jvm.toolchain.JvmVendorSpec does not have member field 'org.gradle.jvm.toolchain.JvmVendorSpec IBM_SEMERU' [in thread "Daemon worker"]
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to generate a Build Scan (powered by Develocity).
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 5s
+
+
+Command 3 FAILED (Duration: 5.55s)
+
+[4/50] Starting command 4...
+Executing: ./gradlew runMipSolver -PinstancePath="instances/density=HIGH_nInventory=15_nHours=4_seed=9.json" -PoutputPath="output/discrete" -PmodelType="Discrete" -PcheckPointTimes="30,60,120,300,600,900,1800,3600,7200" -PlogPath="output/discrete/density=HIGH_nInventory=15_nHours=4_seed=9.json/mip.log"
+Command failed with return code: 1
+Error: WARNING: A restricted method in java.lang.System has been called
+WARNING: java.lang.System::load has been called by net.rubygrapefruit.platform.internal.NativeLibraryLoader in an unnamed module (file:/cta/users/ulvi.findik/.gradle/wrapper/dists/gradle-9.2.1-bin/2t0n5ozlw9xmuyvbp7dnzaxug/gradle-9.2.1/lib/native-platform-0.22-milestone-29.jar)
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Class org.gradle.jvm.toolchain.JvmVendorSpec does not have member field 'org.gradle.jvm.toolchain.JvmVendorSpec IBM_SEMERU'
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to generate a Build Scan (powered by Develocity).
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 23s
+
+Starting a Gradle Daemon, 2 busy and 11 stopped Daemons could not be reused, use --status for details
+
+Command 4 FAILED (Duration: 24.82s)
+
+[5/50] Starting command 5...
+Executing: ./gradlew runMipSolver -PinstancePath="instances/density=MEDIUM_nInventory=20_nHours=5_seed=1.json" -PoutputPath="output/discrete" -PmodelType="Discrete" -PcheckPointTimes="30,60,120,300,600,900,1800,3600,7200" -PlogPath="output/discrete/density=MEDIUM_nInventory=20_nHours=5_seed=1.json/mip.log"
+Command failed with return code: 1
+Error: WARNING: A restricted method in java.lang.System has been called
+WARNING: java.lang.System::load has been called by net.rubygrapefruit.platform.internal.NativeLibraryLoader in an unnamed module (file:/cta/users/ulvi.findik/.gradle/wrapper/dists/gradle-9.2.1-bin/2t0n5ozlw9xmuyvbp7dnzaxug/gradle-9.2.1/lib/native-platform-0.22-milestone-29.jar)
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Class org.gradle.jvm.toolchain.JvmVendorSpec does not have member field 'org.gradle.jvm.toolchain.JvmVendorSpec IBM_SEMERU'
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to generate a Build Scan (powered by Develocity).
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 24s
+
+Starting a Gradle Daemon, 2 busy and 1 incompatible and 17 stopped Daemons could not be reused, use --status for details
+
+Command 5 FAILED (Duration: 24.87s)
+
+[6/50] Starting command 6...
+Executing: ./gradlew runMipSolver -PinstancePath="instances/density=HIGH_nInventory=20_nHours=5_seed=9.json" -PoutputPath="output/discrete" -PmodelType="Discrete" -PcheckPointTimes="30,60,120,300,600,900,1800,3600,7200" -PlogPath="output/discrete/density=HIGH_nInventory=20_nHours=5_seed=9.json/mip.log"
+Command failed with return code: 1
+Error: WARNING: A restricted method in java.lang.System has been called
+WARNING: java.lang.System::load has been called by net.rubygrapefruit.platform.internal.NativeLibraryLoader in an unnamed module (file:/cta/users/ulvi.findik/.gradle/wrapper/dists/gradle-9.2.1-bin/2t0n5ozlw9xmuyvbp7dnzaxug/gradle-9.2.1/lib/native-platform-0.22-milestone-29.jar)
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Could not initialize class org.gradle.toolchains.foojay.DistributionsKt
+> Exception java.lang.NoSuchFieldError: Class org.gradle.jvm.toolchain.JvmVendorSpec does not have member field 'org.gradle.jvm.toolchain.JvmVendorSpec IBM_SEMERU' [in thread "Daemon worker"]
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to generate a Build Scan (powered by Develocity).
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 5s
+
+
+Command 6 FAILED (Duration: 5.64s)
+
+[7/50] Starting command 7...
+Executing: ./gradlew runMipSolver -PinstancePath="instances/density=MEDIUM_nInventory=15_nHours=4_seed=1.json" -PoutputPath="output/discrete" -PmodelType="Discrete" -PcheckPointTimes="30,60,120,300,600,900,1800,3600,7200" -PlogPath="output/discrete/density=MEDIUM_nInventory=15_nHours=4_seed=1.json/mip.log"
+Command failed with return code: 1
+Error: WARNING: A restricted method in java.lang.System has been called
+WARNING: java.lang.System::load has been called by net.rubygrapefruit.platform.internal.NativeLibraryLoader in an unnamed module (file:/cta/users/ulvi.findik/.gradle/wrapper/dists/gradle-9.2.1-bin/2t0n5ozlw9xmuyvbp7dnzaxug/gradle-9.2.1/lib/native-platform-0.22-milestone-29.jar)
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Class org.gradle.jvm.toolchain.JvmVendorSpec does not have member field 'org.gradle.jvm.toolchain.JvmVendorSpec IBM_SEMERU'
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to generate a Build Scan (powered by Develocity).
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 24s
+
+Starting a Gradle Daemon, 2 busy and 24 stopped Daemons could not be reused, use --status for details
+
+Command 7 FAILED (Duration: 24.97s)
+
+[8/50] Starting command 8...
+Executing: ./gradlew runMipSolver -PinstancePath="instances/density=LOW_nInventory=10_nHours=3_seed=3.json" -PoutputPath="output/discrete" -PmodelType="Discrete" -PcheckPointTimes="30,60,120,300,600,900,1800,3600,7200" -PlogPath="output/discrete/density=LOW_nInventory=10_nHours=3_seed=3.json/mip.log"
+Command failed with return code: 1
+Error: WARNING: A restricted method in java.lang.System has been called
+WARNING: java.lang.System::load has been called by net.rubygrapefruit.platform.internal.NativeLibraryLoader in an unnamed module (file:/cta/users/ulvi.findik/.gradle/wrapper/dists/gradle-9.2.1-bin/2t0n5ozlw9xmuyvbp7dnzaxug/gradle-9.2.1/lib/native-platform-0.22-milestone-29.jar)
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Class org.gradle.jvm.toolchain.JvmVendorSpec does not have member field 'org.gradle.jvm.toolchain.JvmVendorSpec IBM_SEMERU'
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to generate a Build Scan (powered by Develocity).
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 24s
+
+Starting a Gradle Daemon, 2 busy and 1 incompatible and 30 stopped Daemons could not be reused, use --status for details
+
+Command 8 FAILED (Duration: 25.60s)
+
+[9/50] Starting command 9...
+Executing: ./gradlew runMipSolver -PinstancePath="instances/density=HIGH_nInventory=15_nHours=4_seed=5.json" -PoutputPath="output/discrete" -PmodelType="Discrete" -PcheckPointTimes="30,60,120,300,600,900,1800,3600,7200" -PlogPath="output/discrete/density=HIGH_nInventory=15_nHours=4_seed=5.json/mip.log"
+Command failed with return code: 1
+Error: WARNING: A restricted method in java.lang.System has been called
+WARNING: java.lang.System::load has been called by net.rubygrapefruit.platform.internal.NativeLibraryLoader in an unnamed module (file:/cta/users/ulvi.findik/.gradle/wrapper/dists/gradle-9.2.1-bin/2t0n5ozlw9xmuyvbp7dnzaxug/gradle-9.2.1/lib/native-platform-0.22-milestone-29.jar)
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Class org.gradle.jvm.toolchain.JvmVendorSpec does not have member field 'org.gradle.jvm.toolchain.JvmVendorSpec IBM_SEMERU'
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to generate a Build Scan (powered by Develocity).
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 24s
+
+Starting a Gradle Daemon, 2 stopped Daemons could not be reused, use --status for details
+
+Command 9 FAILED (Duration: 24.86s)
+
+[10/50] Starting command 10...
+Executing: ./gradlew runMipSolver -PinstancePath="instances/density=HIGH_nInventory=20_nHours=5_seed=5.json" -PoutputPath="output/discrete" -PmodelType="Discrete" -PcheckPointTimes="30,60,120,300,600,900,1800,3600,7200" -PlogPath="output/discrete/density=HIGH_nInventory=20_nHours=5_seed=5.json/mip.log"
+Command failed with return code: 1
+Error: WARNING: A restricted method in java.lang.System has been called
+WARNING: java.lang.System::load has been called by net.rubygrapefruit.platform.internal.NativeLibraryLoader in an unnamed module (file:/cta/users/ulvi.findik/.gradle/wrapper/dists/gradle-9.2.1-bin/2t0n5ozlw9xmuyvbp7dnzaxug/gradle-9.2.1/lib/native-platform-0.22-milestone-29.jar)
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Could not initialize class org.gradle.toolchains.foojay.DistributionsKt
+> Exception java.lang.NoSuchFieldError: Class org.gradle.jvm.toolchain.JvmVendorSpec does not have member field 'org.gradle.jvm.toolchain.JvmVendorSpec IBM_SEMERU' [in thread "Daemon worker"]
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to generate a Build Scan (powered by Develocity).
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 5s
+
+
+Command 10 FAILED (Duration: 5.57s)
+
+[11/50] Starting command 11...
+Executing: ./gradlew runMipSolver -PinstancePath="instances/density=HIGH_nInventory=10_nHours=3_seed=6.json" -PoutputPath="output/discrete" -PmodelType="Discrete" -PcheckPointTimes="30,60,120,300,600,900,1800,3600,7200" -PlogPath="output/discrete/density=HIGH_nInventory=10_nHours=3_seed=6.json/mip.log"
+Command failed with return code: 1
+Error: WARNING: A restricted method in java.lang.System has been called
+WARNING: java.lang.System::load has been called by net.rubygrapefruit.platform.internal.NativeLibraryLoader in an unnamed module (file:/cta/users/ulvi.findik/.gradle/wrapper/dists/gradle-9.2.1-bin/2t0n5ozlw9xmuyvbp7dnzaxug/gradle-9.2.1/lib/native-platform-0.22-milestone-29.jar)
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Class org.gradle.jvm.toolchain.JvmVendorSpec does not have member field 'org.gradle.jvm.toolchain.JvmVendorSpec IBM_SEMERU'
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to generate a Build Scan (powered by Develocity).
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 24s
+
+Starting a Gradle Daemon, 2 busy and 11 stopped Daemons could not be reused, use --status for details
+
+Command 11 FAILED (Duration: 24.90s)
+
+[12/50] Starting command 12...
+Executing: ./gradlew runMipSolver -PinstancePath="instances/density=HIGH_nInventory=10_nHours=3_seed=7.json" -PoutputPath="output/discrete" -PmodelType="Discrete" -PcheckPointTimes="30,60,120,300,600,900,1800,3600,7200" -PlogPath="output/discrete/density=HIGH_nInventory=10_nHours=3_seed=7.json/mip.log"
+Command failed with return code: 1
+Error: WARNING: A restricted method in java.lang.System has been called
+WARNING: java.lang.System::load has been called by net.rubygrapefruit.platform.internal.NativeLibraryLoader in an unnamed module (file:/cta/users/ulvi.findik/.gradle/wrapper/dists/gradle-9.2.1-bin/2t0n5ozlw9xmuyvbp7dnzaxug/gradle-9.2.1/lib/native-platform-0.22-milestone-29.jar)
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Class org.gradle.jvm.toolchain.JvmVendorSpec does not have member field 'org.gradle.jvm.toolchain.JvmVendorSpec IBM_SEMERU'
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to generate a Build Scan (powered by Develocity).
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 23s
+
+Starting a Gradle Daemon, 1 busy and 9 stopped Daemons could not be reused, use --status for details
+
+Command 12 FAILED (Duration: 24.63s)
+
+[13/50] Starting command 13...
+Executing: ./gradlew runMipSolver -PinstancePath="instances/density=LOW_nInventory=15_nHours=4_seed=1.json" -PoutputPath="output/discrete" -PmodelType="Discrete" -PcheckPointTimes="30,60,120,300,600,900,1800,3600,7200" -PlogPath="output/discrete/density=LOW_nInventory=15_nHours=4_seed=1.json/mip.log"
+Command failed with return code: 1
+Error: WARNING: A restricted method in java.lang.System has been called
+WARNING: java.lang.System::load has been called by net.rubygrapefruit.platform.internal.NativeLibraryLoader in an unnamed module (file:/cta/users/ulvi.findik/.gradle/wrapper/dists/gradle-9.2.1-bin/2t0n5ozlw9xmuyvbp7dnzaxug/gradle-9.2.1/lib/native-platform-0.22-milestone-29.jar)
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Class org.gradle.jvm.toolchain.JvmVendorSpec does not have member field 'org.gradle.jvm.toolchain.JvmVendorSpec IBM_SEMERU'
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to generate a Build Scan (powered by Develocity).
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 23s
+
+Starting a Gradle Daemon, 15 stopped Daemons could not be reused, use --status for details
+
+Command 13 FAILED (Duration: 24.69s)
+
+[14/50] Starting command 14...
+Executing: ./gradlew runMipSolver -PinstancePath="instances/density=HIGH_nInventory=20_nHours=5_seed=4.json" -PoutputPath="output/discrete" -PmodelType="Discrete" -PcheckPointTimes="30,60,120,300,600,900,1800,3600,7200" -PlogPath="output/discrete/density=HIGH_nInventory=20_nHours=5_seed=4.json/mip.log"
+Command failed with return code: 1
+Error: WARNING: A restricted method in java.lang.System has been called
+WARNING: java.lang.System::load has been called by net.rubygrapefruit.platform.internal.NativeLibraryLoader in an unnamed module (file:/cta/users/ulvi.findik/.gradle/wrapper/dists/gradle-9.2.1-bin/2t0n5ozlw9xmuyvbp7dnzaxug/gradle-9.2.1/lib/native-platform-0.22-milestone-29.jar)
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Class org.gradle.jvm.toolchain.JvmVendorSpec does not have member field 'org.gradle.jvm.toolchain.JvmVendorSpec IBM_SEMERU'
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to generate a Build Scan (powered by Develocity).
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 24s
+
+Starting a Gradle Daemon, 1 busy and 21 stopped Daemons could not be reused, use --status for details
+
+Command 14 FAILED (Duration: 25.09s)
+
+[15/50] Starting command 15...
+Executing: ./gradlew runMipSolver -PinstancePath="instances/density=LOW_nInventory=20_nHours=5_seed=1.json" -PoutputPath="output/discrete" -PmodelType="Discrete" -PcheckPointTimes="30,60,120,300,600,900,1800,3600,7200" -PlogPath="output/discrete/density=LOW_nInventory=20_nHours=5_seed=1.json/mip.log"
+Command failed with return code: 1
+Error: WARNING: A restricted method in java.lang.System has been called
+WARNING: java.lang.System::load has been called by net.rubygrapefruit.platform.internal.NativeLibraryLoader in an unnamed module (file:/cta/users/ulvi.findik/.gradle/wrapper/dists/gradle-9.2.1-bin/2t0n5ozlw9xmuyvbp7dnzaxug/gradle-9.2.1/lib/native-platform-0.22-milestone-29.jar)
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Class org.gradle.jvm.toolchain.JvmVendorSpec does not have member field 'org.gradle.jvm.toolchain.JvmVendorSpec IBM_SEMERU'
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to generate a Build Scan (powered by Develocity).
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 24s
+
+Starting a Gradle Daemon, 1 busy and 27 stopped Daemons could not be reused, use --status for details
+
+Command 15 FAILED (Duration: 25.39s)
+
+[16/50] Starting command 16...
+Executing: ./gradlew runMipSolver -PinstancePath="instances/density=HIGH_nInventory=15_nHours=4_seed=10.json" -PoutputPath="output/discrete" -PmodelType="Discrete" -PcheckPointTimes="30,60,120,300,600,900,1800,3600,7200" -PlogPath="output/discrete/density=HIGH_nInventory=15_nHours=4_seed=10.json/mip.log"
+Command failed with return code: 1

@@ -1,0 +1,389 @@
+[INFO] Activating existing environment...
+==========================================
+ SLURM JOB STATISTICS
+==========================================
+Job ID:        154849
+Node:          cn23
+User:          ulvi.findik
+Date:          Sat Jan 17 12:43:33 +03 2026
+Input File:    grasp_parallel_commands/run_commands_4.txt
+------------------------------------------
+ CPU Details:
+Model name:          Intel(R) Xeon(R) Gold 6130 CPU @ 2.10GHz
+CPU Cores:     31
+------------------------------------------
+ Memory Details:
+              total        used        free      shared  buff/cache   available
+Mem:          251Gi       1.4Gi       237Gi        12Gi        12Gi       236Gi
+Swap:            0B          0B          0B
+==========================================
+
+Starting execution of 240 commands...
+
+[1/240] Starting command 1...
+Executing: ./gradlew runGrasp -PinstancePath="instances/10.json" -PoutputPath="output/parallelGrasp" -PtimeLimit=300 -PsearchMode="BEST_IMPROVEMENT" -PskipProbability=0 -PlocalSearchMoves="insert,outOfPool,interSwap,shift,transfer,intraSwap" -Pseed=0 -Pparallel -Pthreads=-1 -PalphaType="FIXED" -Palpha=0.25
+Starting a Gradle Daemon, 5 busy and 1 stopped Daemons could not be reused, use --status for details
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/10.json --outputPath=output/parallelGrasp --timeLimit=300 --searchMode=BEST_IMPROVEMENT --alphaType=FIXED --alpha=0.25 --skipProbability=0 --moves=insert,outOfPool,interSwap,shift,transfer,intraSwap --seed=0 --parallel --threads=-1
+Loading problem instance...
+
+[Incubating] Problems report is available at: file:///cta/users/ulvi.findik/TVCommercialScheduling/build/reports/problems/problems-report.html
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 10.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/9.2.1/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD SUCCESSFUL in 5m 18s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 1 SUCCESS (Duration: 319.12s)
+
+[2/240] Starting command 2...
+Executing: ./gradlew runGrasp -PinstancePath="instances/10.json" -PoutputPath="output/parallelGrasp" -PtimeLimit=300 -PsearchMode="BEST_IMPROVEMENT" -PskipProbability=0.25 -PlocalSearchMoves="insert,outOfPool,interSwap,shift,transfer,intraSwap" -Pseed=0 -Pparallel -Pthreads=-1 -PalphaType="FIXED" -Palpha=0.25
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/10.json --outputPath=output/parallelGrasp --timeLimit=300 --searchMode=BEST_IMPROVEMENT --alphaType=FIXED --alpha=0.25 --skipProbability=0.25 --moves=insert,outOfPool,interSwap,shift,transfer,intraSwap --seed=0 --parallel --threads=-1
+Loading problem instance...
+
+[Incubating] Problems report is available at: file:///cta/users/ulvi.findik/TVCommercialScheduling/build/reports/problems/problems-report.html
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 10.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/9.2.1/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD SUCCESSFUL in 5m 5s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 2 SUCCESS (Duration: 305.59s)
+
+[3/240] Starting command 3...
+Executing: ./gradlew runGrasp -PinstancePath="instances/10.json" -PoutputPath="output/parallelGrasp" -PtimeLimit=300 -PsearchMode="BEST_IMPROVEMENT" -PskipProbability=0.5 -PlocalSearchMoves="insert,outOfPool,interSwap,shift,transfer,intraSwap" -Pseed=0 -Pparallel -Pthreads=-1 -PalphaType="FIXED" -Palpha=0.25
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/10.json --outputPath=output/parallelGrasp --timeLimit=300 --searchMode=BEST_IMPROVEMENT --alphaType=FIXED --alpha=0.25 --skipProbability=0.5 --moves=insert,outOfPool,interSwap,shift,transfer,intraSwap --seed=0 --parallel --threads=-1
+Loading problem instance...
+
+[Incubating] Problems report is available at: file:///cta/users/ulvi.findik/TVCommercialScheduling/build/reports/problems/problems-report.html
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 10.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/9.2.1/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 3 SUCCESS (Duration: 305.00s)
+
+[4/240] Starting command 4...
+Executing: ./gradlew runGrasp -PinstancePath="instances/10.json" -PoutputPath="output/parallelGrasp" -PtimeLimit=300 -PsearchMode="BEST_IMPROVEMENT" -PskipProbability=0 -PlocalSearchMoves="insert,outOfPool,interSwap,shift,transfer,intraSwap" -Pseed=0 -Pparallel -Pthreads=-1 -PalphaType="FIXED" -Palpha=0.5
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/10.json --outputPath=output/parallelGrasp --timeLimit=300 --searchMode=BEST_IMPROVEMENT --alphaType=FIXED --alpha=0.5 --skipProbability=0 --moves=insert,outOfPool,interSwap,shift,transfer,intraSwap --seed=0 --parallel --threads=-1
+Loading problem instance...
+
+[Incubating] Problems report is available at: file:///cta/users/ulvi.findik/TVCommercialScheduling/build/reports/problems/problems-report.html
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 10.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/9.2.1/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD SUCCESSFUL in 5m 5s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 4 SUCCESS (Duration: 305.99s)
+
+[5/240] Starting command 5...
+Executing: ./gradlew runGrasp -PinstancePath="instances/10.json" -PoutputPath="output/parallelGrasp" -PtimeLimit=300 -PsearchMode="BEST_IMPROVEMENT" -PskipProbability=0.25 -PlocalSearchMoves="insert,outOfPool,interSwap,shift,transfer,intraSwap" -Pseed=0 -Pparallel -Pthreads=-1 -PalphaType="FIXED" -Palpha=0.5
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/10.json --outputPath=output/parallelGrasp --timeLimit=300 --searchMode=BEST_IMPROVEMENT --alphaType=FIXED --alpha=0.5 --skipProbability=0.25 --moves=insert,outOfPool,interSwap,shift,transfer,intraSwap --seed=0 --parallel --threads=-1
+Loading problem instance...
+
+[Incubating] Problems report is available at: file:///cta/users/ulvi.findik/TVCommercialScheduling/build/reports/problems/problems-report.html
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 10.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/9.2.1/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 5 SUCCESS (Duration: 305.03s)
+
+[6/240] Starting command 6...
+Executing: ./gradlew runGrasp -PinstancePath="instances/10.json" -PoutputPath="output/parallelGrasp" -PtimeLimit=300 -PsearchMode="BEST_IMPROVEMENT" -PskipProbability=0.5 -PlocalSearchMoves="insert,outOfPool,interSwap,shift,transfer,intraSwap" -Pseed=0 -Pparallel -Pthreads=-1 -PalphaType="FIXED" -Palpha=0.5
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/10.json --outputPath=output/parallelGrasp --timeLimit=300 --searchMode=BEST_IMPROVEMENT --alphaType=FIXED --alpha=0.5 --skipProbability=0.5 --moves=insert,outOfPool,interSwap,shift,transfer,intraSwap --seed=0 --parallel --threads=-1
+Loading problem instance...
+
+[Incubating] Problems report is available at: file:///cta/users/ulvi.findik/TVCommercialScheduling/build/reports/problems/problems-report.html
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 10.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/9.2.1/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 6 SUCCESS (Duration: 304.96s)
+
+[7/240] Starting command 7...
+Executing: ./gradlew runGrasp -PinstancePath="instances/10.json" -PoutputPath="output/parallelGrasp" -PtimeLimit=300 -PsearchMode="BEST_IMPROVEMENT" -PskipProbability=0 -PlocalSearchMoves="insert,outOfPool,interSwap,shift,transfer,intraSwap" -Pseed=0 -Pparallel -Pthreads=-1 -PalphaType="UNIFORM" -PminAlpha=0.1 -PmaxAlpha=1.0
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/10.json --outputPath=output/parallelGrasp --timeLimit=300 --searchMode=BEST_IMPROVEMENT --alphaType=UNIFORM --minAlpha=0.1 --maxAlpha=1.0 --skipProbability=0 --moves=insert,outOfPool,interSwap,shift,transfer,intraSwap --seed=0 --parallel --threads=-1
+Loading problem instance...
+
+[Incubating] Problems report is available at: file:///cta/users/ulvi.findik/TVCommercialScheduling/build/reports/problems/problems-report.html
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 10.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/9.2.1/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 7 SUCCESS (Duration: 305.01s)
+
+[8/240] Starting command 8...
+Executing: ./gradlew runGrasp -PinstancePath="instances/10.json" -PoutputPath="output/parallelGrasp" -PtimeLimit=300 -PsearchMode="BEST_IMPROVEMENT" -PskipProbability=0.25 -PlocalSearchMoves="insert,outOfPool,interSwap,shift,transfer,intraSwap" -Pseed=0 -Pparallel -Pthreads=-1 -PalphaType="UNIFORM" -PminAlpha=0.1 -PmaxAlpha=1.0
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/10.json --outputPath=output/parallelGrasp --timeLimit=300 --searchMode=BEST_IMPROVEMENT --alphaType=UNIFORM --minAlpha=0.1 --maxAlpha=1.0 --skipProbability=0.25 --moves=insert,outOfPool,interSwap,shift,transfer,intraSwap --seed=0 --parallel --threads=-1
+Loading problem instance...
+
+[Incubating] Problems report is available at: file:///cta/users/ulvi.findik/TVCommercialScheduling/build/reports/problems/problems-report.html
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 10.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/9.2.1/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 8 SUCCESS (Duration: 305.01s)
+
+[9/240] Starting command 9...
+Executing: ./gradlew runGrasp -PinstancePath="instances/10.json" -PoutputPath="output/parallelGrasp" -PtimeLimit=300 -PsearchMode="BEST_IMPROVEMENT" -PskipProbability=0.5 -PlocalSearchMoves="insert,outOfPool,interSwap,shift,transfer,intraSwap" -Pseed=0 -Pparallel -Pthreads=-1 -PalphaType="UNIFORM" -PminAlpha=0.1 -PmaxAlpha=1.0
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/10.json --outputPath=output/parallelGrasp --timeLimit=300 --searchMode=BEST_IMPROVEMENT --alphaType=UNIFORM --minAlpha=0.1 --maxAlpha=1.0 --skipProbability=0.5 --moves=insert,outOfPool,interSwap,shift,transfer,intraSwap --seed=0 --parallel --threads=-1
+Loading problem instance...
+
+[Incubating] Problems report is available at: file:///cta/users/ulvi.findik/TVCommercialScheduling/build/reports/problems/problems-report.html
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 10.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/9.2.1/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 9 SUCCESS (Duration: 304.98s)
+
+[10/240] Starting command 10...
+Executing: ./gradlew runGrasp -PinstancePath="instances/10.json" -PoutputPath="output/parallelGrasp" -PtimeLimit=300 -PsearchMode="BEST_IMPROVEMENT" -PskipProbability=0 -PlocalSearchMoves="insert,outOfPool,interSwap,shift,transfer,intraSwap" -Pseed=0 -Pparallel -Pthreads=-1 -PalphaType="UNIFORM" -PminAlpha=0.1 -PmaxAlpha=0.5
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/10.json --outputPath=output/parallelGrasp --timeLimit=300 --searchMode=BEST_IMPROVEMENT --alphaType=UNIFORM --minAlpha=0.1 --maxAlpha=0.5 --skipProbability=0 --moves=insert,outOfPool,interSwap,shift,transfer,intraSwap --seed=0 --parallel --threads=-1
+Loading problem instance...
+
+[Incubating] Problems report is available at: file:///cta/users/ulvi.findik/TVCommercialScheduling/build/reports/problems/problems-report.html
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 10.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/9.2.1/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 10 SUCCESS (Duration: 304.99s)
+
+[11/240] Starting command 11...
+Executing: ./gradlew runGrasp -PinstancePath="instances/10.json" -PoutputPath="output/parallelGrasp" -PtimeLimit=300 -PsearchMode="BEST_IMPROVEMENT" -PskipProbability=0.25 -PlocalSearchMoves="insert,outOfPool,interSwap,shift,transfer,intraSwap" -Pseed=0 -Pparallel -Pthreads=-1 -PalphaType="UNIFORM" -PminAlpha=0.1 -PmaxAlpha=0.5
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/10.json --outputPath=output/parallelGrasp --timeLimit=300 --searchMode=BEST_IMPROVEMENT --alphaType=UNIFORM --minAlpha=0.1 --maxAlpha=0.5 --skipProbability=0.25 --moves=insert,outOfPool,interSwap,shift,transfer,intraSwap --seed=0 --parallel --threads=-1
+Loading problem instance...
+
+[Incubating] Problems report is available at: file:///cta/users/ulvi.findik/TVCommercialScheduling/build/reports/problems/problems-report.html
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 10.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/9.2.1/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD SUCCESSFUL in 5m 6s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 11 SUCCESS (Duration: 307.04s)
+
+[12/240] Starting command 12...
+Executing: ./gradlew runGrasp -PinstancePath="instances/10.json" -PoutputPath="output/parallelGrasp" -PtimeLimit=300 -PsearchMode="BEST_IMPROVEMENT" -PskipProbability=0.5 -PlocalSearchMoves="insert,outOfPool,interSwap,shift,transfer,intraSwap" -Pseed=0 -Pparallel -Pthreads=-1 -PalphaType="UNIFORM" -PminAlpha=0.1 -PmaxAlpha=0.5
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/10.json --outputPath=output/parallelGrasp --timeLimit=300 --searchMode=BEST_IMPROVEMENT --alphaType=UNIFORM --minAlpha=0.1 --maxAlpha=0.5 --skipProbability=0.5 --moves=insert,outOfPool,interSwap,shift,transfer,intraSwap --seed=0 --parallel --threads=-1
+Loading problem instance...
+
+[Incubating] Problems report is available at: file:///cta/users/ulvi.findik/TVCommercialScheduling/build/reports/problems/problems-report.html
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 10.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/9.2.1/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 12 SUCCESS (Duration: 304.97s)
+
+[13/240] Starting command 13...
+Executing: ./gradlew runGrasp -PinstancePath="instances/10.json" -PoutputPath="output/parallelGrasp" -PtimeLimit=300 -PsearchMode="FIRST_IMPROVEMENT" -PskipProbability=0 -PlocalSearchMoves="insert,outOfPool,interSwap,shift,transfer,intraSwap" -Pseed=0 -Pparallel -Pthreads=-1 -PalphaType="FIXED" -Palpha=0.25
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/10.json --outputPath=output/parallelGrasp --timeLimit=300 --searchMode=FIRST_IMPROVEMENT --alphaType=FIXED --alpha=0.25 --skipProbability=0 --moves=insert,outOfPool,interSwap,shift,transfer,intraSwap --seed=0 --parallel --threads=-1
+Loading problem instance...
+
+[Incubating] Problems report is available at: file:///cta/users/ulvi.findik/TVCommercialScheduling/build/reports/problems/problems-report.html
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 10.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/9.2.1/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 13 SUCCESS (Duration: 304.99s)
+
+[14/240] Starting command 14...
+Executing: ./gradlew runGrasp -PinstancePath="instances/10.json" -PoutputPath="output/parallelGrasp" -PtimeLimit=300 -PsearchMode="FIRST_IMPROVEMENT" -PskipProbability=0.25 -PlocalSearchMoves="insert,outOfPool,interSwap,shift,transfer,intraSwap" -Pseed=0 -Pparallel -Pthreads=-1 -PalphaType="FIXED" -Palpha=0.25
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/10.json --outputPath=output/parallelGrasp --timeLimit=300 --searchMode=FIRST_IMPROVEMENT --alphaType=FIXED --alpha=0.25 --skipProbability=0.25 --moves=insert,outOfPool,interSwap,shift,transfer,intraSwap --seed=0 --parallel --threads=-1
+Loading problem instance...
+
+[Incubating] Problems report is available at: file:///cta/users/ulvi.findik/TVCommercialScheduling/build/reports/problems/problems-report.html
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 10.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/9.2.1/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 14 SUCCESS (Duration: 304.99s)
+
+[15/240] Starting command 15...
+Executing: ./gradlew runGrasp -PinstancePath="instances/10.json" -PoutputPath="output/parallelGrasp" -PtimeLimit=300 -PsearchMode="FIRST_IMPROVEMENT" -PskipProbability=0.5 -PlocalSearchMoves="insert,outOfPool,interSwap,shift,transfer,intraSwap" -Pseed=0 -Pparallel -Pthreads=-1 -PalphaType="FIXED" -Palpha=0.25
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/10.json --outputPath=output/parallelGrasp --timeLimit=300 --searchMode=FIRST_IMPROVEMENT --alphaType=FIXED --alpha=0.25 --skipProbability=0.5 --moves=insert,outOfPool,interSwap,shift,transfer,intraSwap --seed=0 --parallel --threads=-1
+Loading problem instance...
+
+[Incubating] Problems report is available at: file:///cta/users/ulvi.findik/TVCommercialScheduling/build/reports/problems/problems-report.html
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 10.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/9.2.1/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 15 SUCCESS (Duration: 305.06s)
+
+[16/240] Starting command 16...
+Executing: ./gradlew runGrasp -PinstancePath="instances/10.json" -PoutputPath="output/parallelGrasp" -PtimeLimit=300 -PsearchMode="FIRST_IMPROVEMENT" -PskipProbability=0 -PlocalSearchMoves="insert,outOfPool,interSwap,shift,transfer,intraSwap" -Pseed=0 -Pparallel -Pthreads=-1 -PalphaType="FIXED" -Palpha=0.5
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runGrasp
+Running GRASP with arguments: --instancePath=instances/10.json --outputPath=output/parallelGrasp --timeLimit=300 --searchMode=FIRST_IMPROVEMENT --alphaType=FIXED --alpha=0.5 --skipProbability=0 --moves=insert,outOfPool,interSwap,shift,transfer,intraSwap --seed=0 --parallel --threads=-1
+Loading problem instance...
+
+[Incubating] Problems report is available at: file:///cta/users/ulvi.findik/TVCommercialScheduling/build/reports/problems/problems-report.html
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 10.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/9.2.1/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD SUCCESSFUL in 5m 4s
+2 actionable tasks: 1 executed, 1 up-to-date
+

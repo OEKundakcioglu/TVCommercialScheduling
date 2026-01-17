@@ -1,0 +1,216 @@
+{
+  "bestSolution": {
+    "revenue": 500966
+  },
+  "checkPoints": [
+    {
+      "solution": {
+        "revenue": 405895
+      },
+      "time": 0.7290000915527344
+    },
+    {
+      "solution": {
+        "revenue": 456540
+      },
+      "time": 0.8429999351501465
+    },
+    {
+      "solution": {
+        "revenue": 473166
+      },
+      "time": 0.9010000228881836
+    },
+    {
+      "solution": {
+        "revenue": 480931
+      },
+      "time": 1.1710000038146973
+    },
+    {
+      "solution": {
+        "revenue": 481080
+      },
+      "time": 1.2349998950958252
+    },
+    {
+      "solution": {
+        "revenue": 485205
+      },
+      "time": 1.3239998817443848
+    },
+    {
+      "solution": {
+        "revenue": 486632
+      },
+      "time": 1.4849998950958252
+    },
+    {
+      "solution": {
+        "revenue": 491771
+      },
+      "time": 1.86899995803833
+    },
+    {
+      "solution": {
+        "revenue": 492759
+      },
+      "time": 1.9489998817443848
+    },
+    {
+      "solution": {
+        "revenue": 494038
+      },
+      "time": 1.9760000705718994
+    },
+    {
+      "solution": {
+        "revenue": 495415
+      },
+      "time": 1.9909999370574951
+    },
+    {
+      "solution": {
+        "revenue": 495744
+      },
+      "time": 2.1010000705718994
+    },
+    {
+      "solution": {
+        "revenue": 496012
+      },
+      "time": 2.252000093460083
+    },
+    {
+      "solution": {
+        "revenue": 496558
+      },
+      "time": 2.2929999828338623
+    },
+    {
+      "solution": {
+        "revenue": 498299
+      },
+      "time": 2.3970000743865967
+    },
+    {
+      "solution": {
+        "revenue": 498645
+      },
+      "time": 2.734999895095825
+    },
+    {
+      "solution": {
+        "revenue": 498757
+      },
+      "time": 3.503000020980835
+    },
+    {
+      "solution": {
+        "revenue": 498997
+      },
+      "time": 4.091000080108643
+    },
+    {
+      "solution": {
+        "revenue": 499161
+      },
+      "time": 4.128000020980835
+    },
+    {
+      "solution": {
+        "revenue": 499287
+      },
+      "time": 4.66700005531311
+    },
+    {
+      "solution": {
+        "revenue": 499426
+      },
+      "time": 4.999000072479248
+    },
+    {
+      "solution": {
+        "revenue": 499774
+      },
+      "time": 5.049999952316284
+    },
+    {
+      "solution": {
+        "revenue": 499866
+      },
+      "time": 6.516999959945679
+    },
+    {
+      "solution": {
+        "revenue": 499882
+      },
+      "time": 7.390000104904175
+    },
+    {
+      "solution": {
+        "revenue": 500500
+      },
+      "time": 7.829999923706055
+    },
+    {
+      "solution": {
+        "revenue": 500501
+      },
+      "time": 10.57699990272522
+    },
+    {
+      "solution": {
+        "revenue": 500859
+      },
+      "time": 21.32100009918213
+    },
+    {
+      "solution": {
+        "revenue": 500963
+      },
+      "time": 23.956000089645386
+    },
+    {
+      "solution": {
+        "revenue": 500965
+      },
+      "time": 24.64400005340576
+    },
+    {
+      "solution": {
+        "revenue": 500966
+      },
+      "time": 35.855000019073486
+    }
+  ],
+  "instance": "density\u003dMEDIUM_nInventory\u003d10_nHours\u003d3_seed\u003d3",
+  "additionalInformation": {
+    "settings": {
+      "searchMode": "FIRST_IMPROVEMENT",
+      "timeLimit": 300,
+      "localSearchSettings": {
+        "moves": [
+          "insert",
+          "outOfPool",
+          "interSwap",
+          "shift",
+          "transfer",
+          "intraSwap"
+        ],
+        "neighborhoodSkipProbability": 0.5
+      },
+      "constructiveHeuristicSettings": {
+        "lowerBound": 0.5,
+        "upperBound": 2.0
+      },
+      "alphaGenerator": {
+        "lowerBound": 0.1,
+        "upperBound": 1.0
+      },
+      "randomRunN": 0,
+      "instancePath": "instances/density\u003dMEDIUM_nInventory\u003d10_nHours\u003d3_seed\u003d3.json"
+    },
+    "iterationsPerSecond": 519.9466666666667
+  }
+}

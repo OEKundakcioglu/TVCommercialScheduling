@@ -1,0 +1,101 @@
+{
+  "bestSolution": {
+    "revenue": 758985
+  },
+  "checkPoints": [
+    {
+      "solution": {
+        "revenue": 740092
+      },
+      "time": 0.22600007057189941
+    },
+    {
+      "solution": {
+        "revenue": 749478
+      },
+      "time": 0.3810000419616699
+    },
+    {
+      "solution": {
+        "revenue": 749976
+      },
+      "time": 0.500999927520752
+    },
+    {
+      "solution": {
+        "revenue": 751932
+      },
+      "time": 1.0350000858306885
+    },
+    {
+      "solution": {
+        "revenue": 753278
+      },
+      "time": 2.5759999752044678
+    },
+    {
+      "solution": {
+        "revenue": 753535
+      },
+      "time": 4.122999906539917
+    },
+    {
+      "solution": {
+        "revenue": 756968
+      },
+      "time": 8.431999921798706
+    },
+    {
+      "solution": {
+        "revenue": 757463
+      },
+      "time": 13.872999906539917
+    },
+    {
+      "solution": {
+        "revenue": 757464
+      },
+      "time": 14.57800006866455
+    },
+    {
+      "solution": {
+        "revenue": 758904
+      },
+      "time": 15.65499997138977
+    },
+    {
+      "solution": {
+        "revenue": 758985
+      },
+      "time": 26.319999933242798
+    }
+  ],
+  "instance": "density\u003dLOW_nInventory\u003d15_nHours\u003d4_seed\u003d8",
+  "additionalInformation": {
+    "settings": {
+      "searchMode": "BEST_IMPROVEMENT",
+      "timeLimit": 300,
+      "localSearchSettings": {
+        "moves": [
+          "insert",
+          "outOfPool",
+          "interSwap",
+          "shift",
+          "transfer",
+          "intraSwap"
+        ],
+        "neighborhoodSkipProbability": 0.0
+      },
+      "constructiveHeuristicSettings": {
+        "lowerBound": 0.5,
+        "upperBound": 2.0
+      },
+      "alphaGenerator": {
+        "alpha": 0.5
+      },
+      "randomRunN": 0,
+      "instancePath": "instances/density\u003dLOW_nInventory\u003d15_nHours\u003d4_seed\u003d8.json"
+    },
+    "iterationsPerSecond": 120.12
+  }
+}

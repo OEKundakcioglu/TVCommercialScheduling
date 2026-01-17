@@ -1,0 +1,216 @@
+{
+  "bestSolution": {
+    "revenue": 816160
+  },
+  "checkPoints": [
+    {
+      "solution": {
+        "revenue": 755772
+      },
+      "time": 0.746999979019165
+    },
+    {
+      "solution": {
+        "revenue": 781337
+      },
+      "time": 0.8190000057220459
+    },
+    {
+      "solution": {
+        "revenue": 782053
+      },
+      "time": 1.0880000591278076
+    },
+    {
+      "solution": {
+        "revenue": 782354
+      },
+      "time": 1.4170000553131104
+    },
+    {
+      "solution": {
+        "revenue": 782739
+      },
+      "time": 1.4590001106262207
+    },
+    {
+      "solution": {
+        "revenue": 789289
+      },
+      "time": 1.5099999904632568
+    },
+    {
+      "solution": {
+        "revenue": 795675
+      },
+      "time": 2.319999933242798
+    },
+    {
+      "solution": {
+        "revenue": 797875
+      },
+      "time": 2.822999954223633
+    },
+    {
+      "solution": {
+        "revenue": 797876
+      },
+      "time": 3.7699999809265137
+    },
+    {
+      "solution": {
+        "revenue": 798848
+      },
+      "time": 4.341000080108643
+    },
+    {
+      "solution": {
+        "revenue": 802813
+      },
+      "time": 4.746999979019165
+    },
+    {
+      "solution": {
+        "revenue": 804344
+      },
+      "time": 4.996999979019165
+    },
+    {
+      "solution": {
+        "revenue": 804373
+      },
+      "time": 6.92300009727478
+    },
+    {
+      "solution": {
+        "revenue": 806274
+      },
+      "time": 6.971999883651733
+    },
+    {
+      "solution": {
+        "revenue": 806303
+      },
+      "time": 7.71399998664856
+    },
+    {
+      "solution": {
+        "revenue": 807978
+      },
+      "time": 8.460000038146973
+    },
+    {
+      "solution": {
+        "revenue": 808326
+      },
+      "time": 10.134999990463257
+    },
+    {
+      "solution": {
+        "revenue": 809328
+      },
+      "time": 11.283999919891357
+    },
+    {
+      "solution": {
+        "revenue": 809677
+      },
+      "time": 13.391999959945679
+    },
+    {
+      "solution": {
+        "revenue": 809973
+      },
+      "time": 13.4760000705719
+    },
+    {
+      "solution": {
+        "revenue": 811130
+      },
+      "time": 48.48099994659424
+    },
+    {
+      "solution": {
+        "revenue": 811488
+      },
+      "time": 49.30200004577637
+    },
+    {
+      "solution": {
+        "revenue": 811784
+      },
+      "time": 49.3510000705719
+    },
+    {
+      "solution": {
+        "revenue": 812022
+      },
+      "time": 52.99300003051758
+    },
+    {
+      "solution": {
+        "revenue": 812051
+      },
+      "time": 53.00999999046326
+    },
+    {
+      "solution": {
+        "revenue": 812739
+      },
+      "time": 53.68499994277954
+    },
+    {
+      "solution": {
+        "revenue": 815012
+      },
+      "time": 57.49000000953674
+    },
+    {
+      "solution": {
+        "revenue": 815308
+      },
+      "time": 58.062000036239624
+    },
+    {
+      "solution": {
+        "revenue": 815758
+      },
+      "time": 120.09100008010864
+    },
+    {
+      "solution": {
+        "revenue": 816160
+      },
+      "time": 200.08500003814697
+    }
+  ],
+  "instance": "density\u003dMEDIUM_nInventory\u003d15_nHours\u003d4_seed\u003d1",
+  "additionalInformation": {
+    "settings": {
+      "searchMode": "BEST_IMPROVEMENT",
+      "timeLimit": 300,
+      "localSearchSettings": {
+        "moves": [
+          "insert",
+          "outOfPool",
+          "interSwap",
+          "shift",
+          "transfer",
+          "intraSwap"
+        ],
+        "neighborhoodSkipProbability": 0.0
+      },
+      "constructiveHeuristicSettings": {
+        "lowerBound": 0.5,
+        "upperBound": 2.0
+      },
+      "alphaGenerator": {
+        "lowerBound": 0.1,
+        "upperBound": 0.5
+      },
+      "randomRunN": 0,
+      "instancePath": "instances/density\u003dMEDIUM_nInventory\u003d15_nHours\u003d4_seed\u003d1.json"
+    },
+    "iterationsPerSecond": 60.45333333333333
+  }
+}

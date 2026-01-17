@@ -1,0 +1,216 @@
+{
+  "bestSolution": {
+    "revenue": 976557
+  },
+  "checkPoints": [
+    {
+      "solution": {
+        "revenue": 860713
+      },
+      "time": 1.1779999732971191
+    },
+    {
+      "solution": {
+        "revenue": 880719
+      },
+      "time": 1.3550000190734863
+    },
+    {
+      "solution": {
+        "revenue": 903617
+      },
+      "time": 1.4860000610351562
+    },
+    {
+      "solution": {
+        "revenue": 941025
+      },
+      "time": 1.5999999046325684
+    },
+    {
+      "solution": {
+        "revenue": 955331
+      },
+      "time": 2.1530001163482666
+    },
+    {
+      "solution": {
+        "revenue": 956878
+      },
+      "time": 2.6649999618530273
+    },
+    {
+      "solution": {
+        "revenue": 962225
+      },
+      "time": 2.7820000648498535
+    },
+    {
+      "solution": {
+        "revenue": 962897
+      },
+      "time": 3.312999963760376
+    },
+    {
+      "solution": {
+        "revenue": 963306
+      },
+      "time": 3.8359999656677246
+    },
+    {
+      "solution": {
+        "revenue": 964789
+      },
+      "time": 4.299999952316284
+    },
+    {
+      "solution": {
+        "revenue": 965622
+      },
+      "time": 6.493000030517578
+    },
+    {
+      "solution": {
+        "revenue": 967521
+      },
+      "time": 6.944000005722046
+    },
+    {
+      "solution": {
+        "revenue": 968755
+      },
+      "time": 7.2820000648498535
+    },
+    {
+      "solution": {
+        "revenue": 969612
+      },
+      "time": 8.098000049591064
+    },
+    {
+      "solution": {
+        "revenue": 969817
+      },
+      "time": 8.105000019073486
+    },
+    {
+      "solution": {
+        "revenue": 970939
+      },
+      "time": 8.213000059127808
+    },
+    {
+      "solution": {
+        "revenue": 970947
+      },
+      "time": 8.434999942779541
+    },
+    {
+      "solution": {
+        "revenue": 973267
+      },
+      "time": 10.752000093460083
+    },
+    {
+      "solution": {
+        "revenue": 974962
+      },
+      "time": 14.811000108718872
+    },
+    {
+      "solution": {
+        "revenue": 974964
+      },
+      "time": 15.272000074386597
+    },
+    {
+      "solution": {
+        "revenue": 974965
+      },
+      "time": 15.339999914169312
+    },
+    {
+      "solution": {
+        "revenue": 975073
+      },
+      "time": 16.819999933242798
+    },
+    {
+      "solution": {
+        "revenue": 975527
+      },
+      "time": 18.950000047683716
+    },
+    {
+      "solution": {
+        "revenue": 976031
+      },
+      "time": 19.655999898910522
+    },
+    {
+      "solution": {
+        "revenue": 976151
+      },
+      "time": 20.11899995803833
+    },
+    {
+      "solution": {
+        "revenue": 976217
+      },
+      "time": 20.575000047683716
+    },
+    {
+      "solution": {
+        "revenue": 976218
+      },
+      "time": 25.664999961853027
+    },
+    {
+      "solution": {
+        "revenue": 976549
+      },
+      "time": 25.865999937057495
+    },
+    {
+      "solution": {
+        "revenue": 976555
+      },
+      "time": 29.47699999809265
+    },
+    {
+      "solution": {
+        "revenue": 976557
+      },
+      "time": 85.28800010681152
+    }
+  ],
+  "instance": "density\u003dMEDIUM_nInventory\u003d15_nHours\u003d4_seed\u003d10",
+  "additionalInformation": {
+    "settings": {
+      "searchMode": "FIRST_IMPROVEMENT",
+      "timeLimit": 300,
+      "localSearchSettings": {
+        "moves": [
+          "insert",
+          "outOfPool",
+          "interSwap",
+          "shift",
+          "transfer",
+          "intraSwap"
+        ],
+        "neighborhoodSkipProbability": 0.25
+      },
+      "constructiveHeuristicSettings": {
+        "lowerBound": 0.5,
+        "upperBound": 2.0
+      },
+      "alphaGenerator": {
+        "lowerBound": 0.1,
+        "upperBound": 0.5
+      },
+      "randomRunN": 0,
+      "instancePath": "instances/density\u003dMEDIUM_nInventory\u003d15_nHours\u003d4_seed\u003d10.json"
+    },
+    "iterationsPerSecond": 71.94666666666667
+  }
+}

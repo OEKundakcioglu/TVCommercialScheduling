@@ -1,0 +1,222 @@
+{
+  "bestSolution": {
+    "revenue": 757336
+  },
+  "checkPoints": [
+    {
+      "solution": {
+        "revenue": 733261
+      },
+      "time": 0.8919999599456787
+    },
+    {
+      "solution": {
+        "revenue": 738235
+      },
+      "time": 1.4619998931884766
+    },
+    {
+      "solution": {
+        "revenue": 738611
+      },
+      "time": 1.5739998817443848
+    },
+    {
+      "solution": {
+        "revenue": 739696
+      },
+      "time": 1.6380000114440918
+    },
+    {
+      "solution": {
+        "revenue": 744844
+      },
+      "time": 1.75
+    },
+    {
+      "solution": {
+        "revenue": 748590
+      },
+      "time": 1.8250000476837158
+    },
+    {
+      "solution": {
+        "revenue": 749098
+      },
+      "time": 3.0929999351501465
+    },
+    {
+      "solution": {
+        "revenue": 749283
+      },
+      "time": 3.815000057220459
+    },
+    {
+      "solution": {
+        "revenue": 750046
+      },
+      "time": 4.979000091552734
+    },
+    {
+      "solution": {
+        "revenue": 752289
+      },
+      "time": 5.408999919891357
+    },
+    {
+      "solution": {
+        "revenue": 752664
+      },
+      "time": 5.584000110626221
+    },
+    {
+      "solution": {
+        "revenue": 752774
+      },
+      "time": 5.884999990463257
+    },
+    {
+      "solution": {
+        "revenue": 754633
+      },
+      "time": 6.102999925613403
+    },
+    {
+      "solution": {
+        "revenue": 754749
+      },
+      "time": 13.0239999294281
+    },
+    {
+      "solution": {
+        "revenue": 755235
+      },
+      "time": 16.19600009918213
+    },
+    {
+      "solution": {
+        "revenue": 755236
+      },
+      "time": 16.532999992370605
+    },
+    {
+      "solution": {
+        "revenue": 755487
+      },
+      "time": 16.64400005340576
+    },
+    {
+      "solution": {
+        "revenue": 755661
+      },
+      "time": 18.70799994468689
+    },
+    {
+      "solution": {
+        "revenue": 756195
+      },
+      "time": 19.348999977111816
+    },
+    {
+      "solution": {
+        "revenue": 756380
+      },
+      "time": 19.86400008201599
+    },
+    {
+      "solution": {
+        "revenue": 756618
+      },
+      "time": 21.51099991798401
+    },
+    {
+      "solution": {
+        "revenue": 756621
+      },
+      "time": 26.671000003814697
+    },
+    {
+      "solution": {
+        "revenue": 756979
+      },
+      "time": 45.651999950408936
+    },
+    {
+      "solution": {
+        "revenue": 756980
+      },
+      "time": 45.94199991226196
+    },
+    {
+      "solution": {
+        "revenue": 756982
+      },
+      "time": 46.01799988746643
+    },
+    {
+      "solution": {
+        "revenue": 756983
+      },
+      "time": 67.19199991226196
+    },
+    {
+      "solution": {
+        "revenue": 757293
+      },
+      "time": 71.0699999332428
+    },
+    {
+      "solution": {
+        "revenue": 757295
+      },
+      "time": 109.0699999332428
+    },
+    {
+      "solution": {
+        "revenue": 757331
+      },
+      "time": 125.85700011253357
+    },
+    {
+      "solution": {
+        "revenue": 757334
+      },
+      "time": 130.73300004005432
+    },
+    {
+      "solution": {
+        "revenue": 757336
+      },
+      "time": 131.385999917984
+    }
+  ],
+  "instance": "density\u003dLOW_nInventory\u003d15_nHours\u003d4_seed\u003d5",
+  "additionalInformation": {
+    "settings": {
+      "searchMode": "BEST_IMPROVEMENT",
+      "timeLimit": 300,
+      "localSearchSettings": {
+        "moves": [
+          "insert",
+          "outOfPool",
+          "interSwap",
+          "shift",
+          "transfer",
+          "intraSwap"
+        ],
+        "neighborhoodSkipProbability": 0.0
+      },
+      "constructiveHeuristicSettings": {
+        "lowerBound": 0.5,
+        "upperBound": 2.0
+      },
+      "alphaGenerator": {
+        "lowerBound": 0.1,
+        "upperBound": 0.5
+      },
+      "randomRunN": 0,
+      "instancePath": "instances/density\u003dLOW_nInventory\u003d15_nHours\u003d4_seed\u003d5.json"
+    },
+    "iterationsPerSecond": 80.92333333333333
+  }
+}

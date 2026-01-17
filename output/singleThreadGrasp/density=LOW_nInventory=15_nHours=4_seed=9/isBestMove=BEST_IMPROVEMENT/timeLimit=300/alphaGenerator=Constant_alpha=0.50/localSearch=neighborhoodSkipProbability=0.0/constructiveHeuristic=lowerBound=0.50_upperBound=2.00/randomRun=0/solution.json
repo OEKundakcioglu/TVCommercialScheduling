@@ -1,0 +1,101 @@
+{
+  "bestSolution": {
+    "revenue": 635175
+  },
+  "checkPoints": [
+    {
+      "solution": {
+        "revenue": 610652
+      },
+      "time": 0.931999921798706
+    },
+    {
+      "solution": {
+        "revenue": 611271
+      },
+      "time": 1.065000057220459
+    },
+    {
+      "solution": {
+        "revenue": 621472
+      },
+      "time": 1.1319999694824219
+    },
+    {
+      "solution": {
+        "revenue": 621511
+      },
+      "time": 1.2230000495910645
+    },
+    {
+      "solution": {
+        "revenue": 631995
+      },
+      "time": 1.4769999980926514
+    },
+    {
+      "solution": {
+        "revenue": 632540
+      },
+      "time": 4.125999927520752
+    },
+    {
+      "solution": {
+        "revenue": 632715
+      },
+      "time": 6.522000074386597
+    },
+    {
+      "solution": {
+        "revenue": 633109
+      },
+      "time": 6.543999910354614
+    },
+    {
+      "solution": {
+        "revenue": 634037
+      },
+      "time": 14.05299997329712
+    },
+    {
+      "solution": {
+        "revenue": 634932
+      },
+      "time": 14.221999883651733
+    },
+    {
+      "solution": {
+        "revenue": 635175
+      },
+      "time": 16.119999885559082
+    }
+  ],
+  "instance": "density\u003dLOW_nInventory\u003d15_nHours\u003d4_seed\u003d9",
+  "additionalInformation": {
+    "settings": {
+      "searchMode": "BEST_IMPROVEMENT",
+      "timeLimit": 300,
+      "localSearchSettings": {
+        "moves": [
+          "insert",
+          "outOfPool",
+          "interSwap",
+          "shift",
+          "transfer",
+          "intraSwap"
+        ],
+        "neighborhoodSkipProbability": 0.0
+      },
+      "constructiveHeuristicSettings": {
+        "lowerBound": 0.5,
+        "upperBound": 2.0
+      },
+      "alphaGenerator": {
+        "alpha": 0.5
+      },
+      "randomRunN": 0,
+      "instancePath": "instances/density\u003dLOW_nInventory\u003d15_nHours\u003d4_seed\u003d9.json"
+    },
+    "iterationsPerSecond": 138.57
+  }
+}

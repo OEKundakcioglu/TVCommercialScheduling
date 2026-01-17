@@ -1,0 +1,107 @@
+{
+  "bestSolution": {
+    "revenue": 367657
+  },
+  "checkPoints": [
+    {
+      "solution": {
+        "revenue": 355897
+      },
+      "time": 0.7309999465942383
+    },
+    {
+      "solution": {
+        "revenue": 360249
+      },
+      "time": 0.7379999160766602
+    },
+    {
+      "solution": {
+        "revenue": 361429
+      },
+      "time": 0.75
+    },
+    {
+      "solution": {
+        "revenue": 363436
+      },
+      "time": 0.7809998989105225
+    },
+    {
+      "solution": {
+        "revenue": 363692
+      },
+      "time": 1.2609999179840088
+    },
+    {
+      "solution": {
+        "revenue": 363981
+      },
+      "time": 1.3550000190734863
+    },
+    {
+      "solution": {
+        "revenue": 367647
+      },
+      "time": 1.7070000171661377
+    },
+    {
+      "solution": {
+        "revenue": 367651
+      },
+      "time": 2.0369999408721924
+    },
+    {
+      "solution": {
+        "revenue": 367652
+      },
+      "time": 3.688999891281128
+    },
+    {
+      "solution": {
+        "revenue": 367655
+      },
+      "time": 4.895999908447266
+    },
+    {
+      "solution": {
+        "revenue": 367656
+      },
+      "time": 9.730999946594238
+    },
+    {
+      "solution": {
+        "revenue": 367657
+      },
+      "time": 170.91599988937378
+    }
+  ],
+  "instance": "density\u003dLOW_nInventory\u003d10_nHours\u003d3_seed\u003d2",
+  "additionalInformation": {
+    "settings": {
+      "searchMode": "BEST_IMPROVEMENT",
+      "timeLimit": 300,
+      "localSearchSettings": {
+        "moves": [
+          "insert",
+          "outOfPool",
+          "interSwap",
+          "shift",
+          "transfer",
+          "intraSwap"
+        ],
+        "neighborhoodSkipProbability": 0.25
+      },
+      "constructiveHeuristicSettings": {
+        "lowerBound": 0.5,
+        "upperBound": 2.0
+      },
+      "alphaGenerator": {
+        "alpha": 0.5
+      },
+      "randomRunN": 0,
+      "instancePath": "instances/density\u003dLOW_nInventory\u003d10_nHours\u003d3_seed\u003d2.json"
+    },
+    "iterationsPerSecond": 694.8066666666666
+  }
+}

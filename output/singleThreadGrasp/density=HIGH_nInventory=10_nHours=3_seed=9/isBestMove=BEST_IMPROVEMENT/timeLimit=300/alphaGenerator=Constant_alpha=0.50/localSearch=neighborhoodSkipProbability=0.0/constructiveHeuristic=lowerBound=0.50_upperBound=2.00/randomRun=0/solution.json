@@ -1,0 +1,107 @@
+{
+  "bestSolution": {
+    "revenue": 493868
+  },
+  "checkPoints": [
+    {
+      "solution": {
+        "revenue": 487093
+      },
+      "time": 0.7179999351501465
+    },
+    {
+      "solution": {
+        "revenue": 487450
+      },
+      "time": 0.8450000286102295
+    },
+    {
+      "solution": {
+        "revenue": 488239
+      },
+      "time": 0.9519999027252197
+    },
+    {
+      "solution": {
+        "revenue": 489007
+      },
+      "time": 1.4140000343322754
+    },
+    {
+      "solution": {
+        "revenue": 491046
+      },
+      "time": 2.505000114440918
+    },
+    {
+      "solution": {
+        "revenue": 491270
+      },
+      "time": 5.648000001907349
+    },
+    {
+      "solution": {
+        "revenue": 491577
+      },
+      "time": 5.86899995803833
+    },
+    {
+      "solution": {
+        "revenue": 493063
+      },
+      "time": 6.474999904632568
+    },
+    {
+      "solution": {
+        "revenue": 493125
+      },
+      "time": 6.897000074386597
+    },
+    {
+      "solution": {
+        "revenue": 493505
+      },
+      "time": 7.727999925613403
+    },
+    {
+      "solution": {
+        "revenue": 493511
+      },
+      "time": 85.45600008964539
+    },
+    {
+      "solution": {
+        "revenue": 493868
+      },
+      "time": 297.2420001029968
+    }
+  ],
+  "instance": "density\u003dHIGH_nInventory\u003d10_nHours\u003d3_seed\u003d9",
+  "additionalInformation": {
+    "settings": {
+      "searchMode": "BEST_IMPROVEMENT",
+      "timeLimit": 300,
+      "localSearchSettings": {
+        "moves": [
+          "insert",
+          "outOfPool",
+          "interSwap",
+          "shift",
+          "transfer",
+          "intraSwap"
+        ],
+        "neighborhoodSkipProbability": 0.0
+      },
+      "constructiveHeuristicSettings": {
+        "lowerBound": 0.5,
+        "upperBound": 2.0
+      },
+      "alphaGenerator": {
+        "alpha": 0.5
+      },
+      "randomRunN": 0,
+      "instancePath": "instances/density\u003dHIGH_nInventory\u003d10_nHours\u003d3_seed\u003d9.json"
+    },
+    "iterationsPerSecond": 199.40666666666667
+  }
+}

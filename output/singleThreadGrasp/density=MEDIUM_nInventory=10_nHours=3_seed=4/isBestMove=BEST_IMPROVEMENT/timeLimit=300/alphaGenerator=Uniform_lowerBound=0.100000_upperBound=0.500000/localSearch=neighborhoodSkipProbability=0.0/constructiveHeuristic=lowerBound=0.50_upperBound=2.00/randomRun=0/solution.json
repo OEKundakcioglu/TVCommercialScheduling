@@ -1,0 +1,102 @@
+{
+  "bestSolution": {
+    "revenue": 374102
+  },
+  "checkPoints": [
+    {
+      "solution": {
+        "revenue": 368737
+      },
+      "time": 0.22300004959106445
+    },
+    {
+      "solution": {
+        "revenue": 370913
+      },
+      "time": 0.2569999694824219
+    },
+    {
+      "solution": {
+        "revenue": 373305
+      },
+      "time": 0.41899991035461426
+    },
+    {
+      "solution": {
+        "revenue": 373312
+      },
+      "time": 0.47300004959106445
+    },
+    {
+      "solution": {
+        "revenue": 374092
+      },
+      "time": 1.0789999961853027
+    },
+    {
+      "solution": {
+        "revenue": 374093
+      },
+      "time": 1.9159998893737793
+    },
+    {
+      "solution": {
+        "revenue": 374096
+      },
+      "time": 3.5810000896453857
+    },
+    {
+      "solution": {
+        "revenue": 374099
+      },
+      "time": 4.2829999923706055
+    },
+    {
+      "solution": {
+        "revenue": 374100
+      },
+      "time": 12.061000108718872
+    },
+    {
+      "solution": {
+        "revenue": 374101
+      },
+      "time": 15.6010000705719
+    },
+    {
+      "solution": {
+        "revenue": 374102
+      },
+      "time": 113.90599989891052
+    }
+  ],
+  "instance": "density\u003dMEDIUM_nInventory\u003d10_nHours\u003d3_seed\u003d4",
+  "additionalInformation": {
+    "settings": {
+      "searchMode": "BEST_IMPROVEMENT",
+      "timeLimit": 300,
+      "localSearchSettings": {
+        "moves": [
+          "insert",
+          "outOfPool",
+          "interSwap",
+          "shift",
+          "transfer",
+          "intraSwap"
+        ],
+        "neighborhoodSkipProbability": 0.0
+      },
+      "constructiveHeuristicSettings": {
+        "lowerBound": 0.5,
+        "upperBound": 2.0
+      },
+      "alphaGenerator": {
+        "lowerBound": 0.1,
+        "upperBound": 0.5
+      },
+      "randomRunN": 0,
+      "instancePath": "instances/density\u003dMEDIUM_nInventory\u003d10_nHours\u003d3_seed\u003d4.json"
+    },
+    "iterationsPerSecond": 351.08666666666664
+  }
+}

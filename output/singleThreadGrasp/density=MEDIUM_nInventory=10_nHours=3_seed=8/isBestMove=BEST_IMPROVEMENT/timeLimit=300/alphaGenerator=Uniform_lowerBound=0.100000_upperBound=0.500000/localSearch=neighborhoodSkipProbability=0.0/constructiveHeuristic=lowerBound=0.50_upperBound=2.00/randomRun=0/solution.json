@@ -1,0 +1,96 @@
+{
+  "bestSolution": {
+    "revenue": 336688
+  },
+  "checkPoints": [
+    {
+      "solution": {
+        "revenue": 312852
+      },
+      "time": 0.19099998474121094
+    },
+    {
+      "solution": {
+        "revenue": 329784
+      },
+      "time": 0.22499990463256836
+    },
+    {
+      "solution": {
+        "revenue": 333782
+      },
+      "time": 0.2799999713897705
+    },
+    {
+      "solution": {
+        "revenue": 333867
+      },
+      "time": 0.6349999904632568
+    },
+    {
+      "solution": {
+        "revenue": 334303
+      },
+      "time": 0.9200000762939453
+    },
+    {
+      "solution": {
+        "revenue": 336143
+      },
+      "time": 1.3399999141693115
+    },
+    {
+      "solution": {
+        "revenue": 336683
+      },
+      "time": 1.6600000858306885
+    },
+    {
+      "solution": {
+        "revenue": 336684
+      },
+      "time": 10.434999942779541
+    },
+    {
+      "solution": {
+        "revenue": 336687
+      },
+      "time": 21.698999881744385
+    },
+    {
+      "solution": {
+        "revenue": 336688
+      },
+      "time": 261.94799995422363
+    }
+  ],
+  "instance": "density\u003dMEDIUM_nInventory\u003d10_nHours\u003d3_seed\u003d8",
+  "additionalInformation": {
+    "settings": {
+      "searchMode": "BEST_IMPROVEMENT",
+      "timeLimit": 300,
+      "localSearchSettings": {
+        "moves": [
+          "insert",
+          "outOfPool",
+          "interSwap",
+          "shift",
+          "transfer",
+          "intraSwap"
+        ],
+        "neighborhoodSkipProbability": 0.0
+      },
+      "constructiveHeuristicSettings": {
+        "lowerBound": 0.5,
+        "upperBound": 2.0
+      },
+      "alphaGenerator": {
+        "lowerBound": 0.1,
+        "upperBound": 0.5
+      },
+      "randomRunN": 0,
+      "instancePath": "instances/density\u003dMEDIUM_nInventory\u003d10_nHours\u003d3_seed\u003d8.json"
+    },
+    "iterationsPerSecond": 278.96666666666664
+  }
+}

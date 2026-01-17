@@ -1,0 +1,101 @@
+{
+  "bestSolution": {
+    "revenue": 343332
+  },
+  "checkPoints": [
+    {
+      "solution": {
+        "revenue": 304971
+      },
+      "time": 0.0840001106262207
+    },
+    {
+      "solution": {
+        "revenue": 320768
+      },
+      "time": 0.0969998836517334
+    },
+    {
+      "solution": {
+        "revenue": 339342
+      },
+      "time": 0.11800003051757812
+    },
+    {
+      "solution": {
+        "revenue": 339792
+      },
+      "time": 0.2890000343322754
+    },
+    {
+      "solution": {
+        "revenue": 339936
+      },
+      "time": 0.377000093460083
+    },
+    {
+      "solution": {
+        "revenue": 340524
+      },
+      "time": 0.38299989700317383
+    },
+    {
+      "solution": {
+        "revenue": 341952
+      },
+      "time": 0.681999921798706
+    },
+    {
+      "solution": {
+        "revenue": 343312
+      },
+      "time": 0.7660000324249268
+    },
+    {
+      "solution": {
+        "revenue": 343329
+      },
+      "time": 1.3900001049041748
+    },
+    {
+      "solution": {
+        "revenue": 343330
+      },
+      "time": 3.190000057220459
+    },
+    {
+      "solution": {
+        "revenue": 343332
+      },
+      "time": 192.52600002288818
+    }
+  ],
+  "instance": "density\u003dLOW_nInventory\u003d10_nHours\u003d3_seed\u003d3",
+  "additionalInformation": {
+    "settings": {
+      "searchMode": "FIRST_IMPROVEMENT",
+      "timeLimit": 300,
+      "localSearchSettings": {
+        "moves": [
+          "insert",
+          "outOfPool",
+          "interSwap",
+          "shift",
+          "transfer",
+          "intraSwap"
+        ],
+        "neighborhoodSkipProbability": 0.25
+      },
+      "constructiveHeuristicSettings": {
+        "lowerBound": 0.5,
+        "upperBound": 2.0
+      },
+      "alphaGenerator": {
+        "alpha": 0.25
+      },
+      "randomRunN": 0,
+      "instancePath": "instances/density\u003dLOW_nInventory\u003d10_nHours\u003d3_seed\u003d3.json"
+    },
+    "iterationsPerSecond": 480.79333333333335
+  }
+}
