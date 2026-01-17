@@ -5,7 +5,7 @@
 #SBATCH --error=logs/%x_%j.err                  # Stderr log -> logs/<jobname>_<jobid>.err
 #SBATCH --time=1-00:00:00                      # Wall time limit
 #SBATCH --nodes=1                               # One node
-#SBATCH --ntasks=                              # One task (process)
+#SBATCH --ntasks=1                              # One task (process)
 #SBATCH --cpus-per-task=32
 #SBATCH --exclusive                             # Reserve entire node
 #SBATCH --mem=0                                 # Take all memory on the node
