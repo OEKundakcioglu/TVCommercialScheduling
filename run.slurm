@@ -15,8 +15,8 @@
 #SBATCH --qos=mid_mdbf
 
 # Ensure we never land on GPU nodes:
-# #SBATCH --exclude=cn[05-06,08-13,15-16,17-18]   # Exclude K2 and P4 GPU nodes
-#SBATCH --nodelist=cn[19-25]
+#SBATCH --exclude=cn[01-18]   # Exclude K2 and P4 GPU nodes
+##SBATCH --nodelist=cn[19-25]
 
 # Optional for deterministic CPU perf (no SMT/HT):
 #SBATCH --hint=nomultithread
