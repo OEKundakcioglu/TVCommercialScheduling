@@ -15,7 +15,8 @@
 #SBATCH --qos=mid_mdbf
 
 # Ensure we never land on GPU nodes:
-#SBATCH --constraint=32cpu
+# #SBATCH --constraint=32cpu
+#SBATCH --exclude=cn[01-18]
 
 # Optional for deterministic CPU perf (no SMT/HT):
 #SBATCH --hint=nomultithread
