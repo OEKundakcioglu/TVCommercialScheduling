@@ -16,7 +16,7 @@
 
 # Ensure we never land on GPU nodes:
 # #SBATCH --constraint=32cpu
-#SBATCH --exclude=cn[01-18]
+#SBATCH --exclude=cn[01-06,08-13,15-18]
 
 # Optional for deterministic CPU perf (no SMT/HT):
 #SBATCH --hint=nomultithread
