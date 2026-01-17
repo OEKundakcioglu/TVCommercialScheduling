@@ -5,7 +5,8 @@
 #SBATCH --error=logs/%x_%j.err                  # Stderr log -> logs/<jobname>_<jobid>.err
 #SBATCH --time=1-00:00:00                      # Wall time limit
 #SBATCH --nodes=1                               # One node
-#SBATCH --ntasks=1                              # One task (process)
+#SBATCH --ntasks=                              # One task (process)
+#SBATCH --cpus-per-task=32
 #SBATCH --exclusive                             # Reserve entire node
 #SBATCH --mem=0                                 # Take all memory on the node
 
@@ -14,8 +15,8 @@
 #SBATCH --qos=mid_mdbf
 
 # Ensure we never land on GPU nodes:
-#SBATCH --exclude=cn[05-06,08-13,15-16,17-18]   # Exclude K2 and P4 GPU nodes
-# #SBATCH --nodelist=cn[01-04,19-25]
+# #SBATCH --exclude=cn[05-06,08-13,15-16,17-18]   # Exclude K2 and P4 GPU nodes
+#SBATCH --nodelist=cn[19-25]
 
 # Optional for deterministic CPU perf (no SMT/HT):
 #SBATCH --hint=nomultithread
@@ -42,8 +43,8 @@ else
 fi
 
 # 2. Configure Threading
-export OMP_NUM_THREADS=$SLURM_CPUS_ON_NODE
-export MKL_NUM_THREADS=$SLURM_CPUS_ON_NODE
+export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
+export MKL_NUM_THREADS=$SLURM_CPUS_PER_TASK
 
 export JAVA_HOME=$HOME/jdk-25.0.1
 export PATH=$JAVA_HOME/bin:$PATH
@@ -86,6 +87,6 @@ echo ""
 
 # 4. Run Python Script
 # We assume your python script is named 'main.py' in the current folder.
-srun python run.py "$INPUT_FILE"
+python run.py "$INPUT_FILE"
 
 echo "[INFO] Job finished"
