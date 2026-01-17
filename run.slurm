@@ -6,7 +6,7 @@
 #SBATCH --time=1-00:00:00                      # Wall time limit
 #SBATCH --nodes=1                               # One node
 #SBATCH --ntasks=1                              # One task (process)
-#SBATCH --cpus-per-task=32
+#SBATCH --cpus-per-task=31
 #SBATCH --exclusive                             # Reserve entire node
 #SBATCH --mem=0                                 # Take all memory on the node
 
@@ -15,8 +15,8 @@
 #SBATCH --qos=mid_mdbf
 
 # Ensure we never land on GPU nodes:
-# #SBATCH --constraint=32cpu
-#SBATCH --exclude=cn[01-06,08-13,15-18]
+#SBATCH --constraint=32cpu
+# #SBATCH --exclude=cn[01-06,08-13,15-18]
 
 # Optional for deterministic CPU perf (no SMT/HT):
 #SBATCH --hint=nomultithread
