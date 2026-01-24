@@ -327,16 +327,16 @@ def run_commands_sequentially(commands: List[str], stop_on_error: bool = False, 
 
 
 def generate_run_commands(number_of_files: int):
-    commands_folder = Path("grasp_parallel_commands")
+    commands_folder = Path("mip_continuous_commands")
     if not commands_folder.exists():
         commands_folder.mkdir()
 
-    grasp_commands = generate_grasp_cli_commands("yamlConfigGrasp.yaml", "./gradlew runGrasp")
-#     mip_continuous_commands = generate_mip_cli_commands("yamlConfigContinuous.yaml", "./gradlew runMipSolver")
+#     grasp_commands = generate_grasp_cli_commands("yamlConfigGrasp.yaml", "./gradlew runGrasp")
+    mip_continuous_commands = generate_mip_cli_commands("yamlConfigContinuous.yaml", "./gradlew runMipSolver")
 #     mip_discrete_commands = generate_mip_cli_commands("yamlConfigDiscrete.yaml", "./gradlew runMipSolver")
     # bee_commands = generate_bee_cli_commands("yamlConfigBee.yaml", "./gradlew runBeeColony")
 
-    all_commands_tuples = grasp_commands
+    all_commands_tuples = mip_continuous_commands
     run_times = [command_tuple[1] for command_tuple in all_commands_tuples]
     total_run_time = sum(run_times)
 
@@ -377,7 +377,7 @@ def main():
     commands = read_commands(sys.argv[1])
     results = run_commands_sequentially(commands)
 
-#     generate_run_commands(10)
+#     generate_run_commands(2)
 
 
 if __name__ == "__main__":
