@@ -1,0 +1,107 @@
+{
+  "bestSolution": {
+    "revenue": 640844
+  },
+  "checkPoints": [
+    {
+      "solution": {
+        "revenue": 520137
+      },
+      "time": 0.7230000495910645
+    },
+    {
+      "solution": {
+        "revenue": 524002
+      },
+      "time": 0.7639999389648438
+    },
+    {
+      "solution": {
+        "revenue": 526856
+      },
+      "time": 0.7809998989105225
+    },
+    {
+      "solution": {
+        "revenue": 536181
+      },
+      "time": 0.812999963760376
+    },
+    {
+      "solution": {
+        "revenue": 555829
+      },
+      "time": 0.8210000991821289
+    },
+    {
+      "solution": {
+        "revenue": 608125
+      },
+      "time": 0.8229999542236328
+    },
+    {
+      "solution": {
+        "revenue": 616844
+      },
+      "time": 0.8280000686645508
+    },
+    {
+      "solution": {
+        "revenue": 632272
+      },
+      "time": 0.875999927520752
+    },
+    {
+      "solution": {
+        "revenue": 634463
+      },
+      "time": 0.9149999618530273
+    },
+    {
+      "solution": {
+        "revenue": 638903
+      },
+      "time": 0.9600000381469727
+    },
+    {
+      "solution": {
+        "revenue": 640548
+      },
+      "time": 1.0109999179840088
+    },
+    {
+      "solution": {
+        "revenue": 640844
+      },
+      "time": 1.178999900817871
+    }
+  ],
+  "instance": "density\u003dMEDIUM_nInventory\u003d10_nHours\u003d3_seed\u003d6",
+  "additionalInformation": {
+    "settings": {
+      "searchMode": "FIRST_IMPROVEMENT",
+      "timeLimit": 300,
+      "localSearchSettings": {
+        "moves": [
+          "insert",
+          "outOfPool",
+          "interSwap",
+          "shift",
+          "transfer",
+          "intraSwap"
+        ],
+        "neighborhoodSkipProbability": 0.5
+      },
+      "constructiveHeuristicSettings": {
+        "lowerBound": 0.5,
+        "upperBound": 2.0
+      },
+      "alphaGenerator": {
+        "alpha": 0.5
+      },
+      "randomRunN": 0,
+      "instancePath": "instances/density\u003dMEDIUM_nInventory\u003d10_nHours\u003d3_seed\u003d6.json"
+    },
+    "iterationsPerSecond": 11700.973333333333
+  }
+}

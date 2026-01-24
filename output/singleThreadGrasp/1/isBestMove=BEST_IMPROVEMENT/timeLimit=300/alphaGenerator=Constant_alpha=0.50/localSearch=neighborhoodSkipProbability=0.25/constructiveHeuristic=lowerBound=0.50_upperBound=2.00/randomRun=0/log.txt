@@ -1,0 +1,11 @@
+Running GRASP algorithm...
+Exception in thread "main" java.lang.NoClassDefFoundError: solvers/CheckPoint
+	at solvers.heuristicSolvers.grasp.graspWithPathRelinking.GraspWithPathRelinking.updateEliteSolutions(GraspWithPathRelinking.java:137)
+	at solvers.heuristicSolvers.grasp.graspWithPathRelinking.GraspWithPathRelinking.solve(GraspWithPathRelinking.java:108)
+	at solvers.heuristicSolvers.grasp.graspWithPathRelinking.GraspWithPathRelinking.<init>(GraspWithPathRelinking.java:45)
+	at mainGraspRun.run(mainGraspRun.java:210)
+	at mainGraspRun.main(mainGraspRun.java:122)
+Caused by: java.lang.ClassNotFoundException: solvers.CheckPoint
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:580)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:490)
+	... 5 more

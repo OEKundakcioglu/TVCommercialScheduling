@@ -1,0 +1,293 @@
+{
+  "bestSolution": {
+    "revenue": 945571
+  },
+  "checkPoints": [
+    {
+      "solution": {
+        "revenue": 777205
+      },
+      "time": 1.1080000400543213
+    },
+    {
+      "solution": {
+        "revenue": 815731
+      },
+      "time": 1.1170001029968262
+    },
+    {
+      "solution": {
+        "revenue": 858295
+      },
+      "time": 1.2190001010894775
+    },
+    {
+      "solution": {
+        "revenue": 859693
+      },
+      "time": 1.2330000400543213
+    },
+    {
+      "solution": {
+        "revenue": 882709
+      },
+      "time": 1.316999912261963
+    },
+    {
+      "solution": {
+        "revenue": 891700
+      },
+      "time": 1.369999885559082
+    },
+    {
+      "solution": {
+        "revenue": 892452
+      },
+      "time": 1.4500000476837158
+    },
+    {
+      "solution": {
+        "revenue": 892453
+      },
+      "time": 1.4779999256134033
+    },
+    {
+      "solution": {
+        "revenue": 892809
+      },
+      "time": 1.5520000457763672
+    },
+    {
+      "solution": {
+        "revenue": 895570
+      },
+      "time": 1.5720000267028809
+    },
+    {
+      "solution": {
+        "revenue": 895908
+      },
+      "time": 1.5820000171661377
+    },
+    {
+      "solution": {
+        "revenue": 898625
+      },
+      "time": 1.6019999980926514
+    },
+    {
+      "solution": {
+        "revenue": 903769
+      },
+      "time": 1.7330000400543213
+    },
+    {
+      "solution": {
+        "revenue": 909188
+      },
+      "time": 1.869999885559082
+    },
+    {
+      "solution": {
+        "revenue": 909920
+      },
+      "time": 2.0239999294281006
+    },
+    {
+      "solution": {
+        "revenue": 909968
+      },
+      "time": 2.140000104904175
+    },
+    {
+      "solution": {
+        "revenue": 913245
+      },
+      "time": 2.1589999198913574
+    },
+    {
+      "solution": {
+        "revenue": 916052
+      },
+      "time": 2.1649999618530273
+    },
+    {
+      "solution": {
+        "revenue": 917940
+      },
+      "time": 2.1760001182556152
+    },
+    {
+      "solution": {
+        "revenue": 919979
+      },
+      "time": 2.322999954223633
+    },
+    {
+      "solution": {
+        "revenue": 920050
+      },
+      "time": 2.5269999504089355
+    },
+    {
+      "solution": {
+        "revenue": 935230
+      },
+      "time": 2.5510001182556152
+    },
+    {
+      "solution": {
+        "revenue": 935625
+      },
+      "time": 2.61899995803833
+    },
+    {
+      "solution": {
+        "revenue": 935687
+      },
+      "time": 2.8919999599456787
+    },
+    {
+      "solution": {
+        "revenue": 936234
+      },
+      "time": 2.9630000591278076
+    },
+    {
+      "solution": {
+        "revenue": 938128
+      },
+      "time": 2.9790000915527344
+    },
+    {
+      "solution": {
+        "revenue": 939501
+      },
+      "time": 3.0420000553131104
+    },
+    {
+      "solution": {
+        "revenue": 940378
+      },
+      "time": 3.1989998817443848
+    },
+    {
+      "solution": {
+        "revenue": 942045
+      },
+      "time": 3.2980000972747803
+    },
+    {
+      "solution": {
+        "revenue": 942435
+      },
+      "time": 3.8550000190734863
+    },
+    {
+      "solution": {
+        "revenue": 942928
+      },
+      "time": 4.168999910354614
+    },
+    {
+      "solution": {
+        "revenue": 943094
+      },
+      "time": 9.170000076293945
+    },
+    {
+      "solution": {
+        "revenue": 943254
+      },
+      "time": 10.63100004196167
+    },
+    {
+      "solution": {
+        "revenue": 943976
+      },
+      "time": 10.63100004196167
+    },
+    {
+      "solution": {
+        "revenue": 943977
+      },
+      "time": 12.930000066757202
+    },
+    {
+      "solution": {
+        "revenue": 944601
+      },
+      "time": 19.73300004005432
+    },
+    {
+      "solution": {
+        "revenue": 944760
+      },
+      "time": 20.45799994468689
+    },
+    {
+      "solution": {
+        "revenue": 945088
+      },
+      "time": 22.295000076293945
+    },
+    {
+      "solution": {
+        "revenue": 945092
+      },
+      "time": 22.85599994659424
+    },
+    {
+      "solution": {
+        "revenue": 945094
+      },
+      "time": 25.543999910354614
+    },
+    {
+      "solution": {
+        "revenue": 945281
+      },
+      "time": 47.674999952316284
+    },
+    {
+      "solution": {
+        "revenue": 945570
+      },
+      "time": 92.90199995040894
+    },
+    {
+      "solution": {
+        "revenue": 945571
+      },
+      "time": 96.29900002479553
+    }
+  ],
+  "instance": "density\u003dHIGH_nInventory\u003d15_nHours\u003d4_seed\u003d4",
+  "additionalInformation": {
+    "settings": {
+      "searchMode": "BEST_IMPROVEMENT",
+      "timeLimit": 300,
+      "localSearchSettings": {
+        "moves": [
+          "insert",
+          "outOfPool",
+          "interSwap",
+          "shift",
+          "transfer",
+          "intraSwap"
+        ],
+        "neighborhoodSkipProbability": 0.25
+      },
+      "constructiveHeuristicSettings": {
+        "lowerBound": 0.5,
+        "upperBound": 2.0
+      },
+      "alphaGenerator": {
+        "alpha": 0.5
+      },
+      "randomRunN": 0,
+      "instancePath": "instances/density\u003dHIGH_nInventory\u003d15_nHours\u003d4_seed\u003d4.json"
+    },
+    "iterationsPerSecond": 462.4866666666667
+  }
+}

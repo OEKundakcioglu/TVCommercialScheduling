@@ -1,0 +1,126 @@
+{
+  "bestSolution": {
+    "revenue": 291300
+  },
+  "checkPoints": [
+    {
+      "solution": {
+        "revenue": 277977
+      },
+      "time": 0.7430000305175781
+    },
+    {
+      "solution": {
+        "revenue": 282725
+      },
+      "time": 0.812999963760376
+    },
+    {
+      "solution": {
+        "revenue": 282786
+      },
+      "time": 1.0209999084472656
+    },
+    {
+      "solution": {
+        "revenue": 283996
+      },
+      "time": 1.068000078201294
+    },
+    {
+      "solution": {
+        "revenue": 283997
+      },
+      "time": 1.121999979019165
+    },
+    {
+      "solution": {
+        "revenue": 284576
+      },
+      "time": 1.3429999351501465
+    },
+    {
+      "solution": {
+        "revenue": 287269
+      },
+      "time": 1.3559999465942383
+    },
+    {
+      "solution": {
+        "revenue": 291178
+      },
+      "time": 1.5989999771118164
+    },
+    {
+      "solution": {
+        "revenue": 291179
+      },
+      "time": 1.7309999465942383
+    },
+    {
+      "solution": {
+        "revenue": 291187
+      },
+      "time": 1.869999885559082
+    },
+    {
+      "solution": {
+        "revenue": 291288
+      },
+      "time": 6.954999923706055
+    },
+    {
+      "solution": {
+        "revenue": 291289
+      },
+      "time": 8.03600001335144
+    },
+    {
+      "solution": {
+        "revenue": 291291
+      },
+      "time": 10.634000062942505
+    },
+    {
+      "solution": {
+        "revenue": 291294
+      },
+      "time": 222.14599990844727
+    },
+    {
+      "solution": {
+        "revenue": 291300
+      },
+      "time": 232.40000009536743
+    }
+  ],
+  "instance": "density\u003dLOW_nInventory\u003d10_nHours\u003d3_seed\u003d5",
+  "additionalInformation": {
+    "settings": {
+      "searchMode": "FIRST_IMPROVEMENT",
+      "timeLimit": 300,
+      "localSearchSettings": {
+        "moves": [
+          "insert",
+          "outOfPool",
+          "interSwap",
+          "shift",
+          "transfer",
+          "intraSwap"
+        ],
+        "neighborhoodSkipProbability": 0.0
+      },
+      "constructiveHeuristicSettings": {
+        "lowerBound": 0.5,
+        "upperBound": 2.0
+      },
+      "alphaGenerator": {
+        "lowerBound": 0.1,
+        "upperBound": 0.5
+      },
+      "randomRunN": 0,
+      "instancePath": "instances/density\u003dLOW_nInventory\u003d10_nHours\u003d3_seed\u003d5.json"
+    },
+    "iterationsPerSecond": 314.5966666666667
+  }
+}

@@ -1,0 +1,240 @@
+{
+  "bestSolution": {
+    "revenue": 1047511
+  },
+  "checkPoints": [
+    {
+      "solution": {
+        "revenue": 1010214
+      },
+      "time": 0.9470000267028809
+    },
+    {
+      "solution": {
+        "revenue": 1027265
+      },
+      "time": 1.0959999561309814
+    },
+    {
+      "solution": {
+        "revenue": 1028696
+      },
+      "time": 2.8469998836517334
+    },
+    {
+      "solution": {
+        "revenue": 1028988
+      },
+      "time": 3.493000030517578
+    },
+    {
+      "solution": {
+        "revenue": 1030542
+      },
+      "time": 3.8329999446868896
+    },
+    {
+      "solution": {
+        "revenue": 1031782
+      },
+      "time": 3.9070000648498535
+    },
+    {
+      "solution": {
+        "revenue": 1032628
+      },
+      "time": 3.947999954223633
+    },
+    {
+      "solution": {
+        "revenue": 1032864
+      },
+      "time": 4.168999910354614
+    },
+    {
+      "solution": {
+        "revenue": 1033735
+      },
+      "time": 4.897000074386597
+    },
+    {
+      "solution": {
+        "revenue": 1034404
+      },
+      "time": 5.670000076293945
+    },
+    {
+      "solution": {
+        "revenue": 1034863
+      },
+      "time": 6.598999977111816
+    },
+    {
+      "solution": {
+        "revenue": 1035734
+      },
+      "time": 6.766999959945679
+    },
+    {
+      "solution": {
+        "revenue": 1035960
+      },
+      "time": 7.716000080108643
+    },
+    {
+      "solution": {
+        "revenue": 1036469
+      },
+      "time": 10.388999938964844
+    },
+    {
+      "solution": {
+        "revenue": 1036831
+      },
+      "time": 10.801000118255615
+    },
+    {
+      "solution": {
+        "revenue": 1037761
+      },
+      "time": 11.41100001335144
+    },
+    {
+      "solution": {
+        "revenue": 1037779
+      },
+      "time": 11.555000066757202
+    },
+    {
+      "solution": {
+        "revenue": 1037986
+      },
+      "time": 11.92199993133545
+    },
+    {
+      "solution": {
+        "revenue": 1037997
+      },
+      "time": 12.424000024795532
+    },
+    {
+      "solution": {
+        "revenue": 1038918
+      },
+      "time": 13.888000011444092
+    },
+    {
+      "solution": {
+        "revenue": 1038919
+      },
+      "time": 13.960000038146973
+    },
+    {
+      "solution": {
+        "revenue": 1039153
+      },
+      "time": 14.578999996185303
+    },
+    {
+      "solution": {
+        "revenue": 1039813
+      },
+      "time": 17.301000118255615
+    },
+    {
+      "solution": {
+        "revenue": 1039814
+      },
+      "time": 17.846999883651733
+    },
+    {
+      "solution": {
+        "revenue": 1039914
+      },
+      "time": 21.719000101089478
+    },
+    {
+      "solution": {
+        "revenue": 1040127
+      },
+      "time": 23.257999897003174
+    },
+    {
+      "solution": {
+        "revenue": 1041238
+      },
+      "time": 26.579999923706055
+    },
+    {
+      "solution": {
+        "revenue": 1041473
+      },
+      "time": 28.073999881744385
+    },
+    {
+      "solution": {
+        "revenue": 1041922
+      },
+      "time": 29.653000116348267
+    },
+    {
+      "solution": {
+        "revenue": 1044256
+      },
+      "time": 29.72699999809265
+    },
+    {
+      "solution": {
+        "revenue": 1045605
+      },
+      "time": 35.145999908447266
+    },
+    {
+      "solution": {
+        "revenue": 1046050
+      },
+      "time": 55.85800004005432
+    },
+    {
+      "solution": {
+        "revenue": 1047372
+      },
+      "time": 58.82100009918213
+    },
+    {
+      "solution": {
+        "revenue": 1047511
+      },
+      "time": 66.42000007629395
+    }
+  ],
+  "instance": "density\u003dLOW_nInventory\u003d20_nHours\u003d5_seed\u003d2",
+  "additionalInformation": {
+    "settings": {
+      "searchMode": "BEST_IMPROVEMENT",
+      "timeLimit": 300,
+      "localSearchSettings": {
+        "moves": [
+          "insert",
+          "outOfPool",
+          "interSwap",
+          "shift",
+          "transfer",
+          "intraSwap"
+        ],
+        "neighborhoodSkipProbability": 0.0
+      },
+      "constructiveHeuristicSettings": {
+        "lowerBound": 0.5,
+        "upperBound": 2.0
+      },
+      "alphaGenerator": {
+        "lowerBound": 0.1,
+        "upperBound": 1.0
+      },
+      "randomRunN": 0,
+      "instancePath": "instances/density\u003dLOW_nInventory\u003d20_nHours\u003d5_seed\u003d2.json"
+    },
+    "iterationsPerSecond": 28.463333333333335
+  }
+}

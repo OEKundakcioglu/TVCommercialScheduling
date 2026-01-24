@@ -1,0 +1,107 @@
+{
+  "bestSolution": {
+    "revenue": 261658
+  },
+  "checkPoints": [
+    {
+      "solution": {
+        "revenue": 217858
+      },
+      "time": 0.5829999446868896
+    },
+    {
+      "solution": {
+        "revenue": 228742
+      },
+      "time": 0.5840001106262207
+    },
+    {
+      "solution": {
+        "revenue": 235282
+      },
+      "time": 0.5889999866485596
+    },
+    {
+      "solution": {
+        "revenue": 235511
+      },
+      "time": 0.6189999580383301
+    },
+    {
+      "solution": {
+        "revenue": 242991
+      },
+      "time": 0.619999885559082
+    },
+    {
+      "solution": {
+        "revenue": 256143
+      },
+      "time": 0.6640000343322754
+    },
+    {
+      "solution": {
+        "revenue": 258771
+      },
+      "time": 0.684999942779541
+    },
+    {
+      "solution": {
+        "revenue": 260832
+      },
+      "time": 0.687000036239624
+    },
+    {
+      "solution": {
+        "revenue": 261294
+      },
+      "time": 0.6909999847412109
+    },
+    {
+      "solution": {
+        "revenue": 261651
+      },
+      "time": 0.693000078201294
+    },
+    {
+      "solution": {
+        "revenue": 261657
+      },
+      "time": 1.4749999046325684
+    },
+    {
+      "solution": {
+        "revenue": 261658
+      },
+      "time": 13.336999893188477
+    }
+  ],
+  "instance": "density\u003dLOW_nInventory\u003d10_nHours\u003d3_seed\u003d10",
+  "additionalInformation": {
+    "settings": {
+      "searchMode": "BEST_IMPROVEMENT",
+      "timeLimit": 300,
+      "localSearchSettings": {
+        "moves": [
+          "insert",
+          "outOfPool",
+          "interSwap",
+          "shift",
+          "transfer",
+          "intraSwap"
+        ],
+        "neighborhoodSkipProbability": 0.5
+      },
+      "constructiveHeuristicSettings": {
+        "lowerBound": 0.5,
+        "upperBound": 2.0
+      },
+      "alphaGenerator": {
+        "alpha": 0.5
+      },
+      "randomRunN": 0,
+      "instancePath": "instances/density\u003dLOW_nInventory\u003d10_nHours\u003d3_seed\u003d10.json"
+    },
+    "iterationsPerSecond": 7638.256666666667
+  }
+}

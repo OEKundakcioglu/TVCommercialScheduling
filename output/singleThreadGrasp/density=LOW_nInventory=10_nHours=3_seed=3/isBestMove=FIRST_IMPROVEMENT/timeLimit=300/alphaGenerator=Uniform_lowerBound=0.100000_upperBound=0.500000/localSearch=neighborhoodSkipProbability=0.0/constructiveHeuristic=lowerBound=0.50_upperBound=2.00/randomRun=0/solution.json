@@ -1,0 +1,102 @@
+{
+  "bestSolution": {
+    "revenue": 339950
+  },
+  "checkPoints": [
+    {
+      "solution": {
+        "revenue": 337008
+      },
+      "time": 0.7599999904632568
+    },
+    {
+      "solution": {
+        "revenue": 337398
+      },
+      "time": 0.806999921798706
+    },
+    {
+      "solution": {
+        "revenue": 337689
+      },
+      "time": 0.9030001163482666
+    },
+    {
+      "solution": {
+        "revenue": 338951
+      },
+      "time": 0.9179999828338623
+    },
+    {
+      "solution": {
+        "revenue": 339778
+      },
+      "time": 1.0139999389648438
+    },
+    {
+      "solution": {
+        "revenue": 339930
+      },
+      "time": 1.0739998817443848
+    },
+    {
+      "solution": {
+        "revenue": 339939
+      },
+      "time": 1.4690001010894775
+    },
+    {
+      "solution": {
+        "revenue": 339945
+      },
+      "time": 6.482000112533569
+    },
+    {
+      "solution": {
+        "revenue": 339946
+      },
+      "time": 6.934999942779541
+    },
+    {
+      "solution": {
+        "revenue": 339947
+      },
+      "time": 7.436000108718872
+    },
+    {
+      "solution": {
+        "revenue": 339950
+      },
+      "time": 21.384999990463257
+    }
+  ],
+  "instance": "density\u003dLOW_nInventory\u003d10_nHours\u003d3_seed\u003d3",
+  "additionalInformation": {
+    "settings": {
+      "searchMode": "FIRST_IMPROVEMENT",
+      "timeLimit": 300,
+      "localSearchSettings": {
+        "moves": [
+          "insert",
+          "outOfPool",
+          "interSwap",
+          "shift",
+          "transfer",
+          "intraSwap"
+        ],
+        "neighborhoodSkipProbability": 0.0
+      },
+      "constructiveHeuristicSettings": {
+        "lowerBound": 0.5,
+        "upperBound": 2.0
+      },
+      "alphaGenerator": {
+        "lowerBound": 0.1,
+        "upperBound": 0.5
+      },
+      "randomRunN": 0,
+      "instancePath": "instances/density\u003dLOW_nInventory\u003d10_nHours\u003d3_seed\u003d3.json"
+    },
+    "iterationsPerSecond": 266.9033333333333
+  }
+}

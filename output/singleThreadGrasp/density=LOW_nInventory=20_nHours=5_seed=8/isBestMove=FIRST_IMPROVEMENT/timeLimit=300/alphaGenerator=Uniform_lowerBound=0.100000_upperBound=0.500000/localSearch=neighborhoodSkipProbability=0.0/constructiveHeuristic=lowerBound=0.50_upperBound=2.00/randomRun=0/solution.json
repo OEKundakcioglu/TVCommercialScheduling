@@ -1,0 +1,216 @@
+{
+  "bestSolution": {
+    "revenue": 983964
+  },
+  "checkPoints": [
+    {
+      "solution": {
+        "revenue": 935478
+      },
+      "time": 0.22300004959106445
+    },
+    {
+      "solution": {
+        "revenue": 954877
+      },
+      "time": 0.38700008392333984
+    },
+    {
+      "solution": {
+        "revenue": 961177
+      },
+      "time": 1.6159999370574951
+    },
+    {
+      "solution": {
+        "revenue": 968607
+      },
+      "time": 1.803999900817871
+    },
+    {
+      "solution": {
+        "revenue": 969332
+      },
+      "time": 2.7060000896453857
+    },
+    {
+      "solution": {
+        "revenue": 970176
+      },
+      "time": 3.7269999980926514
+    },
+    {
+      "solution": {
+        "revenue": 970473
+      },
+      "time": 4.108999967575073
+    },
+    {
+      "solution": {
+        "revenue": 971854
+      },
+      "time": 4.28600001335144
+    },
+    {
+      "solution": {
+        "revenue": 973740
+      },
+      "time": 4.437000036239624
+    },
+    {
+      "solution": {
+        "revenue": 975255
+      },
+      "time": 4.957000017166138
+    },
+    {
+      "solution": {
+        "revenue": 978559
+      },
+      "time": 5.025000095367432
+    },
+    {
+      "solution": {
+        "revenue": 978831
+      },
+      "time": 5.255000114440918
+    },
+    {
+      "solution": {
+        "revenue": 979553
+      },
+      "time": 5.288000106811523
+    },
+    {
+      "solution": {
+        "revenue": 981208
+      },
+      "time": 5.940000057220459
+    },
+    {
+      "solution": {
+        "revenue": 981442
+      },
+      "time": 6.747999906539917
+    },
+    {
+      "solution": {
+        "revenue": 981480
+      },
+      "time": 8.611000061035156
+    },
+    {
+      "solution": {
+        "revenue": 981652
+      },
+      "time": 9.04200005531311
+    },
+    {
+      "solution": {
+        "revenue": 982203
+      },
+      "time": 9.430000066757202
+    },
+    {
+      "solution": {
+        "revenue": 982205
+      },
+      "time": 14.413000106811523
+    },
+    {
+      "solution": {
+        "revenue": 982791
+      },
+      "time": 18.483999967575073
+    },
+    {
+      "solution": {
+        "revenue": 982829
+      },
+      "time": 22.598999977111816
+    },
+    {
+      "solution": {
+        "revenue": 983229
+      },
+      "time": 29.647000074386597
+    },
+    {
+      "solution": {
+        "revenue": 983304
+      },
+      "time": 32.454999923706055
+    },
+    {
+      "solution": {
+        "revenue": 983731
+      },
+      "time": 32.75
+    },
+    {
+      "solution": {
+        "revenue": 983736
+      },
+      "time": 34.47099995613098
+    },
+    {
+      "solution": {
+        "revenue": 983766
+      },
+      "time": 37.2260000705719
+    },
+    {
+      "solution": {
+        "revenue": 983773
+      },
+      "time": 50.032999992370605
+    },
+    {
+      "solution": {
+        "revenue": 983956
+      },
+      "time": 64.38599991798401
+    },
+    {
+      "solution": {
+        "revenue": 983960
+      },
+      "time": 78.89100003242493
+    },
+    {
+      "solution": {
+        "revenue": 983964
+      },
+      "time": 187.29800009727478
+    }
+  ],
+  "instance": "density\u003dLOW_nInventory\u003d20_nHours\u003d5_seed\u003d8",
+  "additionalInformation": {
+    "settings": {
+      "searchMode": "FIRST_IMPROVEMENT",
+      "timeLimit": 300,
+      "localSearchSettings": {
+        "moves": [
+          "insert",
+          "outOfPool",
+          "interSwap",
+          "shift",
+          "transfer",
+          "intraSwap"
+        ],
+        "neighborhoodSkipProbability": 0.0
+      },
+      "constructiveHeuristicSettings": {
+        "lowerBound": 0.5,
+        "upperBound": 2.0
+      },
+      "alphaGenerator": {
+        "lowerBound": 0.1,
+        "upperBound": 0.5
+      },
+      "randomRunN": 0,
+      "instancePath": "instances/density\u003dLOW_nInventory\u003d20_nHours\u003d5_seed\u003d8.json"
+    },
+    "iterationsPerSecond": 29.27
+  }
+}

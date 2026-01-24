@@ -1,0 +1,101 @@
+{
+  "bestSolution": {
+    "revenue": 379156
+  },
+  "checkPoints": [
+    {
+      "solution": {
+        "revenue": 378389
+      },
+      "time": 0.6400001049041748
+    },
+    {
+      "solution": {
+        "revenue": 378405
+      },
+      "time": 0.6689999103546143
+    },
+    {
+      "solution": {
+        "revenue": 378557
+      },
+      "time": 0.8689999580383301
+    },
+    {
+      "solution": {
+        "revenue": 378857
+      },
+      "time": 0.937000036239624
+    },
+    {
+      "solution": {
+        "revenue": 379132
+      },
+      "time": 1.0929999351501465
+    },
+    {
+      "solution": {
+        "revenue": 379148
+      },
+      "time": 4.854000091552734
+    },
+    {
+      "solution": {
+        "revenue": 379151
+      },
+      "time": 14.400000095367432
+    },
+    {
+      "solution": {
+        "revenue": 379152
+      },
+      "time": 16.757999897003174
+    },
+    {
+      "solution": {
+        "revenue": 379153
+      },
+      "time": 17.66700005531311
+    },
+    {
+      "solution": {
+        "revenue": 379155
+      },
+      "time": 30.630000114440918
+    },
+    {
+      "solution": {
+        "revenue": 379156
+      },
+      "time": 57.76799988746643
+    }
+  ],
+  "instance": "density\u003dLOW_nInventory\u003d10_nHours\u003d3_seed\u003d7",
+  "additionalInformation": {
+    "settings": {
+      "searchMode": "BEST_IMPROVEMENT",
+      "timeLimit": 300,
+      "localSearchSettings": {
+        "moves": [
+          "insert",
+          "outOfPool",
+          "interSwap",
+          "shift",
+          "transfer",
+          "intraSwap"
+        ],
+        "neighborhoodSkipProbability": 0.0
+      },
+      "constructiveHeuristicSettings": {
+        "lowerBound": 0.5,
+        "upperBound": 2.0
+      },
+      "alphaGenerator": {
+        "alpha": 0.5
+      },
+      "randomRunN": 0,
+      "instancePath": "instances/density\u003dLOW_nInventory\u003d10_nHours\u003d3_seed\u003d7.json"
+    },
+    "iterationsPerSecond": 1932.3633333333332
+  }
+}

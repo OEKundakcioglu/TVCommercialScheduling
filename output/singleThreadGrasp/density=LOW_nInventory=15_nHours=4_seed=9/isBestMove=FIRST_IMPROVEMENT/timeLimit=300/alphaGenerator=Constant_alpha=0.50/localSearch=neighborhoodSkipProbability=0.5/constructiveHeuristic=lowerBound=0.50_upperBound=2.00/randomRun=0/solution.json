@@ -1,0 +1,215 @@
+{
+  "bestSolution": {
+    "revenue": 634463
+  },
+  "checkPoints": [
+    {
+      "solution": {
+        "revenue": 519411
+      },
+      "time": 0.28299999237060547
+    },
+    {
+      "solution": {
+        "revenue": 534318
+      },
+      "time": 0.29399991035461426
+    },
+    {
+      "solution": {
+        "revenue": 548560
+      },
+      "time": 0.3250000476837158
+    },
+    {
+      "solution": {
+        "revenue": 583776
+      },
+      "time": 0.33699989318847656
+    },
+    {
+      "solution": {
+        "revenue": 586213
+      },
+      "time": 0.3580000400543213
+    },
+    {
+      "solution": {
+        "revenue": 599717
+      },
+      "time": 0.3840000629425049
+    },
+    {
+      "solution": {
+        "revenue": 599791
+      },
+      "time": 0.38899993896484375
+    },
+    {
+      "solution": {
+        "revenue": 600254
+      },
+      "time": 0.4100000858306885
+    },
+    {
+      "solution": {
+        "revenue": 600973
+      },
+      "time": 0.4270000457763672
+    },
+    {
+      "solution": {
+        "revenue": 602134
+      },
+      "time": 0.434999942779541
+    },
+    {
+      "solution": {
+        "revenue": 603708
+      },
+      "time": 0.44300007820129395
+    },
+    {
+      "solution": {
+        "revenue": 604538
+      },
+      "time": 0.4760000705718994
+    },
+    {
+      "solution": {
+        "revenue": 606303
+      },
+      "time": 0.4790000915527344
+    },
+    {
+      "solution": {
+        "revenue": 611235
+      },
+      "time": 0.48799991607666016
+    },
+    {
+      "solution": {
+        "revenue": 614748
+      },
+      "time": 0.4939999580383301
+    },
+    {
+      "solution": {
+        "revenue": 620867
+      },
+      "time": 0.5469999313354492
+    },
+    {
+      "solution": {
+        "revenue": 620902
+      },
+      "time": 0.5980000495910645
+    },
+    {
+      "solution": {
+        "revenue": 620903
+      },
+      "time": 0.6210000514984131
+    },
+    {
+      "solution": {
+        "revenue": 621253
+      },
+      "time": 0.6989998817443848
+    },
+    {
+      "solution": {
+        "revenue": 628544
+      },
+      "time": 0.7070000171661377
+    },
+    {
+      "solution": {
+        "revenue": 629474
+      },
+      "time": 0.7869999408721924
+    },
+    {
+      "solution": {
+        "revenue": 629835
+      },
+      "time": 0.8199999332427979
+    },
+    {
+      "solution": {
+        "revenue": 630323
+      },
+      "time": 1.2650001049041748
+    },
+    {
+      "solution": {
+        "revenue": 630457
+      },
+      "time": 1.497999906539917
+    },
+    {
+      "solution": {
+        "revenue": 630927
+      },
+      "time": 1.6749999523162842
+    },
+    {
+      "solution": {
+        "revenue": 632251
+      },
+      "time": 2.434999942779541
+    },
+    {
+      "solution": {
+        "revenue": 633533
+      },
+      "time": 3.059000015258789
+    },
+    {
+      "solution": {
+        "revenue": 633839
+      },
+      "time": 5.509999990463257
+    },
+    {
+      "solution": {
+        "revenue": 634462
+      },
+      "time": 22.72000002861023
+    },
+    {
+      "solution": {
+        "revenue": 634463
+      },
+      "time": 28.598999977111816
+    }
+  ],
+  "instance": "density\u003dLOW_nInventory\u003d15_nHours\u003d4_seed\u003d9",
+  "additionalInformation": {
+    "settings": {
+      "searchMode": "FIRST_IMPROVEMENT",
+      "timeLimit": 300,
+      "localSearchSettings": {
+        "moves": [
+          "insert",
+          "outOfPool",
+          "interSwap",
+          "shift",
+          "transfer",
+          "intraSwap"
+        ],
+        "neighborhoodSkipProbability": 0.5
+      },
+      "constructiveHeuristicSettings": {
+        "lowerBound": 0.5,
+        "upperBound": 2.0
+      },
+      "alphaGenerator": {
+        "alpha": 0.5
+      },
+      "randomRunN": 0,
+      "instancePath": "instances/density\u003dLOW_nInventory\u003d15_nHours\u003d4_seed\u003d9.json"
+    },
+    "iterationsPerSecond": 473.07666666666665
+  }
+}

@@ -1,0 +1,113 @@
+{
+  "bestSolution": {
+    "revenue": 521953
+  },
+  "checkPoints": [
+    {
+      "solution": {
+        "revenue": 510313
+      },
+      "time": 1.308000087738037
+    },
+    {
+      "solution": {
+        "revenue": 512386
+      },
+      "time": 1.309999942779541
+    },
+    {
+      "solution": {
+        "revenue": 513217
+      },
+      "time": 1.3599998950958252
+    },
+    {
+      "solution": {
+        "revenue": 516729
+      },
+      "time": 1.377000093460083
+    },
+    {
+      "solution": {
+        "revenue": 519770
+      },
+      "time": 1.4830000400543213
+    },
+    {
+      "solution": {
+        "revenue": 521856
+      },
+      "time": 1.5309998989105225
+    },
+    {
+      "solution": {
+        "revenue": 521946
+      },
+      "time": 1.996999979019165
+    },
+    {
+      "solution": {
+        "revenue": 521947
+      },
+      "time": 5.540999889373779
+    },
+    {
+      "solution": {
+        "revenue": 521948
+      },
+      "time": 7.117000102996826
+    },
+    {
+      "solution": {
+        "revenue": 521949
+      },
+      "time": 25.342999935150146
+    },
+    {
+      "solution": {
+        "revenue": 521951
+      },
+      "time": 32.88199996948242
+    },
+    {
+      "solution": {
+        "revenue": 521952
+      },
+      "time": 89.83800005912781
+    },
+    {
+      "solution": {
+        "revenue": 521953
+      },
+      "time": 251.5239999294281
+    }
+  ],
+  "instance": "density\u003dHIGH_nInventory\u003d10_nHours\u003d3_seed\u003d4",
+  "additionalInformation": {
+    "settings": {
+      "searchMode": "BEST_IMPROVEMENT",
+      "timeLimit": 300,
+      "localSearchSettings": {
+        "moves": [
+          "insert",
+          "outOfPool",
+          "interSwap",
+          "shift",
+          "transfer",
+          "intraSwap"
+        ],
+        "neighborhoodSkipProbability": 0.0
+      },
+      "constructiveHeuristicSettings": {
+        "lowerBound": 0.5,
+        "upperBound": 2.0
+      },
+      "alphaGenerator": {
+        "alpha": 0.25
+      },
+      "randomRunN": 0,
+      "instancePath": "instances/density\u003dHIGH_nInventory\u003d10_nHours\u003d3_seed\u003d4.json"
+    },
+    "iterationsPerSecond": 857.2633333333333
+  }
+}

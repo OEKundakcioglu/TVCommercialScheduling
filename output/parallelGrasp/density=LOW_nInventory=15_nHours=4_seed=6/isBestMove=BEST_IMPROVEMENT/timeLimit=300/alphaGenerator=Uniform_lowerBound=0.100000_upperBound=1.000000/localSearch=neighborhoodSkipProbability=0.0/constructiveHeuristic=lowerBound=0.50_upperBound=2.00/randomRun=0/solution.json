@@ -1,0 +1,216 @@
+{
+  "bestSolution": {
+    "revenue": 863060
+  },
+  "checkPoints": [
+    {
+      "solution": {
+        "revenue": 794789
+      },
+      "time": 1.183000087738037
+    },
+    {
+      "solution": {
+        "revenue": 801627
+      },
+      "time": 1.1979999542236328
+    },
+    {
+      "solution": {
+        "revenue": 803383
+      },
+      "time": 1.2269999980926514
+    },
+    {
+      "solution": {
+        "revenue": 809408
+      },
+      "time": 1.2999999523162842
+    },
+    {
+      "solution": {
+        "revenue": 812445
+      },
+      "time": 1.309999942779541
+    },
+    {
+      "solution": {
+        "revenue": 819644
+      },
+      "time": 1.313999891281128
+    },
+    {
+      "solution": {
+        "revenue": 829051
+      },
+      "time": 1.3420000076293945
+    },
+    {
+      "solution": {
+        "revenue": 838556
+      },
+      "time": 1.6649999618530273
+    },
+    {
+      "solution": {
+        "revenue": 838557
+      },
+      "time": 1.6989998817443848
+    },
+    {
+      "solution": {
+        "revenue": 842846
+      },
+      "time": 1.7420001029968262
+    },
+    {
+      "solution": {
+        "revenue": 847553
+      },
+      "time": 1.8510000705718994
+    },
+    {
+      "solution": {
+        "revenue": 853408
+      },
+      "time": 1.8659999370574951
+    },
+    {
+      "solution": {
+        "revenue": 853721
+      },
+      "time": 1.9149999618530273
+    },
+    {
+      "solution": {
+        "revenue": 855084
+      },
+      "time": 1.9920001029968262
+    },
+    {
+      "solution": {
+        "revenue": 858101
+      },
+      "time": 2.061000108718872
+    },
+    {
+      "solution": {
+        "revenue": 858862
+      },
+      "time": 2.118000030517578
+    },
+    {
+      "solution": {
+        "revenue": 858995
+      },
+      "time": 2.490000009536743
+    },
+    {
+      "solution": {
+        "revenue": 860048
+      },
+      "time": 2.5399999618530273
+    },
+    {
+      "solution": {
+        "revenue": 860361
+      },
+      "time": 2.6700000762939453
+    },
+    {
+      "solution": {
+        "revenue": 861227
+      },
+      "time": 2.936000108718872
+    },
+    {
+      "solution": {
+        "revenue": 861555
+      },
+      "time": 5.388000011444092
+    },
+    {
+      "solution": {
+        "revenue": 861784
+      },
+      "time": 5.888000011444092
+    },
+    {
+      "solution": {
+        "revenue": 862212
+      },
+      "time": 6.232000112533569
+    },
+    {
+      "solution": {
+        "revenue": 862525
+      },
+      "time": 6.312000036239624
+    },
+    {
+      "solution": {
+        "revenue": 862527
+      },
+      "time": 7.454999923706055
+    },
+    {
+      "solution": {
+        "revenue": 862534
+      },
+      "time": 8.571000099182129
+    },
+    {
+      "solution": {
+        "revenue": 862847
+      },
+      "time": 8.723999977111816
+    },
+    {
+      "solution": {
+        "revenue": 862928
+      },
+      "time": 15.434999942779541
+    },
+    {
+      "solution": {
+        "revenue": 863059
+      },
+      "time": 173.82999992370605
+    },
+    {
+      "solution": {
+        "revenue": 863060
+      },
+      "time": 174.40000009536743
+    }
+  ],
+  "instance": "density\u003dLOW_nInventory\u003d15_nHours\u003d4_seed\u003d6",
+  "additionalInformation": {
+    "settings": {
+      "searchMode": "BEST_IMPROVEMENT",
+      "timeLimit": 300,
+      "localSearchSettings": {
+        "moves": [
+          "insert",
+          "outOfPool",
+          "interSwap",
+          "shift",
+          "transfer",
+          "intraSwap"
+        ],
+        "neighborhoodSkipProbability": 0.0
+      },
+      "constructiveHeuristicSettings": {
+        "lowerBound": 0.5,
+        "upperBound": 2.0
+      },
+      "alphaGenerator": {
+        "lowerBound": 0.1,
+        "upperBound": 1.0
+      },
+      "randomRunN": 0,
+      "instancePath": "instances/density\u003dLOW_nInventory\u003d15_nHours\u003d4_seed\u003d6.json"
+    },
+    "iterationsPerSecond": 312.25666666666666
+  }
+}

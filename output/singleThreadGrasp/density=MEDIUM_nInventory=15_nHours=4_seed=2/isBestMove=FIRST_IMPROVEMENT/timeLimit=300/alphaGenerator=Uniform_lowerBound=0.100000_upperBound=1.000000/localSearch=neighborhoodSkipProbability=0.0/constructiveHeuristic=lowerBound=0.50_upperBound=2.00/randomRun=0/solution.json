@@ -1,0 +1,222 @@
+{
+  "bestSolution": {
+    "revenue": 780895
+  },
+  "checkPoints": [
+    {
+      "solution": {
+        "revenue": 733192
+      },
+      "time": 1.059999942779541
+    },
+    {
+      "solution": {
+        "revenue": 737365
+      },
+      "time": 1.2379999160766602
+    },
+    {
+      "solution": {
+        "revenue": 740437
+      },
+      "time": 1.3529999256134033
+    },
+    {
+      "solution": {
+        "revenue": 751832
+      },
+      "time": 1.5069999694824219
+    },
+    {
+      "solution": {
+        "revenue": 755788
+      },
+      "time": 1.622999906539917
+    },
+    {
+      "solution": {
+        "revenue": 756348
+      },
+      "time": 2.364000082015991
+    },
+    {
+      "solution": {
+        "revenue": 756618
+      },
+      "time": 2.5409998893737793
+    },
+    {
+      "solution": {
+        "revenue": 760762
+      },
+      "time": 2.7149999141693115
+    },
+    {
+      "solution": {
+        "revenue": 762618
+      },
+      "time": 2.947999954223633
+    },
+    {
+      "solution": {
+        "revenue": 763469
+      },
+      "time": 3.015000104904175
+    },
+    {
+      "solution": {
+        "revenue": 771621
+      },
+      "time": 3.4749999046325684
+    },
+    {
+      "solution": {
+        "revenue": 771934
+      },
+      "time": 4.519999980926514
+    },
+    {
+      "solution": {
+        "revenue": 773162
+      },
+      "time": 5.601999998092651
+    },
+    {
+      "solution": {
+        "revenue": 773310
+      },
+      "time": 6.278000116348267
+    },
+    {
+      "solution": {
+        "revenue": 773345
+      },
+      "time": 7.240999937057495
+    },
+    {
+      "solution": {
+        "revenue": 773793
+      },
+      "time": 7.7850000858306885
+    },
+    {
+      "solution": {
+        "revenue": 774850
+      },
+      "time": 7.878000020980835
+    },
+    {
+      "solution": {
+        "revenue": 775165
+      },
+      "time": 8.094000101089478
+    },
+    {
+      "solution": {
+        "revenue": 775213
+      },
+      "time": 9.153000116348267
+    },
+    {
+      "solution": {
+        "revenue": 776129
+      },
+      "time": 10.384999990463257
+    },
+    {
+      "solution": {
+        "revenue": 777104
+      },
+      "time": 10.729000091552734
+    },
+    {
+      "solution": {
+        "revenue": 777991
+      },
+      "time": 10.76200008392334
+    },
+    {
+      "solution": {
+        "revenue": 779517
+      },
+      "time": 11.713000059127808
+    },
+    {
+      "solution": {
+        "revenue": 779733
+      },
+      "time": 12.04200005531311
+    },
+    {
+      "solution": {
+        "revenue": 779911
+      },
+      "time": 12.571000099182129
+    },
+    {
+      "solution": {
+        "revenue": 779982
+      },
+      "time": 13.32800006866455
+    },
+    {
+      "solution": {
+        "revenue": 780679
+      },
+      "time": 15.240999937057495
+    },
+    {
+      "solution": {
+        "revenue": 780841
+      },
+      "time": 25.062000036239624
+    },
+    {
+      "solution": {
+        "revenue": 780893
+      },
+      "time": 74.5550000667572
+    },
+    {
+      "solution": {
+        "revenue": 780894
+      },
+      "time": 155.1029999256134
+    },
+    {
+      "solution": {
+        "revenue": 780895
+      },
+      "time": 268.7699999809265
+    }
+  ],
+  "instance": "density\u003dMEDIUM_nInventory\u003d15_nHours\u003d4_seed\u003d2",
+  "additionalInformation": {
+    "settings": {
+      "searchMode": "FIRST_IMPROVEMENT",
+      "timeLimit": 300,
+      "localSearchSettings": {
+        "moves": [
+          "insert",
+          "outOfPool",
+          "interSwap",
+          "shift",
+          "transfer",
+          "intraSwap"
+        ],
+        "neighborhoodSkipProbability": 0.0
+      },
+      "constructiveHeuristicSettings": {
+        "lowerBound": 0.5,
+        "upperBound": 2.0
+      },
+      "alphaGenerator": {
+        "lowerBound": 0.1,
+        "upperBound": 1.0
+      },
+      "randomRunN": 0,
+      "instancePath": "instances/density\u003dMEDIUM_nInventory\u003d15_nHours\u003d4_seed\u003d2.json"
+    },
+    "iterationsPerSecond": 32.46
+  }
+}

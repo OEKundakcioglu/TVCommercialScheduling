@@ -1,0 +1,215 @@
+{
+  "bestSolution": {
+    "revenue": 630935
+  },
+  "checkPoints": [
+    {
+      "solution": {
+        "revenue": 548554
+      },
+      "time": 0.05800008773803711
+    },
+    {
+      "solution": {
+        "revenue": 591429
+      },
+      "time": 0.08899998664855957
+    },
+    {
+      "solution": {
+        "revenue": 614096
+      },
+      "time": 0.12299990653991699
+    },
+    {
+      "solution": {
+        "revenue": 614296
+      },
+      "time": 0.1380000114440918
+    },
+    {
+      "solution": {
+        "revenue": 616032
+      },
+      "time": 0.26399993896484375
+    },
+    {
+      "solution": {
+        "revenue": 616145
+      },
+      "time": 0.2690000534057617
+    },
+    {
+      "solution": {
+        "revenue": 616165
+      },
+      "time": 0.2929999828338623
+    },
+    {
+      "solution": {
+        "revenue": 616170
+      },
+      "time": 0.33299994468688965
+    },
+    {
+      "solution": {
+        "revenue": 617550
+      },
+      "time": 0.37800002098083496
+    },
+    {
+      "solution": {
+        "revenue": 617641
+      },
+      "time": 0.47699999809265137
+    },
+    {
+      "solution": {
+        "revenue": 618864
+      },
+      "time": 0.5610001087188721
+    },
+    {
+      "solution": {
+        "revenue": 619064
+      },
+      "time": 0.6459999084472656
+    },
+    {
+      "solution": {
+        "revenue": 622132
+      },
+      "time": 0.749000072479248
+    },
+    {
+      "solution": {
+        "revenue": 625290
+      },
+      "time": 0.8880000114440918
+    },
+    {
+      "solution": {
+        "revenue": 626959
+      },
+      "time": 1.1530001163482666
+    },
+    {
+      "solution": {
+        "revenue": 627369
+      },
+      "time": 7.7170000076293945
+    },
+    {
+      "solution": {
+        "revenue": 627448
+      },
+      "time": 10.306999921798706
+    },
+    {
+      "solution": {
+        "revenue": 628857
+      },
+      "time": 16.10599994659424
+    },
+    {
+      "solution": {
+        "revenue": 628936
+      },
+      "time": 16.180000066757202
+    },
+    {
+      "solution": {
+        "revenue": 629426
+      },
+      "time": 18.6010000705719
+    },
+    {
+      "solution": {
+        "revenue": 629427
+      },
+      "time": 20.33899998664856
+    },
+    {
+      "solution": {
+        "revenue": 629760
+      },
+      "time": 23.89299988746643
+    },
+    {
+      "solution": {
+        "revenue": 629833
+      },
+      "time": 98.89499998092651
+    },
+    {
+      "solution": {
+        "revenue": 629834
+      },
+      "time": 107.59100008010864
+    },
+    {
+      "solution": {
+        "revenue": 630415
+      },
+      "time": 137.6210000514984
+    },
+    {
+      "solution": {
+        "revenue": 630554
+      },
+      "time": 286.1340000629425
+    },
+    {
+      "solution": {
+        "revenue": 630555
+      },
+      "time": 286.4389998912811
+    },
+    {
+      "solution": {
+        "revenue": 630613
+      },
+      "time": 288.0130000114441
+    },
+    {
+      "solution": {
+        "revenue": 630934
+      },
+      "time": 292.7260000705719
+    },
+    {
+      "solution": {
+        "revenue": 630935
+      },
+      "time": 298.1559998989105
+    }
+  ],
+  "instance": "density\u003dHIGH_nInventory\u003d10_nHours\u003d3_seed\u003d7",
+  "additionalInformation": {
+    "settings": {
+      "searchMode": "BEST_IMPROVEMENT",
+      "timeLimit": 300,
+      "localSearchSettings": {
+        "moves": [
+          "insert",
+          "outOfPool",
+          "interSwap",
+          "shift",
+          "transfer",
+          "intraSwap"
+        ],
+        "neighborhoodSkipProbability": 0.25
+      },
+      "constructiveHeuristicSettings": {
+        "lowerBound": 0.5,
+        "upperBound": 2.0
+      },
+      "alphaGenerator": {
+        "alpha": 0.5
+      },
+      "randomRunN": 0,
+      "instancePath": "instances/density\u003dHIGH_nInventory\u003d10_nHours\u003d3_seed\u003d7.json"
+    },
+    "iterationsPerSecond": 210.66666666666666
+  }
+}
