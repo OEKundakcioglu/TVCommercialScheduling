@@ -1,0 +1,2632 @@
+[INFO] Activating existing environment...
+==========================================
+ SLURM JOB STATISTICS
+==========================================
+Job ID:        155523
+Node:          cn21
+User:          ulvi.findik
+Date:          Sun Jan 25 11:40:29 +03 2026
+Input File:    mip_discrete_commands/run_commands_2.txt
+------------------------------------------
+ CPU Details:
+Model name:          Intel(R) Xeon(R) Gold 6130 CPU @ 2.10GHz
+CPU Cores:     31
+------------------------------------------
+ Memory Details:
+              total        used        free      shared  buff/cache   available
+Mem:          251Gi       1.5Gi       237Gi        12Gi        12Gi       236Gi
+Swap:            0B          0B          0B
+==========================================
+
+Starting execution of 50 commands...
+
+[1/50] Starting command 1...
+Executing: ./gradlew runMipSolver -PinstancePath="instances/density=HIGH_nInventory=10_nHours=3_seed=9.json" -PoutputPath="output/discrete" -PmodelType="Discrete" -PcheckPointTimes="30,60,120,300,600,900,1800,3600,7200" -PlogPath="output/discrete/density=HIGH_nInventory=10_nHours=3_seed=9.json/mip.log"
+Command failed with return code: 1
+Error: WARNING: A restricted method in java.lang.System has been called
+WARNING: java.lang.System::load has been called by net.rubygrapefruit.platform.internal.NativeLibraryLoader in an unnamed module (file:/cta/users/ulvi.findik/.gradle/wrapper/dists/gradle-9.2.1-bin/2t0n5ozlw9xmuyvbp7dnzaxug/gradle-9.2.1/lib/native-platform-0.22-milestone-29.jar)
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+
+WARNING: A restricted method in java.lang.System has been called
+WARNING: java.lang.System::load has been called by com.gurobi.gurobi.NativeUtils in an unnamed module (file:/cta/users/ulvi.findik/.gradle/caches/modules-2/files-2.1/com.gurobi/gurobi/12.0.0/a7a090c1247917e4a85894a83767d350905ee3c9/gurobi-12.0.0.jar)
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':runMipSolver'.
+> Process 'command '/cta/users/ulvi.findik/jdk-25.0.1/bin/java'' finished with non-zero exit value 1
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to generate a Build Scan (powered by Develocity).
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 12s
+
+Starting a Gradle Daemon, 4 busy and 1 incompatible and 2 stopped Daemons could not be reused, use --status for details
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runMipSolver
+Running MIP Solver with arguments: --instancePath=instances/density=HIGH_nInventory=10_nHours=3_seed=9.json --outputPath=output/discrete --modelType=Discrete --checkPointTimes=30,60,120,300,600,900,1800,3600,7200 --logPath=output/discrete/density=HIGH_nInventory=10_nHours=3_seed=9.json/mip.log
+Loading problem instance...
+Set parameter WLSAccessID
+Set parameter WLSSecret
+Set parameter LicenseID to value 2748665
+
+> Task :runMipSolver FAILED
+
+[Incubating] Problems report is available at: file:///cta/users/ulvi.findik/TVCommercialScheduling/build/reports/problems/problems-report.html
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 10.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/9.2.1/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 1 FAILED (Duration: 13.44s)
+
+[2/50] Starting command 2...
+Executing: ./gradlew runMipSolver -PinstancePath="instances/density=MEDIUM_nInventory=10_nHours=3_seed=2.json" -PoutputPath="output/discrete" -PmodelType="Discrete" -PcheckPointTimes="30,60,120,300,600,900,1800,3600,7200" -PlogPath="output/discrete/density=MEDIUM_nInventory=10_nHours=3_seed=2.json/mip.log"
+Command failed with return code: 1
+Error: WARNING: A restricted method in java.lang.System has been called
+WARNING: java.lang.System::load has been called by net.rubygrapefruit.platform.internal.NativeLibraryLoader in an unnamed module (file:/cta/users/ulvi.findik/.gradle/wrapper/dists/gradle-9.2.1-bin/2t0n5ozlw9xmuyvbp7dnzaxug/gradle-9.2.1/lib/native-platform-0.22-milestone-29.jar)
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+
+WARNING: A restricted method in java.lang.System has been called
+WARNING: java.lang.System::load has been called by com.gurobi.gurobi.NativeUtils in an unnamed module (file:/cta/users/ulvi.findik/.gradle/caches/modules-2/files-2.1/com.gurobi/gurobi/12.0.0/a7a090c1247917e4a85894a83767d350905ee3c9/gurobi-12.0.0.jar)
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':runMipSolver'.
+> Process 'command '/cta/users/ulvi.findik/jdk-25.0.1/bin/java'' finished with non-zero exit value 1
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to generate a Build Scan (powered by Develocity).
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 4s
+
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runMipSolver
+Running MIP Solver with arguments: --instancePath=instances/density=MEDIUM_nInventory=10_nHours=3_seed=2.json --outputPath=output/discrete --modelType=Discrete --checkPointTimes=30,60,120,300,600,900,1800,3600,7200 --logPath=output/discrete/density=MEDIUM_nInventory=10_nHours=3_seed=2.json/mip.log
+Loading problem instance...
+Set parameter WLSAccessID
+Set parameter WLSSecret
+Set parameter LicenseID to value 2748665
+
+> Task :runMipSolver FAILED
+
+[Incubating] Problems report is available at: file:///cta/users/ulvi.findik/TVCommercialScheduling/build/reports/problems/problems-report.html
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 10.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/9.2.1/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 2 FAILED (Duration: 4.95s)
+
+[3/50] Starting command 3...
+Executing: ./gradlew runMipSolver -PinstancePath="instances/2.json" -PoutputPath="output/discrete" -PmodelType="Discrete" -PcheckPointTimes="30,60,120,300,600,900,1800,3600,7200" -PlogPath="output/discrete/2.json/mip.log"
+Command failed with return code: 1
+Error: WARNING: A restricted method in java.lang.System has been called
+WARNING: java.lang.System::load has been called by net.rubygrapefruit.platform.internal.NativeLibraryLoader in an unnamed module (file:/cta/users/ulvi.findik/.gradle/wrapper/dists/gradle-9.2.1-bin/2t0n5ozlw9xmuyvbp7dnzaxug/gradle-9.2.1/lib/native-platform-0.22-milestone-29.jar)
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+
+WARNING: A restricted method in java.lang.System has been called
+WARNING: java.lang.System::load has been called by com.gurobi.gurobi.NativeUtils in an unnamed module (file:/cta/users/ulvi.findik/.gradle/caches/modules-2/files-2.1/com.gurobi/gurobi/12.0.0/a7a090c1247917e4a85894a83767d350905ee3c9/gurobi-12.0.0.jar)
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':runMipSolver'.
+> Process 'command '/cta/users/ulvi.findik/jdk-25.0.1/bin/java'' finished with non-zero exit value 1
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to generate a Build Scan (powered by Develocity).
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 4s
+
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runMipSolver
+Running MIP Solver with arguments: --instancePath=instances/2.json --outputPath=output/discrete --modelType=Discrete --checkPointTimes=30,60,120,300,600,900,1800,3600,7200 --logPath=output/discrete/2.json/mip.log
+Loading problem instance...
+Set parameter WLSAccessID
+Set parameter WLSSecret
+Set parameter LicenseID to value 2748665
+
+> Task :runMipSolver FAILED
+
+[Incubating] Problems report is available at: file:///cta/users/ulvi.findik/TVCommercialScheduling/build/reports/problems/problems-report.html
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 10.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/9.2.1/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 3 FAILED (Duration: 4.66s)
+
+[4/50] Starting command 4...
+Executing: ./gradlew runMipSolver -PinstancePath="instances/density=HIGH_nInventory=15_nHours=4_seed=9.json" -PoutputPath="output/discrete" -PmodelType="Discrete" -PcheckPointTimes="30,60,120,300,600,900,1800,3600,7200" -PlogPath="output/discrete/density=HIGH_nInventory=15_nHours=4_seed=9.json/mip.log"
+Command failed with return code: 1
+Error: WARNING: A restricted method in java.lang.System has been called
+WARNING: java.lang.System::load has been called by net.rubygrapefruit.platform.internal.NativeLibraryLoader in an unnamed module (file:/cta/users/ulvi.findik/.gradle/wrapper/dists/gradle-9.2.1-bin/2t0n5ozlw9xmuyvbp7dnzaxug/gradle-9.2.1/lib/native-platform-0.22-milestone-29.jar)
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+
+WARNING: A restricted method in java.lang.System has been called
+WARNING: java.lang.System::load has been called by com.gurobi.gurobi.NativeUtils in an unnamed module (file:/cta/users/ulvi.findik/.gradle/caches/modules-2/files-2.1/com.gurobi/gurobi/12.0.0/a7a090c1247917e4a85894a83767d350905ee3c9/gurobi-12.0.0.jar)
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':runMipSolver'.
+> Process 'command '/cta/users/ulvi.findik/jdk-25.0.1/bin/java'' finished with non-zero exit value 1
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to generate a Build Scan (powered by Develocity).
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 4s
+
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runMipSolver
+Running MIP Solver with arguments: --instancePath=instances/density=HIGH_nInventory=15_nHours=4_seed=9.json --outputPath=output/discrete --modelType=Discrete --checkPointTimes=30,60,120,300,600,900,1800,3600,7200 --logPath=output/discrete/density=HIGH_nInventory=15_nHours=4_seed=9.json/mip.log
+Loading problem instance...
+Set parameter WLSAccessID
+Set parameter WLSSecret
+Set parameter LicenseID to value 2748665
+
+> Task :runMipSolver FAILED
+
+[Incubating] Problems report is available at: file:///cta/users/ulvi.findik/TVCommercialScheduling/build/reports/problems/problems-report.html
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 10.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/9.2.1/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 4 FAILED (Duration: 5.04s)
+
+[5/50] Starting command 5...
+Executing: ./gradlew runMipSolver -PinstancePath="instances/density=MEDIUM_nInventory=20_nHours=5_seed=1.json" -PoutputPath="output/discrete" -PmodelType="Discrete" -PcheckPointTimes="30,60,120,300,600,900,1800,3600,7200" -PlogPath="output/discrete/density=MEDIUM_nInventory=20_nHours=5_seed=1.json/mip.log"
+Command failed with return code: 1
+Error: WARNING: A restricted method in java.lang.System has been called
+WARNING: java.lang.System::load has been called by net.rubygrapefruit.platform.internal.NativeLibraryLoader in an unnamed module (file:/cta/users/ulvi.findik/.gradle/wrapper/dists/gradle-9.2.1-bin/2t0n5ozlw9xmuyvbp7dnzaxug/gradle-9.2.1/lib/native-platform-0.22-milestone-29.jar)
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+
+WARNING: A restricted method in java.lang.System has been called
+WARNING: java.lang.System::load has been called by com.gurobi.gurobi.NativeUtils in an unnamed module (file:/cta/users/ulvi.findik/.gradle/caches/modules-2/files-2.1/com.gurobi/gurobi/12.0.0/a7a090c1247917e4a85894a83767d350905ee3c9/gurobi-12.0.0.jar)
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':runMipSolver'.
+> Process 'command '/cta/users/ulvi.findik/jdk-25.0.1/bin/java'' finished with non-zero exit value 1
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to generate a Build Scan (powered by Develocity).
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 4s
+
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runMipSolver
+Running MIP Solver with arguments: --instancePath=instances/density=MEDIUM_nInventory=20_nHours=5_seed=1.json --outputPath=output/discrete --modelType=Discrete --checkPointTimes=30,60,120,300,600,900,1800,3600,7200 --logPath=output/discrete/density=MEDIUM_nInventory=20_nHours=5_seed=1.json/mip.log
+Loading problem instance...
+Set parameter WLSAccessID
+Set parameter WLSSecret
+Set parameter LicenseID to value 2748665
+
+> Task :runMipSolver FAILED
+
+[Incubating] Problems report is available at: file:///cta/users/ulvi.findik/TVCommercialScheduling/build/reports/problems/problems-report.html
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 10.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/9.2.1/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 5 FAILED (Duration: 4.54s)
+
+[6/50] Starting command 6...
+Executing: ./gradlew runMipSolver -PinstancePath="instances/density=HIGH_nInventory=20_nHours=5_seed=9.json" -PoutputPath="output/discrete" -PmodelType="Discrete" -PcheckPointTimes="30,60,120,300,600,900,1800,3600,7200" -PlogPath="output/discrete/density=HIGH_nInventory=20_nHours=5_seed=9.json/mip.log"
+Command failed with return code: 1
+Error: WARNING: A restricted method in java.lang.System has been called
+WARNING: java.lang.System::load has been called by net.rubygrapefruit.platform.internal.NativeLibraryLoader in an unnamed module (file:/cta/users/ulvi.findik/.gradle/wrapper/dists/gradle-9.2.1-bin/2t0n5ozlw9xmuyvbp7dnzaxug/gradle-9.2.1/lib/native-platform-0.22-milestone-29.jar)
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+
+WARNING: A restricted method in java.lang.System has been called
+WARNING: java.lang.System::load has been called by com.gurobi.gurobi.NativeUtils in an unnamed module (file:/cta/users/ulvi.findik/.gradle/caches/modules-2/files-2.1/com.gurobi/gurobi/12.0.0/a7a090c1247917e4a85894a83767d350905ee3c9/gurobi-12.0.0.jar)
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':runMipSolver'.
+> Process 'command '/cta/users/ulvi.findik/jdk-25.0.1/bin/java'' finished with non-zero exit value 1
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to generate a Build Scan (powered by Develocity).
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 4s
+
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runMipSolver
+Running MIP Solver with arguments: --instancePath=instances/density=HIGH_nInventory=20_nHours=5_seed=9.json --outputPath=output/discrete --modelType=Discrete --checkPointTimes=30,60,120,300,600,900,1800,3600,7200 --logPath=output/discrete/density=HIGH_nInventory=20_nHours=5_seed=9.json/mip.log
+Loading problem instance...
+Set parameter WLSAccessID
+Set parameter WLSSecret
+Set parameter LicenseID to value 2748665
+
+> Task :runMipSolver FAILED
+
+[Incubating] Problems report is available at: file:///cta/users/ulvi.findik/TVCommercialScheduling/build/reports/problems/problems-report.html
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 10.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/9.2.1/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 6 FAILED (Duration: 4.85s)
+
+[7/50] Starting command 7...
+Executing: ./gradlew runMipSolver -PinstancePath="instances/density=MEDIUM_nInventory=15_nHours=4_seed=1.json" -PoutputPath="output/discrete" -PmodelType="Discrete" -PcheckPointTimes="30,60,120,300,600,900,1800,3600,7200" -PlogPath="output/discrete/density=MEDIUM_nInventory=15_nHours=4_seed=1.json/mip.log"
+Command failed with return code: 1
+Error: WARNING: A restricted method in java.lang.System has been called
+WARNING: java.lang.System::load has been called by net.rubygrapefruit.platform.internal.NativeLibraryLoader in an unnamed module (file:/cta/users/ulvi.findik/.gradle/wrapper/dists/gradle-9.2.1-bin/2t0n5ozlw9xmuyvbp7dnzaxug/gradle-9.2.1/lib/native-platform-0.22-milestone-29.jar)
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+
+WARNING: A restricted method in java.lang.System has been called
+WARNING: java.lang.System::load has been called by com.gurobi.gurobi.NativeUtils in an unnamed module (file:/cta/users/ulvi.findik/.gradle/caches/modules-2/files-2.1/com.gurobi/gurobi/12.0.0/a7a090c1247917e4a85894a83767d350905ee3c9/gurobi-12.0.0.jar)
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':runMipSolver'.
+> Process 'command '/cta/users/ulvi.findik/jdk-25.0.1/bin/java'' finished with non-zero exit value 1
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to generate a Build Scan (powered by Develocity).
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 4s
+
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runMipSolver
+Running MIP Solver with arguments: --instancePath=instances/density=MEDIUM_nInventory=15_nHours=4_seed=1.json --outputPath=output/discrete --modelType=Discrete --checkPointTimes=30,60,120,300,600,900,1800,3600,7200 --logPath=output/discrete/density=MEDIUM_nInventory=15_nHours=4_seed=1.json/mip.log
+Loading problem instance...
+Set parameter WLSAccessID
+Set parameter WLSSecret
+Set parameter LicenseID to value 2748665
+
+> Task :runMipSolver FAILED
+
+[Incubating] Problems report is available at: file:///cta/users/ulvi.findik/TVCommercialScheduling/build/reports/problems/problems-report.html
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 10.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/9.2.1/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 7 FAILED (Duration: 4.67s)
+
+[8/50] Starting command 8...
+Executing: ./gradlew runMipSolver -PinstancePath="instances/density=LOW_nInventory=10_nHours=3_seed=3.json" -PoutputPath="output/discrete" -PmodelType="Discrete" -PcheckPointTimes="30,60,120,300,600,900,1800,3600,7200" -PlogPath="output/discrete/density=LOW_nInventory=10_nHours=3_seed=3.json/mip.log"
+Command failed with return code: 1
+Error: WARNING: A restricted method in java.lang.System has been called
+WARNING: java.lang.System::load has been called by net.rubygrapefruit.platform.internal.NativeLibraryLoader in an unnamed module (file:/cta/users/ulvi.findik/.gradle/wrapper/dists/gradle-9.2.1-bin/2t0n5ozlw9xmuyvbp7dnzaxug/gradle-9.2.1/lib/native-platform-0.22-milestone-29.jar)
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+
+WARNING: A restricted method in java.lang.System has been called
+WARNING: java.lang.System::load has been called by com.gurobi.gurobi.NativeUtils in an unnamed module (file:/cta/users/ulvi.findik/.gradle/caches/modules-2/files-2.1/com.gurobi/gurobi/12.0.0/a7a090c1247917e4a85894a83767d350905ee3c9/gurobi-12.0.0.jar)
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':runMipSolver'.
+> Process 'command '/cta/users/ulvi.findik/jdk-25.0.1/bin/java'' finished with non-zero exit value 1
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to generate a Build Scan (powered by Develocity).
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 4s
+
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runMipSolver
+Running MIP Solver with arguments: --instancePath=instances/density=LOW_nInventory=10_nHours=3_seed=3.json --outputPath=output/discrete --modelType=Discrete --checkPointTimes=30,60,120,300,600,900,1800,3600,7200 --logPath=output/discrete/density=LOW_nInventory=10_nHours=3_seed=3.json/mip.log
+Loading problem instance...
+Set parameter WLSAccessID
+Set parameter WLSSecret
+Set parameter LicenseID to value 2748665
+
+> Task :runMipSolver FAILED
+
+[Incubating] Problems report is available at: file:///cta/users/ulvi.findik/TVCommercialScheduling/build/reports/problems/problems-report.html
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 10.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/9.2.1/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 8 FAILED (Duration: 4.75s)
+
+[9/50] Starting command 9...
+Executing: ./gradlew runMipSolver -PinstancePath="instances/density=HIGH_nInventory=15_nHours=4_seed=5.json" -PoutputPath="output/discrete" -PmodelType="Discrete" -PcheckPointTimes="30,60,120,300,600,900,1800,3600,7200" -PlogPath="output/discrete/density=HIGH_nInventory=15_nHours=4_seed=5.json/mip.log"
+Command failed with return code: 1
+Error: WARNING: A restricted method in java.lang.System has been called
+WARNING: java.lang.System::load has been called by net.rubygrapefruit.platform.internal.NativeLibraryLoader in an unnamed module (file:/cta/users/ulvi.findik/.gradle/wrapper/dists/gradle-9.2.1-bin/2t0n5ozlw9xmuyvbp7dnzaxug/gradle-9.2.1/lib/native-platform-0.22-milestone-29.jar)
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+
+WARNING: A restricted method in java.lang.System has been called
+WARNING: java.lang.System::load has been called by com.gurobi.gurobi.NativeUtils in an unnamed module (file:/cta/users/ulvi.findik/.gradle/caches/modules-2/files-2.1/com.gurobi/gurobi/12.0.0/a7a090c1247917e4a85894a83767d350905ee3c9/gurobi-12.0.0.jar)
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':runMipSolver'.
+> Process 'command '/cta/users/ulvi.findik/jdk-25.0.1/bin/java'' finished with non-zero exit value 1
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to generate a Build Scan (powered by Develocity).
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 4s
+
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runMipSolver
+Running MIP Solver with arguments: --instancePath=instances/density=HIGH_nInventory=15_nHours=4_seed=5.json --outputPath=output/discrete --modelType=Discrete --checkPointTimes=30,60,120,300,600,900,1800,3600,7200 --logPath=output/discrete/density=HIGH_nInventory=15_nHours=4_seed=5.json/mip.log
+Loading problem instance...
+Set parameter WLSAccessID
+Set parameter WLSSecret
+Set parameter LicenseID to value 2748665
+
+> Task :runMipSolver FAILED
+
+[Incubating] Problems report is available at: file:///cta/users/ulvi.findik/TVCommercialScheduling/build/reports/problems/problems-report.html
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 10.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/9.2.1/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 9 FAILED (Duration: 4.91s)
+
+[10/50] Starting command 10...
+Executing: ./gradlew runMipSolver -PinstancePath="instances/density=HIGH_nInventory=20_nHours=5_seed=5.json" -PoutputPath="output/discrete" -PmodelType="Discrete" -PcheckPointTimes="30,60,120,300,600,900,1800,3600,7200" -PlogPath="output/discrete/density=HIGH_nInventory=20_nHours=5_seed=5.json/mip.log"
+Command failed with return code: 1
+Error: WARNING: A restricted method in java.lang.System has been called
+WARNING: java.lang.System::load has been called by net.rubygrapefruit.platform.internal.NativeLibraryLoader in an unnamed module (file:/cta/users/ulvi.findik/.gradle/wrapper/dists/gradle-9.2.1-bin/2t0n5ozlw9xmuyvbp7dnzaxug/gradle-9.2.1/lib/native-platform-0.22-milestone-29.jar)
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+
+WARNING: A restricted method in java.lang.System has been called
+WARNING: java.lang.System::load has been called by com.gurobi.gurobi.NativeUtils in an unnamed module (file:/cta/users/ulvi.findik/.gradle/caches/modules-2/files-2.1/com.gurobi/gurobi/12.0.0/a7a090c1247917e4a85894a83767d350905ee3c9/gurobi-12.0.0.jar)
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':runMipSolver'.
+> Process 'command '/cta/users/ulvi.findik/jdk-25.0.1/bin/java'' finished with non-zero exit value 1
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to generate a Build Scan (powered by Develocity).
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 4s
+
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runMipSolver
+Running MIP Solver with arguments: --instancePath=instances/density=HIGH_nInventory=20_nHours=5_seed=5.json --outputPath=output/discrete --modelType=Discrete --checkPointTimes=30,60,120,300,600,900,1800,3600,7200 --logPath=output/discrete/density=HIGH_nInventory=20_nHours=5_seed=5.json/mip.log
+Loading problem instance...
+Set parameter WLSAccessID
+Set parameter WLSSecret
+Set parameter LicenseID to value 2748665
+
+> Task :runMipSolver FAILED
+
+[Incubating] Problems report is available at: file:///cta/users/ulvi.findik/TVCommercialScheduling/build/reports/problems/problems-report.html
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 10.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/9.2.1/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 10 FAILED (Duration: 4.55s)
+
+[11/50] Starting command 11...
+Executing: ./gradlew runMipSolver -PinstancePath="instances/density=HIGH_nInventory=10_nHours=3_seed=6.json" -PoutputPath="output/discrete" -PmodelType="Discrete" -PcheckPointTimes="30,60,120,300,600,900,1800,3600,7200" -PlogPath="output/discrete/density=HIGH_nInventory=10_nHours=3_seed=6.json/mip.log"
+Command failed with return code: 1
+Error: WARNING: A restricted method in java.lang.System has been called
+WARNING: java.lang.System::load has been called by net.rubygrapefruit.platform.internal.NativeLibraryLoader in an unnamed module (file:/cta/users/ulvi.findik/.gradle/wrapper/dists/gradle-9.2.1-bin/2t0n5ozlw9xmuyvbp7dnzaxug/gradle-9.2.1/lib/native-platform-0.22-milestone-29.jar)
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+
+WARNING: A restricted method in java.lang.System has been called
+WARNING: java.lang.System::load has been called by com.gurobi.gurobi.NativeUtils in an unnamed module (file:/cta/users/ulvi.findik/.gradle/caches/modules-2/files-2.1/com.gurobi/gurobi/12.0.0/a7a090c1247917e4a85894a83767d350905ee3c9/gurobi-12.0.0.jar)
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':runMipSolver'.
+> Process 'command '/cta/users/ulvi.findik/jdk-25.0.1/bin/java'' finished with non-zero exit value 1
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to generate a Build Scan (powered by Develocity).
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 4s
+
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runMipSolver
+Running MIP Solver with arguments: --instancePath=instances/density=HIGH_nInventory=10_nHours=3_seed=6.json --outputPath=output/discrete --modelType=Discrete --checkPointTimes=30,60,120,300,600,900,1800,3600,7200 --logPath=output/discrete/density=HIGH_nInventory=10_nHours=3_seed=6.json/mip.log
+Loading problem instance...
+Set parameter WLSAccessID
+Set parameter WLSSecret
+Set parameter LicenseID to value 2748665
+
+> Task :runMipSolver FAILED
+
+[Incubating] Problems report is available at: file:///cta/users/ulvi.findik/TVCommercialScheduling/build/reports/problems/problems-report.html
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 10.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/9.2.1/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 11 FAILED (Duration: 4.76s)
+
+[12/50] Starting command 12...
+Executing: ./gradlew runMipSolver -PinstancePath="instances/density=HIGH_nInventory=10_nHours=3_seed=7.json" -PoutputPath="output/discrete" -PmodelType="Discrete" -PcheckPointTimes="30,60,120,300,600,900,1800,3600,7200" -PlogPath="output/discrete/density=HIGH_nInventory=10_nHours=3_seed=7.json/mip.log"
+Command failed with return code: 1
+Error: WARNING: A restricted method in java.lang.System has been called
+WARNING: java.lang.System::load has been called by net.rubygrapefruit.platform.internal.NativeLibraryLoader in an unnamed module (file:/cta/users/ulvi.findik/.gradle/wrapper/dists/gradle-9.2.1-bin/2t0n5ozlw9xmuyvbp7dnzaxug/gradle-9.2.1/lib/native-platform-0.22-milestone-29.jar)
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+
+WARNING: A restricted method in java.lang.System has been called
+WARNING: java.lang.System::load has been called by com.gurobi.gurobi.NativeUtils in an unnamed module (file:/cta/users/ulvi.findik/.gradle/caches/modules-2/files-2.1/com.gurobi/gurobi/12.0.0/a7a090c1247917e4a85894a83767d350905ee3c9/gurobi-12.0.0.jar)
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':runMipSolver'.
+> Process 'command '/cta/users/ulvi.findik/jdk-25.0.1/bin/java'' finished with non-zero exit value 1
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to generate a Build Scan (powered by Develocity).
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 4s
+
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runMipSolver
+Running MIP Solver with arguments: --instancePath=instances/density=HIGH_nInventory=10_nHours=3_seed=7.json --outputPath=output/discrete --modelType=Discrete --checkPointTimes=30,60,120,300,600,900,1800,3600,7200 --logPath=output/discrete/density=HIGH_nInventory=10_nHours=3_seed=7.json/mip.log
+Loading problem instance...
+Set parameter WLSAccessID
+Set parameter WLSSecret
+Set parameter LicenseID to value 2748665
+
+> Task :runMipSolver FAILED
+
+[Incubating] Problems report is available at: file:///cta/users/ulvi.findik/TVCommercialScheduling/build/reports/problems/problems-report.html
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 10.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/9.2.1/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 12 FAILED (Duration: 4.58s)
+
+[13/50] Starting command 13...
+Executing: ./gradlew runMipSolver -PinstancePath="instances/density=LOW_nInventory=15_nHours=4_seed=1.json" -PoutputPath="output/discrete" -PmodelType="Discrete" -PcheckPointTimes="30,60,120,300,600,900,1800,3600,7200" -PlogPath="output/discrete/density=LOW_nInventory=15_nHours=4_seed=1.json/mip.log"
+Command failed with return code: 1
+Error: WARNING: A restricted method in java.lang.System has been called
+WARNING: java.lang.System::load has been called by net.rubygrapefruit.platform.internal.NativeLibraryLoader in an unnamed module (file:/cta/users/ulvi.findik/.gradle/wrapper/dists/gradle-9.2.1-bin/2t0n5ozlw9xmuyvbp7dnzaxug/gradle-9.2.1/lib/native-platform-0.22-milestone-29.jar)
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+
+WARNING: A restricted method in java.lang.System has been called
+WARNING: java.lang.System::load has been called by com.gurobi.gurobi.NativeUtils in an unnamed module (file:/cta/users/ulvi.findik/.gradle/caches/modules-2/files-2.1/com.gurobi/gurobi/12.0.0/a7a090c1247917e4a85894a83767d350905ee3c9/gurobi-12.0.0.jar)
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':runMipSolver'.
+> Process 'command '/cta/users/ulvi.findik/jdk-25.0.1/bin/java'' finished with non-zero exit value 1
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to generate a Build Scan (powered by Develocity).
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 4s
+
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runMipSolver
+Running MIP Solver with arguments: --instancePath=instances/density=LOW_nInventory=15_nHours=4_seed=1.json --outputPath=output/discrete --modelType=Discrete --checkPointTimes=30,60,120,300,600,900,1800,3600,7200 --logPath=output/discrete/density=LOW_nInventory=15_nHours=4_seed=1.json/mip.log
+Loading problem instance...
+Set parameter WLSAccessID
+Set parameter WLSSecret
+Set parameter LicenseID to value 2748665
+
+> Task :runMipSolver FAILED
+
+[Incubating] Problems report is available at: file:///cta/users/ulvi.findik/TVCommercialScheduling/build/reports/problems/problems-report.html
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 10.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/9.2.1/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 13 FAILED (Duration: 4.76s)
+
+[14/50] Starting command 14...
+Executing: ./gradlew runMipSolver -PinstancePath="instances/density=HIGH_nInventory=20_nHours=5_seed=4.json" -PoutputPath="output/discrete" -PmodelType="Discrete" -PcheckPointTimes="30,60,120,300,600,900,1800,3600,7200" -PlogPath="output/discrete/density=HIGH_nInventory=20_nHours=5_seed=4.json/mip.log"
+Command failed with return code: 1
+Error: WARNING: A restricted method in java.lang.System has been called
+WARNING: java.lang.System::load has been called by net.rubygrapefruit.platform.internal.NativeLibraryLoader in an unnamed module (file:/cta/users/ulvi.findik/.gradle/wrapper/dists/gradle-9.2.1-bin/2t0n5ozlw9xmuyvbp7dnzaxug/gradle-9.2.1/lib/native-platform-0.22-milestone-29.jar)
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+
+WARNING: A restricted method in java.lang.System has been called
+WARNING: java.lang.System::load has been called by com.gurobi.gurobi.NativeUtils in an unnamed module (file:/cta/users/ulvi.findik/.gradle/caches/modules-2/files-2.1/com.gurobi/gurobi/12.0.0/a7a090c1247917e4a85894a83767d350905ee3c9/gurobi-12.0.0.jar)
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':runMipSolver'.
+> Process 'command '/cta/users/ulvi.findik/jdk-25.0.1/bin/java'' finished with non-zero exit value 1
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to generate a Build Scan (powered by Develocity).
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 4s
+
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runMipSolver
+Running MIP Solver with arguments: --instancePath=instances/density=HIGH_nInventory=20_nHours=5_seed=4.json --outputPath=output/discrete --modelType=Discrete --checkPointTimes=30,60,120,300,600,900,1800,3600,7200 --logPath=output/discrete/density=HIGH_nInventory=20_nHours=5_seed=4.json/mip.log
+Loading problem instance...
+Set parameter WLSAccessID
+Set parameter WLSSecret
+Set parameter LicenseID to value 2748665
+
+> Task :runMipSolver FAILED
+
+[Incubating] Problems report is available at: file:///cta/users/ulvi.findik/TVCommercialScheduling/build/reports/problems/problems-report.html
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 10.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/9.2.1/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 14 FAILED (Duration: 4.76s)
+
+[15/50] Starting command 15...
+Executing: ./gradlew runMipSolver -PinstancePath="instances/density=LOW_nInventory=20_nHours=5_seed=1.json" -PoutputPath="output/discrete" -PmodelType="Discrete" -PcheckPointTimes="30,60,120,300,600,900,1800,3600,7200" -PlogPath="output/discrete/density=LOW_nInventory=20_nHours=5_seed=1.json/mip.log"
+Command failed with return code: 1
+Error: WARNING: A restricted method in java.lang.System has been called
+WARNING: java.lang.System::load has been called by net.rubygrapefruit.platform.internal.NativeLibraryLoader in an unnamed module (file:/cta/users/ulvi.findik/.gradle/wrapper/dists/gradle-9.2.1-bin/2t0n5ozlw9xmuyvbp7dnzaxug/gradle-9.2.1/lib/native-platform-0.22-milestone-29.jar)
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+
+WARNING: A restricted method in java.lang.System has been called
+WARNING: java.lang.System::load has been called by com.gurobi.gurobi.NativeUtils in an unnamed module (file:/cta/users/ulvi.findik/.gradle/caches/modules-2/files-2.1/com.gurobi/gurobi/12.0.0/a7a090c1247917e4a85894a83767d350905ee3c9/gurobi-12.0.0.jar)
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':runMipSolver'.
+> Process 'command '/cta/users/ulvi.findik/jdk-25.0.1/bin/java'' finished with non-zero exit value 1
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to generate a Build Scan (powered by Develocity).
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 4s
+
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runMipSolver
+Running MIP Solver with arguments: --instancePath=instances/density=LOW_nInventory=20_nHours=5_seed=1.json --outputPath=output/discrete --modelType=Discrete --checkPointTimes=30,60,120,300,600,900,1800,3600,7200 --logPath=output/discrete/density=LOW_nInventory=20_nHours=5_seed=1.json/mip.log
+Loading problem instance...
+Set parameter WLSAccessID
+Set parameter WLSSecret
+Set parameter LicenseID to value 2748665
+
+> Task :runMipSolver FAILED
+
+[Incubating] Problems report is available at: file:///cta/users/ulvi.findik/TVCommercialScheduling/build/reports/problems/problems-report.html
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 10.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/9.2.1/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 15 FAILED (Duration: 4.58s)
+
+[16/50] Starting command 16...
+Executing: ./gradlew runMipSolver -PinstancePath="instances/density=HIGH_nInventory=15_nHours=4_seed=10.json" -PoutputPath="output/discrete" -PmodelType="Discrete" -PcheckPointTimes="30,60,120,300,600,900,1800,3600,7200" -PlogPath="output/discrete/density=HIGH_nInventory=15_nHours=4_seed=10.json/mip.log"
+Command failed with return code: 1
+Error: WARNING: A restricted method in java.lang.System has been called
+WARNING: java.lang.System::load has been called by net.rubygrapefruit.platform.internal.NativeLibraryLoader in an unnamed module (file:/cta/users/ulvi.findik/.gradle/wrapper/dists/gradle-9.2.1-bin/2t0n5ozlw9xmuyvbp7dnzaxug/gradle-9.2.1/lib/native-platform-0.22-milestone-29.jar)
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+
+WARNING: A restricted method in java.lang.System has been called
+WARNING: java.lang.System::load has been called by com.gurobi.gurobi.NativeUtils in an unnamed module (file:/cta/users/ulvi.findik/.gradle/caches/modules-2/files-2.1/com.gurobi/gurobi/12.0.0/a7a090c1247917e4a85894a83767d350905ee3c9/gurobi-12.0.0.jar)
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':runMipSolver'.
+> Process 'command '/cta/users/ulvi.findik/jdk-25.0.1/bin/java'' finished with non-zero exit value 1
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to generate a Build Scan (powered by Develocity).
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 4s
+
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runMipSolver
+Running MIP Solver with arguments: --instancePath=instances/density=HIGH_nInventory=15_nHours=4_seed=10.json --outputPath=output/discrete --modelType=Discrete --checkPointTimes=30,60,120,300,600,900,1800,3600,7200 --logPath=output/discrete/density=HIGH_nInventory=15_nHours=4_seed=10.json/mip.log
+Loading problem instance...
+Set parameter WLSAccessID
+Set parameter WLSSecret
+Set parameter LicenseID to value 2748665
+
+> Task :runMipSolver FAILED
+
+[Incubating] Problems report is available at: file:///cta/users/ulvi.findik/TVCommercialScheduling/build/reports/problems/problems-report.html
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 10.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/9.2.1/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 16 FAILED (Duration: 5.12s)
+
+[17/50] Starting command 17...
+Executing: ./gradlew runMipSolver -PinstancePath="instances/density=HIGH_nInventory=15_nHours=4_seed=4.json" -PoutputPath="output/discrete" -PmodelType="Discrete" -PcheckPointTimes="30,60,120,300,600,900,1800,3600,7200" -PlogPath="output/discrete/density=HIGH_nInventory=15_nHours=4_seed=4.json/mip.log"
+Command failed with return code: 1
+Error: WARNING: A restricted method in java.lang.System has been called
+WARNING: java.lang.System::load has been called by net.rubygrapefruit.platform.internal.NativeLibraryLoader in an unnamed module (file:/cta/users/ulvi.findik/.gradle/wrapper/dists/gradle-9.2.1-bin/2t0n5ozlw9xmuyvbp7dnzaxug/gradle-9.2.1/lib/native-platform-0.22-milestone-29.jar)
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+
+WARNING: A restricted method in java.lang.System has been called
+WARNING: java.lang.System::load has been called by com.gurobi.gurobi.NativeUtils in an unnamed module (file:/cta/users/ulvi.findik/.gradle/caches/modules-2/files-2.1/com.gurobi/gurobi/12.0.0/a7a090c1247917e4a85894a83767d350905ee3c9/gurobi-12.0.0.jar)
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':runMipSolver'.
+> Process 'command '/cta/users/ulvi.findik/jdk-25.0.1/bin/java'' finished with non-zero exit value 1
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to generate a Build Scan (powered by Develocity).
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 4s
+
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runMipSolver
+Running MIP Solver with arguments: --instancePath=instances/density=HIGH_nInventory=15_nHours=4_seed=4.json --outputPath=output/discrete --modelType=Discrete --checkPointTimes=30,60,120,300,600,900,1800,3600,7200 --logPath=output/discrete/density=HIGH_nInventory=15_nHours=4_seed=4.json/mip.log
+Loading problem instance...
+Set parameter WLSAccessID
+Set parameter WLSSecret
+Set parameter LicenseID to value 2748665
+
+> Task :runMipSolver FAILED
+
+[Incubating] Problems report is available at: file:///cta/users/ulvi.findik/TVCommercialScheduling/build/reports/problems/problems-report.html
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 10.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/9.2.1/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 17 FAILED (Duration: 4.69s)
+
+[18/50] Starting command 18...
+Executing: ./gradlew runMipSolver -PinstancePath="instances/density=LOW_nInventory=10_nHours=3_seed=2.json" -PoutputPath="output/discrete" -PmodelType="Discrete" -PcheckPointTimes="30,60,120,300,600,900,1800,3600,7200" -PlogPath="output/discrete/density=LOW_nInventory=10_nHours=3_seed=2.json/mip.log"
+Command failed with return code: 1
+Error: WARNING: A restricted method in java.lang.System has been called
+WARNING: java.lang.System::load has been called by net.rubygrapefruit.platform.internal.NativeLibraryLoader in an unnamed module (file:/cta/users/ulvi.findik/.gradle/wrapper/dists/gradle-9.2.1-bin/2t0n5ozlw9xmuyvbp7dnzaxug/gradle-9.2.1/lib/native-platform-0.22-milestone-29.jar)
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+
+WARNING: A restricted method in java.lang.System has been called
+WARNING: java.lang.System::load has been called by com.gurobi.gurobi.NativeUtils in an unnamed module (file:/cta/users/ulvi.findik/.gradle/caches/modules-2/files-2.1/com.gurobi/gurobi/12.0.0/a7a090c1247917e4a85894a83767d350905ee3c9/gurobi-12.0.0.jar)
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':runMipSolver'.
+> Process 'command '/cta/users/ulvi.findik/jdk-25.0.1/bin/java'' finished with non-zero exit value 1
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to generate a Build Scan (powered by Develocity).
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 4s
+
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runMipSolver
+Running MIP Solver with arguments: --instancePath=instances/density=LOW_nInventory=10_nHours=3_seed=2.json --outputPath=output/discrete --modelType=Discrete --checkPointTimes=30,60,120,300,600,900,1800,3600,7200 --logPath=output/discrete/density=LOW_nInventory=10_nHours=3_seed=2.json/mip.log
+Loading problem instance...
+Set parameter WLSAccessID
+Set parameter WLSSecret
+Set parameter LicenseID to value 2748665
+
+> Task :runMipSolver FAILED
+
+[Incubating] Problems report is available at: file:///cta/users/ulvi.findik/TVCommercialScheduling/build/reports/problems/problems-report.html
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 10.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/9.2.1/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 18 FAILED (Duration: 5.01s)
+
+[19/50] Starting command 19...
+Executing: ./gradlew runMipSolver -PinstancePath="instances/density=HIGH_nInventory=20_nHours=5_seed=8.json" -PoutputPath="output/discrete" -PmodelType="Discrete" -PcheckPointTimes="30,60,120,300,600,900,1800,3600,7200" -PlogPath="output/discrete/density=HIGH_nInventory=20_nHours=5_seed=8.json/mip.log"
+Command failed with return code: 1
+Error: WARNING: A restricted method in java.lang.System has been called
+WARNING: java.lang.System::load has been called by net.rubygrapefruit.platform.internal.NativeLibraryLoader in an unnamed module (file:/cta/users/ulvi.findik/.gradle/wrapper/dists/gradle-9.2.1-bin/2t0n5ozlw9xmuyvbp7dnzaxug/gradle-9.2.1/lib/native-platform-0.22-milestone-29.jar)
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+
+WARNING: A restricted method in java.lang.System has been called
+WARNING: java.lang.System::load has been called by com.gurobi.gurobi.NativeUtils in an unnamed module (file:/cta/users/ulvi.findik/.gradle/caches/modules-2/files-2.1/com.gurobi/gurobi/12.0.0/a7a090c1247917e4a85894a83767d350905ee3c9/gurobi-12.0.0.jar)
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':runMipSolver'.
+> Process 'command '/cta/users/ulvi.findik/jdk-25.0.1/bin/java'' finished with non-zero exit value 1
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to generate a Build Scan (powered by Develocity).
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 4s
+
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runMipSolver
+Running MIP Solver with arguments: --instancePath=instances/density=HIGH_nInventory=20_nHours=5_seed=8.json --outputPath=output/discrete --modelType=Discrete --checkPointTimes=30,60,120,300,600,900,1800,3600,7200 --logPath=output/discrete/density=HIGH_nInventory=20_nHours=5_seed=8.json/mip.log
+Loading problem instance...
+Set parameter WLSAccessID
+Set parameter WLSSecret
+Set parameter LicenseID to value 2748665
+
+> Task :runMipSolver FAILED
+
+[Incubating] Problems report is available at: file:///cta/users/ulvi.findik/TVCommercialScheduling/build/reports/problems/problems-report.html
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 10.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/9.2.1/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 19 FAILED (Duration: 4.52s)
+
+[20/50] Starting command 20...
+Executing: ./gradlew runMipSolver -PinstancePath="instances/density=HIGH_nInventory=15_nHours=4_seed=8.json" -PoutputPath="output/discrete" -PmodelType="Discrete" -PcheckPointTimes="30,60,120,300,600,900,1800,3600,7200" -PlogPath="output/discrete/density=HIGH_nInventory=15_nHours=4_seed=8.json/mip.log"
+Command failed with return code: 1
+Error: WARNING: A restricted method in java.lang.System has been called
+WARNING: java.lang.System::load has been called by net.rubygrapefruit.platform.internal.NativeLibraryLoader in an unnamed module (file:/cta/users/ulvi.findik/.gradle/wrapper/dists/gradle-9.2.1-bin/2t0n5ozlw9xmuyvbp7dnzaxug/gradle-9.2.1/lib/native-platform-0.22-milestone-29.jar)
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+
+WARNING: A restricted method in java.lang.System has been called
+WARNING: java.lang.System::load has been called by com.gurobi.gurobi.NativeUtils in an unnamed module (file:/cta/users/ulvi.findik/.gradle/caches/modules-2/files-2.1/com.gurobi/gurobi/12.0.0/a7a090c1247917e4a85894a83767d350905ee3c9/gurobi-12.0.0.jar)
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':runMipSolver'.
+> Process 'command '/cta/users/ulvi.findik/jdk-25.0.1/bin/java'' finished with non-zero exit value 1
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to generate a Build Scan (powered by Develocity).
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 4s
+
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runMipSolver
+Running MIP Solver with arguments: --instancePath=instances/density=HIGH_nInventory=15_nHours=4_seed=8.json --outputPath=output/discrete --modelType=Discrete --checkPointTimes=30,60,120,300,600,900,1800,3600,7200 --logPath=output/discrete/density=HIGH_nInventory=15_nHours=4_seed=8.json/mip.log
+Loading problem instance...
+Set parameter WLSAccessID
+Set parameter WLSSecret
+Set parameter LicenseID to value 2748665
+
+> Task :runMipSolver FAILED
+
+[Incubating] Problems report is available at: file:///cta/users/ulvi.findik/TVCommercialScheduling/build/reports/problems/problems-report.html
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 10.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/9.2.1/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 20 FAILED (Duration: 4.61s)
+
+[21/50] Starting command 21...
+Executing: ./gradlew runMipSolver -PinstancePath="instances/3.json" -PoutputPath="output/discrete" -PmodelType="Discrete" -PcheckPointTimes="30,60,120,300,600,900,1800,3600,7200" -PlogPath="output/discrete/3.json/mip.log"
+Command failed with return code: 1
+Error: WARNING: A restricted method in java.lang.System has been called
+WARNING: java.lang.System::load has been called by net.rubygrapefruit.platform.internal.NativeLibraryLoader in an unnamed module (file:/cta/users/ulvi.findik/.gradle/wrapper/dists/gradle-9.2.1-bin/2t0n5ozlw9xmuyvbp7dnzaxug/gradle-9.2.1/lib/native-platform-0.22-milestone-29.jar)
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+
+WARNING: A restricted method in java.lang.System has been called
+WARNING: java.lang.System::load has been called by com.gurobi.gurobi.NativeUtils in an unnamed module (file:/cta/users/ulvi.findik/.gradle/caches/modules-2/files-2.1/com.gurobi/gurobi/12.0.0/a7a090c1247917e4a85894a83767d350905ee3c9/gurobi-12.0.0.jar)
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':runMipSolver'.
+> Process 'command '/cta/users/ulvi.findik/jdk-25.0.1/bin/java'' finished with non-zero exit value 1
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to generate a Build Scan (powered by Develocity).
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 4s
+
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runMipSolver
+Running MIP Solver with arguments: --instancePath=instances/3.json --outputPath=output/discrete --modelType=Discrete --checkPointTimes=30,60,120,300,600,900,1800,3600,7200 --logPath=output/discrete/3.json/mip.log
+Loading problem instance...
+Set parameter WLSAccessID
+Set parameter WLSSecret
+Set parameter LicenseID to value 2748665
+
+> Task :runMipSolver FAILED
+
+[Incubating] Problems report is available at: file:///cta/users/ulvi.findik/TVCommercialScheduling/build/reports/problems/problems-report.html
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 10.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/9.2.1/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 21 FAILED (Duration: 4.73s)
+
+[22/50] Starting command 22...
+Executing: ./gradlew runMipSolver -PinstancePath="instances/density=MEDIUM_nInventory=10_nHours=3_seed=3.json" -PoutputPath="output/discrete" -PmodelType="Discrete" -PcheckPointTimes="30,60,120,300,600,900,1800,3600,7200" -PlogPath="output/discrete/density=MEDIUM_nInventory=10_nHours=3_seed=3.json/mip.log"
+Command failed with return code: 1
+Error: WARNING: A restricted method in java.lang.System has been called
+WARNING: java.lang.System::load has been called by net.rubygrapefruit.platform.internal.NativeLibraryLoader in an unnamed module (file:/cta/users/ulvi.findik/.gradle/wrapper/dists/gradle-9.2.1-bin/2t0n5ozlw9xmuyvbp7dnzaxug/gradle-9.2.1/lib/native-platform-0.22-milestone-29.jar)
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+
+WARNING: A restricted method in java.lang.System has been called
+WARNING: java.lang.System::load has been called by com.gurobi.gurobi.NativeUtils in an unnamed module (file:/cta/users/ulvi.findik/.gradle/caches/modules-2/files-2.1/com.gurobi/gurobi/12.0.0/a7a090c1247917e4a85894a83767d350905ee3c9/gurobi-12.0.0.jar)
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':runMipSolver'.
+> Process 'command '/cta/users/ulvi.findik/jdk-25.0.1/bin/java'' finished with non-zero exit value 1
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to generate a Build Scan (powered by Develocity).
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 4s
+
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runMipSolver
+Running MIP Solver with arguments: --instancePath=instances/density=MEDIUM_nInventory=10_nHours=3_seed=3.json --outputPath=output/discrete --modelType=Discrete --checkPointTimes=30,60,120,300,600,900,1800,3600,7200 --logPath=output/discrete/density=MEDIUM_nInventory=10_nHours=3_seed=3.json/mip.log
+Loading problem instance...
+Set parameter WLSAccessID
+Set parameter WLSSecret
+Set parameter LicenseID to value 2748665
+
+> Task :runMipSolver FAILED
+
+[Incubating] Problems report is available at: file:///cta/users/ulvi.findik/TVCommercialScheduling/build/reports/problems/problems-report.html
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 10.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/9.2.1/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 22 FAILED (Duration: 4.79s)
+
+[23/50] Starting command 23...
+Executing: ./gradlew runMipSolver -PinstancePath="instances/density=LOW_nInventory=10_nHours=3_seed=5.json" -PoutputPath="output/discrete" -PmodelType="Discrete" -PcheckPointTimes="30,60,120,300,600,900,1800,3600,7200" -PlogPath="output/discrete/density=LOW_nInventory=10_nHours=3_seed=5.json/mip.log"
+Command failed with return code: 1
+Error: WARNING: A restricted method in java.lang.System has been called
+WARNING: java.lang.System::load has been called by net.rubygrapefruit.platform.internal.NativeLibraryLoader in an unnamed module (file:/cta/users/ulvi.findik/.gradle/wrapper/dists/gradle-9.2.1-bin/2t0n5ozlw9xmuyvbp7dnzaxug/gradle-9.2.1/lib/native-platform-0.22-milestone-29.jar)
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+
+WARNING: A restricted method in java.lang.System has been called
+WARNING: java.lang.System::load has been called by com.gurobi.gurobi.NativeUtils in an unnamed module (file:/cta/users/ulvi.findik/.gradle/caches/modules-2/files-2.1/com.gurobi/gurobi/12.0.0/a7a090c1247917e4a85894a83767d350905ee3c9/gurobi-12.0.0.jar)
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':runMipSolver'.
+> Process 'command '/cta/users/ulvi.findik/jdk-25.0.1/bin/java'' finished with non-zero exit value 1
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to generate a Build Scan (powered by Develocity).
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 4s
+
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runMipSolver
+Running MIP Solver with arguments: --instancePath=instances/density=LOW_nInventory=10_nHours=3_seed=5.json --outputPath=output/discrete --modelType=Discrete --checkPointTimes=30,60,120,300,600,900,1800,3600,7200 --logPath=output/discrete/density=LOW_nInventory=10_nHours=3_seed=5.json/mip.log
+Loading problem instance...
+Set parameter WLSAccessID
+Set parameter WLSSecret
+Set parameter LicenseID to value 2748665
+
+> Task :runMipSolver FAILED
+
+[Incubating] Problems report is available at: file:///cta/users/ulvi.findik/TVCommercialScheduling/build/reports/problems/problems-report.html
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 10.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/9.2.1/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 23 FAILED (Duration: 4.64s)
+
+[24/50] Starting command 24...
+Executing: ./gradlew runMipSolver -PinstancePath="instances/density=MEDIUM_nInventory=10_nHours=3_seed=8.json" -PoutputPath="output/discrete" -PmodelType="Discrete" -PcheckPointTimes="30,60,120,300,600,900,1800,3600,7200" -PlogPath="output/discrete/density=MEDIUM_nInventory=10_nHours=3_seed=8.json/mip.log"
+Command failed with return code: 1
+Error: WARNING: A restricted method in java.lang.System has been called
+WARNING: java.lang.System::load has been called by net.rubygrapefruit.platform.internal.NativeLibraryLoader in an unnamed module (file:/cta/users/ulvi.findik/.gradle/wrapper/dists/gradle-9.2.1-bin/2t0n5ozlw9xmuyvbp7dnzaxug/gradle-9.2.1/lib/native-platform-0.22-milestone-29.jar)
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+
+WARNING: A restricted method in java.lang.System has been called
+WARNING: java.lang.System::load has been called by com.gurobi.gurobi.NativeUtils in an unnamed module (file:/cta/users/ulvi.findik/.gradle/caches/modules-2/files-2.1/com.gurobi/gurobi/12.0.0/a7a090c1247917e4a85894a83767d350905ee3c9/gurobi-12.0.0.jar)
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':runMipSolver'.
+> Process 'command '/cta/users/ulvi.findik/jdk-25.0.1/bin/java'' finished with non-zero exit value 1
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to generate a Build Scan (powered by Develocity).
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 4s
+
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runMipSolver
+Running MIP Solver with arguments: --instancePath=instances/density=MEDIUM_nInventory=10_nHours=3_seed=8.json --outputPath=output/discrete --modelType=Discrete --checkPointTimes=30,60,120,300,600,900,1800,3600,7200 --logPath=output/discrete/density=MEDIUM_nInventory=10_nHours=3_seed=8.json/mip.log
+Loading problem instance...
+Set parameter WLSAccessID
+Set parameter WLSSecret
+Set parameter LicenseID to value 2748665
+
+> Task :runMipSolver FAILED
+
+[Incubating] Problems report is available at: file:///cta/users/ulvi.findik/TVCommercialScheduling/build/reports/problems/problems-report.html
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 10.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/9.2.1/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 24 FAILED (Duration: 4.71s)
+
+[25/50] Starting command 25...
+Executing: ./gradlew runMipSolver -PinstancePath="instances/8.json" -PoutputPath="output/discrete" -PmodelType="Discrete" -PcheckPointTimes="30,60,120,300,600,900,1800,3600,7200" -PlogPath="output/discrete/8.json/mip.log"
+Command failed with return code: 1
+Error: WARNING: A restricted method in java.lang.System has been called
+WARNING: java.lang.System::load has been called by net.rubygrapefruit.platform.internal.NativeLibraryLoader in an unnamed module (file:/cta/users/ulvi.findik/.gradle/wrapper/dists/gradle-9.2.1-bin/2t0n5ozlw9xmuyvbp7dnzaxug/gradle-9.2.1/lib/native-platform-0.22-milestone-29.jar)
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+
+WARNING: A restricted method in java.lang.System has been called
+WARNING: java.lang.System::load has been called by com.gurobi.gurobi.NativeUtils in an unnamed module (file:/cta/users/ulvi.findik/.gradle/caches/modules-2/files-2.1/com.gurobi/gurobi/12.0.0/a7a090c1247917e4a85894a83767d350905ee3c9/gurobi-12.0.0.jar)
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':runMipSolver'.
+> Process 'command '/cta/users/ulvi.findik/jdk-25.0.1/bin/java'' finished with non-zero exit value 1
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to generate a Build Scan (powered by Develocity).
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 4s
+
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runMipSolver
+Running MIP Solver with arguments: --instancePath=instances/8.json --outputPath=output/discrete --modelType=Discrete --checkPointTimes=30,60,120,300,600,900,1800,3600,7200 --logPath=output/discrete/8.json/mip.log
+Loading problem instance...
+Set parameter WLSAccessID
+Set parameter WLSSecret
+Set parameter LicenseID to value 2748665
+
+> Task :runMipSolver FAILED
+
+[Incubating] Problems report is available at: file:///cta/users/ulvi.findik/TVCommercialScheduling/build/reports/problems/problems-report.html
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 10.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/9.2.1/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 25 FAILED (Duration: 4.94s)
+
+[26/50] Starting command 26...
+Executing: ./gradlew runMipSolver -PinstancePath="instances/density=HIGH_nInventory=15_nHours=4_seed=3.json" -PoutputPath="output/discrete" -PmodelType="Discrete" -PcheckPointTimes="30,60,120,300,600,900,1800,3600,7200" -PlogPath="output/discrete/density=HIGH_nInventory=15_nHours=4_seed=3.json/mip.log"
+Command failed with return code: 1
+Error: WARNING: A restricted method in java.lang.System has been called
+WARNING: java.lang.System::load has been called by net.rubygrapefruit.platform.internal.NativeLibraryLoader in an unnamed module (file:/cta/users/ulvi.findik/.gradle/wrapper/dists/gradle-9.2.1-bin/2t0n5ozlw9xmuyvbp7dnzaxug/gradle-9.2.1/lib/native-platform-0.22-milestone-29.jar)
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+
+WARNING: A restricted method in java.lang.System has been called
+WARNING: java.lang.System::load has been called by com.gurobi.gurobi.NativeUtils in an unnamed module (file:/cta/users/ulvi.findik/.gradle/caches/modules-2/files-2.1/com.gurobi/gurobi/12.0.0/a7a090c1247917e4a85894a83767d350905ee3c9/gurobi-12.0.0.jar)
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':runMipSolver'.
+> Process 'command '/cta/users/ulvi.findik/jdk-25.0.1/bin/java'' finished with non-zero exit value 1
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to generate a Build Scan (powered by Develocity).
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 4s
+
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runMipSolver
+Running MIP Solver with arguments: --instancePath=instances/density=HIGH_nInventory=15_nHours=4_seed=3.json --outputPath=output/discrete --modelType=Discrete --checkPointTimes=30,60,120,300,600,900,1800,3600,7200 --logPath=output/discrete/density=HIGH_nInventory=15_nHours=4_seed=3.json/mip.log
+Loading problem instance...
+Set parameter WLSAccessID
+Set parameter WLSSecret
+Set parameter LicenseID to value 2748665
+
+> Task :runMipSolver FAILED
+
+[Incubating] Problems report is available at: file:///cta/users/ulvi.findik/TVCommercialScheduling/build/reports/problems/problems-report.html
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 10.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/9.2.1/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 26 FAILED (Duration: 4.70s)
+
+[27/50] Starting command 27...
+Executing: ./gradlew runMipSolver -PinstancePath="instances/density=LOW_nInventory=20_nHours=5_seed=6.json" -PoutputPath="output/discrete" -PmodelType="Discrete" -PcheckPointTimes="30,60,120,300,600,900,1800,3600,7200" -PlogPath="output/discrete/density=LOW_nInventory=20_nHours=5_seed=6.json/mip.log"
+Command failed with return code: 1
+Error: WARNING: A restricted method in java.lang.System has been called
+WARNING: java.lang.System::load has been called by net.rubygrapefruit.platform.internal.NativeLibraryLoader in an unnamed module (file:/cta/users/ulvi.findik/.gradle/wrapper/dists/gradle-9.2.1-bin/2t0n5ozlw9xmuyvbp7dnzaxug/gradle-9.2.1/lib/native-platform-0.22-milestone-29.jar)
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+
+WARNING: A restricted method in java.lang.System has been called
+WARNING: java.lang.System::load has been called by com.gurobi.gurobi.NativeUtils in an unnamed module (file:/cta/users/ulvi.findik/.gradle/caches/modules-2/files-2.1/com.gurobi/gurobi/12.0.0/a7a090c1247917e4a85894a83767d350905ee3c9/gurobi-12.0.0.jar)
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':runMipSolver'.
+> Process 'command '/cta/users/ulvi.findik/jdk-25.0.1/bin/java'' finished with non-zero exit value 1
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to generate a Build Scan (powered by Develocity).
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 4s
+
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runMipSolver
+Running MIP Solver with arguments: --instancePath=instances/density=LOW_nInventory=20_nHours=5_seed=6.json --outputPath=output/discrete --modelType=Discrete --checkPointTimes=30,60,120,300,600,900,1800,3600,7200 --logPath=output/discrete/density=LOW_nInventory=20_nHours=5_seed=6.json/mip.log
+Loading problem instance...
+Set parameter WLSAccessID
+Set parameter WLSSecret
+Set parameter LicenseID to value 2748665
+
+> Task :runMipSolver FAILED
+
+[Incubating] Problems report is available at: file:///cta/users/ulvi.findik/TVCommercialScheduling/build/reports/problems/problems-report.html
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 10.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/9.2.1/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 27 FAILED (Duration: 4.53s)
+
+[28/50] Starting command 28...
+Executing: ./gradlew runMipSolver -PinstancePath="instances/density=HIGH_nInventory=20_nHours=5_seed=3.json" -PoutputPath="output/discrete" -PmodelType="Discrete" -PcheckPointTimes="30,60,120,300,600,900,1800,3600,7200" -PlogPath="output/discrete/density=HIGH_nInventory=20_nHours=5_seed=3.json/mip.log"
+Command failed with return code: 1
+Error: WARNING: A restricted method in java.lang.System has been called
+WARNING: java.lang.System::load has been called by net.rubygrapefruit.platform.internal.NativeLibraryLoader in an unnamed module (file:/cta/users/ulvi.findik/.gradle/wrapper/dists/gradle-9.2.1-bin/2t0n5ozlw9xmuyvbp7dnzaxug/gradle-9.2.1/lib/native-platform-0.22-milestone-29.jar)
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+
+WARNING: A restricted method in java.lang.System has been called
+WARNING: java.lang.System::load has been called by com.gurobi.gurobi.NativeUtils in an unnamed module (file:/cta/users/ulvi.findik/.gradle/caches/modules-2/files-2.1/com.gurobi/gurobi/12.0.0/a7a090c1247917e4a85894a83767d350905ee3c9/gurobi-12.0.0.jar)
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':runMipSolver'.
+> Process 'command '/cta/users/ulvi.findik/jdk-25.0.1/bin/java'' finished with non-zero exit value 1
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to generate a Build Scan (powered by Develocity).
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 4s
+
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runMipSolver
+Running MIP Solver with arguments: --instancePath=instances/density=HIGH_nInventory=20_nHours=5_seed=3.json --outputPath=output/discrete --modelType=Discrete --checkPointTimes=30,60,120,300,600,900,1800,3600,7200 --logPath=output/discrete/density=HIGH_nInventory=20_nHours=5_seed=3.json/mip.log
+Loading problem instance...
+Set parameter WLSAccessID
+Set parameter WLSSecret
+Set parameter LicenseID to value 2748665
+
+> Task :runMipSolver FAILED
+
+[Incubating] Problems report is available at: file:///cta/users/ulvi.findik/TVCommercialScheduling/build/reports/problems/problems-report.html
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 10.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/9.2.1/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 28 FAILED (Duration: 4.92s)
+
+[29/50] Starting command 29...
+Executing: ./gradlew runMipSolver -PinstancePath="instances/density=LOW_nInventory=15_nHours=4_seed=6.json" -PoutputPath="output/discrete" -PmodelType="Discrete" -PcheckPointTimes="30,60,120,300,600,900,1800,3600,7200" -PlogPath="output/discrete/density=LOW_nInventory=15_nHours=4_seed=6.json/mip.log"
+Command failed with return code: 1
+Error: WARNING: A restricted method in java.lang.System has been called
+WARNING: java.lang.System::load has been called by net.rubygrapefruit.platform.internal.NativeLibraryLoader in an unnamed module (file:/cta/users/ulvi.findik/.gradle/wrapper/dists/gradle-9.2.1-bin/2t0n5ozlw9xmuyvbp7dnzaxug/gradle-9.2.1/lib/native-platform-0.22-milestone-29.jar)
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+
+WARNING: A restricted method in java.lang.System has been called
+WARNING: java.lang.System::load has been called by com.gurobi.gurobi.NativeUtils in an unnamed module (file:/cta/users/ulvi.findik/.gradle/caches/modules-2/files-2.1/com.gurobi/gurobi/12.0.0/a7a090c1247917e4a85894a83767d350905ee3c9/gurobi-12.0.0.jar)
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':runMipSolver'.
+> Process 'command '/cta/users/ulvi.findik/jdk-25.0.1/bin/java'' finished with non-zero exit value 1
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to generate a Build Scan (powered by Develocity).
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 4s
+
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runMipSolver
+Running MIP Solver with arguments: --instancePath=instances/density=LOW_nInventory=15_nHours=4_seed=6.json --outputPath=output/discrete --modelType=Discrete --checkPointTimes=30,60,120,300,600,900,1800,3600,7200 --logPath=output/discrete/density=LOW_nInventory=15_nHours=4_seed=6.json/mip.log
+Loading problem instance...
+Set parameter WLSAccessID
+Set parameter WLSSecret
+Set parameter LicenseID to value 2748665
+
+> Task :runMipSolver FAILED
+
+[Incubating] Problems report is available at: file:///cta/users/ulvi.findik/TVCommercialScheduling/build/reports/problems/problems-report.html
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 10.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/9.2.1/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 29 FAILED (Duration: 4.89s)
+
+[30/50] Starting command 30...
+Executing: ./gradlew runMipSolver -PinstancePath="instances/density=LOW_nInventory=10_nHours=3_seed=9.json" -PoutputPath="output/discrete" -PmodelType="Discrete" -PcheckPointTimes="30,60,120,300,600,900,1800,3600,7200" -PlogPath="output/discrete/density=LOW_nInventory=10_nHours=3_seed=9.json/mip.log"
+Command failed with return code: 1
+Error: WARNING: A restricted method in java.lang.System has been called
+WARNING: java.lang.System::load has been called by net.rubygrapefruit.platform.internal.NativeLibraryLoader in an unnamed module (file:/cta/users/ulvi.findik/.gradle/wrapper/dists/gradle-9.2.1-bin/2t0n5ozlw9xmuyvbp7dnzaxug/gradle-9.2.1/lib/native-platform-0.22-milestone-29.jar)
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+
+WARNING: A restricted method in java.lang.System has been called
+WARNING: java.lang.System::load has been called by com.gurobi.gurobi.NativeUtils in an unnamed module (file:/cta/users/ulvi.findik/.gradle/caches/modules-2/files-2.1/com.gurobi/gurobi/12.0.0/a7a090c1247917e4a85894a83767d350905ee3c9/gurobi-12.0.0.jar)
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':runMipSolver'.
+> Process 'command '/cta/users/ulvi.findik/jdk-25.0.1/bin/java'' finished with non-zero exit value 1
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to generate a Build Scan (powered by Develocity).
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 4s
+
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runMipSolver
+Running MIP Solver with arguments: --instancePath=instances/density=LOW_nInventory=10_nHours=3_seed=9.json --outputPath=output/discrete --modelType=Discrete --checkPointTimes=30,60,120,300,600,900,1800,3600,7200 --logPath=output/discrete/density=LOW_nInventory=10_nHours=3_seed=9.json/mip.log
+Loading problem instance...
+Set parameter WLSAccessID
+Set parameter WLSSecret
+Set parameter LicenseID to value 2748665
+
+> Task :runMipSolver FAILED
+
+[Incubating] Problems report is available at: file:///cta/users/ulvi.findik/TVCommercialScheduling/build/reports/problems/problems-report.html
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 10.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/9.2.1/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 30 FAILED (Duration: 4.97s)
+
+[31/50] Starting command 31...
+Executing: ./gradlew runMipSolver -PinstancePath="instances/density=MEDIUM_nInventory=10_nHours=3_seed=4.json" -PoutputPath="output/discrete" -PmodelType="Discrete" -PcheckPointTimes="30,60,120,300,600,900,1800,3600,7200" -PlogPath="output/discrete/density=MEDIUM_nInventory=10_nHours=3_seed=4.json/mip.log"
+Command failed with return code: 1
+Error: WARNING: A restricted method in java.lang.System has been called
+WARNING: java.lang.System::load has been called by net.rubygrapefruit.platform.internal.NativeLibraryLoader in an unnamed module (file:/cta/users/ulvi.findik/.gradle/wrapper/dists/gradle-9.2.1-bin/2t0n5ozlw9xmuyvbp7dnzaxug/gradle-9.2.1/lib/native-platform-0.22-milestone-29.jar)
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+
+WARNING: A restricted method in java.lang.System has been called
+WARNING: java.lang.System::load has been called by com.gurobi.gurobi.NativeUtils in an unnamed module (file:/cta/users/ulvi.findik/.gradle/caches/modules-2/files-2.1/com.gurobi/gurobi/12.0.0/a7a090c1247917e4a85894a83767d350905ee3c9/gurobi-12.0.0.jar)
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':runMipSolver'.
+> Process 'command '/cta/users/ulvi.findik/jdk-25.0.1/bin/java'' finished with non-zero exit value 1
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to generate a Build Scan (powered by Develocity).
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 4s
+
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runMipSolver
+Running MIP Solver with arguments: --instancePath=instances/density=MEDIUM_nInventory=10_nHours=3_seed=4.json --outputPath=output/discrete --modelType=Discrete --checkPointTimes=30,60,120,300,600,900,1800,3600,7200 --logPath=output/discrete/density=MEDIUM_nInventory=10_nHours=3_seed=4.json/mip.log
+Loading problem instance...
+Set parameter WLSAccessID
+Set parameter WLSSecret
+Set parameter LicenseID to value 2748665
+
+> Task :runMipSolver FAILED
+
+[Incubating] Problems report is available at: file:///cta/users/ulvi.findik/TVCommercialScheduling/build/reports/problems/problems-report.html
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 10.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/9.2.1/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 31 FAILED (Duration: 4.79s)
+
+[32/50] Starting command 32...
+Executing: ./gradlew runMipSolver -PinstancePath="instances/4.json" -PoutputPath="output/discrete" -PmodelType="Discrete" -PcheckPointTimes="30,60,120,300,600,900,1800,3600,7200" -PlogPath="output/discrete/4.json/mip.log"
+Command failed with return code: 1
+Error: WARNING: A restricted method in java.lang.System has been called
+WARNING: java.lang.System::load has been called by net.rubygrapefruit.platform.internal.NativeLibraryLoader in an unnamed module (file:/cta/users/ulvi.findik/.gradle/wrapper/dists/gradle-9.2.1-bin/2t0n5ozlw9xmuyvbp7dnzaxug/gradle-9.2.1/lib/native-platform-0.22-milestone-29.jar)
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+
+WARNING: A restricted method in java.lang.System has been called
+WARNING: java.lang.System::load has been called by com.gurobi.gurobi.NativeUtils in an unnamed module (file:/cta/users/ulvi.findik/.gradle/caches/modules-2/files-2.1/com.gurobi/gurobi/12.0.0/a7a090c1247917e4a85894a83767d350905ee3c9/gurobi-12.0.0.jar)
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':runMipSolver'.
+> Process 'command '/cta/users/ulvi.findik/jdk-25.0.1/bin/java'' finished with non-zero exit value 1
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to generate a Build Scan (powered by Develocity).
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 4s
+
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runMipSolver
+Running MIP Solver with arguments: --instancePath=instances/4.json --outputPath=output/discrete --modelType=Discrete --checkPointTimes=30,60,120,300,600,900,1800,3600,7200 --logPath=output/discrete/4.json/mip.log
+Loading problem instance...
+Set parameter WLSAccessID
+Set parameter WLSSecret
+Set parameter LicenseID to value 2748665
+
+> Task :runMipSolver FAILED
+
+[Incubating] Problems report is available at: file:///cta/users/ulvi.findik/TVCommercialScheduling/build/reports/problems/problems-report.html
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 10.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/9.2.1/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 32 FAILED (Duration: 4.61s)
+
+[33/50] Starting command 33...
+Executing: ./gradlew runMipSolver -PinstancePath="instances/density=MEDIUM_nInventory=20_nHours=5_seed=7.json" -PoutputPath="output/discrete" -PmodelType="Discrete" -PcheckPointTimes="30,60,120,300,600,900,1800,3600,7200" -PlogPath="output/discrete/density=MEDIUM_nInventory=20_nHours=5_seed=7.json/mip.log"
+Command failed with return code: 1
+Error: WARNING: A restricted method in java.lang.System has been called
+WARNING: java.lang.System::load has been called by net.rubygrapefruit.platform.internal.NativeLibraryLoader in an unnamed module (file:/cta/users/ulvi.findik/.gradle/wrapper/dists/gradle-9.2.1-bin/2t0n5ozlw9xmuyvbp7dnzaxug/gradle-9.2.1/lib/native-platform-0.22-milestone-29.jar)
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+
+WARNING: A restricted method in java.lang.System has been called
+WARNING: java.lang.System::load has been called by com.gurobi.gurobi.NativeUtils in an unnamed module (file:/cta/users/ulvi.findik/.gradle/caches/modules-2/files-2.1/com.gurobi/gurobi/12.0.0/a7a090c1247917e4a85894a83767d350905ee3c9/gurobi-12.0.0.jar)
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':runMipSolver'.
+> Process 'command '/cta/users/ulvi.findik/jdk-25.0.1/bin/java'' finished with non-zero exit value 1
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to generate a Build Scan (powered by Develocity).
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 4s
+
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runMipSolver
+Running MIP Solver with arguments: --instancePath=instances/density=MEDIUM_nInventory=20_nHours=5_seed=7.json --outputPath=output/discrete --modelType=Discrete --checkPointTimes=30,60,120,300,600,900,1800,3600,7200 --logPath=output/discrete/density=MEDIUM_nInventory=20_nHours=5_seed=7.json/mip.log
+Loading problem instance...
+Set parameter WLSAccessID
+Set parameter WLSSecret
+Set parameter LicenseID to value 2748665
+
+> Task :runMipSolver FAILED
+
+[Incubating] Problems report is available at: file:///cta/users/ulvi.findik/TVCommercialScheduling/build/reports/problems/problems-report.html
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 10.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/9.2.1/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 33 FAILED (Duration: 5.10s)
+
+[34/50] Starting command 34...
+Executing: ./gradlew runMipSolver -PinstancePath="instances/density=MEDIUM_nInventory=15_nHours=4_seed=7.json" -PoutputPath="output/discrete" -PmodelType="Discrete" -PcheckPointTimes="30,60,120,300,600,900,1800,3600,7200" -PlogPath="output/discrete/density=MEDIUM_nInventory=15_nHours=4_seed=7.json/mip.log"
+Command failed with return code: 1
+Error: WARNING: A restricted method in java.lang.System has been called
+WARNING: java.lang.System::load has been called by net.rubygrapefruit.platform.internal.NativeLibraryLoader in an unnamed module (file:/cta/users/ulvi.findik/.gradle/wrapper/dists/gradle-9.2.1-bin/2t0n5ozlw9xmuyvbp7dnzaxug/gradle-9.2.1/lib/native-platform-0.22-milestone-29.jar)
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+
+WARNING: A restricted method in java.lang.System has been called
+WARNING: java.lang.System::load has been called by com.gurobi.gurobi.NativeUtils in an unnamed module (file:/cta/users/ulvi.findik/.gradle/caches/modules-2/files-2.1/com.gurobi/gurobi/12.0.0/a7a090c1247917e4a85894a83767d350905ee3c9/gurobi-12.0.0.jar)
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':runMipSolver'.
+> Process 'command '/cta/users/ulvi.findik/jdk-25.0.1/bin/java'' finished with non-zero exit value 1
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to generate a Build Scan (powered by Develocity).
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 4s
+
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runMipSolver
+Running MIP Solver with arguments: --instancePath=instances/density=MEDIUM_nInventory=15_nHours=4_seed=7.json --outputPath=output/discrete --modelType=Discrete --checkPointTimes=30,60,120,300,600,900,1800,3600,7200 --logPath=output/discrete/density=MEDIUM_nInventory=15_nHours=4_seed=7.json/mip.log
+Loading problem instance...
+Set parameter WLSAccessID
+Set parameter WLSSecret
+Set parameter LicenseID to value 2748665
+
+> Task :runMipSolver FAILED
+
+[Incubating] Problems report is available at: file:///cta/users/ulvi.findik/TVCommercialScheduling/build/reports/problems/problems-report.html
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 10.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/9.2.1/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 34 FAILED (Duration: 5.00s)
+
+[35/50] Starting command 35...
+Executing: ./gradlew runMipSolver -PinstancePath="instances/density=MEDIUM_nInventory=15_nHours=4_seed=6.json" -PoutputPath="output/discrete" -PmodelType="Discrete" -PcheckPointTimes="30,60,120,300,600,900,1800,3600,7200" -PlogPath="output/discrete/density=MEDIUM_nInventory=15_nHours=4_seed=6.json/mip.log"
+Command failed with return code: 1
+Error: WARNING: A restricted method in java.lang.System has been called
+WARNING: java.lang.System::load has been called by net.rubygrapefruit.platform.internal.NativeLibraryLoader in an unnamed module (file:/cta/users/ulvi.findik/.gradle/wrapper/dists/gradle-9.2.1-bin/2t0n5ozlw9xmuyvbp7dnzaxug/gradle-9.2.1/lib/native-platform-0.22-milestone-29.jar)
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+
+WARNING: A restricted method in java.lang.System has been called
+WARNING: java.lang.System::load has been called by com.gurobi.gurobi.NativeUtils in an unnamed module (file:/cta/users/ulvi.findik/.gradle/caches/modules-2/files-2.1/com.gurobi/gurobi/12.0.0/a7a090c1247917e4a85894a83767d350905ee3c9/gurobi-12.0.0.jar)
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':runMipSolver'.
+> Process 'command '/cta/users/ulvi.findik/jdk-25.0.1/bin/java'' finished with non-zero exit value 1
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to generate a Build Scan (powered by Develocity).
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 4s
+
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runMipSolver
+Running MIP Solver with arguments: --instancePath=instances/density=MEDIUM_nInventory=15_nHours=4_seed=6.json --outputPath=output/discrete --modelType=Discrete --checkPointTimes=30,60,120,300,600,900,1800,3600,7200 --logPath=output/discrete/density=MEDIUM_nInventory=15_nHours=4_seed=6.json/mip.log
+Loading problem instance...
+Set parameter WLSAccessID
+Set parameter WLSSecret
+Set parameter LicenseID to value 2748665
+
+> Task :runMipSolver FAILED
+
+[Incubating] Problems report is available at: file:///cta/users/ulvi.findik/TVCommercialScheduling/build/reports/problems/problems-report.html
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 10.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/9.2.1/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 35 FAILED (Duration: 5.02s)
+
+[36/50] Starting command 36...
+Executing: ./gradlew runMipSolver -PinstancePath="instances/density=MEDIUM_nInventory=20_nHours=5_seed=6.json" -PoutputPath="output/discrete" -PmodelType="Discrete" -PcheckPointTimes="30,60,120,300,600,900,1800,3600,7200" -PlogPath="output/discrete/density=MEDIUM_nInventory=20_nHours=5_seed=6.json/mip.log"
+Command failed with return code: 1
+Error: WARNING: A restricted method in java.lang.System has been called
+WARNING: java.lang.System::load has been called by net.rubygrapefruit.platform.internal.NativeLibraryLoader in an unnamed module (file:/cta/users/ulvi.findik/.gradle/wrapper/dists/gradle-9.2.1-bin/2t0n5ozlw9xmuyvbp7dnzaxug/gradle-9.2.1/lib/native-platform-0.22-milestone-29.jar)
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+
+WARNING: A restricted method in java.lang.System has been called
+WARNING: java.lang.System::load has been called by com.gurobi.gurobi.NativeUtils in an unnamed module (file:/cta/users/ulvi.findik/.gradle/caches/modules-2/files-2.1/com.gurobi/gurobi/12.0.0/a7a090c1247917e4a85894a83767d350905ee3c9/gurobi-12.0.0.jar)
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':runMipSolver'.
+> Process 'command '/cta/users/ulvi.findik/jdk-25.0.1/bin/java'' finished with non-zero exit value 1
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to generate a Build Scan (powered by Develocity).
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 4s
+
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runMipSolver
+Running MIP Solver with arguments: --instancePath=instances/density=MEDIUM_nInventory=20_nHours=5_seed=6.json --outputPath=output/discrete --modelType=Discrete --checkPointTimes=30,60,120,300,600,900,1800,3600,7200 --logPath=output/discrete/density=MEDIUM_nInventory=20_nHours=5_seed=6.json/mip.log
+Loading problem instance...
+Set parameter WLSAccessID
+Set parameter WLSSecret
+Set parameter LicenseID to value 2748665
+
+> Task :runMipSolver FAILED
+
+[Incubating] Problems report is available at: file:///cta/users/ulvi.findik/TVCommercialScheduling/build/reports/problems/problems-report.html
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 10.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/9.2.1/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 36 FAILED (Duration: 4.74s)
+
+[37/50] Starting command 37...
+Executing: ./gradlew runMipSolver -PinstancePath="instances/density=MEDIUM_nInventory=10_nHours=3_seed=10.json" -PoutputPath="output/discrete" -PmodelType="Discrete" -PcheckPointTimes="30,60,120,300,600,900,1800,3600,7200" -PlogPath="output/discrete/density=MEDIUM_nInventory=10_nHours=3_seed=10.json/mip.log"
+Command failed with return code: 1
+Error: WARNING: A restricted method in java.lang.System has been called
+WARNING: java.lang.System::load has been called by net.rubygrapefruit.platform.internal.NativeLibraryLoader in an unnamed module (file:/cta/users/ulvi.findik/.gradle/wrapper/dists/gradle-9.2.1-bin/2t0n5ozlw9xmuyvbp7dnzaxug/gradle-9.2.1/lib/native-platform-0.22-milestone-29.jar)
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+
+WARNING: A restricted method in java.lang.System has been called
+WARNING: java.lang.System::load has been called by com.gurobi.gurobi.NativeUtils in an unnamed module (file:/cta/users/ulvi.findik/.gradle/caches/modules-2/files-2.1/com.gurobi/gurobi/12.0.0/a7a090c1247917e4a85894a83767d350905ee3c9/gurobi-12.0.0.jar)
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':runMipSolver'.
+> Process 'command '/cta/users/ulvi.findik/jdk-25.0.1/bin/java'' finished with non-zero exit value 1
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to generate a Build Scan (powered by Develocity).
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 4s
+
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runMipSolver
+Running MIP Solver with arguments: --instancePath=instances/density=MEDIUM_nInventory=10_nHours=3_seed=10.json --outputPath=output/discrete --modelType=Discrete --checkPointTimes=30,60,120,300,600,900,1800,3600,7200 --logPath=output/discrete/density=MEDIUM_nInventory=10_nHours=3_seed=10.json/mip.log
+Loading problem instance...
+Set parameter WLSAccessID
+Set parameter WLSSecret
+Set parameter LicenseID to value 2748665
+
+> Task :runMipSolver FAILED
+
+[Incubating] Problems report is available at: file:///cta/users/ulvi.findik/TVCommercialScheduling/build/reports/problems/problems-report.html
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 10.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/9.2.1/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 37 FAILED (Duration: 5.06s)
+
+[38/50] Starting command 38...
+Executing: ./gradlew runMipSolver -PinstancePath="instances/5.json" -PoutputPath="output/discrete" -PmodelType="Discrete" -PcheckPointTimes="30,60,120,300,600,900,1800,3600,7200" -PlogPath="output/discrete/5.json/mip.log"
+Command failed with return code: 1
+Error: WARNING: A restricted method in java.lang.System has been called
+WARNING: java.lang.System::load has been called by net.rubygrapefruit.platform.internal.NativeLibraryLoader in an unnamed module (file:/cta/users/ulvi.findik/.gradle/wrapper/dists/gradle-9.2.1-bin/2t0n5ozlw9xmuyvbp7dnzaxug/gradle-9.2.1/lib/native-platform-0.22-milestone-29.jar)
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+
+WARNING: A restricted method in java.lang.System has been called
+WARNING: java.lang.System::load has been called by com.gurobi.gurobi.NativeUtils in an unnamed module (file:/cta/users/ulvi.findik/.gradle/caches/modules-2/files-2.1/com.gurobi/gurobi/12.0.0/a7a090c1247917e4a85894a83767d350905ee3c9/gurobi-12.0.0.jar)
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':runMipSolver'.
+> Process 'command '/cta/users/ulvi.findik/jdk-25.0.1/bin/java'' finished with non-zero exit value 1
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to generate a Build Scan (powered by Develocity).
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 4s
+
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runMipSolver
+Running MIP Solver with arguments: --instancePath=instances/5.json --outputPath=output/discrete --modelType=Discrete --checkPointTimes=30,60,120,300,600,900,1800,3600,7200 --logPath=output/discrete/5.json/mip.log
+Loading problem instance...
+Set parameter WLSAccessID
+Set parameter WLSSecret
+Set parameter LicenseID to value 2748665
+
+> Task :runMipSolver FAILED
+
+[Incubating] Problems report is available at: file:///cta/users/ulvi.findik/TVCommercialScheduling/build/reports/problems/problems-report.html
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 10.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/9.2.1/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 38 FAILED (Duration: 5.03s)
+
+[39/50] Starting command 39...
+Executing: ./gradlew runMipSolver -PinstancePath="instances/density=LOW_nInventory=10_nHours=3_seed=8.json" -PoutputPath="output/discrete" -PmodelType="Discrete" -PcheckPointTimes="30,60,120,300,600,900,1800,3600,7200" -PlogPath="output/discrete/density=LOW_nInventory=10_nHours=3_seed=8.json/mip.log"
+Command failed with return code: 1
+Error: WARNING: A restricted method in java.lang.System has been called
+WARNING: java.lang.System::load has been called by net.rubygrapefruit.platform.internal.NativeLibraryLoader in an unnamed module (file:/cta/users/ulvi.findik/.gradle/wrapper/dists/gradle-9.2.1-bin/2t0n5ozlw9xmuyvbp7dnzaxug/gradle-9.2.1/lib/native-platform-0.22-milestone-29.jar)
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+
+WARNING: A restricted method in java.lang.System has been called
+WARNING: java.lang.System::load has been called by com.gurobi.gurobi.NativeUtils in an unnamed module (file:/cta/users/ulvi.findik/.gradle/caches/modules-2/files-2.1/com.gurobi/gurobi/12.0.0/a7a090c1247917e4a85894a83767d350905ee3c9/gurobi-12.0.0.jar)
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':runMipSolver'.
+> Process 'command '/cta/users/ulvi.findik/jdk-25.0.1/bin/java'' finished with non-zero exit value 1
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to generate a Build Scan (powered by Develocity).
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 4s
+
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runMipSolver
+Running MIP Solver with arguments: --instancePath=instances/density=LOW_nInventory=10_nHours=3_seed=8.json --outputPath=output/discrete --modelType=Discrete --checkPointTimes=30,60,120,300,600,900,1800,3600,7200 --logPath=output/discrete/density=LOW_nInventory=10_nHours=3_seed=8.json/mip.log
+Loading problem instance...
+Set parameter WLSAccessID
+Set parameter WLSSecret
+Set parameter LicenseID to value 2748665
+
+> Task :runMipSolver FAILED
+
+[Incubating] Problems report is available at: file:///cta/users/ulvi.findik/TVCommercialScheduling/build/reports/problems/problems-report.html
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 10.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/9.2.1/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 39 FAILED (Duration: 5.07s)
+
+[40/50] Starting command 40...
+Executing: ./gradlew runMipSolver -PinstancePath="instances/density=MEDIUM_nInventory=10_nHours=3_seed=5.json" -PoutputPath="output/discrete" -PmodelType="Discrete" -PcheckPointTimes="30,60,120,300,600,900,1800,3600,7200" -PlogPath="output/discrete/density=MEDIUM_nInventory=10_nHours=3_seed=5.json/mip.log"
+Command failed with return code: 1
+Error: WARNING: A restricted method in java.lang.System has been called
+WARNING: java.lang.System::load has been called by net.rubygrapefruit.platform.internal.NativeLibraryLoader in an unnamed module (file:/cta/users/ulvi.findik/.gradle/wrapper/dists/gradle-9.2.1-bin/2t0n5ozlw9xmuyvbp7dnzaxug/gradle-9.2.1/lib/native-platform-0.22-milestone-29.jar)
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+
+WARNING: A restricted method in java.lang.System has been called
+WARNING: java.lang.System::load has been called by com.gurobi.gurobi.NativeUtils in an unnamed module (file:/cta/users/ulvi.findik/.gradle/caches/modules-2/files-2.1/com.gurobi/gurobi/12.0.0/a7a090c1247917e4a85894a83767d350905ee3c9/gurobi-12.0.0.jar)
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':runMipSolver'.
+> Process 'command '/cta/users/ulvi.findik/jdk-25.0.1/bin/java'' finished with non-zero exit value 1
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to generate a Build Scan (powered by Develocity).
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 4s
+
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runMipSolver
+Running MIP Solver with arguments: --instancePath=instances/density=MEDIUM_nInventory=10_nHours=3_seed=5.json --outputPath=output/discrete --modelType=Discrete --checkPointTimes=30,60,120,300,600,900,1800,3600,7200 --logPath=output/discrete/density=MEDIUM_nInventory=10_nHours=3_seed=5.json/mip.log
+Loading problem instance...
+Set parameter WLSAccessID
+Set parameter WLSSecret
+Set parameter LicenseID to value 2748665
+
+> Task :runMipSolver FAILED
+
+[Incubating] Problems report is available at: file:///cta/users/ulvi.findik/TVCommercialScheduling/build/reports/problems/problems-report.html
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 10.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/9.2.1/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 40 FAILED (Duration: 5.15s)
+
+[41/50] Starting command 41...
+Executing: ./gradlew runMipSolver -PinstancePath="instances/density=HIGH_nInventory=10_nHours=3_seed=1.json" -PoutputPath="output/discrete" -PmodelType="Discrete" -PcheckPointTimes="30,60,120,300,600,900,1800,3600,7200" -PlogPath="output/discrete/density=HIGH_nInventory=10_nHours=3_seed=1.json/mip.log"
+Command failed with return code: 1
+Error: WARNING: A restricted method in java.lang.System has been called
+WARNING: java.lang.System::load has been called by net.rubygrapefruit.platform.internal.NativeLibraryLoader in an unnamed module (file:/cta/users/ulvi.findik/.gradle/wrapper/dists/gradle-9.2.1-bin/2t0n5ozlw9xmuyvbp7dnzaxug/gradle-9.2.1/lib/native-platform-0.22-milestone-29.jar)
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+
+WARNING: A restricted method in java.lang.System has been called
+WARNING: java.lang.System::load has been called by com.gurobi.gurobi.NativeUtils in an unnamed module (file:/cta/users/ulvi.findik/.gradle/caches/modules-2/files-2.1/com.gurobi/gurobi/12.0.0/a7a090c1247917e4a85894a83767d350905ee3c9/gurobi-12.0.0.jar)
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':runMipSolver'.
+> Process 'command '/cta/users/ulvi.findik/jdk-25.0.1/bin/java'' finished with non-zero exit value 1
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to generate a Build Scan (powered by Develocity).
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 4s
+
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runMipSolver
+Running MIP Solver with arguments: --instancePath=instances/density=HIGH_nInventory=10_nHours=3_seed=1.json --outputPath=output/discrete --modelType=Discrete --checkPointTimes=30,60,120,300,600,900,1800,3600,7200 --logPath=output/discrete/density=HIGH_nInventory=10_nHours=3_seed=1.json/mip.log
+Loading problem instance...
+Set parameter WLSAccessID
+Set parameter WLSSecret
+Set parameter LicenseID to value 2748665
+
+> Task :runMipSolver FAILED
+
+[Incubating] Problems report is available at: file:///cta/users/ulvi.findik/TVCommercialScheduling/build/reports/problems/problems-report.html
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 10.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/9.2.1/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 41 FAILED (Duration: 4.95s)
+
+[42/50] Starting command 42...
+Executing: ./gradlew runMipSolver -PinstancePath="instances/density=LOW_nInventory=15_nHours=4_seed=7.json" -PoutputPath="output/discrete" -PmodelType="Discrete" -PcheckPointTimes="30,60,120,300,600,900,1800,3600,7200" -PlogPath="output/discrete/density=LOW_nInventory=15_nHours=4_seed=7.json/mip.log"
+Command failed with return code: 1
+Error: WARNING: A restricted method in java.lang.System has been called
+WARNING: java.lang.System::load has been called by net.rubygrapefruit.platform.internal.NativeLibraryLoader in an unnamed module (file:/cta/users/ulvi.findik/.gradle/wrapper/dists/gradle-9.2.1-bin/2t0n5ozlw9xmuyvbp7dnzaxug/gradle-9.2.1/lib/native-platform-0.22-milestone-29.jar)
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+
+WARNING: A restricted method in java.lang.System has been called
+WARNING: java.lang.System::load has been called by com.gurobi.gurobi.NativeUtils in an unnamed module (file:/cta/users/ulvi.findik/.gradle/caches/modules-2/files-2.1/com.gurobi/gurobi/12.0.0/a7a090c1247917e4a85894a83767d350905ee3c9/gurobi-12.0.0.jar)
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':runMipSolver'.
+> Process 'command '/cta/users/ulvi.findik/jdk-25.0.1/bin/java'' finished with non-zero exit value 1
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to generate a Build Scan (powered by Develocity).
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 4s
+
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runMipSolver
+Running MIP Solver with arguments: --instancePath=instances/density=LOW_nInventory=15_nHours=4_seed=7.json --outputPath=output/discrete --modelType=Discrete --checkPointTimes=30,60,120,300,600,900,1800,3600,7200 --logPath=output/discrete/density=LOW_nInventory=15_nHours=4_seed=7.json/mip.log
+Loading problem instance...
+Set parameter WLSAccessID
+Set parameter WLSSecret
+Set parameter LicenseID to value 2748665
+
+> Task :runMipSolver FAILED
+
+[Incubating] Problems report is available at: file:///cta/users/ulvi.findik/TVCommercialScheduling/build/reports/problems/problems-report.html
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 10.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/9.2.1/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 42 FAILED (Duration: 4.87s)
+
+[43/50] Starting command 43...
+Executing: ./gradlew runMipSolver -PinstancePath="instances/density=MEDIUM_nInventory=20_nHours=5_seed=10.json" -PoutputPath="output/discrete" -PmodelType="Discrete" -PcheckPointTimes="30,60,120,300,600,900,1800,3600,7200" -PlogPath="output/discrete/density=MEDIUM_nInventory=20_nHours=5_seed=10.json/mip.log"
+Command failed with return code: 1
+Error: WARNING: A restricted method in java.lang.System has been called
+WARNING: java.lang.System::load has been called by net.rubygrapefruit.platform.internal.NativeLibraryLoader in an unnamed module (file:/cta/users/ulvi.findik/.gradle/wrapper/dists/gradle-9.2.1-bin/2t0n5ozlw9xmuyvbp7dnzaxug/gradle-9.2.1/lib/native-platform-0.22-milestone-29.jar)
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+
+WARNING: A restricted method in java.lang.System has been called
+WARNING: java.lang.System::load has been called by com.gurobi.gurobi.NativeUtils in an unnamed module (file:/cta/users/ulvi.findik/.gradle/caches/modules-2/files-2.1/com.gurobi/gurobi/12.0.0/a7a090c1247917e4a85894a83767d350905ee3c9/gurobi-12.0.0.jar)
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':runMipSolver'.
+> Process 'command '/cta/users/ulvi.findik/jdk-25.0.1/bin/java'' finished with non-zero exit value 1
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to generate a Build Scan (powered by Develocity).
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 4s
+
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runMipSolver
+Running MIP Solver with arguments: --instancePath=instances/density=MEDIUM_nInventory=20_nHours=5_seed=10.json --outputPath=output/discrete --modelType=Discrete --checkPointTimes=30,60,120,300,600,900,1800,3600,7200 --logPath=output/discrete/density=MEDIUM_nInventory=20_nHours=5_seed=10.json/mip.log
+Loading problem instance...
+Set parameter WLSAccessID
+Set parameter WLSSecret
+Set parameter LicenseID to value 2748665
+
+> Task :runMipSolver FAILED
+
+[Incubating] Problems report is available at: file:///cta/users/ulvi.findik/TVCommercialScheduling/build/reports/problems/problems-report.html
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 10.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/9.2.1/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 43 FAILED (Duration: 4.94s)
+
+[44/50] Starting command 44...
+Executing: ./gradlew runMipSolver -PinstancePath="instances/density=HIGH_nInventory=20_nHours=5_seed=2.json" -PoutputPath="output/discrete" -PmodelType="Discrete" -PcheckPointTimes="30,60,120,300,600,900,1800,3600,7200" -PlogPath="output/discrete/density=HIGH_nInventory=20_nHours=5_seed=2.json/mip.log"
+Command failed with return code: 1
+Error: WARNING: A restricted method in java.lang.System has been called
+WARNING: java.lang.System::load has been called by net.rubygrapefruit.platform.internal.NativeLibraryLoader in an unnamed module (file:/cta/users/ulvi.findik/.gradle/wrapper/dists/gradle-9.2.1-bin/2t0n5ozlw9xmuyvbp7dnzaxug/gradle-9.2.1/lib/native-platform-0.22-milestone-29.jar)
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+
+WARNING: A restricted method in java.lang.System has been called
+WARNING: java.lang.System::load has been called by com.gurobi.gurobi.NativeUtils in an unnamed module (file:/cta/users/ulvi.findik/.gradle/caches/modules-2/files-2.1/com.gurobi/gurobi/12.0.0/a7a090c1247917e4a85894a83767d350905ee3c9/gurobi-12.0.0.jar)
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':runMipSolver'.
+> Process 'command '/cta/users/ulvi.findik/jdk-25.0.1/bin/java'' finished with non-zero exit value 1
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to generate a Build Scan (powered by Develocity).
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 4s
+
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runMipSolver
+Running MIP Solver with arguments: --instancePath=instances/density=HIGH_nInventory=20_nHours=5_seed=2.json --outputPath=output/discrete --modelType=Discrete --checkPointTimes=30,60,120,300,600,900,1800,3600,7200 --logPath=output/discrete/density=HIGH_nInventory=20_nHours=5_seed=2.json/mip.log
+Loading problem instance...
+Set parameter WLSAccessID
+Set parameter WLSSecret
+Set parameter LicenseID to value 2748665
+
+> Task :runMipSolver FAILED
+
+[Incubating] Problems report is available at: file:///cta/users/ulvi.findik/TVCommercialScheduling/build/reports/problems/problems-report.html
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 10.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/9.2.1/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 44 FAILED (Duration: 4.76s)
+
+[45/50] Starting command 45...
+Executing: ./gradlew runMipSolver -PinstancePath="instances/density=LOW_nInventory=20_nHours=5_seed=7.json" -PoutputPath="output/discrete" -PmodelType="Discrete" -PcheckPointTimes="30,60,120,300,600,900,1800,3600,7200" -PlogPath="output/discrete/density=LOW_nInventory=20_nHours=5_seed=7.json/mip.log"
+Command failed with return code: 1
+Error: WARNING: A restricted method in java.lang.System has been called
+WARNING: java.lang.System::load has been called by net.rubygrapefruit.platform.internal.NativeLibraryLoader in an unnamed module (file:/cta/users/ulvi.findik/.gradle/wrapper/dists/gradle-9.2.1-bin/2t0n5ozlw9xmuyvbp7dnzaxug/gradle-9.2.1/lib/native-platform-0.22-milestone-29.jar)
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+
+WARNING: A restricted method in java.lang.System has been called
+WARNING: java.lang.System::load has been called by com.gurobi.gurobi.NativeUtils in an unnamed module (file:/cta/users/ulvi.findik/.gradle/caches/modules-2/files-2.1/com.gurobi/gurobi/12.0.0/a7a090c1247917e4a85894a83767d350905ee3c9/gurobi-12.0.0.jar)
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':runMipSolver'.
+> Process 'command '/cta/users/ulvi.findik/jdk-25.0.1/bin/java'' finished with non-zero exit value 1
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to generate a Build Scan (powered by Develocity).
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 4s
+
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runMipSolver
+Running MIP Solver with arguments: --instancePath=instances/density=LOW_nInventory=20_nHours=5_seed=7.json --outputPath=output/discrete --modelType=Discrete --checkPointTimes=30,60,120,300,600,900,1800,3600,7200 --logPath=output/discrete/density=LOW_nInventory=20_nHours=5_seed=7.json/mip.log
+Loading problem instance...
+Set parameter WLSAccessID
+Set parameter WLSSecret
+Set parameter LicenseID to value 2748665
+
+> Task :runMipSolver FAILED
+
+[Incubating] Problems report is available at: file:///cta/users/ulvi.findik/TVCommercialScheduling/build/reports/problems/problems-report.html
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 10.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/9.2.1/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 45 FAILED (Duration: 4.82s)
+
+[46/50] Starting command 46...
+Executing: ./gradlew runMipSolver -PinstancePath="instances/density=LOW_nInventory=15_nHours=4_seed=10.json" -PoutputPath="output/discrete" -PmodelType="Discrete" -PcheckPointTimes="30,60,120,300,600,900,1800,3600,7200" -PlogPath="output/discrete/density=LOW_nInventory=15_nHours=4_seed=10.json/mip.log"
+Command failed with return code: 1
+Error: WARNING: A restricted method in java.lang.System has been called
+WARNING: java.lang.System::load has been called by net.rubygrapefruit.platform.internal.NativeLibraryLoader in an unnamed module (file:/cta/users/ulvi.findik/.gradle/wrapper/dists/gradle-9.2.1-bin/2t0n5ozlw9xmuyvbp7dnzaxug/gradle-9.2.1/lib/native-platform-0.22-milestone-29.jar)
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+
+WARNING: A restricted method in java.lang.System has been called
+WARNING: java.lang.System::load has been called by com.gurobi.gurobi.NativeUtils in an unnamed module (file:/cta/users/ulvi.findik/.gradle/caches/modules-2/files-2.1/com.gurobi/gurobi/12.0.0/a7a090c1247917e4a85894a83767d350905ee3c9/gurobi-12.0.0.jar)
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':runMipSolver'.
+> Process 'command '/cta/users/ulvi.findik/jdk-25.0.1/bin/java'' finished with non-zero exit value 1
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to generate a Build Scan (powered by Develocity).
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 4s
+
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runMipSolver
+Running MIP Solver with arguments: --instancePath=instances/density=LOW_nInventory=15_nHours=4_seed=10.json --outputPath=output/discrete --modelType=Discrete --checkPointTimes=30,60,120,300,600,900,1800,3600,7200 --logPath=output/discrete/density=LOW_nInventory=15_nHours=4_seed=10.json/mip.log
+Loading problem instance...
+Set parameter WLSAccessID
+Set parameter WLSSecret
+Set parameter LicenseID to value 2748665
+
+> Task :runMipSolver FAILED
+
+[Incubating] Problems report is available at: file:///cta/users/ulvi.findik/TVCommercialScheduling/build/reports/problems/problems-report.html
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 10.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/9.2.1/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 46 FAILED (Duration: 4.88s)
+
+[47/50] Starting command 47...
+Executing: ./gradlew runMipSolver -PinstancePath="instances/density=HIGH_nInventory=15_nHours=4_seed=2.json" -PoutputPath="output/discrete" -PmodelType="Discrete" -PcheckPointTimes="30,60,120,300,600,900,1800,3600,7200" -PlogPath="output/discrete/density=HIGH_nInventory=15_nHours=4_seed=2.json/mip.log"
+Command failed with return code: 1
+Error: WARNING: A restricted method in java.lang.System has been called
+WARNING: java.lang.System::load has been called by net.rubygrapefruit.platform.internal.NativeLibraryLoader in an unnamed module (file:/cta/users/ulvi.findik/.gradle/wrapper/dists/gradle-9.2.1-bin/2t0n5ozlw9xmuyvbp7dnzaxug/gradle-9.2.1/lib/native-platform-0.22-milestone-29.jar)
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+
+WARNING: A restricted method in java.lang.System has been called
+WARNING: java.lang.System::load has been called by com.gurobi.gurobi.NativeUtils in an unnamed module (file:/cta/users/ulvi.findik/.gradle/caches/modules-2/files-2.1/com.gurobi/gurobi/12.0.0/a7a090c1247917e4a85894a83767d350905ee3c9/gurobi-12.0.0.jar)
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':runMipSolver'.
+> Process 'command '/cta/users/ulvi.findik/jdk-25.0.1/bin/java'' finished with non-zero exit value 1
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to generate a Build Scan (powered by Develocity).
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 4s
+
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runMipSolver
+Running MIP Solver with arguments: --instancePath=instances/density=HIGH_nInventory=15_nHours=4_seed=2.json --outputPath=output/discrete --modelType=Discrete --checkPointTimes=30,60,120,300,600,900,1800,3600,7200 --logPath=output/discrete/density=HIGH_nInventory=15_nHours=4_seed=2.json/mip.log
+Loading problem instance...
+Set parameter WLSAccessID
+Set parameter WLSSecret
+Set parameter LicenseID to value 2748665
+
+> Task :runMipSolver FAILED
+
+[Incubating] Problems report is available at: file:///cta/users/ulvi.findik/TVCommercialScheduling/build/reports/problems/problems-report.html
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 10.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/9.2.1/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 47 FAILED (Duration: 5.06s)
+
+[48/50] Starting command 48...
+Executing: ./gradlew runMipSolver -PinstancePath="instances/9.json" -PoutputPath="output/discrete" -PmodelType="Discrete" -PcheckPointTimes="30,60,120,300,600,900,1800,3600,7200" -PlogPath="output/discrete/9.json/mip.log"
+Command failed with return code: 1
+Error: WARNING: A restricted method in java.lang.System has been called
+WARNING: java.lang.System::load has been called by net.rubygrapefruit.platform.internal.NativeLibraryLoader in an unnamed module (file:/cta/users/ulvi.findik/.gradle/wrapper/dists/gradle-9.2.1-bin/2t0n5ozlw9xmuyvbp7dnzaxug/gradle-9.2.1/lib/native-platform-0.22-milestone-29.jar)
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+
+WARNING: A restricted method in java.lang.System has been called
+WARNING: java.lang.System::load has been called by com.gurobi.gurobi.NativeUtils in an unnamed module (file:/cta/users/ulvi.findik/.gradle/caches/modules-2/files-2.1/com.gurobi/gurobi/12.0.0/a7a090c1247917e4a85894a83767d350905ee3c9/gurobi-12.0.0.jar)
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':runMipSolver'.
+> Process 'command '/cta/users/ulvi.findik/jdk-25.0.1/bin/java'' finished with non-zero exit value 1
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to generate a Build Scan (powered by Develocity).
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 4s
+
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runMipSolver
+Running MIP Solver with arguments: --instancePath=instances/9.json --outputPath=output/discrete --modelType=Discrete --checkPointTimes=30,60,120,300,600,900,1800,3600,7200 --logPath=output/discrete/9.json/mip.log
+Loading problem instance...
+Set parameter WLSAccessID
+Set parameter WLSSecret
+Set parameter LicenseID to value 2748665
+
+> Task :runMipSolver FAILED
+
+[Incubating] Problems report is available at: file:///cta/users/ulvi.findik/TVCommercialScheduling/build/reports/problems/problems-report.html
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 10.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/9.2.1/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 48 FAILED (Duration: 4.81s)
+
+[49/50] Starting command 49...
+Executing: ./gradlew runMipSolver -PinstancePath="instances/density=LOW_nInventory=10_nHours=3_seed=4.json" -PoutputPath="output/discrete" -PmodelType="Discrete" -PcheckPointTimes="30,60,120,300,600,900,1800,3600,7200" -PlogPath="output/discrete/density=LOW_nInventory=10_nHours=3_seed=4.json/mip.log"
+Command failed with return code: 1
+Error: WARNING: A restricted method in java.lang.System has been called
+WARNING: java.lang.System::load has been called by net.rubygrapefruit.platform.internal.NativeLibraryLoader in an unnamed module (file:/cta/users/ulvi.findik/.gradle/wrapper/dists/gradle-9.2.1-bin/2t0n5ozlw9xmuyvbp7dnzaxug/gradle-9.2.1/lib/native-platform-0.22-milestone-29.jar)
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+
+WARNING: A restricted method in java.lang.System has been called
+WARNING: java.lang.System::load has been called by com.gurobi.gurobi.NativeUtils in an unnamed module (file:/cta/users/ulvi.findik/.gradle/caches/modules-2/files-2.1/com.gurobi/gurobi/12.0.0/a7a090c1247917e4a85894a83767d350905ee3c9/gurobi-12.0.0.jar)
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':runMipSolver'.
+> Process 'command '/cta/users/ulvi.findik/jdk-25.0.1/bin/java'' finished with non-zero exit value 1
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to generate a Build Scan (powered by Develocity).
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 4s
+
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runMipSolver
+Running MIP Solver with arguments: --instancePath=instances/density=LOW_nInventory=10_nHours=3_seed=4.json --outputPath=output/discrete --modelType=Discrete --checkPointTimes=30,60,120,300,600,900,1800,3600,7200 --logPath=output/discrete/density=LOW_nInventory=10_nHours=3_seed=4.json/mip.log
+Loading problem instance...
+Set parameter WLSAccessID
+Set parameter WLSSecret
+Set parameter LicenseID to value 2748665
+
+> Task :runMipSolver FAILED
+
+[Incubating] Problems report is available at: file:///cta/users/ulvi.findik/TVCommercialScheduling/build/reports/problems/problems-report.html
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 10.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/9.2.1/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 49 FAILED (Duration: 4.75s)
+
+[50/50] Starting command 50...
+Executing: ./gradlew runMipSolver -PinstancePath="instances/density=MEDIUM_nInventory=10_nHours=3_seed=9.json" -PoutputPath="output/discrete" -PmodelType="Discrete" -PcheckPointTimes="30,60,120,300,600,900,1800,3600,7200" -PlogPath="output/discrete/density=MEDIUM_nInventory=10_nHours=3_seed=9.json/mip.log"
+Command failed with return code: 1
+Error: WARNING: A restricted method in java.lang.System has been called
+WARNING: java.lang.System::load has been called by net.rubygrapefruit.platform.internal.NativeLibraryLoader in an unnamed module (file:/cta/users/ulvi.findik/.gradle/wrapper/dists/gradle-9.2.1-bin/2t0n5ozlw9xmuyvbp7dnzaxug/gradle-9.2.1/lib/native-platform-0.22-milestone-29.jar)
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+
+WARNING: A restricted method in java.lang.System has been called
+WARNING: java.lang.System::load has been called by com.gurobi.gurobi.NativeUtils in an unnamed module (file:/cta/users/ulvi.findik/.gradle/caches/modules-2/files-2.1/com.gurobi/gurobi/12.0.0/a7a090c1247917e4a85894a83767d350905ee3c9/gurobi-12.0.0.jar)
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':runMipSolver'.
+> Process 'command '/cta/users/ulvi.findik/jdk-25.0.1/bin/java'' finished with non-zero exit value 1
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to generate a Build Scan (powered by Develocity).
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 4s
+
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :runMipSolver
+Running MIP Solver with arguments: --instancePath=instances/density=MEDIUM_nInventory=10_nHours=3_seed=9.json --outputPath=output/discrete --modelType=Discrete --checkPointTimes=30,60,120,300,600,900,1800,3600,7200 --logPath=output/discrete/density=MEDIUM_nInventory=10_nHours=3_seed=9.json/mip.log
+Loading problem instance...
+Set parameter WLSAccessID
+Set parameter WLSSecret
+Set parameter LicenseID to value 2748665
+
+> Task :runMipSolver FAILED
+
+[Incubating] Problems report is available at: file:///cta/users/ulvi.findik/TVCommercialScheduling/build/reports/problems/problems-report.html
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 10.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/9.2.1/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+2 actionable tasks: 1 executed, 1 up-to-date
+
+Command 50 FAILED (Duration: 4.88s)
+
+================================================================================
+Execution Summary:
+Total commands: 50
+Executed: 50
+Successful: 0
+Failed: 50
+Total duration: 249.83s
+Average duration per command: 5.00s
+[INFO] Job finished

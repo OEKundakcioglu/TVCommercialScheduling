@@ -1,0 +1,143 @@
+{
+  "bestSolution": {
+    "revenue": 363042
+  },
+  "checkPoints": [
+    {
+      "solution": {
+        "revenue": 339206
+      },
+      "time": 0.9670000076293945
+    },
+    {
+      "solution": {
+        "revenue": 340299
+      },
+      "time": 0.9849998950958252
+    },
+    {
+      "solution": {
+        "revenue": 343101
+      },
+      "time": 0.9909999370574951
+    },
+    {
+      "solution": {
+        "revenue": 347312
+      },
+      "time": 1.0
+    },
+    {
+      "solution": {
+        "revenue": 347600
+      },
+      "time": 1.0329999923706055
+    },
+    {
+      "solution": {
+        "revenue": 350010
+      },
+      "time": 1.0399999618530273
+    },
+    {
+      "solution": {
+        "revenue": 350130
+      },
+      "time": 1.065000057220459
+    },
+    {
+      "solution": {
+        "revenue": 356703
+      },
+      "time": 1.0850000381469727
+    },
+    {
+      "solution": {
+        "revenue": 359867
+      },
+      "time": 1.1170001029968262
+    },
+    {
+      "solution": {
+        "revenue": 360574
+      },
+      "time": 1.1449999809265137
+    },
+    {
+      "solution": {
+        "revenue": 361238
+      },
+      "time": 1.1659998893737793
+    },
+    {
+      "solution": {
+        "revenue": 361573
+      },
+      "time": 1.2300000190734863
+    },
+    {
+      "solution": {
+        "revenue": 362146
+      },
+      "time": 1.2390000820159912
+    },
+    {
+      "solution": {
+        "revenue": 362226
+      },
+      "time": 1.555999994277954
+    },
+    {
+      "solution": {
+        "revenue": 362771
+      },
+      "time": 1.6170001029968262
+    },
+    {
+      "solution": {
+        "revenue": 362774
+      },
+      "time": 1.7739999294281006
+    },
+    {
+      "solution": {
+        "revenue": 363040
+      },
+      "time": 1.8440001010894775
+    },
+    {
+      "solution": {
+        "revenue": 363042
+      },
+      "time": 1.8659999370574951
+    }
+  ],
+  "instance": "density\u003dMEDIUM_nInventory\u003d10_nHours\u003d3_seed\u003d5",
+  "additionalInformation": {
+    "settings": {
+      "searchMode": "FIRST_IMPROVEMENT",
+      "timeLimit": 300,
+      "localSearchSettings": {
+        "moves": [
+          "insert",
+          "outOfPool",
+          "interSwap",
+          "shift",
+          "transfer",
+          "intraSwap"
+        ],
+        "neighborhoodSkipProbability": 0.5
+      },
+      "constructiveHeuristicSettings": {
+        "lowerBound": 0.5,
+        "upperBound": 2.0
+      },
+      "alphaGenerator": {
+        "alpha": 0.25
+      },
+      "randomRunN": 0,
+      "instancePath": "instances/density\u003dMEDIUM_nInventory\u003d10_nHours\u003d3_seed\u003d5.json"
+    },
+    "iterationsPerSecond": 873.4533333333334
+  }
+}

@@ -1,0 +1,102 @@
+{
+  "bestSolution": {
+    "revenue": 271714
+  },
+  "checkPoints": [
+    {
+      "solution": {
+        "revenue": 261893
+      },
+      "time": 0.20099997520446777
+    },
+    {
+      "solution": {
+        "revenue": 268837
+      },
+      "time": 0.2109999656677246
+    },
+    {
+      "solution": {
+        "revenue": 270738
+      },
+      "time": 0.2330000400543213
+    },
+    {
+      "solution": {
+        "revenue": 271426
+      },
+      "time": 0.25
+    },
+    {
+      "solution": {
+        "revenue": 271430
+      },
+      "time": 0.2539999485015869
+    },
+    {
+      "solution": {
+        "revenue": 271431
+      },
+      "time": 0.7720000743865967
+    },
+    {
+      "solution": {
+        "revenue": 271432
+      },
+      "time": 2.372999906539917
+    },
+    {
+      "solution": {
+        "revenue": 271707
+      },
+      "time": 23.63100004196167
+    },
+    {
+      "solution": {
+        "revenue": 271710
+      },
+      "time": 27.450000047683716
+    },
+    {
+      "solution": {
+        "revenue": 271711
+      },
+      "time": 44.09699988365173
+    },
+    {
+      "solution": {
+        "revenue": 271714
+      },
+      "time": 50.74000000953674
+    }
+  ],
+  "instance": "density\u003dLOW_nInventory\u003d10_nHours\u003d3_seed\u003d9",
+  "additionalInformation": {
+    "settings": {
+      "searchMode": "BEST_IMPROVEMENT",
+      "timeLimit": 300,
+      "localSearchSettings": {
+        "moves": [
+          "insert",
+          "outOfPool",
+          "interSwap",
+          "shift",
+          "transfer",
+          "intraSwap"
+        ],
+        "neighborhoodSkipProbability": 0.0
+      },
+      "constructiveHeuristicSettings": {
+        "lowerBound": 0.5,
+        "upperBound": 2.0
+      },
+      "alphaGenerator": {
+        "lowerBound": 0.1,
+        "upperBound": 0.5
+      },
+      "randomRunN": 0,
+      "instancePath": "instances/density\u003dLOW_nInventory\u003d10_nHours\u003d3_seed\u003d9.json"
+    },
+    "iterationsPerSecond": 751.4
+  }
+}
