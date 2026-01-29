@@ -1,7 +1,6 @@
-
 plugins {
-    id ("java")
-    id ("application")
+    id("java")
+    id("application")
 }
 
 java {
@@ -20,15 +19,16 @@ repositories {
 }
 
 dependencies {
-    testImplementation ("org.junit.jupiter:junit-jupiter-api:5.9.0")
-    testRuntimeOnly ("org.junit.jupiter:junit-jupiter-engine:5.9.0")
+    testImplementation("org.junit.jupiter:junit-jupiter-api:5.9.0")
+    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.9.0")
+    testRuntimeOnly("org.junit.platform:junit-platform-launcher:1.9.0")
 
     implementation("org.apache.commons:commons-math3:3.6.1")
     implementation("com.gurobi:gurobi:12.0.0")
-    implementation ("com.google.code.gson:gson:2.10")
-    implementation ("org.apache.logging.log4j:log4j-api:2.22.1")
-    implementation ("org.apache.logging.log4j:log4j-core:2.22.1")
-    implementation ("me.tongfei:progressbar:0.10.0")
+    implementation("com.google.code.gson:gson:2.10")
+    implementation("org.apache.logging.log4j:log4j-api:2.22.1")
+    implementation("org.apache.logging.log4j:log4j-core:2.22.1")
+    implementation("me.tongfei:progressbar:0.10.0")
     implementation("org.jetbrains:annotations:24.0.0")
     implementation("org.yaml:snakeyaml:2.2")
     implementation("com.beust:jcommander:1.82")
@@ -49,19 +49,19 @@ application {
     mainClass = "mainGraspRun"
 }
 
-tasks.register<JavaExec>("runGraspLoop"){
+tasks.register<JavaExec>("runGraspLoop") {
     mainClass.set("mainConsoleLoop")
 
     classpath = sourceSets["main"].runtimeClasspath
 
-    doFirst{
+    doFirst {
 
         val arglist = mutableListOf<String>()
-        if (project.hasProperty("yamlConfigPath")){
+        if (project.hasProperty("yamlConfigPath")) {
             arglist.add("--yamlConfigPath=${project.property("yamlConfigPath")}")
         }
 
-        if (project.hasProperty("ycp")){
+        if (project.hasProperty("ycp")) {
             arglist.add("--ycp=${project.property("ycp")}")
         }
         println("Arguments: ${arglist.joinToString(" ")}")
@@ -69,18 +69,18 @@ tasks.register<JavaExec>("runGraspLoop"){
     }
 }
 
-tasks.register<JavaExec>("runBeeLoop"){
+tasks.register<JavaExec>("runBeeLoop") {
     mainClass.set("mainConsoleLoopBee")
 
     classpath = sourceSets["main"].runtimeClasspath
 
-    doFirst{
+    doFirst {
         val arglist = mutableListOf<String>()
-        if (project.hasProperty("yamlConfigPath")){
+        if (project.hasProperty("yamlConfigPath")) {
             arglist.add("--yamlConfigPath=${project.property("yamlConfigPath")}")
         }
 
-        if (project.hasProperty("ycp")){
+        if (project.hasProperty("ycp")) {
             arglist.add("--ycp=${project.property("ycp")}")
         }
 
@@ -88,18 +88,18 @@ tasks.register<JavaExec>("runBeeLoop"){
     }
 }
 
-tasks.register<JavaExec>("runMipLoop"){
+tasks.register<JavaExec>("runMipLoop") {
     mainClass.set("mainConsoleMipLoop")
 
     classpath = sourceSets["main"].runtimeClasspath
 
-    doFirst{
+    doFirst {
         val arglist = mutableListOf<String>()
-        if (project.hasProperty("yamlConfigPath")){
+        if (project.hasProperty("yamlConfigPath")) {
             arglist.add("--yamlConfigPath=${project.property("yamlConfigPath")}")
         }
 
-        if (project.hasProperty("ycp")){
+        if (project.hasProperty("ycp")) {
             arglist.add("--ycp=${project.property("ycp")}")
         }
 
@@ -115,27 +115,27 @@ tasks.register<JavaExec>("runHeuristic") {
         // Collect all properties passed from the command line
         val argsList = mutableListOf<String>()
 
-        if (project.hasProperty("isBestMove")){
+        if (project.hasProperty("isBestMove")) {
             argsList.add("--isBestMove=${project.property("isBestMove")}")
         }
 
-        if (project.hasProperty("alphaGeneratorType")){
+        if (project.hasProperty("alphaGeneratorType")) {
             argsList.add("--alphaGeneratorType=${project.property("alphaGeneratorType")}")
         }
 
-        if (project.hasProperty("alphaGeneratorRange")){
+        if (project.hasProperty("alphaGeneratorRange")) {
             argsList.add("--alphaGeneratorRange=${project.property("alphaGeneratorRange")}")
         }
 
-        if (project.hasProperty("instancePath")){
+        if (project.hasProperty("instancePath")) {
             argsList.add("--instancePath=${project.property("instancePath")}")
         }
 
-        if (project.hasProperty("outputPath")){
+        if (project.hasProperty("outputPath")) {
             argsList.add("--outputPath=${project.property("outputPath")}")
         }
 
-        if (project.hasProperty("timeLimit")){
+        if (project.hasProperty("timeLimit")) {
             argsList.add("--timeLimit=${project.property("timeLimit")}")
         }
 
@@ -154,15 +154,15 @@ tasks.register<JavaExec>("runMip") {
         // Collect all properties passed from the command line
         val argsList = mutableListOf<String>()
 
-        if (project.hasProperty("instancePath")){
+        if (project.hasProperty("instancePath")) {
             argsList.add("--instancePath=${project.property("instancePath")}")
         }
 
-        if (project.hasProperty("outputPath")){
+        if (project.hasProperty("outputPath")) {
             argsList.add("--outputPath=${project.property("outputPath")}")
         }
 
-        if (project.hasProperty("timeLimit")){
+        if (project.hasProperty("timeLimit")) {
             argsList.add("--timeLimit=${project.property("timeLimit")}")
         }
 
@@ -225,7 +225,6 @@ tasks.register<JavaExec>("runGrasp") {
             argsList.add("--seed=${project.property("seed")}")
         }
 
-
         if (project.hasProperty("verbose")) {
             argsList.add("--verbose=${project.property("verbose")}")
         }
@@ -236,6 +235,32 @@ tasks.register<JavaExec>("runGrasp") {
 
         if (project.hasProperty("threads")) {
             argsList.add("--threads=${project.property("threads")}")
+        }
+
+        // Perturbation parameters
+        if (project.hasProperty("perturbation")) {
+            argsList.add("--perturbation")
+        }
+
+        if (project.hasProperty("destructionRate")) {
+            argsList.add("--destructionRate=${project.property("destructionRate")}")
+        }
+
+        if (project.hasProperty("reconstructionAlpha")) {
+            argsList.add("--reconstructionAlpha=${project.property("reconstructionAlpha")}")
+        }
+
+        if (project.hasProperty("stagnationThreshold")) {
+            argsList.add("--stagnationThreshold=${project.property("stagnationThreshold")}")
+        }
+
+        // Adaptive moves and statistics
+        if (project.hasProperty("adaptiveMoves")) {
+            argsList.add("--adaptiveMoves")
+        }
+
+        if (project.hasProperty("trackStats")) {
+            argsList.add("--trackStats")
         }
 
         // Print the arguments to the console
@@ -325,6 +350,36 @@ tasks.register<JavaExec>("runBeeColony") {
         }
 
         println("Running Bee Colony with arguments: ${argsList.joinToString(" ")}")
+        args = argsList
+    }
+}
+
+tasks.register<JavaExec>("runBenchmark") {
+    mainClass.set("benchmark")
+    classpath = sourceSets["main"].runtimeClasspath
+
+    // Increase heap size for large benchmarks
+    jvmArgs = listOf("-Xmx4g")
+
+    doFirst {
+        val argsList = mutableListOf<String>()
+
+        // Quick test mode
+        if (project.hasProperty("quick") || project.hasProperty("q")) {
+            argsList.add("--quick")
+        }
+
+        // Priority instances only (no secondary)
+        if (project.hasProperty("priorityOnly")) {
+            argsList.add("--priority-only")
+        }
+
+        // Filter to specific groups
+        if (project.hasProperty("groups")) {
+            argsList.add("--groups=${project.property("groups")}")
+        }
+
+        println("Running benchmark with arguments: ${argsList.joinToString(" ")}")
         args = argsList
     }
 }

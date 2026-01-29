@@ -4,7 +4,6 @@ import data.Commercial;
 import data.Inventory;
 import data.ProblemParameters;
 import data.Solution;
-
 import solvers.heuristicSolvers.grasp.localSearch.move.InterSwapMove;
 
 import java.util.Random;
@@ -41,11 +40,11 @@ public class InterSwapSearch extends BaseSearch {
         var randomIndices = super.getShuffledIndexList(0, allSolutionData.length);
 
         for (var s1Index = 0; s1Index < randomIndices.size() - 1; s1Index++) {
-            var s1 = allSolutionData[s1Index];
+            var s1 = allSolutionData[randomIndices.get(s1Index)];
             if (s1 == null) continue;
 
-            for (var s2Index = s1Index + 1; s2Index < randomIndices.size() - 1; s2Index++) {
-                var s2 = allSolutionData[s2Index];
+            for (var s2Index = s1Index + 1; s2Index < randomIndices.size(); s2Index++) {
+                var s2 = allSolutionData[randomIndices.get(s2Index)];
                 if (s2 == null) continue;
 
                 if (s1.getInventory() == s2.getInventory()) continue;

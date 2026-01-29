@@ -1,20 +1,18 @@
 import com.beust.jcommander.JCommander;
 import com.beust.jcommander.Parameter;
 import com.beust.jcommander.Parameters;
-
 import data.ProblemParameters;
 import data.Utils;
 import data.problemBuilders.JsonParser;
-
 import runParameters.ConstructiveHeuristicSettings;
 import runParameters.GraspSettings;
 import runParameters.LocalSearchSettings;
-
 import solvers.SolverSolution;
 import solvers.heuristicSolvers.grasp.graspWithPathRelinking.GraspWithPathRelinking;
 import solvers.heuristicSolvers.grasp.localSearch.SearchMode;
 import solvers.heuristicSolvers.grasp.reactiveGrasp.AlphaGenerator;
 import solvers.heuristicSolvers.grasp.reactiveGrasp.AlphaGeneratorConstant;
+import solvers.heuristicSolvers.grasp.reactiveGrasp.AlphaGeneratorReactive;
 import solvers.heuristicSolvers.grasp.reactiveGrasp.AlphaGeneratorUniform;
 
 import java.io.FileOutputStream;
@@ -56,7 +54,7 @@ public class mainGraspRun {
 
     @Parameter(
             names = {"--alphaType", "-at"},
-            description = "Alpha generator type: FIXED or UNIFORM",
+            description = "Alpha generator type: FIXED, UNIFORM, or REACTIVE",
             required = true)
     private String alphaType;
 
@@ -103,6 +101,16 @@ public class mainGraspRun {
             names = {"--verbose", "-v"},
             description = "Enable verbose output")
     private boolean verbose = false;
+
+    @Parameter(
+            names = {"--adaptiveMoves", "-am"},
+            description = "Enable adaptive move selection in local search")
+    private boolean adaptiveMoves = false;
+
+    @Parameter(
+            names = {"--trackStats", "-ts"},
+            description = "Enable move statistics tracking for analysis")
+    private boolean trackStatistics = false;
 
     public static void main(String[] args) {
         mainGraspRun main = new mainGraspRun();
@@ -159,6 +167,7 @@ public class mainGraspRun {
                 System.out.println("Parallel mode: enabled");
                 System.out.println("Threads: " + (threads > 0 ? threads : "default"));
             }
+            System.out.println("Adaptive moves: " + adaptiveMoves);
             System.out.println("=====================================");
         }
 
@@ -201,10 +210,10 @@ public class mainGraspRun {
         if (parallel) {
             solution =
                     new solvers.heuristicSolvers
-                                    .grasp
-                                    .graspWithPathRelinking
-                                    .ParallelGraspWithPathRelinking(
-                                    parameters, graspSettings, threads)
+                            .grasp
+                            .graspWithPathRelinking
+                            .ParallelGraspWithPathRelinking(
+                            parameters, graspSettings, threads)
                             .getSolution();
         } else {
             solution = new GraspWithPathRelinking(parameters, graspSettings).getSolution();
@@ -230,6 +239,8 @@ public class mainGraspRun {
         AlphaGenerator alphaGenerator;
         if (alphaType.equalsIgnoreCase("FIXED")) {
             alphaGenerator = new AlphaGeneratorConstant(alpha);
+        } else if (alphaType.equalsIgnoreCase("REACTIVE")) {
+            alphaGenerator = new AlphaGeneratorReactive();
         } else {
             alphaGenerator = new AlphaGeneratorUniform(minAlpha, maxAlpha);
         }
@@ -245,8 +256,9 @@ public class mainGraspRun {
                             + ". Use BEST_IMPROVEMENT or FIRST_IMPROVEMENT.");
         }
 
-        // Create local search settings with default moves
-        LocalSearchSettings localSearchSettings = new LocalSearchSettings(moves, skipProbability);
+        // Create local search settings with adaptive move selection and statistics tracking options
+        LocalSearchSettings localSearchSettings = new LocalSearchSettings(
+                moves, skipProbability, adaptiveMoves, trackStatistics);
 
         // Create constructive heuristic settings with default values
         ConstructiveHeuristicSettings constructiveSettings = new ConstructiveHeuristicSettings(0.5, 2);
