@@ -28,7 +28,7 @@ PARAMETER_SPACE = {
     "fixed_alpha": {
         "type": "float",
         "low": 0.0,
-        "high": 1.0,
+        "high": 0.8,
         "step": 0.1,
         "default": 0.5,
         "optimize": True,
@@ -39,7 +39,7 @@ PARAMETER_SPACE = {
         "type": "float",
         "low": 0.0,
         "high": 0.5,
-        "step": 0.05,
+        "step": 0.1,
         "default": 0.1,
         "optimize": True,
         "condition": "alpha_type == 'UNIFORM'",
@@ -49,7 +49,7 @@ PARAMETER_SPACE = {
         "type": "float",
         "low": 0.5,
         "high": 1.0,
-        "step": 0.05,
+        "step": 0.1,
         "default": 0.9,
         "optimize": True,
         "condition": "alpha_type == 'UNIFORM'",
@@ -70,42 +70,6 @@ PARAMETER_SPACE = {
         "optimize": True,
         "description": "Enable adaptive move selection based on performance"
     },
-    "perturbation_enabled": {
-        "type": "bool",
-        "default": False,
-        "optimize": True,
-        "description": "Enable perturbation mechanism for escaping local optima"
-    },
-    "destruction_rate": {
-        "type": "float",
-        "low": 0.1,
-        "high": 0.5,
-        "step": 0.05,
-        "default": 0.3,
-        "optimize": True,
-        "condition": "perturbation_enabled == True",
-        "description": "Fraction of solution to destroy in perturbation"
-    },
-    "reconstruction_alpha": {
-        "type": "float",
-        "low": 0.5,
-        "high": 0.95,
-        "step": 0.05,
-        "default": 0.8,
-        "optimize": True,
-        "condition": "perturbation_enabled == True",
-        "description": "Alpha value used during reconstruction phase"
-    },
-    "stagnation_threshold": {
-        "type": "int",
-        "low": 10,
-        "high": 100,
-        "step": 10,
-        "default": 50,
-        "optimize": True,
-        "condition": "perturbation_enabled == True",
-        "description": "Iterations without improvement before triggering perturbation"
-    },
     "moves": {
         "type": "subset",
         "options": ["insert", "outOfPool", "interSwap", "shift",
@@ -122,12 +86,12 @@ PARAMETER_SPACE = {
         "type": "categorical",
         "choices": ["FIRST_IMPROVEMENT", "BEST_IMPROVEMENT"],
         "default": "FIRST_IMPROVEMENT",
-        "optimize": False,
+        "optimize": True,
         "description": "Local search improvement strategy"
     },
     "time_limit": {
         "type": "int",
-        "default": 300,
+        "default": 200,
         "optimize": False,
         "description": "Time limit per solver run in seconds"
     }
@@ -175,7 +139,8 @@ STUDY_DEFAULTS = {
     "direction": "minimize",          # minimize gap (lower is better)
     "sampler": "TPE",                 # TPE, Random, CMA-ES
     "pruner": "Median",               # Median, SuccessiveHalving, None
-    "n_trials": 1000,                 # Number of optimization trials
+    "n_trials": 10000,                # Number of optimization trials
+    "n_startup_trials": 100,           # Random trials before TPE modeling starts
     "timeout_hours": None,            # Max time in hours (None for unlimited)
     "n_jobs": 8,                      # Parallel trial execution
 }
@@ -185,7 +150,7 @@ STUDY_DEFAULTS = {
 # ============================================================
 
 EXECUTION_SETTINGS = {
-    "time_limit_per_run": 300,         # seconds per solver invocation
+    "time_limit_per_run": 200,         # seconds per solver invocation
     "seeds": [0],                     # seeds to average over (for robustness)
     "aggregation": "mean",            # mean, worst, best
     "use_gradle": True,               # Use Gradle to run solver

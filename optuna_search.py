@@ -102,12 +102,12 @@ def parse_timeout(timeout_str: str) -> Optional[float]:
         return value
 
 
-def get_sampler(sampler_name: str, seed: int = None):
+def get_sampler(sampler_name: str, seed: int = None, n_startup_trials: int = 10):
     """Get Optuna sampler by name"""
     samplers = {
-        "TPE": lambda: TPESampler(seed=seed),
+        "TPE": lambda: TPESampler(seed=seed, n_startup_trials=n_startup_trials),
         "Random": lambda: RandomSampler(seed=seed),
-        "CMA-ES": lambda: CmaEsSampler(seed=seed),
+        "CMA-ES": lambda: CmaEsSampler(seed=seed, n_startup_trials=n_startup_trials),
     }
     if sampler_name not in samplers:
         raise ValueError(f"Unknown sampler: {sampler_name}. Available: {list(samplers.keys())}")
@@ -274,13 +274,6 @@ def build_solver_command(
         # Moves as comma-separated list
         moves_str = ",".join(params["moves"])
         cmd.append(f"-PlocalSearchMoves={moves_str}")
-
-        # Perturbation parameters
-        if params["perturbation_enabled"]:
-            cmd.append("-Pperturbation=true")
-            cmd.append(f"-PdestructionRate={params['destruction_rate']}")
-            cmd.append(f"-PreconstructionAlpha={params['reconstruction_alpha']}")
-            cmd.append(f"-PstagnationThreshold={params['stagnation_threshold']}")
 
         # Adaptive moves
         if params["adaptive_moves"]:
@@ -724,6 +717,8 @@ Examples:
     if len(instances) > 5:
         print(f"  ... and {len(instances) - 5} more")
     print(f"Output:         {output_dir}")
+    n_startup_trials = STUDY_DEFAULTS.get("n_startup_trials", 10)
+    print(f"Startup trials: {n_startup_trials}")
     print("=" * 60)
 
     if args.dry_run:
@@ -744,7 +739,7 @@ Examples:
     output_dir.mkdir(parents=True, exist_ok=True)
     storage = f"sqlite:///{storage_path}"
 
-    sampler = get_sampler(sampler_name, seed=args.seed)
+    sampler = get_sampler(sampler_name, seed=args.seed, n_startup_trials=n_startup_trials)
     pruner = get_pruner(pruner_name)
 
     if args.resume:
