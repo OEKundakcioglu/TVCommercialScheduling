@@ -561,7 +561,7 @@ public class benchmark {
                 SearchMode.FIRST_IMPROVEMENT,
                 timeLimit,
                 localSearchSettings,
-                new ConstructiveHeuristicSettings(0.5, 2),
+                new ConstructiveHeuristicSettings(2),
                 config.createAlphaGenerator(),  // created from config
                 seed,
                 instancePath

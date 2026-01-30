@@ -263,6 +263,15 @@ tasks.register<JavaExec>("runGrasp") {
             argsList.add("--trackStats")
         }
 
+        // Constructive heuristic type and k-regret
+        if (project.hasProperty("constructiveType")) {
+            argsList.add("--constructiveType=${project.property("constructiveType")}")
+        }
+
+        if (project.hasProperty("kRegret")) {
+            argsList.add("--kRegret=${project.property("kRegret")}")
+        }
+
         // Print the arguments to the console
         println("Running GRASP with arguments: ${argsList.joinToString(" ")}")
 

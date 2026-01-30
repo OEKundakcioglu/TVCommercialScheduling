@@ -2,14 +2,9 @@ package solvers.heuristicSolvers.grasp.constructiveHeuristic;
 
 import data.*;
 import data.enums.ATTENTION;
-
 import runParameters.ConstructiveHeuristicSettings;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Random;
+import java.util.*;
 
 public class ConstructiveHeuristic implements IConstructiveHeuristic {
     private final double firstAttentionBoost;
@@ -38,22 +33,13 @@ public class ConstructiveHeuristic implements IConstructiveHeuristic {
         this.random = random;
         this.alpha = alpha;
 
-        this.firstAttentionBoost =
-                this.random.nextDouble(
-                        constructiveHeuristicSettings.lowerBound(),
-                        constructiveHeuristicSettings.upperBound());
-        this.lastAttentionBoost =
-                this.random.nextDouble(
-                        constructiveHeuristicSettings.lowerBound(),
-                        constructiveHeuristicSettings.upperBound());
-        this.f30AttentionBoost =
-                this.random.nextDouble(
-                        constructiveHeuristicSettings.lowerBound(),
-                        constructiveHeuristicSettings.upperBound());
-        this.f60AttentionBoost =
-                this.random.nextDouble(
-                        constructiveHeuristicSettings.lowerBound(),
-                        constructiveHeuristicSettings.upperBound());
+        double lowerBound = 1.0 / constructiveHeuristicSettings.deviation();
+        double upperBound = constructiveHeuristicSettings.deviation();
+
+        this.firstAttentionBoost = this.random.nextDouble(lowerBound, upperBound);
+        this.lastAttentionBoost = this.random.nextDouble(lowerBound, upperBound);
+        this.f30AttentionBoost = this.random.nextDouble(lowerBound, upperBound);
+        this.f60AttentionBoost = this.random.nextDouble(lowerBound, upperBound);
 
         this.parameters = parameters;
         this.unassignedCommercials = new ArrayList<>(this.parameters.getSetOfCommercials());
@@ -141,7 +127,7 @@ public class ConstructiveHeuristic implements IConstructiveHeuristic {
         double[] scores =
                 new double
                         [parameters.getSetOfCommercials().size()
-                                * parameters.getSetOfInventories().size()];
+                        * parameters.getSetOfInventories().size()];
 
         var worstScore = Double.POSITIVE_INFINITY;
 

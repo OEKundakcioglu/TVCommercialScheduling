@@ -5,6 +5,7 @@ import runParameters.ConstructiveHeuristicSettings;
 import runParameters.GraspSettings;
 import runParameters.LocalSearchSettings;
 import solvers.SolverSolution;
+import solvers.heuristicSolvers.grasp.constructiveHeuristic.ConstructiveHeuristicType;
 import solvers.heuristicSolvers.grasp.graspWithPathRelinking.GraspWithPathRelinking;
 import solvers.heuristicSolvers.grasp.graspWithPathRelinking.ParallelGraspWithPathRelinking;
 import solvers.heuristicSolvers.grasp.localSearch.SearchMode;
@@ -40,8 +41,9 @@ public class main {
     private static final boolean ADAPTIVE_MOVES = true;
     private static final boolean TRACK_STATISTICS = true;
 
-    private static final double CONSTRUCTIVE_LOWER_BOUND = 0.5;
-    private static final double CONSTRUCTIVE_UPPER_BOUND = 2.0;
+    private static final double CONSTRUCTIVE_DEVIATION = 2.5;
+    private static final ConstructiveHeuristicType CONSTRUCTIVE_TYPE = ConstructiveHeuristicType.REGRET_BASED;
+    private static final int K_REGRET = 3;  // k value for k-regret (only used when CONSTRUCTIVE_TYPE = REGRET_BASED)
 
     // Alpha Generator Settings
     private static final AlphaGeneratorType ALPHA_TYPE = AlphaGeneratorType.CONSTANT;
@@ -64,6 +66,7 @@ public class main {
         System.out.println("Running single-threaded GRASP with Path Relinking...");
         System.out.println("Instance: " + INSTANCE_PATH);
         System.out.println("Time limit: " + TIME_LIMIT + "s");
+        System.out.println("Constructive heuristic: " + CONSTRUCTIVE_TYPE + (CONSTRUCTIVE_TYPE == ConstructiveHeuristicType.REGRET_BASED ? " (k=" + K_REGRET + ")" : ""));
 
         long startTime = System.currentTimeMillis();
         GraspWithPathRelinking grasp = new GraspWithPathRelinking(problem, config);
@@ -83,6 +86,7 @@ public class main {
         System.out.println("Running parallel GRASP with Path Relinking...");
         System.out.println("Instance: " + INSTANCE_PATH);
         System.out.println("Time limit: " + TIME_LIMIT + "s");
+        System.out.println("Constructive heuristic: " + CONSTRUCTIVE_TYPE + (CONSTRUCTIVE_TYPE == ConstructiveHeuristicType.REGRET_BASED ? " (k=" + K_REGRET + ")" : ""));
 
         long startTime = System.currentTimeMillis();
         ParallelGraspWithPathRelinking grasp = new ParallelGraspWithPathRelinking(problem, config, threadCount);
@@ -107,8 +111,9 @@ public class main {
         );
 
         ConstructiveHeuristicSettings constructiveSettings = new ConstructiveHeuristicSettings(
-                CONSTRUCTIVE_LOWER_BOUND,
-                CONSTRUCTIVE_UPPER_BOUND
+                CONSTRUCTIVE_DEVIATION,
+                CONSTRUCTIVE_TYPE,
+                K_REGRET
         );
 
         return new GraspSettings(

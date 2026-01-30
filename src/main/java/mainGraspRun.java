@@ -8,6 +8,7 @@ import runParameters.ConstructiveHeuristicSettings;
 import runParameters.GraspSettings;
 import runParameters.LocalSearchSettings;
 import solvers.SolverSolution;
+import solvers.heuristicSolvers.grasp.constructiveHeuristic.ConstructiveHeuristicType;
 import solvers.heuristicSolvers.grasp.graspWithPathRelinking.GraspWithPathRelinking;
 import solvers.heuristicSolvers.grasp.localSearch.SearchMode;
 import solvers.heuristicSolvers.grasp.reactiveGrasp.AlphaGenerator;
@@ -112,6 +113,16 @@ public class mainGraspRun {
             description = "Enable move statistics tracking for analysis")
     private boolean trackStatistics = false;
 
+    @Parameter(
+            names = {"--constructiveType", "-ct"},
+            description = "Constructive heuristic type: STANDARD or REGRET_BASED")
+    private String constructiveType = "STANDARD";
+
+    @Parameter(
+            names = {"--kRegret", "-kr"},
+            description = "k value for k-regret calculation (only used when constructiveType=REGRET_BASED)")
+    private int kRegret = 3;
+
     public static void main(String[] args) {
         mainGraspRun main = new mainGraspRun();
         JCommander commander = JCommander.newBuilder()
@@ -168,6 +179,10 @@ public class mainGraspRun {
                 System.out.println("Threads: " + (threads > 0 ? threads : "default"));
             }
             System.out.println("Adaptive moves: " + adaptiveMoves);
+            System.out.println("Constructive heuristic: " + constructiveType);
+            if (constructiveType.equalsIgnoreCase("REGRET_BASED")) {
+                System.out.println("k-Regret value: " + kRegret);
+            }
             System.out.println("=====================================");
         }
 
@@ -260,8 +275,20 @@ public class mainGraspRun {
         LocalSearchSettings localSearchSettings = new LocalSearchSettings(
                 moves, skipProbability, adaptiveMoves, trackStatistics);
 
-        // Create constructive heuristic settings with default values
-        ConstructiveHeuristicSettings constructiveSettings = new ConstructiveHeuristicSettings(0.5, 2);
+        // Create constructive heuristic type
+        ConstructiveHeuristicType heuristicType;
+        try {
+            heuristicType = ConstructiveHeuristicType.valueOf(constructiveType.toUpperCase());
+        } catch (IllegalArgumentException e) {
+            throw new IllegalArgumentException(
+                    "Invalid constructive heuristic type: "
+                            + constructiveType
+                            + ". Use STANDARD or REGRET_BASED.");
+        }
+
+        // Create constructive heuristic settings
+        ConstructiveHeuristicSettings constructiveSettings = new ConstructiveHeuristicSettings(
+                2, heuristicType, kRegret);
 
         // Create and return GRASP settings
         return new GraspSettings(

@@ -1,9 +1,7 @@
 package solvers.heuristicSolvers.beeColonyYu;
 
 import data.ProblemParameters;
-
 import runParameters.ConstructiveHeuristicSettings;
-
 import solvers.CheckPoint;
 import solvers.SolverSolution;
 import solvers.heuristicSolvers.beeColonyYu.localSearch.NeighborhoodFunction;
@@ -158,7 +156,7 @@ public class BeeColonyAlgorithm {
     private int[] generateRandomSolution() {
         var constructive =
                 new ConstructiveHeuristic(
-                        parameters, 0.5, new ConstructiveHeuristicSettings(0.5, 5), random);
+                        parameters, 0.5, new ConstructiveHeuristicSettings(2), random);
         var sol = constructive.getSolution();
 
         var solString = new ArrayList<Integer>();

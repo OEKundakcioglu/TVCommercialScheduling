@@ -7,6 +7,9 @@ import solvers.CheckPoint;
 import solvers.SolverSolution;
 import solvers.heuristicSolvers.grasp.GraspInformation;
 import solvers.heuristicSolvers.grasp.constructiveHeuristic.ConstructiveHeuristic;
+import solvers.heuristicSolvers.grasp.constructiveHeuristic.ConstructiveHeuristicType;
+import solvers.heuristicSolvers.grasp.constructiveHeuristic.IConstructiveHeuristic;
+import solvers.heuristicSolvers.grasp.constructiveHeuristic.RegretBasedConstructiveHeuristic;
 import solvers.heuristicSolvers.grasp.localSearch.LocalSearch;
 import solvers.heuristicSolvers.grasp.localSearch.MoveStatistics;
 import solvers.heuristicSolvers.grasp.pathLinking.MixedPathRelinking;
@@ -75,15 +78,9 @@ public class ParallelGraspWithPathRelinking {
         Random initialRandom = new Random(baseSeed);
 
         // Initial solution (single threaded to start)
-        this.bestSolution =
-                new ConstructiveHeuristic(
-                        parameters,
-                        this.graspSettings
-                                .alphaGenerator()
-                                .generateAlpha(initialRandom),
-                        graspSettings.constructiveHeuristicSettings(),
-                        initialRandom)
-                        .getSolution();
+        this.bestSolution = constructSolution(
+                this.graspSettings.alphaGenerator().generateAlpha(initialRandom),
+                initialRandom);
 
         var startTime = System.currentTimeMillis() / 1000;
 
@@ -130,13 +127,7 @@ public class ParallelGraspWithPathRelinking {
                 alpha = alphaGen.generateAlpha(random);
             }
 
-            var randomSolution =
-                    new ConstructiveHeuristic(
-                            parameters,
-                            alpha,
-                            graspSettings.constructiveHeuristicSettings(),
-                            random)
-                            .getSolution();
+            var randomSolution = constructSolution(alpha, random);
 
             // Provide feedback to reactive alpha generator if applicable
             if (alphaGen instanceof AlphaGeneratorReactive reactive) {
@@ -302,5 +293,27 @@ public class ParallelGraspWithPathRelinking {
         // eliteSolutions is modified
         // Since we are in synchronized(lock) when calling this loop, it is safe
         return eliteSolutions.get(random.nextInt(eliteSolutions.size()));
+    }
+
+    /**
+     * Construct a solution using the configured constructive heuristic type.
+     *
+     * @param alpha  the alpha parameter for the RCL
+     * @param random the random number generator to use
+     * @return constructed solution
+     */
+    private Solution constructSolution(double alpha, Random random) {
+        IConstructiveHeuristic heuristic;
+        var settings = graspSettings.constructiveHeuristicSettings();
+
+        if (settings.constructiveHeuristicType() == ConstructiveHeuristicType.REGRET_BASED) {
+            heuristic = new RegretBasedConstructiveHeuristic(
+                    parameters, alpha, settings, random);
+        } else {
+            heuristic = new ConstructiveHeuristic(
+                    parameters, alpha, settings, random);
+        }
+
+        return heuristic.getSolution();
     }
 }
