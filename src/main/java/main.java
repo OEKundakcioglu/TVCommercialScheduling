@@ -32,22 +32,23 @@ public class main {
     private static final List<String> MOVES = List.of(
             "insert",
             "outOfPool",
-            "interSwap",
-            "shift",
             "transfer",
+            "shift",
+            "interSwap",
             "intraSwap"
+//            "chainSwap"
     );
     private static final double SKIP_PROBABILITY = 0.1;
     private static final boolean ADAPTIVE_MOVES = true;
     private static final boolean TRACK_STATISTICS = true;
 
-    private static final double CONSTRUCTIVE_DEVIATION = 2.5;
+    private static final double CONSTRUCTIVE_DEVIATION = 2;
     private static final ConstructiveHeuristicType CONSTRUCTIVE_TYPE = ConstructiveHeuristicType.REGRET_BASED;
     private static final int K_REGRET = 3;  // k value for k-regret (only used when CONSTRUCTIVE_TYPE = REGRET_BASED)
 
     // Alpha Generator Settings
-    private static final AlphaGeneratorType ALPHA_TYPE = AlphaGeneratorType.CONSTANT;
-    private static final double ALPHA_CONSTANT = 0.5;                    // for CONSTANT
+    private static final AlphaGeneratorType ALPHA_TYPE = AlphaGeneratorType.REACTIVE;
+    private static final double ALPHA_CONSTANT = 0.4;                    // for CONSTANT
     private static final double ALPHA_UNIFORM_LOWER = 0.1;               // for UNIFORM
     private static final double ALPHA_UNIFORM_UPPER = 0.9;               // for UNIFORM
 

@@ -75,11 +75,6 @@ public class GraspWithPathRelinking {
             var alpha = this.graspSettings.alphaGenerator().generateAlpha(this.random);
             var randomSolution = constructSolution(alpha);
 
-            // Provide feedback to reactive alpha generator if applicable
-            if (graspSettings.alphaGenerator() instanceof AlphaGeneratorReactive reactive) {
-                reactive.updateFeedback(alpha, randomSolution.revenue);
-            }
-
             randomSolution =
                     new LocalSearch(
                             randomSolution,
@@ -112,6 +107,11 @@ public class GraspWithPathRelinking {
                                 this.random,
                                 aggregatedMoveStatistics)
                                 .getSolution();
+            }
+
+            // Provide feedback to reactive alpha generator if applicable
+            if (graspSettings.alphaGenerator() instanceof AlphaGeneratorReactive reactive) {
+                reactive.updateFeedback(alpha, randomSolution.revenue);
             }
 
             this.updateEliteSolutions(randomSolution, startTime);

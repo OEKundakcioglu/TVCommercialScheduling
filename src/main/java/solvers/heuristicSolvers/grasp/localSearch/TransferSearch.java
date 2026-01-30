@@ -2,7 +2,6 @@ package solvers.heuristicSolvers.grasp.localSearch;
 
 import data.ProblemParameters;
 import data.Solution;
-
 import solvers.heuristicSolvers.grasp.localSearch.move.TransferMove;
 
 import java.util.Random;
@@ -45,7 +44,7 @@ public class TransferSearch extends BaseSearch {
                     if (inventory == inventory2) continue;
 
                     var solutionDataList2 = currentSolution.solution.get(inventory2.getId());
-                    for (var n2 : getShuffledIndexList(0, solutionDataList2.size())) {
+                    for (var n2 : getShuffledIndexList(0, solutionDataList2.size() + 1)) {
                         var transferMove =
                                 new TransferMove(
                                         currentSolution,
@@ -78,7 +77,7 @@ public class TransferSearch extends BaseSearch {
                     if (inventory == inventory2) continue;
 
                     var solutionDataList2 = currentSolution.solution.get(inventory2.getId());
-                    for (var n2 = 0; n2 < solutionDataList2.size(); n2++) {
+                    for (var n2 = 0; n2 < solutionDataList2.size() + 1; n2++) {
                         var transferMove =
                                 new TransferMove(
                                         currentSolution,

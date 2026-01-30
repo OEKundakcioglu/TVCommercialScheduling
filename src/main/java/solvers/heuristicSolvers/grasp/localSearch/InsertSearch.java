@@ -2,7 +2,6 @@ package solvers.heuristicSolvers.grasp.localSearch;
 
 import data.ProblemParameters;
 import data.Solution;
-
 import solvers.heuristicSolvers.grasp.localSearch.move.InsertMove;
 
 import java.util.ArrayList;
@@ -49,7 +48,7 @@ public class InsertSearch extends BaseSearch {
         for (var commercial : unassignedCommercials) {
             for (var inventory : super.getShuffledList(commercial.getSetOfSuitableInv())) {
                 var solutionDataList = currentSolution.solution.get(inventory.getId());
-                if (solutionDataList.isEmpty()) continue;
+//                if (solutionDataList.isEmpty()) continue;
                 for (var i : super.getShuffledIndexList(0, solutionDataList.size() + 1)) {
                     var insertMove =
                             new InsertMove(
@@ -82,7 +81,7 @@ public class InsertSearch extends BaseSearch {
         for (var commercial : unassignedCommercials) {
             for (var inventory : commercial.getSetOfSuitableInv()) {
                 var solutionDataList = currentSolution.solution.get(inventory.getId());
-                if (solutionDataList.isEmpty()) continue;
+//                if (solutionDataList.isEmpty()) continue;
                 for (var i = 0; i <= solutionDataList.size(); i++) {
                     var insertMove =
                             new InsertMove(

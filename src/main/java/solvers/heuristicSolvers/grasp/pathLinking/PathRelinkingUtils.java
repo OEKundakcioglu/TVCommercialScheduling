@@ -1,7 +1,6 @@
 package solvers.heuristicSolvers.grasp.pathLinking;
 
 import data.Solution;
-
 import solvers.heuristicSolvers.grasp.localSearch.move.IMove;
 import solvers.heuristicSolvers.grasp.localSearch.move.InsertMove;
 import solvers.heuristicSolvers.grasp.localSearch.move.RemoveMove;
@@ -87,7 +86,7 @@ public class PathRelinkingUtils {
                             currentSolution.solution.get(solution1Data.getInventory().getId());
                     var n1 = fromSolutionDataList.indexOf(solution1Data);
 
-                    for (int k = 0; k < solutionDataListToTransfer.size(); k++) {
+                    for (int k = 0; k < solutionDataListToTransfer.size() + 1; k++) {
                         var move =
                                 new TransferMove(
                                         currentSolution,
@@ -122,12 +121,12 @@ public class PathRelinkingUtils {
             // If commercial is in guiding solution but not in current solution
             else {
                 for (var k = 0;
-                        k
-                                <= currentSolution
-                                        .solution
-                                        .get(solution2Data.getInventory().getId())
-                                        .size();
-                        k++) {
+                     k
+                             <= currentSolution
+                             .solution
+                             .get(solution2Data.getInventory().getId())
+                             .size();
+                     k++) {
                     var move =
                             new InsertMove(
                                     currentSolution,

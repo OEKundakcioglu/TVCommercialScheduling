@@ -129,13 +129,6 @@ public class ParallelGraspWithPathRelinking {
 
             var randomSolution = constructSolution(alpha, random);
 
-            // Provide feedback to reactive alpha generator if applicable
-            if (alphaGen instanceof AlphaGeneratorReactive reactive) {
-                synchronized (reactive) {
-                    reactive.updateFeedback(alpha, randomSolution.revenue);
-                }
-            }
-
             // Local Search Phase
             randomSolution =
                     new LocalSearch(
@@ -178,6 +171,13 @@ public class ParallelGraspWithPathRelinking {
                                 random,
                                 threadLocalStats)
                                 .getSolution();
+            }
+
+            // Provide feedback to reactive alpha generator if applicable
+            if (alphaGen instanceof AlphaGeneratorReactive reactive) {
+                synchronized (reactive) {
+                    reactive.updateFeedback(alpha, randomSolution.revenue);
+                }
             }
 
             // Update Global State
