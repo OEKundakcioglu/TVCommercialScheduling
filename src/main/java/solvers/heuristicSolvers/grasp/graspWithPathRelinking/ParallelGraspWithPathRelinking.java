@@ -2,14 +2,13 @@ package solvers.heuristicSolvers.grasp.graspWithPathRelinking;
 
 import data.ProblemParameters;
 import data.Solution;
-
 import runParameters.GraspSettings;
-
 import solvers.CheckPoint;
 import solvers.SolverSolution;
 import solvers.heuristicSolvers.grasp.GraspInformation;
 import solvers.heuristicSolvers.grasp.constructiveHeuristic.ConstructiveHeuristic;
 import solvers.heuristicSolvers.grasp.localSearch.LocalSearch;
+import solvers.heuristicSolvers.grasp.localSearch.MoveStatistics;
 import solvers.heuristicSolvers.grasp.pathLinking.MixedPathRelinking;
 import solvers.heuristicSolvers.grasp.pathLinking.PathRelinkingUtils;
 
@@ -40,6 +39,7 @@ public class ParallelGraspWithPathRelinking {
     private Solution bestSolution;
     private int foundSolutionAt;
     private double iterationsPerSecond;
+    private final MoveStatistics aggregatedMoveStatistics;
 
     public ParallelGraspWithPathRelinking(
             ProblemParameters parameters, GraspSettings graspSettings, int threadCount)
@@ -59,6 +59,8 @@ public class ParallelGraspWithPathRelinking {
 
         this.checkPoints = new ArrayList<>();
         this.pathRelinkingUtils = new PathRelinkingUtils();
+        this.aggregatedMoveStatistics = graspSettings.localSearchSettings().trackStatistics
+                ? new MoveStatistics() : null;
 
         this.solve();
 
@@ -74,12 +76,12 @@ public class ParallelGraspWithPathRelinking {
         // Initial solution (single threaded to start)
         this.bestSolution =
                 new ConstructiveHeuristic(
-                                parameters,
-                                this.graspSettings
-                                        .alphaGenerator()
-                                        .generateAlpha(ThreadLocalRandom.current()),
-                                graspSettings.constructiveHeuristicSettings(),
-                                ThreadLocalRandom.current())
+                        parameters,
+                        this.graspSettings
+                                .alphaGenerator()
+                                .generateAlpha(ThreadLocalRandom.current()),
+                        graspSettings.constructiveHeuristicSettings(),
+                        ThreadLocalRandom.current())
                         .getSolution();
 
         var startTime = System.currentTimeMillis() / 1000;
@@ -108,25 +110,30 @@ public class ParallelGraspWithPathRelinking {
     private void runGraspLoop(long startTime) throws Exception {
 
         var random = ThreadLocalRandom.current();
+        // Thread-local statistics - will be merged at the end
+        MoveStatistics threadLocalStats = (aggregatedMoveStatistics != null)
+                ? new MoveStatistics() : null;
+
         while (System.currentTimeMillis() / 1000 - startTime < graspSettings.timeLimit()) {
 
             // Constructive Phase
             var randomSolution =
                     new ConstructiveHeuristic(
-                                    parameters,
-                                    this.graspSettings.alphaGenerator().generateAlpha(random),
-                                    graspSettings.constructiveHeuristicSettings(),
-                                    random)
+                            parameters,
+                            this.graspSettings.alphaGenerator().generateAlpha(random),
+                            graspSettings.constructiveHeuristicSettings(),
+                            random)
                             .getSolution();
 
             // Local Search Phase
             randomSolution =
                     new LocalSearch(
-                                    randomSolution,
-                                    parameters,
-                                    graspSettings.getSearchMode(),
-                                    graspSettings.localSearchSettings(),
-                                    random)
+                            randomSolution,
+                            parameters,
+                            graspSettings.getSearchMode(),
+                            graspSettings.localSearchSettings(),
+                            random,
+                            threadLocalStats)
                             .getSolution();
 
             // Path Relinking Phase
@@ -144,20 +151,21 @@ public class ParallelGraspWithPathRelinking {
             if (performPathRelinking) {
                 randomSolution =
                         new MixedPathRelinking(
-                                        parameters,
-                                        initialSolution,
-                                        guidingSolution,
-                                        pathRelinkingUtils,
-                                        random)
+                                parameters,
+                                initialSolution,
+                                guidingSolution,
+                                pathRelinkingUtils,
+                                random)
                                 .getBestFoundSolution();
 
                 randomSolution =
                         new LocalSearch(
-                                        randomSolution,
-                                        parameters,
-                                        graspSettings.getSearchMode(),
-                                        graspSettings.localSearchSettings(),
-                                        random)
+                                randomSolution,
+                                parameters,
+                                graspSettings.getSearchMode(),
+                                graspSettings.localSearchSettings(),
+                                random,
+                                threadLocalStats)
                                 .getSolution();
             }
 
@@ -181,6 +189,13 @@ public class ParallelGraspWithPathRelinking {
                             bestSolution.revenue,
                             foundSolutionAt);
                 }
+            }
+        }
+
+        // Merge thread-local statistics into aggregated
+        if (threadLocalStats != null && aggregatedMoveStatistics != null) {
+            synchronized (aggregatedMoveStatistics) {
+                aggregatedMoveStatistics.merge(threadLocalStats);
             }
         }
     }
@@ -238,6 +253,14 @@ public class ParallelGraspWithPathRelinking {
 
     public SolverSolution getSolution() {
         return solverSolution;
+    }
+
+    /**
+     * Get the aggregated move statistics from all local search calls across all threads.
+     * Returns null if statistics tracking was not enabled.
+     */
+    public MoveStatistics getMoveStatistics() {
+        return aggregatedMoveStatistics;
     }
 
     private Solution getGuidingSolution(java.util.Random random) {
