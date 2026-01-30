@@ -52,7 +52,7 @@ public class GraspWithPathRelinking {
         this.solve();
 
         GraspInformation graspInformation =
-                new GraspInformation(graspSettings, iterationsPerSecond);
+                new GraspInformation(graspSettings, iterationsPerSecond, aggregatedMoveStatistics);
 
         this.solverSolution =
                 new SolverSolution(
@@ -123,6 +123,18 @@ public class GraspWithPathRelinking {
             }
 
             this.updateEliteSolutions(randomSolution, startTime);
+
+            if (iteration % 10 == 0) {
+                iterationsPerSecond =
+                        iteration / (double) (System.currentTimeMillis() / 1000 - startTime);
+                System.out.printf(
+                        "Seconds: %d, Iteration: %d, Iteration per second: %f, Best solution: %d found at %ds%n",
+                        System.currentTimeMillis() / 1000 - startTime,
+                        iteration,
+                        iterationsPerSecond,
+                        bestSolution.revenue,
+                        foundSolutionAt);
+            }
 
             iteration++;
             iterations++;

@@ -11,15 +11,12 @@ import solvers.heuristicSolvers.grasp.localSearch.LocalSearch;
 import solvers.heuristicSolvers.grasp.localSearch.MoveStatistics;
 import solvers.heuristicSolvers.grasp.pathLinking.MixedPathRelinking;
 import solvers.heuristicSolvers.grasp.pathLinking.PathRelinkingUtils;
+import solvers.heuristicSolvers.grasp.reactiveGrasp.AlphaGeneratorReactive;
 
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-import java.util.concurrent.ThreadLocalRandom;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class ParallelGraspWithPathRelinking {
@@ -65,7 +62,7 @@ public class ParallelGraspWithPathRelinking {
         this.solve();
 
         GraspInformation graspInformation =
-                new GraspInformation(graspSettings, iterationsPerSecond);
+                new GraspInformation(graspSettings, iterationsPerSecond, aggregatedMoveStatistics);
 
         this.solverSolution =
                 new SolverSolution(
@@ -73,15 +70,19 @@ public class ParallelGraspWithPathRelinking {
     }
 
     private void solve() throws Exception {
+        // Use seed from settings for reproducibility
+        long baseSeed = graspSettings.seed();
+        Random initialRandom = new Random(baseSeed);
+
         // Initial solution (single threaded to start)
         this.bestSolution =
                 new ConstructiveHeuristic(
                         parameters,
                         this.graspSettings
                                 .alphaGenerator()
-                                .generateAlpha(ThreadLocalRandom.current()),
+                                .generateAlpha(initialRandom),
                         graspSettings.constructiveHeuristicSettings(),
-                        ThreadLocalRandom.current())
+                        initialRandom)
                         .getSolution();
 
         var startTime = System.currentTimeMillis() / 1000;
@@ -90,9 +91,11 @@ public class ParallelGraspWithPathRelinking {
         List<Callable<Void>> tasks = new ArrayList<>();
 
         for (int i = 0; i < threadCount; i++) {
+            // Each thread gets a deterministic seed based on base seed + thread index
+            final long threadSeed = baseSeed + i + 1;
             tasks.add(
                     () -> {
-                        runGraspLoop(startTime);
+                        runGraspLoop(startTime, threadSeed);
                         return null;
                     });
         }
@@ -107,23 +110,40 @@ public class ParallelGraspWithPathRelinking {
         iterationsPerSecond = iterations.get() / (double) (endTime - startTime);
     }
 
-    private void runGraspLoop(long startTime) throws Exception {
+    private void runGraspLoop(long startTime, long threadSeed) throws Exception {
 
-        var random = ThreadLocalRandom.current();
+        var random = new Random(threadSeed);
         // Thread-local statistics - will be merged at the end
         MoveStatistics threadLocalStats = (aggregatedMoveStatistics != null)
                 ? new MoveStatistics() : null;
 
         while (System.currentTimeMillis() / 1000 - startTime < graspSettings.timeLimit()) {
 
-            // Constructive Phase
+            // Constructive Phase - with reactive alpha support
+            double alpha;
+            var alphaGen = this.graspSettings.alphaGenerator();
+            if (alphaGen instanceof AlphaGeneratorReactive reactive) {
+                synchronized (reactive) {
+                    alpha = reactive.generateAlpha(random);
+                }
+            } else {
+                alpha = alphaGen.generateAlpha(random);
+            }
+
             var randomSolution =
                     new ConstructiveHeuristic(
                             parameters,
-                            this.graspSettings.alphaGenerator().generateAlpha(random),
+                            alpha,
                             graspSettings.constructiveHeuristicSettings(),
                             random)
                             .getSolution();
+
+            // Provide feedback to reactive alpha generator if applicable
+            if (alphaGen instanceof AlphaGeneratorReactive reactive) {
+                synchronized (reactive) {
+                    reactive.updateFeedback(alpha, randomSolution.revenue);
+                }
+            }
 
             // Local Search Phase
             randomSolution =
@@ -200,7 +220,7 @@ public class ParallelGraspWithPathRelinking {
         }
     }
 
-    private void updateEliteSolutions(Solution newFoundLocalOptima, long startTime) {
+    private boolean updateEliteSolutions(Solution newFoundLocalOptima, long startTime) {
 
         synchronized (lock) {
             if (newFoundLocalOptima.revenue > bestSolution.revenue) {
@@ -215,8 +235,10 @@ public class ParallelGraspWithPathRelinking {
             }
 
             if (eliteSolutions.size() < eliteSolutionsSize) {
-                if (eliteSolutions.isEmpty()) eliteSolutions.add(newFoundLocalOptima);
-                else {
+                if (eliteSolutions.isEmpty()) {
+                    eliteSolutions.add(newFoundLocalOptima);
+                    return true;
+                } else {
                     var minDistance =
                             eliteSolutions.stream()
                                     .map(
@@ -225,7 +247,10 @@ public class ParallelGraspWithPathRelinking {
                                                             solution, newFoundLocalOptima))
                                     .min(Comparator.comparing(distance -> distance))
                                     .orElseThrow();
-                    if (minDistance > 0) eliteSolutions.add(newFoundLocalOptima);
+                    if (minDistance > 0) {
+                        eliteSolutions.add(newFoundLocalOptima);
+                        return true;
+                    }
                 }
             } else {
                 int minDistance =
@@ -237,7 +262,7 @@ public class ParallelGraspWithPathRelinking {
                                 .min(Comparator.comparing(distance -> distance))
                                 .orElseThrow();
 
-                if (minDistance == 0) return;
+                if (minDistance == 0) return false;
 
                 var worstSolution =
                         eliteSolutions.stream()
@@ -246,8 +271,10 @@ public class ParallelGraspWithPathRelinking {
                 if (minDistance > 0 && newFoundLocalOptima.revenue > worstSolution.revenue) {
                     eliteSolutions.remove(worstSolution);
                     eliteSolutions.add(newFoundLocalOptima);
+                    return true;
                 }
             }
+            return false;
         }
     }
 
@@ -261,6 +288,13 @@ public class ParallelGraspWithPathRelinking {
      */
     public MoveStatistics getMoveStatistics() {
         return aggregatedMoveStatistics;
+    }
+
+    /**
+     * Get the iterations per second achieved during the run.
+     */
+    public double getIterationsPerSecond() {
+        return iterationsPerSecond;
     }
 
     private Solution getGuidingSolution(java.util.Random random) {
