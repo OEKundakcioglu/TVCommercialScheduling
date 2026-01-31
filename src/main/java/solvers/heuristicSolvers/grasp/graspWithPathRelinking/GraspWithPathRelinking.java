@@ -2,7 +2,9 @@ package solvers.heuristicSolvers.grasp.graspWithPathRelinking;
 
 import data.ProblemParameters;
 import data.Solution;
+
 import runParameters.GraspSettings;
+
 import solvers.CheckPoint;
 import solvers.SolverSolution;
 import solvers.heuristicSolvers.grasp.GraspInformation;
@@ -34,6 +36,9 @@ public class GraspWithPathRelinking {
     // Aggregated move statistics across all local search calls
     private final MoveStatistics aggregatedMoveStatistics;
 
+    // Single LocalSearch instance - reused across all iterations (preserves adaptive learning)
+    private final LocalSearch localSearch;
+
     public GraspWithPathRelinking(ProblemParameters parameters, GraspSettings graspSettings)
             throws Exception {
 
@@ -48,6 +53,15 @@ public class GraspWithPathRelinking {
         // Initialize aggregated move statistics if tracking is enabled
         this.aggregatedMoveStatistics = graspSettings.localSearchSettings().trackStatistics
                 ? new MoveStatistics() : null;
+
+        // Create single LocalSearch instance - moveProbabilities persist across all iterations
+        this.localSearch =
+                new LocalSearch(
+                        parameters,
+                        graspSettings.getSearchMode(),
+                        graspSettings.localSearchSettings(),
+                        this.random,
+                        this.aggregatedMoveStatistics);
 
         this.solve();
 
@@ -81,15 +95,7 @@ public class GraspWithPathRelinking {
                     random
             ).getSolution();
 
-            randomSolution =
-                    new LocalSearch(
-                            randomSolution,
-                            parameters,
-                            graspSettings.getSearchMode(),
-                            graspSettings.localSearchSettings(),
-                            this.random,
-                            aggregatedMoveStatistics)
-                            .getSolution();
+            randomSolution = localSearch.search(randomSolution);
 
             if (this.eliteSolutions.size() > 2) {
                 var initialSolution = randomSolution;
@@ -104,15 +110,7 @@ public class GraspWithPathRelinking {
                                 this.random)
                                 .getBestFoundSolution();
 
-                randomSolution =
-                        new LocalSearch(
-                                randomSolution,
-                                parameters,
-                                graspSettings.getSearchMode(),
-                                graspSettings.localSearchSettings(),
-                                this.random,
-                                aggregatedMoveStatistics)
-                                .getSolution();
+                randomSolution = localSearch.search(randomSolution);
             }
 
             // Provide feedback to reactive alpha generator if applicable

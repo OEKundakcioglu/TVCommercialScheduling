@@ -1,12 +1,15 @@
 import com.beust.jcommander.JCommander;
 import com.beust.jcommander.Parameter;
 import com.beust.jcommander.Parameters;
+
 import data.ProblemParameters;
 import data.Utils;
 import data.problemBuilders.JsonParser;
+
 import runParameters.ConstructiveHeuristicSettings;
 import runParameters.GraspSettings;
 import runParameters.LocalSearchSettings;
+
 import solvers.SolverSolution;
 import solvers.heuristicSolvers.grasp.graspWithPathRelinking.GraspWithPathRelinking;
 import solvers.heuristicSolvers.grasp.localSearch.SearchMode;
@@ -111,6 +114,16 @@ public class mainGraspRun {
             names = {"--trackStats", "-ts"},
             description = "Enable move statistics tracking for analysis")
     private boolean trackStatistics = false;
+
+    @Parameter(
+            names = {"--minMoveProbability", "-mmp"},
+            description = "Minimum move probability for adaptive selection")
+    private double minMoveProbability = 0.05;
+
+    @Parameter(
+            names = {"--updateEveryNIter", "-ueni"},
+            description = "Update move probabilities every N iterations")
+    private int updateEveryNIter = 100;
 
     @Parameter(
             names = {"--constructiveType", "-ct"},
@@ -271,8 +284,14 @@ public class mainGraspRun {
         }
 
         // Create local search settings with adaptive move selection and statistics tracking options
-        LocalSearchSettings localSearchSettings = new LocalSearchSettings(
-                moves, skipProbability, adaptiveMoves, trackStatistics);
+        LocalSearchSettings localSearchSettings =
+                new LocalSearchSettings(
+                        moves,
+                        skipProbability,
+                        adaptiveMoves,
+                        trackStatistics,
+                        minMoveProbability,
+                        updateEveryNIter);
 
         // Create constructive heuristic settings
         ConstructiveHeuristicSettings constructiveSettings = new ConstructiveHeuristicSettings(

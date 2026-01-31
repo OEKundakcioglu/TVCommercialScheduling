@@ -2,7 +2,9 @@ package solvers.heuristicSolvers.grasp.graspWithPathRelinking;
 
 import data.ProblemParameters;
 import data.Solution;
+
 import runParameters.GraspSettings;
+
 import solvers.CheckPoint;
 import solvers.SolverSolution;
 import solvers.heuristicSolvers.grasp.GraspInformation;
@@ -114,6 +116,16 @@ public class ParallelGraspWithPathRelinking {
         MoveStatistics threadLocalStats = (aggregatedMoveStatistics != null)
                 ? new MoveStatistics() : null;
 
+        // Thread-local LocalSearch instance - moveProbabilities persist across iterations within
+        // this thread
+        LocalSearch localSearch =
+                new LocalSearch(
+                        parameters,
+                        graspSettings.getSearchMode(),
+                        graspSettings.localSearchSettings(),
+                        random,
+                        threadLocalStats);
+
         while (System.currentTimeMillis() / 1000 - startTime < graspSettings.timeLimit()) {
 
             // Constructive Phase - with reactive alpha support
@@ -135,15 +147,7 @@ public class ParallelGraspWithPathRelinking {
             ).getSolution();
 
             // Local Search Phase
-            randomSolution =
-                    new LocalSearch(
-                            randomSolution,
-                            parameters,
-                            graspSettings.getSearchMode(),
-                            graspSettings.localSearchSettings(),
-                            random,
-                            threadLocalStats)
-                            .getSolution();
+            randomSolution = localSearch.search(randomSolution);
 
             // Path Relinking Phase
             boolean performPathRelinking = false;
@@ -167,15 +171,7 @@ public class ParallelGraspWithPathRelinking {
                                 random)
                                 .getBestFoundSolution();
 
-                randomSolution =
-                        new LocalSearch(
-                                randomSolution,
-                                parameters,
-                                graspSettings.getSearchMode(),
-                                graspSettings.localSearchSettings(),
-                                random,
-                                threadLocalStats)
-                                .getSolution();
+                randomSolution = localSearch.search(randomSolution);
             }
 
             // Provide feedback to reactive alpha generator if applicable
