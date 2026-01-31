@@ -6,17 +6,17 @@ import org.apache.commons.math3.distribution.BinomialDistribution;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
+import java.util.Set;
 
 public final class RandomGeneratorConfig {
     private final int seed;
     private final int nInventory;
     private final int nHours;
-    private int lastHour = 0;
 
     private final double density;
 
-    private final Map<Integer, Map<Integer, RandomDrawDistribution<Double>>> ratingDistribution;
-    private final RandomDrawDistribution<Double> inventoryDurationDistribution;
+    private final RandomDrawDistribution<InventorySample> inventoryDistribution;
     private final RandomDrawDistribution<Double> commercialDurationDistribution;
     private final Map<Integer, Map<PRICING_TYPE, RandomDrawDistribution<Double>>>
             pricingDistribution;
@@ -24,8 +24,10 @@ public final class RandomGeneratorConfig {
     private final Map<Integer, RandomDrawDistribution<ATTENTION>> attentionDistribution;
     private final RandomDrawDistribution<Integer> audienceTypeDistribution;
     private final RandomDrawDistribution<Integer> groupDistribution;
-    private final BinomialDistribution suitableInvDistribution;
+    private final Map<Integer, BinomialDistribution> suitableInvDistribution;
     private final List<Integer> audienceTypes;
+    private final int[] hourOccupancy;
+    private final Random random;
 
     public RandomGeneratorConfig(
             int seed,
@@ -33,23 +35,22 @@ public final class RandomGeneratorConfig {
             int nHours,
             double density,
             List<Integer> audienceTypes,
-            Map<Integer, Map<Integer, RandomDrawDistribution<Double>>> ratingDistribution,
-            RandomDrawDistribution<Double> inventoryDurationDistribution,
+            RandomDrawDistribution<InventorySample> inventoryDistribution,
             RandomDrawDistribution<Double> commercialDurationDistribution,
             Map<Integer, Map<PRICING_TYPE, RandomDrawDistribution<Double>>> pricingDistribution,
             Map<Integer, RandomDrawDistribution<PRICING_TYPE>> pricingTypeDistribution,
             Map<Integer, RandomDrawDistribution<ATTENTION>> attentionDistribution,
             RandomDrawDistribution<Integer> audienceTypeDistribution,
             RandomDrawDistribution<Integer> groupDistribution,
-            BinomialDistribution suitableInvDistribution) {
+            Map<Integer, BinomialDistribution> suitableInvDistribution,
+            Random random) {
         this.seed = seed;
         this.nInventory = nInventory;
         this.nHours = nHours;
         this.density = density;
 
-        this.ratingDistribution = ratingDistribution;
         this.audienceTypes = audienceTypes;
-        this.inventoryDurationDistribution = inventoryDurationDistribution;
+        this.inventoryDistribution = inventoryDistribution;
         this.commercialDurationDistribution = commercialDurationDistribution;
         this.pricingDistribution = pricingDistribution;
         this.pricingTypeDistribution = pricingTypeDistribution;
@@ -57,6 +58,8 @@ public final class RandomGeneratorConfig {
         this.audienceTypeDistribution = audienceTypeDistribution;
         this.groupDistribution = groupDistribution;
         this.suitableInvDistribution = suitableInvDistribution;
+        this.hourOccupancy = new int[nHours];
+        this.random = random;
     }
 
     public int getSeed() {
@@ -75,8 +78,21 @@ public final class RandomGeneratorConfig {
         return commercialDurationDistribution.sample();
     }
 
-    public double sampleInventoryDuration() {
-        return inventoryDurationDistribution.sample();
+    public InventorySample sampleInventory() {
+        return inventoryDistribution.sample();
+    }
+
+    public int assignHourForInventory(int inventoryDuration) {
+        int minOccupancyHour = 0;
+        int minOccupancy = hourOccupancy[0];
+        for (int h = 1; h < nHours; h++) {
+            if (hourOccupancy[h] < minOccupancy) {
+                minOccupancy = hourOccupancy[h];
+                minOccupancyHour = h;
+            }
+        }
+        hourOccupancy[minOccupancyHour] += inventoryDuration;
+        return minOccupancyHour;
     }
 
     public double samplePrice(int audienceType, PRICING_TYPE pricingType) {
@@ -91,26 +107,20 @@ public final class RandomGeneratorConfig {
         return attentionDistribution.get(audienceType).sample();
     }
 
-    public int sampleAudienceType() {
-        return audienceTypeDistribution.sample();
+    public int sampleAudienceType(Set<Integer> subset) {
+        return audienceTypeDistribution.sample(subset);
     }
 
     public int sampleGroup() {
         return groupDistribution.sample();
     }
 
-    public int sampleHour() {
-        if (lastHour + 1 >= nHours) lastHour = 0;
-        else lastHour++;
-        return lastHour;
+    public boolean sampleSuitableInv(int audienceType) {
+        return suitableInvDistribution.get(audienceType).sample() == 1;
     }
 
-    public double sampleRating(int audienceType, int minute) {
-        return ratingDistribution.get(audienceType).get(minute).sample();
-    }
-
-    public boolean sampleSuitableInv() {
-        return suitableInvDistribution.sample() == 1;
+    public int getRandomInt(int bound) {
+        return random.nextInt(bound);
     }
 
     public List<Integer> getAudienceTypes() {

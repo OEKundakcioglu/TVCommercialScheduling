@@ -32,11 +32,10 @@ public class Inventory extends JsonSerializableObject {
         this.ratings = new HashMap<>();
     }
 
-    public void createArrayRatings() {
+    public void createArrayRatings(int lastTargetAudience) {
         var maxRow = this.ratings.size() + 1;
-        var maxCol = this.ratings.values().stream().mapToInt(Map::size).max().orElse(0) + 1;
 
-        this.arrayRatings = new double[maxRow][maxCol];
+        this.arrayRatings = new double[maxRow][lastTargetAudience + 1];
         for (var kvp1 : this.ratings.entrySet()) {
             var minute = kvp1.getKey();
             var ratings = kvp1.getValue();

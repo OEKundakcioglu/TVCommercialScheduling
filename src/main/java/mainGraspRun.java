@@ -8,7 +8,6 @@ import runParameters.ConstructiveHeuristicSettings;
 import runParameters.GraspSettings;
 import runParameters.LocalSearchSettings;
 import solvers.SolverSolution;
-import solvers.heuristicSolvers.grasp.constructiveHeuristic.ConstructiveHeuristicType;
 import solvers.heuristicSolvers.grasp.graspWithPathRelinking.GraspWithPathRelinking;
 import solvers.heuristicSolvers.grasp.localSearch.SearchMode;
 import solvers.heuristicSolvers.grasp.reactiveGrasp.AlphaGenerator;
@@ -275,20 +274,9 @@ public class mainGraspRun {
         LocalSearchSettings localSearchSettings = new LocalSearchSettings(
                 moves, skipProbability, adaptiveMoves, trackStatistics);
 
-        // Create constructive heuristic type
-        ConstructiveHeuristicType heuristicType;
-        try {
-            heuristicType = ConstructiveHeuristicType.valueOf(constructiveType.toUpperCase());
-        } catch (IllegalArgumentException e) {
-            throw new IllegalArgumentException(
-                    "Invalid constructive heuristic type: "
-                            + constructiveType
-                            + ". Use STANDARD or REGRET_BASED.");
-        }
-
         // Create constructive heuristic settings
         ConstructiveHeuristicSettings constructiveSettings = new ConstructiveHeuristicSettings(
-                2, heuristicType, kRegret);
+                0.5, 2);
 
         // Create and return GRASP settings
         return new GraspSettings(

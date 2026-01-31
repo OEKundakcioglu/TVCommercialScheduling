@@ -34,7 +34,7 @@ class ChainSwapMoveTest {
         LoopSetup.isDebug = true;
 
         // Create settings for constructive heuristic
-        settings = new ConstructiveHeuristicSettings(1.25);
+        settings = new ConstructiveHeuristicSettings(0.5, 2);
         random = new Random(42);
 
         // Build valid solution using constructive heuristic

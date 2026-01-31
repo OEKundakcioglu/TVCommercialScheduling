@@ -5,10 +5,7 @@ import data.Inventory;
 import data.ProblemParameters;
 import data.enums.ATTENTION;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.IntStream;
 
@@ -24,6 +21,8 @@ public class RandomProblemGenerator {
     private final Map<Inventory, Map<Integer, Map<Integer, Double>>>
             ratings; // inventory -> minute -> audienceType -> rating
 
+    private final Set<Integer> targetAudiences;
+
     public RandomProblemGenerator(RandomGeneratorConfig config) {
         this.config = config;
 
@@ -34,13 +33,13 @@ public class RandomProblemGenerator {
         this.setOfLastCommercials = new ArrayList<>();
         this.setOfF30Commercials = new ArrayList<>();
         this.setOfF60Commercials = new ArrayList<>();
+        this.targetAudiences = new HashSet<>();
         this.ratings = new HashMap<>();
     }
 
     public ProblemParameters generate() {
         generateInventories();
         generateCommercials();
-        generateRatings();
 
         for (var commercial : setOfCommercials) {
             commercial.setSuitableInventoriesArray(setOfInventories.size());
@@ -59,11 +58,30 @@ public class RandomProblemGenerator {
 
     private void generateInventories() {
         for (int i = 0; i < config.getnInventory(); i++) {
-            int duration = (int) config.sampleInventoryDuration();
-            var hour = config.sampleHour();
-
+            var sample = config.sampleInventory();
+            int duration = sample.duration();
+            var hour = config.assignHourForInventory(duration);
             var inventory = new Inventory(i, duration, hour, 100);
+            var invRatings = sample.ratings();
+
+            for (var minuteEntry : sample.ratings().entrySet()) {
+                int minute = minuteEntry.getKey();
+                for (var audEntry : minuteEntry.getValue().entrySet()) {
+                    int audienceType = audEntry.getKey();
+                    targetAudiences.add(audienceType);
+
+                    double rating = audEntry.getValue();
+                    inventory.ratings.computeIfAbsent(minute, k -> new HashMap<>()).put(audienceType, rating);
+                }
+            }
+
             setOfInventories.add(inventory);
+            ratings.put(inventory, invRatings);
+        }
+
+        var maxTargetAudience = Collections.max(targetAudiences);
+        for (var inventory : setOfInventories) {
+            inventory.createArrayRatings(maxTargetAudience);
         }
     }
 
@@ -75,7 +93,7 @@ public class RandomProblemGenerator {
         var id = new AtomicInteger(0);
         while (totalCommercialDuration < totalInvDuration * config.getDensity()) {
             int duration = (int) config.sampleCommercialDuration();
-            var audienceType = config.sampleAudienceType();
+            var audienceType = config.sampleAudienceType(targetAudiences);
             var pricingType = config.samplePricingType(audienceType);
             double price = config.samplePrice(audienceType, pricingType);
 
@@ -92,7 +110,7 @@ public class RandomProblemGenerator {
 
             setOfCommercials.add(commercial);
 
-            var suitableInventories = getSuitableInventories();
+            var suitableInventories = getSuitableInventories(audienceType);
             for (var inventory : suitableInventories) {
                 var attention = config.sampleAttention(audienceType);
                 if (attention == ATTENTION.F30) {
@@ -116,37 +134,19 @@ public class RandomProblemGenerator {
         }
     }
 
-    private void generateRatings() {
-        for (var inventory : setOfInventories) {
-            for (var t = 0; t <= inventory.getDuration(); t += 60) {
-                int minute = t / 60 + 1;
-                for (var audienceType : config.getAudienceTypes()) {
-                    double rating = config.sampleRating(audienceType, minute);
-                    ratings.computeIfAbsent(inventory, k -> new HashMap<>())
-                            .computeIfAbsent(minute, k -> new HashMap<>())
-                            .put(audienceType, rating);
-
-                    inventory
-                            .ratings
-                            .computeIfAbsent(minute, k -> new HashMap<>())
-                            .put(audienceType, rating);
-                }
-            }
-        }
-
-        for (Inventory inventory : this.setOfInventories) {
-            inventory.createArrayRatings();
-        }
-    }
-
-    private List<Inventory> getSuitableInventories() {
+    private List<Inventory> getSuitableInventories(int audienceType) {
         var suitableInventories = new ArrayList<Inventory>();
 
         for (var inv : setOfInventories) {
-            boolean isSuitable = config.sampleSuitableInv();
+            boolean isSuitable = config.sampleSuitableInv(audienceType);
             if (isSuitable) {
                 suitableInventories.add(inv);
             }
+        }
+
+        if (suitableInventories.isEmpty()) {
+            int randomIndex = config.getRandomInt(setOfInventories.size());
+            suitableInventories.add(setOfInventories.get(randomIndex));
         }
 
         return suitableInventories;

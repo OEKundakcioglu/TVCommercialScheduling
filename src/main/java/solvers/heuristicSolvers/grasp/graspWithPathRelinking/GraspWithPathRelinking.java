@@ -7,9 +7,6 @@ import solvers.CheckPoint;
 import solvers.SolverSolution;
 import solvers.heuristicSolvers.grasp.GraspInformation;
 import solvers.heuristicSolvers.grasp.constructiveHeuristic.ConstructiveHeuristic;
-import solvers.heuristicSolvers.grasp.constructiveHeuristic.ConstructiveHeuristicType;
-import solvers.heuristicSolvers.grasp.constructiveHeuristic.IConstructiveHeuristic;
-import solvers.heuristicSolvers.grasp.constructiveHeuristic.RegretBasedConstructiveHeuristic;
 import solvers.heuristicSolvers.grasp.localSearch.LocalSearch;
 import solvers.heuristicSolvers.grasp.localSearch.MoveStatistics;
 import solvers.heuristicSolvers.grasp.pathLinking.MixedPathRelinking;
@@ -63,8 +60,12 @@ public class GraspWithPathRelinking {
     }
 
     private void solve() throws Exception {
-        this.bestSolution = constructSolution(
-                this.graspSettings.alphaGenerator().generateAlpha(this.random));
+        this.bestSolution = new ConstructiveHeuristic(
+                parameters,
+                this.graspSettings.alphaGenerator().generateAlpha(this.random),
+                graspSettings.constructiveHeuristicSettings(),
+                random
+        ).getSolution();
 
         var startTime = System.currentTimeMillis() / 1000;
 
@@ -73,7 +74,12 @@ public class GraspWithPathRelinking {
         while (System.currentTimeMillis() / 1000 - startTime < graspSettings.timeLimit()) {
             // Generate alpha and create solution
             var alpha = this.graspSettings.alphaGenerator().generateAlpha(this.random);
-            var randomSolution = constructSolution(alpha);
+            var randomSolution = new ConstructiveHeuristic(
+                    parameters,
+                    this.graspSettings.alphaGenerator().generateAlpha(this.random),
+                    graspSettings.constructiveHeuristicSettings(),
+                    random
+            ).getSolution();
 
             randomSolution =
                     new LocalSearch(
@@ -211,24 +217,4 @@ public class GraspWithPathRelinking {
         return eliteSolutions.get(random.nextInt(eliteSolutions.size()));
     }
 
-    /**
-     * Construct a solution using the configured constructive heuristic type.
-     *
-     * @param alpha the alpha parameter for the RCL
-     * @return constructed solution
-     */
-    private Solution constructSolution(double alpha) {
-        IConstructiveHeuristic heuristic;
-        var settings = graspSettings.constructiveHeuristicSettings();
-
-        if (settings.constructiveHeuristicType() == ConstructiveHeuristicType.REGRET_BASED) {
-            heuristic = new RegretBasedConstructiveHeuristic(
-                    parameters, alpha, settings, this.random);
-        } else {
-            heuristic = new ConstructiveHeuristic(
-                    parameters, alpha, settings, this.random);
-        }
-
-        return heuristic.getSolution();
-    }
 }

@@ -33,8 +33,8 @@ public class ConstructiveHeuristic implements IConstructiveHeuristic {
         this.random = random;
         this.alpha = alpha;
 
-        double lowerBound = 1.0 / constructiveHeuristicSettings.deviation();
-        double upperBound = constructiveHeuristicSettings.deviation();
+        var lowerBound = constructiveHeuristicSettings.lowerBound();
+        var upperBound = constructiveHeuristicSettings.upperBound();
 
         this.firstAttentionBoost = this.random.nextDouble(lowerBound, upperBound);
         this.lastAttentionBoost = this.random.nextDouble(lowerBound, upperBound);
@@ -201,17 +201,17 @@ public class ConstructiveHeuristic implements IConstructiveHeuristic {
         var rating = trackRecord.inventory.arrayRatings[minute][commercial.getAudienceType()];
         var score = commercial.getRevenue(rating) / commercial.getDuration();
 
-        if (attention == ATTENTION.FIRST) {
-            score *= firstAttentionBoost;
-        } else if (attention == ATTENTION.LAST) {
-            score *= lastAttentionBoost;
-        } else if (attention == ATTENTION.F30) {
-            score *= f30AttentionBoost;
-        } else if (attention == ATTENTION.F60) {
-            score *= f60AttentionBoost;
-        }
+//        if (attention == ATTENTION.FIRST) {
+//            score *= firstAttentionBoost;
+//        } else if (attention == ATTENTION.LAST) {
+//            score *= lastAttentionBoost;
+//        } else if (attention == ATTENTION.F30) {
+//            score *= f30AttentionBoost;
+//        } else if (attention == ATTENTION.F60) {
+//            score *= f60AttentionBoost;
+//        }
 
-        return score;
+        return score * random.nextDouble(0.5, 2);
     }
 
     private boolean checkFeasibility(

@@ -16,15 +16,14 @@ public class DistributionsJsonLoader {
     private final JsonObject jsonObject;
     private final Random random;
     private final int seed;
-    private Map<Integer, Map<Integer, RandomDrawDistribution<Double>>> ratingDistribution;
-    private RandomDrawDistribution<Double> inventoryDurationDistribution;
+    private RandomDrawDistribution<InventorySample> inventoryDistribution;
     private RandomDrawDistribution<Double> commercialDurationDistribution;
     private Map<Integer, Map<PRICING_TYPE, RandomDrawDistribution<Double>>> pricingDistribution;
     private Map<Integer, RandomDrawDistribution<PRICING_TYPE>> pricingTypeDistribution;
     private Map<Integer, RandomDrawDistribution<ATTENTION>> attentionDistribution;
     private RandomDrawDistribution<Integer> audienceTypeDistribution;
     private RandomDrawDistribution<Integer> groupDistribution;
-    private BinomialDistribution suitableInvDistribution;
+    private Map<Integer, BinomialDistribution> suitableInvDistribution;
 
     private List<Integer> audienceTypes;
 
@@ -37,8 +36,7 @@ public class DistributionsJsonLoader {
 
     public RandomGeneratorConfig load(int nInventory, int nHours, double density) {
         loadAudienceTypes();
-        loadRatingDistribution();
-        loadInventoryDurationDistribution();
+        loadInventoryDistribution();
         loadCommercialDurationDistribution();
         loadPricingDistribution();
         loadPricingTypeDistribution();
@@ -53,15 +51,15 @@ public class DistributionsJsonLoader {
                 nHours,
                 density,
                 audienceTypes,
-                ratingDistribution,
-                inventoryDurationDistribution,
+                inventoryDistribution,
                 commercialDurationDistribution,
                 pricingDistribution,
                 pricingTypeDistribution,
                 attentionDistribution,
                 audienceTypeDistribution,
                 groupDistribution,
-                suitableInvDistribution);
+                suitableInvDistribution,
+                random);
     }
 
     private void loadAudienceTypes() {
@@ -74,36 +72,25 @@ public class DistributionsJsonLoader {
         Collections.sort(audienceTypes);
     }
 
-    private void loadRatingDistribution() {
-        ratingDistribution = new HashMap<>();
-
-        var ratingsJObject = jsonObject.getAsJsonObject("rating_dist");
-        for (var entry : ratingsJObject.entrySet()) {
-            var audienceType = Integer.parseInt(entry.getKey());
-            var minuteData = entry.getValue().getAsJsonObject();
-            for (var minuteEntry : minuteData.entrySet()) {
-                var minute = Integer.parseInt(minuteEntry.getKey());
-                var distributionObject = minuteEntry.getValue().getAsJsonObject();
-                var distribution =
-                        new RandomDrawDistributionBuilder<Double>()
-                                .setValues(distributionObject, Double::parseDouble)
-                                .setRandom(random)
-                                .build();
-
-                ratingDistribution
-                        .computeIfAbsent(audienceType, t -> new HashMap<>())
-                        .put(minute, distribution);
+    private void loadInventoryDistribution() {
+        var invDistObj = jsonObject.getAsJsonObject("inventory_dist");
+        var params = invDistObj.getAsJsonArray("parameters");
+        var samples = new ArrayList<InventorySample>();
+        for (var param : params) {
+            var obj = param.getAsJsonObject();
+            int duration = obj.get("duration").getAsInt();
+            var ratingsArray = obj.getAsJsonArray("ratings");
+            Map<Integer, Map<Integer, Double>> ratings = new HashMap<>();
+            for (var r : ratingsArray) {
+                var rObj = r.getAsJsonObject();
+                int minute = rObj.get("minute").getAsInt();
+                int audienceType = rObj.get("audience_type").getAsInt();
+                double rating = rObj.get("rating").getAsDouble();
+                ratings.computeIfAbsent(minute, k -> new HashMap<>()).put(audienceType, rating);
             }
+            samples.add(new InventorySample(duration, ratings));
         }
-    }
-
-    private void loadInventoryDurationDistribution() {
-        var invDurationObj = jsonObject.getAsJsonObject("inventory_duration_dist");
-        inventoryDurationDistribution =
-                new RandomDrawDistributionBuilder<Double>()
-                        .setValues(invDurationObj, Double::parseDouble)
-                        .setRandom(random)
-                        .build();
+        inventoryDistribution = new RandomDrawDistribution<>(samples, random);
     }
 
     private void loadCommercialDurationDistribution() {
@@ -196,8 +183,14 @@ public class DistributionsJsonLoader {
     }
 
     private void loadSuitableInvDistribution() {
-        var prob = jsonObject.get("commercial_inv_suitability_dist").getAsDouble();
-        var rng = new JDKRandomGenerator(seed);
-        suitableInvDistribution = new BinomialDistribution(rng, 1, prob);
+        suitableInvDistribution = new HashMap<>();
+        var suitabilityObj = jsonObject.getAsJsonObject("commercial_inv_suitability_dist");
+        for (var entry : suitabilityObj.entrySet()) {
+            var audienceType = Integer.parseInt(entry.getKey());
+            var distributionObj = entry.getValue().getAsJsonObject();
+            var p = distributionObj.get("p").getAsDouble();
+            var rng = new JDKRandomGenerator(seed + audienceType);
+            suitableInvDistribution.put(audienceType, new BinomialDistribution(rng, 1, p));
+        }
     }
 }

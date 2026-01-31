@@ -231,8 +231,17 @@ public class JsonParser {
             inventory.ratings.get(minute).put(audienceType, rating);
         }
 
+        var targetAudiences = new HashSet<Integer>();
+        for (var inv : this.setOfInventories) {
+            var targetAudiencesInv = new HashSet<Integer>();
+            for (var audiceneTargetMap : inv.ratings.values()) {
+                targetAudiencesInv.addAll(audiceneTargetMap.keySet());
+            }
+            targetAudiences.addAll(targetAudiencesInv);
+        }
+
         for (Inventory inventory : this.setOfInventories) {
-            inventory.createArrayRatings();
+            inventory.createArrayRatings(targetAudiences.stream().max(Integer::compareTo).orElseThrow());
         }
     }
 }
