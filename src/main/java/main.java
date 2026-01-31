@@ -69,8 +69,8 @@ public class main {
 
         // Uncomment one of the following:
         //        runSingleThread(problem, config);
-        runParallel(problem, config, THREAD_COUNT);
-        //        runMIPDiscrete(problem);
+        //        runParallel(problem, config, THREAD_COUNT);
+        runMIPDiscrete(problem);
     }
 
     private static void runSingleThread(ProblemParameters problem, GraspSettings config)
@@ -116,7 +116,7 @@ public class main {
 
     public static void runMIPDiscrete(ProblemParameters problem) throws GRBException {
         var model = new DiscreteTimeModel(problem);
-        var solver = new ModelSolver(model, problem, new MipRunSettings(List.of(7200), ""));
+        var solver = new ModelSolver(model, problem, new MipRunSettings(1400, ""));
         var solution = solver.getSolution();
     }
 

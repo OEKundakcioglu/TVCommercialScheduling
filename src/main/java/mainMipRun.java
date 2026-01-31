@@ -1,10 +1,13 @@
 import com.beust.jcommander.JCommander;
 import com.beust.jcommander.Parameter;
 import com.beust.jcommander.Parameters;
+
 import data.ProblemParameters;
 import data.Utils;
 import data.problemBuilders.JsonParser;
+
 import runParameters.MipRunSettings;
+
 import solvers.SolverSolution;
 import solvers.mipSolvers.BaseModel;
 import solvers.mipSolvers.ModelSolver;
@@ -12,17 +15,12 @@ import solvers.mipSolvers.continuousTimeModel.ContinuousTimeModel;
 import solvers.mipSolvers.discreteTimeModel.DiscreteTimeModel;
 
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.PrintStream;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.Arrays;
-import java.util.List;
 
-/**
- * Main class for running MIP Solver from command line interface
- */
+/** Main class for running MIP Solver from command line interface */
 @Parameters(separators = "=")
 public class mainMipRun {
 
@@ -45,10 +43,10 @@ public class mainMipRun {
     private String modelType;
 
     @Parameter(
-            names = {"--checkPointTimes", "-c"},
-            description = "Comma-separated list of checkpoint times in seconds",
+            names = {"--timeLimit", "-t"},
+            description = "Time limit in seconds",
             required = true)
-    private String checkPointTimesStr;
+    private int timeLimit;
 
     @Parameter(
             names = {"--logPath", "-l"},
@@ -69,10 +67,8 @@ public class mainMipRun {
 
     public static void main(String[] args) throws Exception {
         mainMipRun main = new mainMipRun();
-        JCommander commander = JCommander.newBuilder()
-                .addObject(main)
-                .programName("mainMipRun")
-                .build();
+        JCommander commander =
+                JCommander.newBuilder().addObject(main).programName("mainMipRun").build();
 
         commander.parse(args);
 
@@ -82,29 +78,25 @@ public class mainMipRun {
         }
 
         main.run();
-
-
     }
 
     private void run() throws Exception {
-
 
         if (!new File(instancePath).exists()) {
             throw new IllegalArgumentException("Instance file does not exist: " + instancePath);
         }
 
         if (!modelType.equalsIgnoreCase("DISCRETE") && !modelType.equalsIgnoreCase("CONTINUOUS")) {
-            throw new IllegalArgumentException("Invalid model type: " + modelType + ". Use DISCRETE or CONTINUOUS.");
+            throw new IllegalArgumentException(
+                    "Invalid model type: " + modelType + ". Use DISCRETE or CONTINUOUS.");
         }
-
-        List<Integer> checkPointTimes = parseCheckPointTimes();
 
         if (verbose) {
             System.out.println("=== MIP Solver Configuration ===");
             System.out.println("Instance: " + instancePath);
             System.out.println("Output: " + outputPath);
             System.out.println("Model type: " + modelType);
-            System.out.println("Checkpoint times: " + checkPointTimes);
+            System.out.println("Time limit: " + timeLimit + " seconds");
             System.out.println("Log path: " + logPath);
             System.out.println("================================");
         }
@@ -112,7 +104,7 @@ public class mainMipRun {
         System.out.println("Loading problem instance...");
         ProblemParameters parameters = new JsonParser().readData(instancePath);
 
-        MipRunSettings mipRunSettings = new MipRunSettings(checkPointTimes, logPath);
+        MipRunSettings mipRunSettings = new MipRunSettings(timeLimit, logPath);
 
         var outputPath = Paths.get(this.outputPath);
         var instancePath = Paths.get(this.instancePath);
@@ -129,7 +121,8 @@ public class mainMipRun {
         outputPath = outputDir.resolve("solution.json");
 
         if (Files.exists(outputPath)) {
-            System.out.println("Solution already exists at " + outputPath + ". Skipping execution.");
+            System.out.println(
+                    "Solution already exists at " + outputPath + ". Skipping execution.");
             return;
         }
 
@@ -155,16 +148,5 @@ public class mainMipRun {
 
         System.gc();
         System.out.println("MIP solver completed successfully!");
-    }
-
-    private List<Integer> parseCheckPointTimes() {
-        try {
-            return Arrays.stream(checkPointTimesStr.split(","))
-                    .map(String::trim)
-                    .map(Integer::parseInt)
-                    .toList();
-        } catch (NumberFormatException e) {
-            throw new IllegalArgumentException("Invalid checkpoint times format. Use comma-separated integers (e.g., 60,120,300)");
-        }
     }
 }
