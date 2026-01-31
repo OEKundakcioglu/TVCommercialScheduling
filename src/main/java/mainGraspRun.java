@@ -179,10 +179,6 @@ public class mainGraspRun {
                 System.out.println("Threads: " + (threads > 0 ? threads : "default"));
             }
             System.out.println("Adaptive moves: " + adaptiveMoves);
-            System.out.println("Constructive heuristic: " + constructiveType);
-            if (constructiveType.equalsIgnoreCase("REGRET_BASED")) {
-                System.out.println("k-Regret value: " + kRegret);
-            }
             System.out.println("=====================================");
         }
 
