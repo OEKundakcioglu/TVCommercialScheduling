@@ -35,8 +35,8 @@ if [ ! -f "$VENV_DIR/bin/activate" ]; then
     source "$VENV_DIR/bin/activate"
 
     echo "[INFO] Installing requirements..."
-    pip install --upgrade pip
-    pip install -r requirements.txt
+    python -m pip install --upgrade pip
+    python -m pip install -r requirements.txt
 else
     echo "[INFO] Activating existing environment..."
     source "$VENV_DIR/bin/activate"
