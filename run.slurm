@@ -29,7 +29,7 @@ module load python/3.11.7
 
 VENV_DIR="./venv_commercial"
 
-if [ ! -d "$VENV_DIR" ]; then
+if [ ! -f "$VENV_DIR/bin/activate" ]; then
     echo "[INFO] Creating virtual environment..."
     python -m venv "$VENV_DIR"
     source "$VENV_DIR/bin/activate"
