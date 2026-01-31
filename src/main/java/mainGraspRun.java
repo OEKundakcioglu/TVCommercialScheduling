@@ -25,8 +25,8 @@ import java.nio.file.Paths;
 import java.util.List;
 
 /**
- * Main class for running GRASP algorithm from command line interface
- * Usage: java mainGraspRun --instancePath=path/to/instance.json [options]
+ * Main class for running GRASP algorithm from command line interface Usage: java mainGraspRun
+ * --instancePath=path/to/instance.json [options]
  */
 @Parameters(separators = "=")
 public class mainGraspRun {
@@ -125,22 +125,10 @@ public class mainGraspRun {
             description = "Update move probabilities every N iterations")
     private int updateEveryNIter = 100;
 
-    @Parameter(
-            names = {"--constructiveType", "-ct"},
-            description = "Constructive heuristic type: STANDARD or REGRET_BASED")
-    private String constructiveType = "STANDARD";
-
-    @Parameter(
-            names = {"--kRegret", "-kr"},
-            description = "k value for k-regret calculation (only used when constructiveType=REGRET_BASED)")
-    private int kRegret = 3;
-
     public static void main(String[] args) {
         mainGraspRun main = new mainGraspRun();
-        JCommander commander = JCommander.newBuilder()
-                .addObject(main)
-                .programName("mainGraspRun")
-                .build();
+        JCommander commander =
+                JCommander.newBuilder().addObject(main).programName("mainGraspRun").build();
 
         try {
             commander.parse(args);
@@ -225,7 +213,8 @@ public class mainGraspRun {
         outputPath = outputDir.resolve("solution.json");
 
         if (Files.exists(outputPath)) {
-            System.out.println("Solution already exists at " + outputPath + ". Skipping execution.");
+            System.out.println(
+                    "Solution already exists at " + outputPath + ". Skipping execution.");
             return;
         }
 
@@ -237,10 +226,10 @@ public class mainGraspRun {
         if (parallel) {
             solution =
                     new solvers.heuristicSolvers
-                            .grasp
-                            .graspWithPathRelinking
-                            .ParallelGraspWithPathRelinking(
-                            parameters, graspSettings, threads)
+                                    .grasp
+                                    .graspWithPathRelinking
+                                    .ParallelGraspWithPathRelinking(
+                                    parameters, graspSettings, threads)
                             .getSolution();
         } else {
             solution = new GraspWithPathRelinking(parameters, graspSettings).getSolution();
@@ -294,8 +283,8 @@ public class mainGraspRun {
                         updateEveryNIter);
 
         // Create constructive heuristic settings
-        ConstructiveHeuristicSettings constructiveSettings = new ConstructiveHeuristicSettings(
-                0.5, 2);
+        ConstructiveHeuristicSettings constructiveSettings =
+                new ConstructiveHeuristicSettings(0.5, 2);
 
         // Create and return GRASP settings
         return new GraspSettings(
