@@ -2,18 +2,8 @@ instancePaths:
 
 instanceFolder: "instances"
 
-
 modelType: "Discrete" # "Discrete" or "Continuous"
 
-checkPointTimes: # Last item is used as time limit
-  - 30
-  - 60
-  - 120
-  - 300
-  - 600
-  - 900
-  - 1800
-  - 3600
-  - 7200
+timeLimit: 7200
 
 outputDirectory: "output/discrete"

@@ -298,8 +298,8 @@ tasks.register<JavaExec>("runMipSolver") {
             argsList.add("--modelType=${project.property("modelType")}")
         }
 
-        if (project.hasProperty("checkPointTimes")) {
-            argsList.add("--checkPointTimes=${project.property("checkPointTimes")}")
+        if (project.hasProperty("timeLimit")) {
+            argsList.add("--timeLimit=${project.property("timeLimit")}")
         }
 
         if (project.hasProperty("logPath")) {

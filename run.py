@@ -87,11 +87,11 @@ def generate_bee_cli_commands(config_path: str, base_command: str = "gradlew run
 def generate_mip_cli_commands(config_path: str, base_command: str = "./gradlew runMipSolver") -> List[tuple[str, int]]:
     """
     Generate CLI commands for MIP Solver based on configuration file.
-    
+
     Args:
         config_path: Path to the YAML configuration file
         base_command: Base command to use (default: "./gradlew runMipSolver")
-        
+
     Returns:
         List of CLI command strings
     """
@@ -101,7 +101,7 @@ def generate_mip_cli_commands(config_path: str, base_command: str = "./gradlew r
     # Extract configuration parameters
     instance_paths = config.get('instancePaths', [])
     model_type = config.get('modelType', 'Discrete')
-    checkpoint_times = config.get('checkPointTimes', [])
+    time_limit = config.get('timeLimit', 7200)
     output_directory = config.get('outputDirectory', 'output')
 
     # Generate commands for each instance
@@ -112,19 +112,20 @@ def generate_mip_cli_commands(config_path: str, base_command: str = "./gradlew r
         # Create log path
         log_path = os.path.join(output_directory, instance_name, "mip.log")
 
-        # Convert checkpoint times to comma-separated string
-        checkpoint_times_str = ','.join(map(str, checkpoint_times))
-
         # Build command parameters
-        params = [f'-PinstancePath="{instance_path}"', f'-PoutputPath="{output_directory}"',
-                  f'-PmodelType="{model_type}"', f'-PcheckPointTimes="{checkpoint_times_str}"',
-                  f'-PlogPath="{log_path}"']
+        params = [
+            f'-PinstancePath="{instance_path}"',
+            f'-PoutputPath="{output_directory}"',
+            f'-PmodelType="{model_type}"',
+            f'-PtimeLimit={time_limit}',
+            f'-PlogPath="{log_path}"'
+        ]
 
         # Construct full command
         command = f"{base_command} {' '.join(params)}"
         commands.append(command)
 
-    return list(zip(commands, [120 for _ in commands]))
+    return list(zip(commands, [time_limit // 60 + 1 for _ in commands]))
 
 
 def generate_grasp_cli_commands(config_path: str, base_command: str = "./gradlew runGrasp") -> List[tuple[str, int]]:
