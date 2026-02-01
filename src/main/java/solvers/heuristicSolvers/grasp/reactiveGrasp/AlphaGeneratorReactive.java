@@ -4,9 +4,9 @@ import java.util.Arrays;
 import java.util.Random;
 
 /**
- * Reactive Alpha Generator that learns from solution quality feedback.
- * Tracks average solution quality per alpha value and biases selection
- * toward alpha values that have produced better solutions.
+ * Reactive Alpha Generator that learns from solution quality feedback. Tracks average solution
+ * quality per alpha value and biases selection toward alpha values that have produced better
+ * solutions.
  */
 public class AlphaGeneratorReactive implements AlphaGenerator {
     private static final int UPDATE_INTERVAL = 50; // Recalculate probabilities every N iterations
@@ -17,11 +17,9 @@ public class AlphaGeneratorReactive implements AlphaGenerator {
     private final int[] usageCount;
     private int totalIterations = 0;
 
-    /**
-     * Creates a reactive alpha generator with default alpha values.
-     */
+    /** Creates a reactive alpha generator with default alpha values. */
     public AlphaGeneratorReactive() {
-        this(new double[]{0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9});
+        this(new double[] {0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9});
     }
 
     /**
@@ -59,7 +57,7 @@ public class AlphaGeneratorReactive implements AlphaGenerator {
     /**
      * Update feedback after using an alpha value.
      *
-     * @param alpha           The alpha value that was used
+     * @param alpha The alpha value that was used
      * @param solutionQuality The quality (revenue) of the resulting solution
      */
     public void updateFeedback(double alpha, int solutionQuality) {
@@ -75,9 +73,7 @@ public class AlphaGeneratorReactive implements AlphaGenerator {
         }
     }
 
-    /**
-     * Find the index of an alpha value in our array.
-     */
+    /** Find the index of an alpha value in our array. */
     private int findAlphaIndex(double alpha) {
         for (int i = 0; i < alphaValues.length; i++) {
             if (Math.abs(alphaValues[i] - alpha) < 0.001) {
@@ -88,9 +84,7 @@ public class AlphaGeneratorReactive implements AlphaGenerator {
         throw new IllegalArgumentException("Alpha not found in list: " + alpha);
     }
 
-    /**
-     * Recalculate selection probabilities based on average quality.
-     */
+    /** Recalculate selection probabilities based on average quality. */
     private void recalculateProbabilities() {
         double[] avgQuality = new double[alphaValues.length];
         double maxAvg = Double.NEGATIVE_INFINITY;
@@ -127,23 +121,17 @@ public class AlphaGeneratorReactive implements AlphaGenerator {
         }
     }
 
-    /**
-     * Get current probabilities (for debugging/logging).
-     */
+    /** Get current probabilities (for debugging/logging). */
     public double[] getProbabilities() {
         return probabilities.clone();
     }
 
-    /**
-     * Get usage counts (for debugging/logging).
-     */
+    /** Get usage counts (for debugging/logging). */
     public int[] getUsageCounts() {
         return usageCount.clone();
     }
 
-    /**
-     * Get average quality per alpha (for debugging/logging).
-     */
+    /** Get average quality per alpha (for debugging/logging). */
     public double[] getAverageQualities() {
         double[] avgQuality = new double[alphaValues.length];
         for (int i = 0; i < alphaValues.length; i++) {
@@ -162,5 +150,41 @@ public class AlphaGeneratorReactive implements AlphaGenerator {
     @Override
     public int hashCode() {
         return Arrays.hashCode(alphaValues);
+    }
+
+    /**
+     * Creates a thread-local copy of this reactive alpha generator. The copy shares the same alpha
+     * values but has independent statistics. Use for parallel execution to avoid synchronization
+     * overhead.
+     *
+     * @return A new independent copy with the same alpha configuration
+     */
+    public AlphaGeneratorReactive createThreadLocalCopy() {
+        return new AlphaGeneratorReactive(this.alphaValues);
+    }
+
+    /**
+     * Merges feedback statistics from another reactive alpha generator. Used to aggregate
+     * thread-local statistics after parallel execution. This method should be called with external
+     * synchronization if needed.
+     *
+     * @param other The other generator whose statistics will be merged into this one
+     */
+    public void mergeFeedback(AlphaGeneratorReactive other) {
+        if (other.alphaValues.length != this.alphaValues.length) {
+            throw new IllegalArgumentException(
+                    "Cannot merge generators with different alpha configurations");
+        }
+
+        for (int i = 0; i < alphaValues.length; i++) {
+            this.usageCount[i] += other.usageCount[i];
+            this.totalQuality[i] += other.totalQuality[i];
+        }
+        this.totalIterations += other.totalIterations;
+
+        // Recalculate probabilities after merge
+        if (this.totalIterations > 0) {
+            recalculateProbabilities();
+        }
     }
 }

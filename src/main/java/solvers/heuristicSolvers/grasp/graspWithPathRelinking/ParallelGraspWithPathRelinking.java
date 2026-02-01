@@ -6,14 +6,9 @@ import data.Solution;
 import runParameters.GraspSettings;
 
 import solvers.CheckPoint;
-import solvers.SolverSolution;
 import solvers.heuristicSolvers.grasp.ComponentEfficacy;
-import solvers.heuristicSolvers.grasp.GraspInformation;
-import solvers.heuristicSolvers.grasp.constructiveHeuristic.ConstructiveHeuristic;
 import solvers.heuristicSolvers.grasp.localSearch.LocalSearch;
 import solvers.heuristicSolvers.grasp.localSearch.MoveStatistics;
-import solvers.heuristicSolvers.grasp.pathLinking.MixedPathRelinking;
-import solvers.heuristicSolvers.grasp.pathLinking.PathRelinkingUtils;
 import solvers.heuristicSolvers.grasp.reactiveGrasp.AlphaGeneratorReactive;
 
 import java.util.*;
@@ -21,34 +16,28 @@ import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.atomic.AtomicInteger;
+import java.util.concurrent.atomic.AtomicReference;
+import java.util.concurrent.locks.ReentrantReadWriteLock;
 
-public class ParallelGraspWithPathRelinking {
-    @SuppressWarnings("FieldCanBeLocal")
-    private final int eliteSolutionsSize = 10;
+public class ParallelGraspWithPathRelinking extends BaseGrasp {
 
     private final int threadCount;
-
-    private final ProblemParameters parameters;
     private final List<Solution> eliteSolutions;
-    private final GraspSettings graspSettings;
     private final List<CheckPoint> checkPoints;
-    private final SolverSolution solverSolution;
-    private final PathRelinkingUtils pathRelinkingUtils;
     private final AtomicInteger iterations = new AtomicInteger(0);
-    private final Object lock = new Object();
-    private Solution bestSolution;
-    private int foundSolutionAt;
-    private double iterationsPerSecond;
+    private final ReentrantReadWriteLock eliteLock = new ReentrantReadWriteLock();
+    private final AtomicReference<Solution> bestSolution = new AtomicReference<>();
+    private volatile int currentEliteCount = 0;
+    private volatile int foundSolutionAt;
     private final MoveStatistics aggregatedMoveStatistics;
     private final ComponentEfficacy aggregatedComponentEfficacy = new ComponentEfficacy();
 
     public ParallelGraspWithPathRelinking(
             ProblemParameters parameters, GraspSettings graspSettings, int threadCount)
             throws Exception {
+        super(parameters, graspSettings);
 
-        this.parameters = parameters;
-        this.eliteSolutions = new LinkedList<>();
-        this.graspSettings = graspSettings;
+        this.eliteSolutions = new ArrayList<>();
         this.threadCount =
                 threadCount <= 0 ? Runtime.getRuntime().availableProcessors() : threadCount;
         System.out.println(
@@ -59,22 +48,16 @@ public class ParallelGraspWithPathRelinking {
                         + ").");
 
         this.checkPoints = new ArrayList<>();
-        this.pathRelinkingUtils = new PathRelinkingUtils();
-        this.aggregatedMoveStatistics =
-                graspSettings.localSearchSettings().trackStatistics ? new MoveStatistics() : null;
+        this.aggregatedMoveStatistics = createMoveStatistics();
 
         this.solve();
 
-        GraspInformation graspInformation =
-                new GraspInformation(
-                        graspSettings,
-                        iterationsPerSecond,
+        this.solverSolution =
+                buildSolverSolution(
+                        bestSolution.get(),
+                        checkPoints,
                         aggregatedMoveStatistics,
                         aggregatedComponentEfficacy);
-
-        this.solverSolution =
-                new SolverSolution(
-                        bestSolution, checkPoints, graspInformation, parameters.getInstance());
     }
 
     private void solve() throws Exception {
@@ -83,13 +66,10 @@ public class ParallelGraspWithPathRelinking {
         Random initialRandom = new Random(baseSeed);
 
         // Initial solution (single threaded to start)
-        this.bestSolution =
-                new ConstructiveHeuristic(
-                                parameters,
-                                this.graspSettings.alphaGenerator().generateAlpha(initialRandom),
-                                graspSettings.constructiveHeuristicSettings(),
-                                initialRandom)
-                        .getSolution();
+        this.bestSolution.set(
+                createConstructiveSolution(
+                        graspSettings.alphaGenerator().generateAlpha(initialRandom),
+                        initialRandom));
 
         var startTime = System.currentTimeMillis() / 1000;
 
@@ -112,6 +92,9 @@ public class ParallelGraspWithPathRelinking {
         }
         executor.shutdown();
 
+        // Sort checkpoints by time (threads merged in arbitrary order)
+        checkPoints.sort(Comparator.comparingDouble(CheckPoint::getTime));
+
         var endTime = System.currentTimeMillis() / 1000;
         iterationsPerSecond = iterations.get() / (double) (endTime - startTime);
     }
@@ -126,35 +109,30 @@ public class ParallelGraspWithPathRelinking {
 
         // Thread-local LocalSearch instance - moveProbabilities persist across iterations within
         // this thread
-        LocalSearch localSearch =
-                new LocalSearch(
-                        parameters,
-                        graspSettings.getSearchMode(),
-                        graspSettings.localSearchSettings(),
-                        random,
-                        threadLocalStats);
+        LocalSearch localSearch = createLocalSearch(random, threadLocalStats);
+
+        // Thread-local checkpoint list - merged at end of thread execution
+        List<CheckPoint> threadLocalCheckpoints = new ArrayList<>();
+
+        // Thread-local alpha generator to avoid synchronization overhead
+        var sharedAlphaGen = this.graspSettings.alphaGenerator();
+        AlphaGeneratorReactive threadLocalReactiveAlpha = null;
+        if (sharedAlphaGen instanceof AlphaGeneratorReactive reactive) {
+            threadLocalReactiveAlpha = reactive.createThreadLocalCopy();
+        }
 
         while (System.currentTimeMillis() / 1000 - startTime < graspSettings.timeLimit()) {
 
-            // Constructive Phase - with reactive alpha support
-            double alpha;
-            var alphaGen = this.graspSettings.alphaGenerator();
-            if (alphaGen instanceof AlphaGeneratorReactive reactive) {
-                synchronized (reactive) {
-                    alpha = reactive.generateAlpha(random);
-                }
-            } else {
-                alpha = alphaGen.generateAlpha(random);
-            }
+            // Constructive Phase - with reactive alpha support (thread-local, no synchronization)
+            double alpha =
+                    (threadLocalReactiveAlpha != null)
+                            ? threadLocalReactiveAlpha.generateAlpha(random)
+                            : sharedAlphaGen.generateAlpha(random);
 
             long chStartTime = System.nanoTime();
             var randomSolution =
-                    new ConstructiveHeuristic(
-                                    parameters,
-                                    this.graspSettings.alphaGenerator().generateAlpha(random),
-                                    graspSettings.constructiveHeuristicSettings(),
-                                    random)
-                            .getSolution();
+                    createConstructiveSolution(
+                            graspSettings.alphaGenerator().generateAlpha(random), random);
             threadLocalEfficacy.recordCall(
                     ComponentEfficacy.Component.CONSTRUCTIVE_HEURISTIC,
                     System.nanoTime() - chStartTime,
@@ -171,29 +149,28 @@ public class ParallelGraspWithPathRelinking {
                     prevRevenue,
                     randomSolution.revenue);
 
-            // Path Relinking Phase
+            // Path Relinking Phase - use volatile size check first (no lock needed)
             boolean performPathRelinking = false;
             Solution guidingSolution = null;
             Solution initialSolution = randomSolution;
 
-            synchronized (lock) {
-                if (this.eliteSolutions.size() > 2) {
-                    performPathRelinking = true;
-                    guidingSolution = getGuidingSolution(random);
+            if (currentEliteCount > 2) {
+                // Only acquire read lock when we actually need to get a guiding solution
+                eliteLock.readLock().lock();
+                try {
+                    if (!eliteSolutions.isEmpty()) {
+                        performPathRelinking = true;
+                        guidingSolution = getGuidingSolution(random);
+                    }
+                } finally {
+                    eliteLock.readLock().unlock();
                 }
             }
 
             if (performPathRelinking) {
                 double prPrevRevenue = randomSolution.revenue;
                 long prStartTime = System.nanoTime();
-                randomSolution =
-                        new MixedPathRelinking(
-                                        parameters,
-                                        initialSolution,
-                                        guidingSolution,
-                                        pathRelinkingUtils,
-                                        random)
-                                .getBestFoundSolution();
+                randomSolution = runPathRelinking(initialSolution, guidingSolution, random);
                 threadLocalEfficacy.recordCall(
                         ComponentEfficacy.Component.PATH_RELINKING,
                         System.nanoTime() - prStartTime,
@@ -210,33 +187,29 @@ public class ParallelGraspWithPathRelinking {
                         randomSolution.revenue);
             }
 
-            // Provide feedback to reactive alpha generator if applicable
-            if (alphaGen instanceof AlphaGeneratorReactive reactive) {
-                synchronized (reactive) {
-                    reactive.updateFeedback(alpha, randomSolution.revenue);
-                }
+            // Provide feedback to thread-local reactive alpha generator (no synchronization needed)
+            if (threadLocalReactiveAlpha != null) {
+                threadLocalReactiveAlpha.updateFeedback(alpha, randomSolution.revenue);
             }
 
             // Update Global State
-            updateEliteSolutions(randomSolution, startTime);
+            updateEliteSolutions(randomSolution, startTime, threadLocalCheckpoints);
 
             int currentTotalIterations = iterations.incrementAndGet();
 
             // Logging (only one thread usually, or periodically)
+            // No synchronization needed - volatile/atomic reads, slight interleaving is acceptable
             if (currentTotalIterations % 100 == 0) {
                 double currentIterationsPerSecond =
                         currentTotalIterations
                                 / (double) (System.currentTimeMillis() / 1000 - startTime);
-                // Simple logging to avoid spam, synced print
-                synchronized (System.out) {
-                    System.out.printf(
-                            "Seconds: %d, Total Iterations: %d, Iteration per second: %f, Best solution: %d found at %ds%n",
-                            System.currentTimeMillis() / 1000 - startTime,
-                            currentTotalIterations,
-                            currentIterationsPerSecond,
-                            bestSolution.revenue,
-                            foundSolutionAt);
-                }
+                System.out.printf(
+                        "Seconds: %d, Total Iterations: %d, Iteration per second: %f, Best solution: %d found at %ds%n",
+                        System.currentTimeMillis() / 1000 - startTime,
+                        currentTotalIterations,
+                        currentIterationsPerSecond,
+                        bestSolution.get().revenue,
+                        foundSolutionAt);
             }
         }
 
@@ -251,81 +224,58 @@ public class ParallelGraspWithPathRelinking {
         synchronized (aggregatedComponentEfficacy) {
             aggregatedComponentEfficacy.merge(threadLocalEfficacy);
         }
-    }
 
-    private boolean updateEliteSolutions(Solution newFoundLocalOptima, long startTime) {
-
-        synchronized (lock) {
-            if (newFoundLocalOptima.revenue > bestSolution.revenue) {
-                this.foundSolutionAt = (int) (System.currentTimeMillis() / 1000 - startTime);
-
-                bestSolution = newFoundLocalOptima;
-
-                this.checkPoints.add(
-                        new CheckPoint(
-                                newFoundLocalOptima,
-                                ((double) System.currentTimeMillis() / 1000 - startTime)));
+        // Merge thread-local alpha feedback into shared generator
+        if (threadLocalReactiveAlpha != null
+                && sharedAlphaGen instanceof AlphaGeneratorReactive sharedReactive) {
+            synchronized (sharedReactive) {
+                sharedReactive.mergeFeedback(threadLocalReactiveAlpha);
             }
+        }
 
-            if (eliteSolutions.size() < eliteSolutionsSize) {
-                if (eliteSolutions.isEmpty()) {
-                    eliteSolutions.add(newFoundLocalOptima);
-                    return true;
-                } else {
-                    var minDistance =
-                            eliteSolutions.stream()
-                                    .map(
-                                            solution ->
-                                                    pathRelinkingUtils.distance(
-                                                            solution, newFoundLocalOptima))
-                                    .min(Comparator.comparing(distance -> distance))
-                                    .orElseThrow();
-                    if (minDistance > 0) {
-                        eliteSolutions.add(newFoundLocalOptima);
-                        return true;
-                    }
-                }
-            } else {
-                int minDistance =
-                        eliteSolutions.stream()
-                                .map(
-                                        solution ->
-                                                pathRelinkingUtils.distance(
-                                                        solution, newFoundLocalOptima))
-                                .min(Comparator.comparing(distance -> distance))
-                                .orElseThrow();
-
-                if (minDistance == 0) return false;
-
-                var worstSolution =
-                        eliteSolutions.stream()
-                                .min(Comparator.comparing(solution -> solution.revenue))
-                                .orElseThrow();
-                if (minDistance > 0 && newFoundLocalOptima.revenue > worstSolution.revenue) {
-                    eliteSolutions.remove(worstSolution);
-                    eliteSolutions.add(newFoundLocalOptima);
-                    return true;
-                }
+        // Merge thread-local checkpoints into shared list
+        if (!threadLocalCheckpoints.isEmpty()) {
+            synchronized (checkPoints) {
+                checkPoints.addAll(threadLocalCheckpoints);
             }
-            return false;
         }
     }
 
-    public SolverSolution getSolution() {
-        return solverSolution;
+    private void updateEliteSolutions(
+            Solution newFoundLocalOptima, long startTime, List<CheckPoint> threadLocalCheckpoints) {
+        // Update best solution using lock-free compare-and-swap
+        Solution currentBest;
+        do {
+            currentBest = bestSolution.get();
+            if (newFoundLocalOptima.revenue <= currentBest.revenue) {
+                break; // Not better, exit CAS loop
+            }
+        } while (!bestSolution.compareAndSet(currentBest, newFoundLocalOptima));
+
+        // If we successfully updated best solution, record checkpoint (thread-local, no sync
+        // needed)
+        if (newFoundLocalOptima.revenue > currentBest.revenue) {
+            this.foundSolutionAt = (int) (System.currentTimeMillis() / 1000 - startTime);
+            threadLocalCheckpoints.add(
+                    new CheckPoint(
+                            newFoundLocalOptima,
+                            ((double) System.currentTimeMillis() / 1000 - startTime)));
+        }
+
+        // Update elite solutions pool using write lock
+        eliteLock.writeLock().lock();
+        try {
+            if (tryAddToElitePool(newFoundLocalOptima, eliteSolutions, eliteSolutionsSize)) {
+                currentEliteCount = eliteSolutions.size();
+            }
+        } finally {
+            eliteLock.writeLock().unlock();
+        }
     }
 
-    /**
-     * Get the aggregated move statistics from all local search calls across all threads. Returns
-     * null if statistics tracking was not enabled.
-     */
+    @Override
     public MoveStatistics getMoveStatistics() {
         return aggregatedMoveStatistics;
-    }
-
-    /** Get the iterations per second achieved during the run. */
-    public double getIterationsPerSecond() {
-        return iterationsPerSecond;
     }
 
     private Solution getGuidingSolution(java.util.Random random) {
