@@ -45,75 +45,28 @@ public class LocalSearch {
                         : (localSearchSettings.trackStatistics ? new MoveStatistics() : null);
 
         // Initialize probabilities ONCE - they persist across all search() calls
-        if (localSearchSettings.useAdaptiveMoveSelection) {
-            int numMoves = localSearchSettings.moves.size();
-            moveProbabilities = new double[numMoves];
-            double initialProb = 1.0 / numMoves;
-            Arrays.fill(moveProbabilities, initialProb);
-            moveGains = new double[numMoves];
-        }
+        int numMoves = localSearchSettings.moves.size();
+        moveProbabilities = new double[numMoves];
+        double initialProb = 1.0 / numMoves;
+        Arrays.fill(moveProbabilities, initialProb);
+        moveGains = new double[numMoves];
     }
 
     /**
-     * Execute local search on the given solution. For adaptive mode, moveProbabilities are updated
-     * and persist to next call.
+     * Execute local search on the given solution. Move probabilities are updated and persist to
+     * next call.
      *
      * @param startingSolution The solution to improve
      * @return The best found solution after local search
      */
     public Solution search(Solution startingSolution) throws Exception {
-        Solution solution;
-        if (localSearchSettings.useAdaptiveMoveSelection) {
-            solution = searchAdaptive(startingSolution);
-        } else {
-            solution = searchVND(startingSolution);
-        }
+        Solution solution = searchAdaptive(startingSolution);
 
         iterations++;
         if (iterations % localSearchSettings.updateProbabilitiesAtEveryNIter == 0)
             updateProbabilities();
 
         return solution;
-    }
-
-    /** VND-style search - fixed move sequence with cycling back on improvement. */
-    private Solution searchVND(Solution startingSolution) throws Exception {
-        int k = 0;
-        Solution bestFoundSolution = startingSolution;
-        Solution solution = startingSolution;
-
-        while (k < localSearchSettings.moves.size()) {
-            if (this.random.nextDouble() < localSearchSettings.neighborhoodSkipProbability) {
-                k++;
-                continue;
-            }
-
-            var moveString = localSearchSettings.moves.get(k);
-            double prevRevenue = solution.revenue;
-            long startTime = moveStatistics != null ? System.nanoTime() : 0;
-
-            if (moveStatistics != null) {
-                moveStatistics.recordAttempt(moveString);
-            }
-
-            solution = applySearch(moveString, solution, searchMode);
-
-            if (moveStatistics != null) {
-                moveStatistics.recordTime(moveString, System.nanoTime() - startTime);
-                // Record success only if the move actually improved the solution
-                if (solution.revenue > prevRevenue) {
-                    moveStatistics.recordSuccess(moveString, solution.revenue - prevRevenue);
-                }
-            }
-
-            if (solution.revenue > bestFoundSolution.revenue) {
-                k = 0;
-                bestFoundSolution = solution;
-            } else {
-                k++;
-            }
-        }
-        return bestFoundSolution;
     }
 
     /**

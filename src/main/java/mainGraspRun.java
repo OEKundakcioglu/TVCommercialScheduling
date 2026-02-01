@@ -82,11 +82,6 @@ public class mainGraspRun {
     private boolean verbose = false;
 
     @Parameter(
-            names = {"--adaptiveMoves", "-am"},
-            description = "Enable adaptive move selection in local search")
-    private boolean adaptiveMoves = false;
-
-    @Parameter(
             names = {"--trackStats", "-ts"},
             description = "Enable move statistics tracking for analysis")
     private boolean trackStatistics = false;
@@ -148,7 +143,6 @@ public class mainGraspRun {
                 System.out.println("Parallel mode: enabled");
                 System.out.println("Threads: " + (threads > 0 ? threads : "default"));
             }
-            System.out.println("Adaptive moves: " + adaptiveMoves);
             System.out.println("=====================================");
         }
 
@@ -228,12 +222,11 @@ public class mainGraspRun {
                             + ". Use BEST_IMPROVEMENT or FIRST_IMPROVEMENT.");
         }
 
-        // Create local search settings with adaptive move selection and statistics tracking options
+        // Create local search settings
         LocalSearchSettings localSearchSettings =
                 new LocalSearchSettings(
                         moves,
                         skipProbability,
-                        adaptiveMoves,
                         trackStatistics,
                         minMoveProbability,
                         updateEveryNIter);

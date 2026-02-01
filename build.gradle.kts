@@ -254,11 +254,6 @@ tasks.register<JavaExec>("runGrasp") {
             argsList.add("--stagnationThreshold=${project.property("stagnationThreshold")}")
         }
 
-        // Adaptive moves and statistics
-        if (project.hasProperty("adaptiveMoves")) {
-            argsList.add("--adaptiveMoves")
-        }
-
         if (project.hasProperty("trackStats")) {
             argsList.add("--trackStats")
         }
