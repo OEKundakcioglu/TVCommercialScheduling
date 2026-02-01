@@ -195,8 +195,6 @@ public class LocalSearch {
             search = new InterSwapSearch(solution, parameters, false, searchMode, random);
         else if (key.equals("shift"))
             search = new ShiftSearch(solution, parameters, false, searchMode, random);
-        else if (key.equals("chainSwap"))
-            search = new ChainSwapSearch(solution, parameters, false, searchMode, random);
         else throw new RuntimeException("Invalid key: " + key);
 
         return search.getSolution();

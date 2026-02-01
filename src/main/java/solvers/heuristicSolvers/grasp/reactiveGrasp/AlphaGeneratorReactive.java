@@ -85,60 +85,15 @@ public class AlphaGeneratorReactive {
 
     /** Recalculate selection probabilities based on average quality. */
     private void recalculateProbabilities() {
-        double[] avgQuality = new double[alphaValues.length];
-        double maxAvg = Double.NEGATIVE_INFINITY;
-        double minAvg = Double.POSITIVE_INFINITY;
+        var totalGain = Arrays.stream(totalQuality).sum();
 
-        // Calculate average quality for each alpha
-        for (int i = 0; i < alphaValues.length; i++) {
-            if (usageCount[i] == 0) {
-                avgQuality[i] = 0;
-                continue;
-            }
-
-            avgQuality[i] = totalQuality[i] / usageCount[i];
-
-            if (avgQuality[i] > maxAvg) maxAvg = avgQuality[i];
-            if (avgQuality[i] < minAvg) minAvg = avgQuality[i];
-        }
-
-        // Calculate new probabilities proportional to (avgQuality - minAvg)
-        double sum = 0.0;
-        for (int i = 0; i < alphaValues.length; i++) {
-            if (usageCount[i] == 0) {
-                probabilities[i] = 0.5 + MIN_PROBABILITY;
-            } else {
-                probabilities[i] = (avgQuality[i] - minAvg) / (maxAvg - minAvg) + MIN_PROBABILITY;
-            }
-
-            sum += probabilities[i];
-        }
-
-        // Normalize to sum to 1
         for (int i = 0; i < probabilities.length; i++) {
-            probabilities[i] /= sum;
+            probabilities[i] =
+                    MIN_PROBABILITY
+                            + (1 - MIN_PROBABILITY * totalQuality.length)
+                                    * totalQuality[i]
+                                    / totalGain;
         }
-    }
-
-    /** Get current probabilities (for debugging/logging). */
-    public double[] getProbabilities() {
-        return probabilities.clone();
-    }
-
-    /** Get usage counts (for debugging/logging). */
-    public int[] getUsageCounts() {
-        return usageCount.clone();
-    }
-
-    /** Get average quality per alpha (for debugging/logging). */
-    public double[] getAverageQualities() {
-        double[] avgQuality = new double[alphaValues.length];
-        for (int i = 0; i < alphaValues.length; i++) {
-            if (usageCount[i] > 0) {
-                avgQuality[i] = totalQuality[i] / usageCount[i];
-            }
-        }
-        return avgQuality;
     }
 
     public String getStringIdentifier() {
