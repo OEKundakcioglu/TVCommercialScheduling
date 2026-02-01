@@ -13,20 +13,11 @@ import solvers.SolverSolution;
 import solvers.heuristicSolvers.grasp.graspWithPathRelinking.GraspWithPathRelinking;
 import solvers.heuristicSolvers.grasp.graspWithPathRelinking.ParallelGraspWithPathRelinking;
 import solvers.heuristicSolvers.grasp.localSearch.SearchMode;
-import solvers.heuristicSolvers.grasp.reactiveGrasp.AlphaGenerator;
-import solvers.heuristicSolvers.grasp.reactiveGrasp.AlphaGeneratorConstant;
 import solvers.heuristicSolvers.grasp.reactiveGrasp.AlphaGeneratorReactive;
-import solvers.heuristicSolvers.grasp.reactiveGrasp.AlphaGeneratorUniform;
 import solvers.mipSolvers.ModelSolver;
 import solvers.mipSolvers.discreteTimeModel.DiscreteTimeModel;
 
 import java.util.List;
-
-enum AlphaGeneratorType {
-    REACTIVE,
-    UNIFORM,
-    CONSTANT
-}
 
 public class main {
 
@@ -54,12 +45,6 @@ public class main {
     private static final double CONSTRUCTIVE_DEVIATION = 2;
     private static final int K_REGRET =
             3; // k value for k-regret (only used when CONSTRUCTIVE_TYPE = REGRET_BASED)
-
-    // Alpha Generator Settings
-    private static final AlphaGeneratorType ALPHA_TYPE = AlphaGeneratorType.UNIFORM;
-    private static final double ALPHA_CONSTANT = 0.4; // for CONSTANT
-    private static final double ALPHA_UNIFORM_LOWER = 0.1; // for UNIFORM
-    private static final double ALPHA_UNIFORM_UPPER = 0.9; // for UNIFORM
 
     // =====================================================================
 
@@ -138,16 +123,8 @@ public class main {
                 TIME_LIMIT,
                 localSearchSettings,
                 constructiveSettings,
-                createAlphaGenerator(),
+                new AlphaGeneratorReactive(),
                 SEED,
                 INSTANCE_PATH);
-    }
-
-    private static AlphaGenerator createAlphaGenerator() {
-        return switch (ALPHA_TYPE) {
-            case REACTIVE -> new AlphaGeneratorReactive();
-            case UNIFORM -> new AlphaGeneratorUniform(ALPHA_UNIFORM_LOWER, ALPHA_UNIFORM_UPPER);
-            case CONSTANT -> new AlphaGeneratorConstant(ALPHA_CONSTANT);
-        };
     }
 }

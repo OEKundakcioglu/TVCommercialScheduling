@@ -9,7 +9,6 @@ import solvers.CheckPoint;
 import solvers.heuristicSolvers.grasp.ComponentEfficacy;
 import solvers.heuristicSolvers.grasp.localSearch.LocalSearch;
 import solvers.heuristicSolvers.grasp.localSearch.MoveStatistics;
-import solvers.heuristicSolvers.grasp.reactiveGrasp.AlphaGeneratorReactive;
 
 import java.util.*;
 import java.util.concurrent.Callable;
@@ -116,18 +115,11 @@ public class ParallelGraspWithPathRelinking extends BaseGrasp {
 
         // Thread-local alpha generator to avoid synchronization overhead
         var sharedAlphaGen = this.graspSettings.alphaGenerator();
-        AlphaGeneratorReactive threadLocalReactiveAlpha = null;
-        if (sharedAlphaGen instanceof AlphaGeneratorReactive reactive) {
-            threadLocalReactiveAlpha = reactive.createThreadLocalCopy();
-        }
+        var threadLocalReactiveAlpha = sharedAlphaGen.createThreadLocalCopy();
 
         while (System.currentTimeMillis() / 1000 - startTime < graspSettings.timeLimit()) {
 
-            // Constructive Phase - with reactive alpha support (thread-local, no synchronization)
-            double alpha =
-                    (threadLocalReactiveAlpha != null)
-                            ? threadLocalReactiveAlpha.generateAlpha(random)
-                            : sharedAlphaGen.generateAlpha(random);
+            double alpha = threadLocalReactiveAlpha.generateAlpha(random);
 
             long chStartTime = System.nanoTime();
             var randomSolution =
@@ -187,10 +179,7 @@ public class ParallelGraspWithPathRelinking extends BaseGrasp {
                         randomSolution.revenue);
             }
 
-            // Provide feedback to thread-local reactive alpha generator (no synchronization needed)
-            if (threadLocalReactiveAlpha != null) {
-                threadLocalReactiveAlpha.updateFeedback(alpha, randomSolution.revenue);
-            }
+            threadLocalReactiveAlpha.updateFeedback(alpha, randomSolution.revenue);
 
             // Update Global State
             updateEliteSolutions(randomSolution, startTime, threadLocalCheckpoints);
@@ -226,11 +215,8 @@ public class ParallelGraspWithPathRelinking extends BaseGrasp {
         }
 
         // Merge thread-local alpha feedback into shared generator
-        if (threadLocalReactiveAlpha != null
-                && sharedAlphaGen instanceof AlphaGeneratorReactive sharedReactive) {
-            synchronized (sharedReactive) {
-                sharedReactive.mergeFeedback(threadLocalReactiveAlpha);
-            }
+        synchronized (sharedAlphaGen) {
+            sharedAlphaGen.mergeFeedback(threadLocalReactiveAlpha);
         }
 
         // Merge thread-local checkpoints into shared list

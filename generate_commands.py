@@ -62,7 +62,6 @@ def generate_grasp_commands(config_path: str, parallel: bool) -> List[str]:
 
     instance_paths = config.get('instancePaths', [])
     search_modes = config.get('searchModes', ['BEST_IMPROVEMENT'])
-    alpha_options = config.get('alphaGeneratorOptions', [])
     skip_probabilities = config.get('neighborhoodSkipProbabilities', [0.0])
     local_search_moves = config.get('localSearchMoves', [])
     time_limit = config.get('timeLimit', 60)
@@ -72,37 +71,25 @@ def generate_grasp_commands(config_path: str, parallel: bool) -> List[str]:
 
     for instance_path in instance_paths:
         for search_mode in search_modes:
-            for alpha_option in alpha_options:
-                for skip_prob in skip_probabilities:
-                    for run_number in range(random_run_n):
-                        local_search_moves_str = ",".join(local_search_moves)
+            for skip_prob in skip_probabilities:
+                for run_number in range(random_run_n):
+                    local_search_moves_str = ",".join(local_search_moves)
 
-                        params = [
-                            f'-PinstancePath="{instance_path}"',
-                            f'-PoutputPath="{output_directory}"',
-                            f'-PtimeLimit={time_limit}',
-                            f'-PsearchMode="{search_mode}"',
-                            f'-PskipProbability={skip_prob}',
-                            f'-PlocalSearchMoves="{local_search_moves_str}"',
-                            f'-Pseed={run_number}'
-                        ]
+                    params = [
+                        f'-PinstancePath="{instance_path}"',
+                        f'-PoutputPath="{output_directory}"',
+                        f'-PtimeLimit={time_limit}',
+                        f'-PsearchMode="{search_mode}"',
+                        f'-PskipProbability={skip_prob}',
+                        f'-PlocalSearchMoves="{local_search_moves_str}"',
+                        f'-Pseed={run_number}'
+                    ]
 
-                        if parallel:
-                            params.append('-Pparallel')
-#                             params.append(f'-Pthreads={threads}')
+                    if parallel:
+                        params.append('-Pparallel')
 
-                        alpha_type = alpha_option.get('type', '').lower()
-                        if alpha_type == 'fixed':
-                            params.extend(['-PalphaType="FIXED"', f'-Palpha={alpha_option.get("alpha", 0.25)}'])
-                        elif alpha_type == 'uniform':
-                            params.extend([
-                                '-PalphaType="UNIFORM"',
-                                f'-PminAlpha={alpha_option.get("minAlpha", 0.1)}',
-                                f'-PmaxAlpha={alpha_option.get("maxAlpha", 1.0)}'
-                            ])
-
-                        command = f"./gradlew runGrasp {' '.join(params)}"
-                        commands.append(command)
+                    command = f"./gradlew runGrasp {' '.join(params)}"
+                    commands.append(command)
 
     return commands
 

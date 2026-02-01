@@ -1,14 +1,14 @@
 package runParameters;
 
 import solvers.heuristicSolvers.grasp.localSearch.SearchMode;
-import solvers.heuristicSolvers.grasp.reactiveGrasp.AlphaGenerator;
+import solvers.heuristicSolvers.grasp.reactiveGrasp.AlphaGeneratorReactive;
 
 public class GraspSettings {
     private final SearchMode searchMode;
     private final int timeLimit;
     private final LocalSearchSettings localSearchSettings;
     private final ConstructiveHeuristicSettings constructiveHeuristicSettings;
-    private final AlphaGenerator alphaGenerator;
+    private final AlphaGeneratorReactive alphaGenerator;
     private final int randomRunN;
     private final String instancePath;
 
@@ -18,7 +18,7 @@ public class GraspSettings {
             int timeLimit,
             LocalSearchSettings localSearchSettings,
             ConstructiveHeuristicSettings constructiveHeuristicSettings,
-            AlphaGenerator alphaGenerator,
+            AlphaGeneratorReactive alphaGenerator,
             int randomRunN,
             String instancePath) {
         this.searchMode = searchMode;
@@ -47,7 +47,7 @@ public class GraspSettings {
         return constructiveHeuristicSettings;
     }
 
-    public AlphaGenerator alphaGenerator() {
+    public AlphaGeneratorReactive alphaGenerator() {
         return alphaGenerator;
     }
 
@@ -57,18 +57,24 @@ public class GraspSettings {
 
     public String getStringIdentifier() {
 
-        String sb = "isBestMove=" + searchMode +
-                "/" +
-                "timeLimit=" + timeLimit +
-                "/" +
-                "alphaGenerator=" + alphaGenerator.getStringIdentifier() +
-                "/" +
-                "localSearch=" + localSearchSettings.getStringIdentifier() +
-                "/" +
-                "constructiveHeuristic=" + constructiveHeuristicSettings.getStringIdentifier() +
-                "/" +
-                "randomRun=" + randomRunN;
+        String sb =
+                "isBestMove="
+                        + searchMode
+                        + "/"
+                        + "timeLimit="
+                        + timeLimit
+                        + "/"
+                        + "alphaGenerator="
+                        + alphaGenerator.getStringIdentifier()
+                        + "/"
+                        + "localSearch="
+                        + localSearchSettings.getStringIdentifier()
+                        + "/"
+                        + "constructiveHeuristic="
+                        + constructiveHeuristicSettings.getStringIdentifier()
+                        + "/"
+                        + "randomRun="
+                        + randomRunN;
         return sb;
     }
-
 }

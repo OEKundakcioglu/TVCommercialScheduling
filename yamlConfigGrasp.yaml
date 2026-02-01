@@ -7,18 +7,6 @@ searchModes:
   - BEST_IMPROVEMENT
   - FIRST_IMPROVEMENT
 
-alphaGeneratorOptions:
-  - type: "Fixed"
-    alpha: 0.25
-  - type: "Fixed"
-    alpha: 0.5
-  - type: "Uniform"
-    minAlpha: 0.1
-    maxAlpha: 1.0
-  - type: "Uniform"
-    minAlpha: 0.1
-    maxAlpha: 0.5
-
 neighborhoodSkipProbabilities:
   - 0
   - 0.25

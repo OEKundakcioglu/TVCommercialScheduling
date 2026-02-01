@@ -13,10 +13,7 @@ import runParameters.LocalSearchSettings;
 import solvers.SolverSolution;
 import solvers.heuristicSolvers.grasp.graspWithPathRelinking.GraspWithPathRelinking;
 import solvers.heuristicSolvers.grasp.localSearch.SearchMode;
-import solvers.heuristicSolvers.grasp.reactiveGrasp.AlphaGenerator;
-import solvers.heuristicSolvers.grasp.reactiveGrasp.AlphaGeneratorConstant;
 import solvers.heuristicSolvers.grasp.reactiveGrasp.AlphaGeneratorReactive;
-import solvers.heuristicSolvers.grasp.reactiveGrasp.AlphaGeneratorUniform;
 
 import java.io.FileOutputStream;
 import java.io.PrintStream;
@@ -54,27 +51,6 @@ public class mainGraspRun {
             description = "Local search mode: BEST_IMPROVEMENT or FIRST_IMPROVEMENT",
             required = true)
     private String searchMode;
-
-    @Parameter(
-            names = {"--alphaType", "-at"},
-            description = "Alpha generator type: FIXED, UNIFORM, or REACTIVE",
-            required = true)
-    private String alphaType;
-
-    @Parameter(
-            names = {"--alpha", "-a"},
-            description = "Alpha value for FIXED type (required when alphaType=FIXED)")
-    private Double alpha;
-
-    @Parameter(
-            names = {"--minAlpha", "-min"},
-            description = "Minimum alpha value for UNIFORM type (required when alphaType=UNIFORM)")
-    private Double minAlpha;
-
-    @Parameter(
-            names = {"--maxAlpha", "-max"},
-            description = "Maximum alpha value for UNIFORM type (required when alphaType=UNIFORM)")
-    private Double maxAlpha;
 
     @Parameter(
             names = {"--skipProbability", "-sp"},
@@ -166,12 +142,6 @@ public class mainGraspRun {
             System.out.println("Output Dir: " + outputPath);
             System.out.println("Time limit: " + timeLimit + " seconds");
             System.out.println("Search mode: " + searchMode);
-            System.out.println("Alpha type: " + alphaType);
-            if (alphaType.equalsIgnoreCase("FIXED")) {
-                System.out.println("Alpha value: " + alpha);
-            } else {
-                System.out.println("Alpha range: [" + minAlpha + ", " + maxAlpha + "]");
-            }
             System.out.println("Skip probability: " + skipProbability);
             System.out.println("Random seed: " + seed);
             if (parallel) {
@@ -247,16 +217,6 @@ public class mainGraspRun {
     }
 
     private GraspSettings createGraspSettings() {
-        // Create alpha generator
-        AlphaGenerator alphaGenerator;
-        if (alphaType.equalsIgnoreCase("FIXED")) {
-            alphaGenerator = new AlphaGeneratorConstant(alpha);
-        } else if (alphaType.equalsIgnoreCase("REACTIVE")) {
-            alphaGenerator = new AlphaGeneratorReactive();
-        } else {
-            alphaGenerator = new AlphaGeneratorUniform(minAlpha, maxAlpha);
-        }
-
         // Create search mode
         SearchMode mode;
         try {
@@ -288,7 +248,7 @@ public class mainGraspRun {
                 timeLimit,
                 localSearchSettings,
                 constructiveSettings,
-                alphaGenerator,
+                new AlphaGeneratorReactive(),
                 seed,
                 instancePath);
     }

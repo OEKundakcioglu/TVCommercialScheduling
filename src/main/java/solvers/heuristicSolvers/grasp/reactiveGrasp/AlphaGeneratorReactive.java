@@ -8,7 +8,7 @@ import java.util.Random;
  * quality per alpha value and biases selection toward alpha values that have produced better
  * solutions.
  */
-public class AlphaGeneratorReactive implements AlphaGenerator {
+public class AlphaGeneratorReactive {
     private static final int UPDATE_INTERVAL = 50; // Recalculate probabilities every N iterations
     private static final double MIN_PROBABILITY = 0.05; // Minimum probability for any alpha
     private final double[] alphaValues;
@@ -39,7 +39,6 @@ public class AlphaGeneratorReactive implements AlphaGenerator {
         Arrays.fill(probabilities, uniformProb);
     }
 
-    @Override
     public double generateAlpha(Random random) {
         double rand = random.nextDouble();
         double cumulative = 0.0;
@@ -142,7 +141,6 @@ public class AlphaGeneratorReactive implements AlphaGenerator {
         return avgQuality;
     }
 
-    @Override
     public String getStringIdentifier() {
         return "Reactive_nAlphas=" + alphaValues.length;
     }

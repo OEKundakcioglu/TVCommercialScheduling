@@ -9,7 +9,6 @@ import solvers.CheckPoint;
 import solvers.heuristicSolvers.grasp.ComponentEfficacy;
 import solvers.heuristicSolvers.grasp.localSearch.LocalSearch;
 import solvers.heuristicSolvers.grasp.localSearch.MoveStatistics;
-import solvers.heuristicSolvers.grasp.reactiveGrasp.AlphaGeneratorReactive;
 
 import java.util.*;
 
@@ -112,10 +111,7 @@ public class GraspWithPathRelinking extends BaseGrasp {
                         randomSolution.revenue);
             }
 
-            // Provide feedback to reactive alpha generator if applicable
-            if (graspSettings.alphaGenerator() instanceof AlphaGeneratorReactive reactive) {
-                reactive.updateFeedback(alpha, randomSolution.revenue);
-            }
+            graspSettings.alphaGenerator().updateFeedback(alpha, randomSolution.revenue);
 
             this.updateEliteSolutions(randomSolution, startTime);
 
