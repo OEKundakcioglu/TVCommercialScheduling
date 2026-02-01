@@ -103,6 +103,13 @@ def generate_grasp_commands(config_path: str, parallel: bool, platform: str) -> 
     time_limit = config.get('timeLimit', 60)
     random_run_n = config.get('randomRunN', 1)
     output_directory = normalize_path(config.get('outputDirectory', 'output'), platform)
+    # Override output directory based on parallel mode
+    if 'grasp' in output_directory.lower():
+        base_output = os.path.dirname(output_directory) or 'output'
+        output_directory = normalize_path(
+            os.path.join(base_output, 'parallelGrasp' if parallel else 'singleGrasp'),
+            platform
+        )
     threads = config.get('threads', -1)
 
     for instance_path in instance_paths:
