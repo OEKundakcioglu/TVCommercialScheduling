@@ -153,12 +153,12 @@ public abstract class BaseGrasp {
     // ==================== FACTORY METHODS ====================
 
     /**
-     * Creates a MoveStatistics instance if statistics tracking is enabled.
+     * Creates a MoveStatistics instance for tracking move performance.
      *
-     * @return a new MoveStatistics instance, or null if tracking is disabled
+     * @return a new MoveStatistics instance
      */
     protected MoveStatistics createMoveStatistics() {
-        return graspSettings.localSearchSettings().trackStatistics ? new MoveStatistics() : null;
+        return new MoveStatistics();
     }
 
     /**

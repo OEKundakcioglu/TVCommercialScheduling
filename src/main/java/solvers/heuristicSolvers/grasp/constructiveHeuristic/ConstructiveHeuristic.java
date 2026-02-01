@@ -2,15 +2,12 @@ package solvers.heuristicSolvers.grasp.constructiveHeuristic;
 
 import data.*;
 import data.enums.ATTENTION;
+
 import runParameters.ConstructiveHeuristicSettings;
 
 import java.util.*;
 
 public class ConstructiveHeuristic implements IConstructiveHeuristic {
-    private final double firstAttentionBoost;
-    private final double lastAttentionBoost;
-    private final double f30AttentionBoost;
-    private final double f60AttentionBoost;
     private final ProblemParameters parameters;
     private final double alpha;
     private final List<List<Commercial>> solutionList;
@@ -24,6 +21,7 @@ public class ConstructiveHeuristic implements IConstructiveHeuristic {
     private Inventory tripleInventory;
 
     private final Random random;
+    private final ConstructiveHeuristicSettings constructiveHeuristicSettings;
 
     public ConstructiveHeuristic(
             ProblemParameters parameters,
@@ -32,14 +30,7 @@ public class ConstructiveHeuristic implements IConstructiveHeuristic {
             Random random) {
         this.random = random;
         this.alpha = alpha;
-
-        var lowerBound = constructiveHeuristicSettings.lowerBound();
-        var upperBound = constructiveHeuristicSettings.upperBound();
-
-        this.firstAttentionBoost = this.random.nextDouble(lowerBound, upperBound);
-        this.lastAttentionBoost = this.random.nextDouble(lowerBound, upperBound);
-        this.f30AttentionBoost = this.random.nextDouble(lowerBound, upperBound);
-        this.f60AttentionBoost = this.random.nextDouble(lowerBound, upperBound);
+        this.constructiveHeuristicSettings = constructiveHeuristicSettings;
 
         this.parameters = parameters;
         this.unassignedCommercials = new ArrayList<>(this.parameters.getSetOfCommercials());
@@ -127,7 +118,7 @@ public class ConstructiveHeuristic implements IConstructiveHeuristic {
         double[] scores =
                 new double
                         [parameters.getSetOfCommercials().size()
-                        * parameters.getSetOfInventories().size()];
+                                * parameters.getSetOfInventories().size()];
 
         var worstScore = Double.POSITIVE_INFINITY;
 
@@ -201,17 +192,10 @@ public class ConstructiveHeuristic implements IConstructiveHeuristic {
         var rating = trackRecord.inventory.arrayRatings[minute][commercial.getAudienceType()];
         var score = commercial.getRevenue(rating) / commercial.getDuration();
 
-//        if (attention == ATTENTION.FIRST) {
-//            score *= firstAttentionBoost;
-//        } else if (attention == ATTENTION.LAST) {
-//            score *= lastAttentionBoost;
-//        } else if (attention == ATTENTION.F30) {
-//            score *= f30AttentionBoost;
-//        } else if (attention == ATTENTION.F60) {
-//            score *= f60AttentionBoost;
-//        }
-
-        return score * random.nextDouble(0.5, 2);
+        return score
+                * random.nextDouble(
+                        constructiveHeuristicSettings.lowerBound(),
+                        constructiveHeuristicSettings.upperBound());
     }
 
     private boolean checkFeasibility(

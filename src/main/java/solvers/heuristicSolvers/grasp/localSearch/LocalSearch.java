@@ -39,10 +39,7 @@ public class LocalSearch {
         this.searchMode = searchMode;
         this.localSearchSettings = localSearchSettings;
         this.random = random;
-        this.moveStatistics =
-                (externalStats != null)
-                        ? externalStats
-                        : (localSearchSettings.trackStatistics ? new MoveStatistics() : null);
+        this.moveStatistics = (externalStats != null) ? externalStats : new MoveStatistics();
 
         // Initialize probabilities ONCE - they persist across all search() calls
         int numMoves = localSearchSettings.moves.size();
@@ -91,21 +88,16 @@ public class LocalSearch {
             int moveIdx = selectMoveByProbability();
             var moveString = localSearchSettings.moves.get(moveIdx);
             double prevRevenue = solution.revenue;
-            long startTime = moveStatistics != null ? System.nanoTime() : 0;
+            long startTime = System.nanoTime();
 
-            if (moveStatistics != null) {
-                moveStatistics.recordAttempt(moveString);
-            }
+            moveStatistics.recordAttempt(moveString);
 
             solution = applySearch(moveString, solution, searchMode);
             moveGains[moveIdx] += solution.revenue - prevRevenue;
 
-            if (moveStatistics != null) {
-                moveStatistics.recordTime(moveString, System.nanoTime() - startTime);
-                // Record success only if the move actually improved the solution
-                if (solution.revenue > prevRevenue) {
-                    moveStatistics.recordSuccess(moveString, solution.revenue - prevRevenue);
-                }
+            moveStatistics.recordTime(moveString, System.nanoTime() - startTime);
+            if (solution.revenue > prevRevenue) {
+                moveStatistics.recordSuccess(moveString, solution.revenue - prevRevenue);
             }
 
             if (solution.revenue > bestFoundSolution.revenue) {

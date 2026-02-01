@@ -82,11 +82,6 @@ public class mainGraspRun {
     private boolean verbose = false;
 
     @Parameter(
-            names = {"--trackStats", "-ts"},
-            description = "Enable move statistics tracking for analysis")
-    private boolean trackStatistics = false;
-
-    @Parameter(
             names = {"--minMoveProbability", "-mmp"},
             description = "Minimum move probability for adaptive selection")
     private double minMoveProbability = 0.05;
@@ -227,7 +222,6 @@ public class mainGraspRun {
                 new LocalSearchSettings(
                         moves,
                         skipProbability,
-                        trackStatistics,
                         minMoveProbability,
                         updateEveryNIter);
 
