@@ -143,7 +143,7 @@ public class GraspWithPathRelinking extends BaseGrasp {
             bestSolution = newFoundLocalOptima;
             this.checkPoints.add(
                     new CheckPoint(
-                            newFoundLocalOptima,
+                            newFoundLocalOptima.revenue,
                             ((double) System.currentTimeMillis() / 1000 - startTime)));
         }
 

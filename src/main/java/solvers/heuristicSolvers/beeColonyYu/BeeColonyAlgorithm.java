@@ -1,7 +1,9 @@
 package solvers.heuristicSolvers.beeColonyYu;
 
 import data.ProblemParameters;
+
 import runParameters.ConstructiveHeuristicSettings;
+
 import solvers.CheckPoint;
 import solvers.SolverSolution;
 import solvers.heuristicSolvers.beeColonyYu.localSearch.NeighborhoodFunction;
@@ -48,8 +50,9 @@ public class BeeColonyAlgorithm {
                                 .map(
                                         beeColonyCheckPoint ->
                                                 new CheckPoint(
-                                                        beeColonyUtils.toSolution(
-                                                                beeColonyCheckPoint.getSolution()),
+                                                        beeColonyCheckPoint
+                                                                .getSolution()
+                                                                .getFitness(),
                                                         beeColonyCheckPoint.getTime()))
                                 .toList(),
                         beeColonySettings,

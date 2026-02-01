@@ -244,7 +244,7 @@ public class ParallelGraspWithPathRelinking extends BaseGrasp {
             this.foundSolutionAt = (int) (System.currentTimeMillis() / 1000 - startTime);
             threadLocalCheckpoints.add(
                     new CheckPoint(
-                            newFoundLocalOptima,
+                            newFoundLocalOptima.revenue,
                             ((double) System.currentTimeMillis() / 1000 - startTime)));
         }
 
