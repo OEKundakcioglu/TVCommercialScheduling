@@ -7,6 +7,7 @@ import runParameters.GraspSettings;
 
 import solvers.CheckPoint;
 import solvers.SolverSolution;
+import solvers.heuristicSolvers.grasp.ComponentEfficacy;
 import solvers.heuristicSolvers.grasp.GraspInformation;
 import solvers.heuristicSolvers.grasp.constructiveHeuristic.ConstructiveHeuristic;
 import solvers.heuristicSolvers.grasp.localSearch.LocalSearch;
@@ -36,6 +37,9 @@ public class GraspWithPathRelinking {
     // Aggregated move statistics across all local search calls
     private final MoveStatistics aggregatedMoveStatistics;
 
+    // Component efficacy tracking
+    private final ComponentEfficacy componentEfficacy = new ComponentEfficacy();
+
     // Single LocalSearch instance - reused across all iterations (preserves adaptive learning)
     private final LocalSearch localSearch;
 
@@ -51,8 +55,8 @@ public class GraspWithPathRelinking {
         this.pathRelinkingUtils = new PathRelinkingUtils();
 
         // Initialize aggregated move statistics if tracking is enabled
-        this.aggregatedMoveStatistics = graspSettings.localSearchSettings().trackStatistics
-                ? new MoveStatistics() : null;
+        this.aggregatedMoveStatistics =
+                graspSettings.localSearchSettings().trackStatistics ? new MoveStatistics() : null;
 
         // Create single LocalSearch instance - moveProbabilities persist across all iterations
         this.localSearch =
@@ -66,7 +70,11 @@ public class GraspWithPathRelinking {
         this.solve();
 
         GraspInformation graspInformation =
-                new GraspInformation(graspSettings, iterationsPerSecond, aggregatedMoveStatistics);
+                new GraspInformation(
+                        graspSettings,
+                        iterationsPerSecond,
+                        aggregatedMoveStatistics,
+                        componentEfficacy);
 
         this.solverSolution =
                 new SolverSolution(
@@ -74,12 +82,19 @@ public class GraspWithPathRelinking {
     }
 
     private void solve() throws Exception {
-        this.bestSolution = new ConstructiveHeuristic(
-                parameters,
-                this.graspSettings.alphaGenerator().generateAlpha(this.random),
-                graspSettings.constructiveHeuristicSettings(),
-                random
-        ).getSolution();
+        long chStartTime = System.nanoTime();
+        this.bestSolution =
+                new ConstructiveHeuristic(
+                                parameters,
+                                this.graspSettings.alphaGenerator().generateAlpha(this.random),
+                                graspSettings.constructiveHeuristicSettings(),
+                                random)
+                        .getSolution();
+        componentEfficacy.recordCall(
+                ComponentEfficacy.Component.CONSTRUCTIVE_HEURISTIC,
+                System.nanoTime() - chStartTime,
+                0,
+                bestSolution.revenue);
 
         var startTime = System.currentTimeMillis() / 1000;
 
@@ -88,29 +103,57 @@ public class GraspWithPathRelinking {
         while (System.currentTimeMillis() / 1000 - startTime < graspSettings.timeLimit()) {
             // Generate alpha and create solution
             var alpha = this.graspSettings.alphaGenerator().generateAlpha(this.random);
-            var randomSolution = new ConstructiveHeuristic(
-                    parameters,
-                    this.graspSettings.alphaGenerator().generateAlpha(this.random),
-                    graspSettings.constructiveHeuristicSettings(),
-                    random
-            ).getSolution();
+            long chLoopStartTime = System.nanoTime();
+            var randomSolution =
+                    new ConstructiveHeuristic(
+                                    parameters,
+                                    this.graspSettings.alphaGenerator().generateAlpha(this.random),
+                                    graspSettings.constructiveHeuristicSettings(),
+                                    random)
+                            .getSolution();
+            componentEfficacy.recordCall(
+                    ComponentEfficacy.Component.CONSTRUCTIVE_HEURISTIC,
+                    System.nanoTime() - chLoopStartTime,
+                    0,
+                    randomSolution.revenue);
 
+            double prevRevenue = randomSolution.revenue;
+            long lsStartTime = System.nanoTime();
             randomSolution = localSearch.search(randomSolution);
+            componentEfficacy.recordCall(
+                    ComponentEfficacy.Component.LOCAL_SEARCH,
+                    System.nanoTime() - lsStartTime,
+                    prevRevenue,
+                    randomSolution.revenue);
 
             if (this.eliteSolutions.size() > 2) {
                 var initialSolution = randomSolution;
                 var guidingSolution = getGuidingSolution();
 
+                double prPrevRevenue = randomSolution.revenue;
+                long prStartTime = System.nanoTime();
                 randomSolution =
                         new MixedPathRelinking(
-                                parameters,
-                                initialSolution,
-                                guidingSolution,
-                                pathRelinkingUtils,
-                                this.random)
+                                        parameters,
+                                        initialSolution,
+                                        guidingSolution,
+                                        pathRelinkingUtils,
+                                        this.random)
                                 .getBestFoundSolution();
+                componentEfficacy.recordCall(
+                        ComponentEfficacy.Component.PATH_RELINKING,
+                        System.nanoTime() - prStartTime,
+                        prPrevRevenue,
+                        randomSolution.revenue);
 
+                double lsPrevRevenue = randomSolution.revenue;
+                long lsPostPrStartTime = System.nanoTime();
                 randomSolution = localSearch.search(randomSolution);
+                componentEfficacy.recordCall(
+                        ComponentEfficacy.Component.LOCAL_SEARCH,
+                        System.nanoTime() - lsPostPrStartTime,
+                        lsPrevRevenue,
+                        randomSolution.revenue);
             }
 
             // Provide feedback to reactive alpha generator if applicable
@@ -197,16 +240,14 @@ public class GraspWithPathRelinking {
     }
 
     /**
-     * Get the aggregated move statistics from all local search calls.
-     * Returns null if statistics tracking was not enabled.
+     * Get the aggregated move statistics from all local search calls. Returns null if statistics
+     * tracking was not enabled.
      */
     public MoveStatistics getMoveStatistics() {
         return aggregatedMoveStatistics;
     }
 
-    /**
-     * Get the iterations per second achieved during the run.
-     */
+    /** Get the iterations per second achieved during the run. */
     public double getIterationsPerSecond() {
         return iterationsPerSecond;
     }
@@ -214,5 +255,4 @@ public class GraspWithPathRelinking {
     private Solution getGuidingSolution() {
         return eliteSolutions.get(random.nextInt(eliteSolutions.size()));
     }
-
 }
