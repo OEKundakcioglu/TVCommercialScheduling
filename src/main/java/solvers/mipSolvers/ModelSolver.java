@@ -4,25 +4,38 @@ import com.gurobi.gurobi.GRB;
 import com.gurobi.gurobi.GRBException;
 
 import data.ProblemParameters;
+import data.Solution;
 
 import runParameters.MipRunSettings;
 
 import solvers.SolverSolution;
+import solvers.mipSolvers.discreteTimeModel.DiscreteTimeModel;
 
 @SuppressWarnings("FieldCanBeLocal")
 public class ModelSolver {
     private final BaseModel model;
     private final ProblemParameters parameters;
     private final MipRunSettings runSettings;
+    private final Solution warmStart;
 
     private MipCallback callback;
     private SolverSolution solution;
 
     public ModelSolver(BaseModel model, ProblemParameters parameters, MipRunSettings runSettings)
             throws GRBException {
+        this(model, parameters, runSettings, null);
+    }
+
+    public ModelSolver(
+            BaseModel model,
+            ProblemParameters parameters,
+            MipRunSettings runSettings,
+            Solution warmStart)
+            throws GRBException {
         this.model = model;
         this.parameters = parameters;
         this.runSettings = runSettings;
+        this.warmStart = warmStart;
 
         solve();
         createSolverSolution();
@@ -32,6 +45,10 @@ public class ModelSolver {
 
     private void solve() throws GRBException {
         model.build();
+
+        if (warmStart != null && model instanceof DiscreteTimeModel dtm) {
+            dtm.giveWarmStart(warmStart);
+        }
 
         // Create and attach callback
         this.callback = new MipCallback();

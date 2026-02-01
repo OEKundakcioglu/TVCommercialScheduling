@@ -3,8 +3,10 @@ package solvers.mipSolvers.discreteTimeModel;
 import com.gurobi.gurobi.GRB;
 import com.gurobi.gurobi.GRBException;
 import com.gurobi.gurobi.GRBModel;
+
 import data.*;
 import data.enums.ATTENTION;
+
 import solvers.mipSolvers.BaseModel;
 
 import java.util.ArrayList;
@@ -56,8 +58,8 @@ public class DiscreteTimeModel extends BaseModel {
     private List<Integer> computeFeasibleTimePoints(Commercial commercial, Inventory inventory) {
         var attention = commercial.getAttentionMap().get(inventory);
 
-        if (attention == ATTENTION.NONE) {
-            return IntStream.range(0, inventory.getDuration() - commercial.getDuration())
+        if (attention == ATTENTION.NONE || attention == ATTENTION.LAST) {
+            return IntStream.range(0, inventory.getDuration() - commercial.getDuration() + 1)
                     .boxed()
                     .toList();
         } else if (attention == ATTENTION.FIRST) {
@@ -66,10 +68,6 @@ public class DiscreteTimeModel extends BaseModel {
             return IntStream.range(0, 31).boxed().toList();
         } else if (attention == ATTENTION.F60) {
             return IntStream.range(0, 61).boxed().toList();
-        } else if (attention == ATTENTION.LAST) {
-            return IntStream.range(0, inventory.getDuration() - commercial.getDuration() + 1)
-                    .boxed()
-                    .toList();
         }
 
         throw new IllegalArgumentException("Attention type not recognized");
@@ -105,7 +103,7 @@ public class DiscreteTimeModel extends BaseModel {
         if (model.get(GRB.IntAttr.SolCount) == 0) return new Solution(List.of());
 
         var solutionDataList = new ArrayList<List<SolutionData>>();
-        for (var ignored : parameters.getSetOfInventories()){
+        for (var ignored : parameters.getSetOfInventories()) {
             solutionDataList.add(new ArrayList<>());
         }
 
@@ -135,6 +133,8 @@ public class DiscreteTimeModel extends BaseModel {
 
     public void giveWarmStart(Solution solution) throws GRBException {
         for (var solutionData : solution.getSortedSolutionData()) {
+            if (solutionData == null) continue;
+
             var commercial = solutionData.getCommercial();
             var inventory = solutionData.getInventory();
             var startTime = solutionData.getStartTime();
