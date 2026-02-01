@@ -2,6 +2,7 @@ package randomProblemGenerator;
 
 import data.enums.ATTENTION;
 import data.enums.PRICING_TYPE;
+
 import org.apache.commons.math3.distribution.BinomialDistribution;
 
 import java.util.List;
@@ -79,7 +80,7 @@ public final class RandomGeneratorConfig {
     }
 
     public InventorySample sampleInventory() {
-        return inventoryDistribution.sample();
+        return inventoryDistribution.sampleWithoutReplacement();
     }
 
     public int assignHourForInventory(int inventoryDuration) {
