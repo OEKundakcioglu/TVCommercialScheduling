@@ -16,6 +16,8 @@ import solvers.heuristicSolvers.grasp.localSearch.SearchMode;
 import solvers.heuristicSolvers.grasp.reactiveGrasp.AlphaGeneratorReactive;
 import solvers.mipSolvers.ModelSolver;
 import solvers.mipSolvers.discreteTimeModel.DiscreteTimeModel;
+import solvers.pipeline.GraspMipPipeLine;
+import solvers.pipeline.PipelineConfig;
 
 import java.util.List;
 
@@ -26,21 +28,16 @@ public class main {
     private static final String INSTANCE_PATH =
             "instances/density=HIGH_nInventory=20_nHours=5_seed=1.json";
 
-    private static final int TIME_LIMIT = 300; // seconds
+    private static final int TIME_LIMIT = 60; // seconds
     private static final int SEED = 0;
     private static final int THREAD_COUNT = 0; // 0 = use all available processors
 
     private static final SearchMode SEARCH_MODE = SearchMode.BEST_IMPROVEMENT;
     private static final List<String> MOVES =
-            List.of(
-                    "insert", "outOfPool", "transfer", "shift", "interSwap", "intraSwap"
-                    //            "chainSwap"
-                    );
+            List.of("insert", "outOfPool", "transfer", "shift", "interSwap", "intraSwap");
     private static final double SKIP_PROBABILITY = 0;
-    private static final boolean ADAPTIVE_MOVES = true;
     private static final double MIN_MOVE_PROBABILITY = 0.1;
     private static final int UPDATE_EVERY_N_ITER = 100;
-    private static final boolean TRACK_STATISTICS = true;
 
     private static final double CONSTRUCTIVE_DEVIATION = 2;
     private static final int K_REGRET =
@@ -55,7 +52,8 @@ public class main {
         // Uncomment one of the following:
         //        runSingleThread(problem, config);
         //        runParallel(problem, config, THREAD_COUNT);
-        runMIPDiscrete(problem);
+        //        runMIPDiscrete(problem);
+        runWithPipeline(problem);
     }
 
     private static void runSingleThread(ProblemParameters problem, GraspSettings config)
@@ -110,8 +108,6 @@ public class main {
                 new LocalSearchSettings(
                         new java.util.ArrayList<>(MOVES),
                         SKIP_PROBABILITY,
-                        ADAPTIVE_MOVES,
-                        TRACK_STATISTICS,
                         MIN_MOVE_PROBABILITY,
                         UPDATE_EVERY_N_ITER);
 
@@ -126,5 +122,14 @@ public class main {
                 new AlphaGeneratorReactive(),
                 SEED,
                 INSTANCE_PATH);
+    }
+
+    public static void runWithPipeline(ProblemParameters problem) throws Exception {
+        var graspSettings = createConfig();
+        var mipSettings = new MipRunSettings(240, "");
+
+        var pipelineConfig = new PipelineConfig(graspSettings, mipSettings);
+        var pipeline = new GraspMipPipeLine(problem, pipelineConfig);
+        pipeline.solve();
     }
 }
