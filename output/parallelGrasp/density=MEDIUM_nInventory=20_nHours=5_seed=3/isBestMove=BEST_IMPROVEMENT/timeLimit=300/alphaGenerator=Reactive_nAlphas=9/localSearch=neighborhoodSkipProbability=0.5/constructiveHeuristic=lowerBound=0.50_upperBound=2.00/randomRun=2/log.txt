@@ -1,0 +1,51 @@
+Running GRASP algorithm...
+Running with 31 threads (Available processors: 31).
+Seconds: 4, Total Iterations: 100, Iteration per second: 25.000000, Best solution: 1107233 found at 3s
+Seconds: 6, Total Iterations: 200, Iteration per second: 33.333333, Best solution: 1108907 found at 6s
+Seconds: 8, Total Iterations: 300, Iteration per second: 37.500000, Best solution: 1109510 found at 7s
+Seconds: 11, Total Iterations: 400, Iteration per second: 36.363636, Best solution: 1111927 found at 11s
+Seconds: 13, Total Iterations: 500, Iteration per second: 38.461538, Best solution: 1112667 found at 12s
+Seconds: 16, Total Iterations: 600, Iteration per second: 37.500000, Best solution: 1113825 found at 13s
+Seconds: 19, Total Iterations: 700, Iteration per second: 36.842105, Best solution: 1115542 found at 19s
+Seconds: 24, Total Iterations: 800, Iteration per second: 33.333333, Best solution: 1115542 found at 19s
+Seconds: 28, Total Iterations: 900, Iteration per second: 32.142857, Best solution: 1115542 found at 19s
+Seconds: 35, Total Iterations: 1000, Iteration per second: 28.571429, Best solution: 1116219 found at 33s
+Seconds: 49, Total Iterations: 1100, Iteration per second: 22.448980, Best solution: 1116219 found at 33s
+Error: java.lang.NoClassDefFoundError: solvers/CheckPoint
+Usage: mainGraspRun [options]
+  Options:
+    --help, -h
+      Show help message
+  * --instancePath, -i
+      Path to the problem instance JSON file
+    --minMoveProbability, -mmp
+      Minimum move probability for adaptive selection
+      Default: 0.05
+  * --moves, -m
+      Comma-separated list of local search moves to use
+  * --outputPath, -o
+      Path to save the solution JSON file
+    --parallel, -p
+      Run in parallel mode
+      Default: false
+  * --searchMode, -s
+      Local search mode: BEST_IMPROVEMENT or FIRST_IMPROVEMENT
+  * --seed, -seed
+      Random seed
+      Default: 0
+  * --skipProbability, -sp
+      Neighborhood skip probability
+      Default: 0.0
+    --threads, -th
+      Number of threads for parallel mode (default: available processors)
+      Default: 0
+  * --timeLimit, -t
+      Time limit in seconds
+      Default: 0
+    --updateEveryNIter, -ueni
+      Update move probabilities every N iterations
+      Default: 100
+    --verbose, -v
+      Enable verbose output
+      Default: false
+

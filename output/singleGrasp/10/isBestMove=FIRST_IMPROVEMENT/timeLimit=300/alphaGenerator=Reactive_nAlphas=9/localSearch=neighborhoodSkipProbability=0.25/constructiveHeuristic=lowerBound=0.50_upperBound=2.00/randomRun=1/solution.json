@@ -1,0 +1,280 @@
+{
+  "bestSolution": {
+    "revenue": 39006
+  },
+  "checkPoints": [
+    {
+      "objective": 38442.0,
+      "time": 1.055999994277954
+    },
+    {
+      "objective": 38445.0,
+      "time": 1.1679999828338623
+    },
+    {
+      "objective": 38466.0,
+      "time": 1.246000051498413
+    },
+    {
+      "objective": 38557.0,
+      "time": 1.2709999084472656
+    },
+    {
+      "objective": 38563.0,
+      "time": 1.3499999046325684
+    },
+    {
+      "objective": 38695.0,
+      "time": 1.4260001182556152
+    },
+    {
+      "objective": 38816.0,
+      "time": 1.6510000228881836
+    },
+    {
+      "objective": 38887.0,
+      "time": 1.8359999656677246
+    },
+    {
+      "objective": 38892.0,
+      "time": 2.0329999923706055
+    },
+    {
+      "objective": 38894.0,
+      "time": 2.441999912261963
+    },
+    {
+      "objective": 38915.0,
+      "time": 2.812000036239624
+    },
+    {
+      "objective": 38918.0,
+      "time": 3.928999900817871
+    },
+    {
+      "objective": 38925.0,
+      "time": 4.434999942779541
+    },
+    {
+      "objective": 38929.0,
+      "time": 4.898000001907349
+    },
+    {
+      "objective": 38931.0,
+      "time": 7.921000003814697
+    },
+    {
+      "objective": 38932.0,
+      "time": 8.437000036239624
+    },
+    {
+      "objective": 38937.0,
+      "time": 10.596999883651733
+    },
+    {
+      "objective": 38938.0,
+      "time": 41.263999938964844
+    },
+    {
+      "objective": 38947.0,
+      "time": 68.16199994087219
+    },
+    {
+      "objective": 38953.0,
+      "time": 68.26500010490417
+    },
+    {
+      "objective": 38974.0,
+      "time": 68.33599996566772
+    },
+    {
+      "objective": 38978.0,
+      "time": 69.13899993896484
+    },
+    {
+      "objective": 38983.0,
+      "time": 70.46499991416931
+    },
+    {
+      "objective": 38985.0,
+      "time": 71.51200008392334
+    },
+    {
+      "objective": 38989.0,
+      "time": 74.14499998092651
+    },
+    {
+      "objective": 38990.0,
+      "time": 78.01699995994568
+    },
+    {
+      "objective": 38992.0,
+      "time": 78.7409999370575
+    },
+    {
+      "objective": 38993.0,
+      "time": 81.39199995994568
+    },
+    {
+      "objective": 38994.0,
+      "time": 96.12299990653992
+    },
+    {
+      "objective": 38995.0,
+      "time": 105.14100003242493
+    },
+    {
+      "objective": 38996.0,
+      "time": 137.6029999256134
+    },
+    {
+      "objective": 38997.0,
+      "time": 142.2850000858307
+    },
+    {
+      "objective": 38998.0,
+      "time": 231.62199997901917
+    },
+    {
+      "objective": 39005.0,
+      "time": 247.75500011444092
+    },
+    {
+      "objective": 39006.0,
+      "time": 253.11299991607666
+    }
+  ],
+  "instance": "10",
+  "additionalInformation": {
+    "settings": {
+      "searchMode": "FIRST_IMPROVEMENT",
+      "timeLimit": 300,
+      "localSearchSettings": {
+        "moves": [
+          "insert",
+          "outOfPool",
+          "interSwap",
+          "shift",
+          "transfer",
+          "intraSwap"
+        ],
+        "neighborhoodSkipProbability": 0.25,
+        "minProbability": 0.05,
+        "updateProbabilitiesAtEveryNIter": 100
+      },
+      "constructiveHeuristicSettings": {
+        "lowerBound": 0.5,
+        "upperBound": 2.0
+      },
+      "alphaGenerator": {
+        "alphaValues": [
+          0.1,
+          0.2,
+          0.3,
+          0.4,
+          0.5,
+          0.6,
+          0.7,
+          0.8,
+          0.9
+        ],
+        "probabilities": [
+          0.10888962540176897,
+          0.12562228897445815,
+          0.11552417354891081,
+          0.10861757068177937,
+          0.11639175718337197,
+          0.10421550522263737,
+          0.10704334439158705,
+          0.10692737125184183,
+          0.1067683633436445
+        ],
+        "totalQuality": [
+          5.863401E7,
+          7.5188541E7,
+          6.5213342E7,
+          5.8364182E7,
+          6.6112614E7,
+          5.3920776E7,
+          5.6763991E7,
+          5.6649011E7,
+          5.6413339E7
+        ],
+        "usageCount": [
+          1505,
+          1930,
+          1674,
+          1498,
+          1697,
+          1384,
+          1457,
+          1454,
+          1448
+        ],
+        "totalIterations": 14047
+      },
+      "randomRunN": 1,
+      "instancePath": "instances/10.json"
+    },
+    "iterationsPerSecond": 46.82333333333333,
+    "moveStatistics": {
+      "stats": {
+        "intraSwap": {
+          "attempts": 321514,
+          "successes": 219160,
+          "totalRevenueGain": 1292237.0,
+          "totalTimeNanos": 3162202121
+        },
+        "interSwap": {
+          "attempts": 1095587,
+          "successes": 844463,
+          "totalRevenueGain": 1.0639095E7,
+          "totalTimeNanos": 42766107308
+        },
+        "shift": {
+          "attempts": 339201,
+          "successes": 235553,
+          "totalRevenueGain": 1510679.0,
+          "totalTimeNanos": 7463725034
+        },
+        "insert": {
+          "attempts": 962618,
+          "successes": 17286,
+          "totalRevenueGain": 9101687.0,
+          "totalTimeNanos": 6152226740
+        },
+        "outOfPool": {
+          "attempts": 416559,
+          "successes": 8291,
+          "totalRevenueGain": 2289202.0,
+          "totalTimeNanos": 2866011227
+        },
+        "transfer": {
+          "attempts": 981045,
+          "successes": 730173,
+          "totalRevenueGain": 9102213.0,
+          "totalTimeNanos": 167444437938
+        }
+      }
+    },
+    "componentEfficacy": {
+      "stats": {
+        "CONSTRUCTIVE_HEURISTIC": {
+          "callCount": 14048,
+          "totalTimeNanos": 36753481897,
+          "totalRevenueGain": 5.06474439E8
+        },
+        "LOCAL_SEARCH": {
+          "callCount": 28091,
+          "totalTimeNanos": 230353112616,
+          "totalRevenueGain": 3.3935113E7
+        },
+        "PATH_RELINKING": {
+          "callCount": 14044,
+          "totalTimeNanos": 31550433051,
+          "totalRevenueGain": 6884767.0
+        }
+      }
+    }
+  }
+}
