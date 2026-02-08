@@ -1,0 +1,332 @@
+{
+  "bestSolution": {
+    "revenue": 1040453
+  },
+  "checkPoints": [
+    {
+      "objective": 996488.0,
+      "time": 0.9690001010894775
+    },
+    {
+      "objective": 1004418.0,
+      "time": 1.2799999713897705
+    },
+    {
+      "objective": 1016338.0,
+      "time": 1.619999885559082
+    },
+    {
+      "objective": 1020319.0,
+      "time": 1.8050000667572021
+    },
+    {
+      "objective": 1023705.0,
+      "time": 2.007999897003174
+    },
+    {
+      "objective": 1024203.0,
+      "time": 2.312000036239624
+    },
+    {
+      "objective": 1026233.0,
+      "time": 2.635999917984009
+    },
+    {
+      "objective": 1026305.0,
+      "time": 2.819000005722046
+    },
+    {
+      "objective": 1032198.0,
+      "time": 6.176000118255615
+    },
+    {
+      "objective": 1033565.0,
+      "time": 9.538000106811523
+    },
+    {
+      "objective": 1034163.0,
+      "time": 10.54699993133545
+    },
+    {
+      "objective": 1034178.0,
+      "time": 10.858000040054321
+    },
+    {
+      "objective": 1035515.0,
+      "time": 12.924999952316284
+    },
+    {
+      "objective": 1035579.0,
+      "time": 17.3989999294281
+    },
+    {
+      "objective": 1035959.0,
+      "time": 21.249000072479248
+    },
+    {
+      "objective": 1036745.0,
+      "time": 34.27900004386902
+    },
+    {
+      "objective": 1037152.0,
+      "time": 45.89299988746643
+    },
+    {
+      "objective": 1037252.0,
+      "time": 49.33200001716614
+    },
+    {
+      "objective": 1037570.0,
+      "time": 51.168999910354614
+    },
+    {
+      "objective": 1037665.0,
+      "time": 53.293999910354614
+    },
+    {
+      "objective": 1037671.0,
+      "time": 56.48200011253357
+    },
+    {
+      "objective": 1037898.0,
+      "time": 56.645999908447266
+    },
+    {
+      "objective": 1037901.0,
+      "time": 57.00399994850159
+    },
+    {
+      "objective": 1037997.0,
+      "time": 59.71300005912781
+    },
+    {
+      "objective": 1037999.0,
+      "time": 61.21000003814697
+    },
+    {
+      "objective": 1038039.0,
+      "time": 69.41700005531311
+    },
+    {
+      "objective": 1038042.0,
+      "time": 71.72199988365173
+    },
+    {
+      "objective": 1038358.0,
+      "time": 73.48300004005432
+    },
+    {
+      "objective": 1038392.0,
+      "time": 73.64800000190735
+    },
+    {
+      "objective": 1038412.0,
+      "time": 75.14400005340576
+    },
+    {
+      "objective": 1038414.0,
+      "time": 87.36500000953674
+    },
+    {
+      "objective": 1038428.0,
+      "time": 106.61100006103516
+    },
+    {
+      "objective": 1038457.0,
+      "time": 108.79200005531311
+    },
+    {
+      "objective": 1039093.0,
+      "time": 126.20300006866455
+    },
+    {
+      "objective": 1039095.0,
+      "time": 150.20900011062622
+    },
+    {
+      "objective": 1039352.0,
+      "time": 163.45499992370605
+    },
+    {
+      "objective": 1039623.0,
+      "time": 175.42499995231628
+    },
+    {
+      "objective": 1039757.0,
+      "time": 192.72000002861023
+    },
+    {
+      "objective": 1039760.0,
+      "time": 197.45099997520447
+    },
+    {
+      "objective": 1039761.0,
+      "time": 198.14000010490417
+    },
+    {
+      "objective": 1039829.0,
+      "time": 201.3989999294281
+    },
+    {
+      "objective": 1039832.0,
+      "time": 213.01500010490417
+    },
+    {
+      "objective": 1039909.0,
+      "time": 260.1029999256134
+    },
+    {
+      "objective": 1039945.0,
+      "time": 261.8880000114441
+    },
+    {
+      "objective": 1040121.0,
+      "time": 263.2569999694824
+    },
+    {
+      "objective": 1040192.0,
+      "time": 270.59999990463257
+    },
+    {
+      "objective": 1040194.0,
+      "time": 273.9430000782013
+    },
+    {
+      "objective": 1040453.0,
+      "time": 297.8989999294281
+    }
+  ],
+  "instance": "density\u003dLOW_nInventory\u003d20_nHours\u003d5_seed\u003d8",
+  "additionalInformation": {
+    "settings": {
+      "searchMode": "BEST_IMPROVEMENT",
+      "timeLimit": 300,
+      "localSearchSettings": {
+        "moves": [
+          "insert",
+          "outOfPool",
+          "interSwap",
+          "shift",
+          "transfer",
+          "intraSwap"
+        ],
+        "neighborhoodSkipProbability": 0.0,
+        "minProbability": 0.05,
+        "updateProbabilitiesAtEveryNIter": 100
+      },
+      "constructiveHeuristicSettings": {
+        "lowerBound": 0.5,
+        "upperBound": 2.0
+      },
+      "alphaGenerator": {
+        "alphaValues": [
+          0.1,
+          0.2,
+          0.3,
+          0.4,
+          0.5,
+          0.6,
+          0.7,
+          0.8,
+          0.9
+        ],
+        "probabilities": [
+          0.1019519746770216,
+          0.10928394007876625,
+          0.11141450771099415,
+          0.11111195259302883,
+          0.12517051728072437,
+          0.11599482881224926,
+          0.10376720350399353,
+          0.10834901954433362,
+          0.11295605579888846
+        ],
+        "totalQuality": [
+          1.78514309E8,
+          2.02375853E8,
+          2.08571345E8,
+          2.10662911E8,
+          2.55288473E8,
+          2.24126688E8,
+          1.82600144E8,
+          1.98160564E8,
+          2.14846375E8
+        ],
+        "usageCount": [
+          172,
+          195,
+          201,
+          203,
+          246,
+          216,
+          176,
+          191,
+          207
+        ],
+        "totalIterations": 1807
+      },
+      "randomRunN": 0,
+      "instancePath": "instances/density\u003dLOW_nInventory\u003d20_nHours\u003d5_seed\u003d8.json"
+    },
+    "iterationsPerSecond": 6.023333333333333,
+    "moveStatistics": {
+      "stats": {
+        "outOfPool": {
+          "attempts": 81226,
+          "successes": 39529,
+          "totalRevenueGain": 3.6667037E7,
+          "totalTimeNanos": 32246738176
+        },
+        "intraSwap": {
+          "attempts": 40802,
+          "successes": 39041,
+          "totalRevenueGain": 9781648.0,
+          "totalTimeNanos": 4620991317
+        },
+        "insert": {
+          "attempts": 34733,
+          "successes": 2526,
+          "totalRevenueGain": 5572824.0,
+          "totalTimeNanos": 9678623217
+        },
+        "shift": {
+          "attempts": 37884,
+          "successes": 34913,
+          "totalRevenueGain": 7956164.0,
+          "totalTimeNanos": 8929810557
+        },
+        "transfer": {
+          "attempts": 107036,
+          "successes": 34679,
+          "totalRevenueGain": 5.3635923E7,
+          "totalTimeNanos": 88866476502
+        },
+        "interSwap": {
+          "attempts": 170723,
+          "successes": 126074,
+          "totalRevenueGain": 9.7768761E7,
+          "totalTimeNanos": 102101284572
+        }
+      }
+    },
+    "componentEfficacy": {
+      "stats": {
+        "CONSTRUCTIVE_HEURISTIC": {
+          "callCount": 1808,
+          "totalTimeNanos": 35382803574,
+          "totalRevenueGain": 1.618619886E9
+        },
+        "LOCAL_SEARCH": {
+          "callCount": 3611,
+          "totalTimeNanos": 246532512815,
+          "totalRevenueGain": 2.11382357E8
+        },
+        "PATH_RELINKING": {
+          "callCount": 1804,
+          "totalTimeNanos": 17454224541,
+          "totalRevenueGain": 4.596121E7
+        }
+      }
+    }
+  }
+}

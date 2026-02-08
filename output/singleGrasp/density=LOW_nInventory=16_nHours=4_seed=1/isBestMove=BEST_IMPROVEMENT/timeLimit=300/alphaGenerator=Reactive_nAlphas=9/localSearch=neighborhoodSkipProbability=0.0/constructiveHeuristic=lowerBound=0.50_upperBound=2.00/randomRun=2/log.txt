@@ -1,0 +1,11 @@
+Running GRASP algorithm...
+Exception in thread "main" java.lang.NoClassDefFoundError: solvers/heuristicSolvers/grasp/pathLinking/MixedPathRelinking
+	at solvers.heuristicSolvers.grasp.graspWithPathRelinking.BaseGrasp.runPathRelinking(BaseGrasp.java:77)
+	at solvers.heuristicSolvers.grasp.graspWithPathRelinking.GraspWithPathRelinking.solve(GraspWithPathRelinking.java:97)
+	at solvers.heuristicSolvers.grasp.graspWithPathRelinking.GraspWithPathRelinking.<init>(GraspWithPathRelinking.java:47)
+	at mainGraspRun.run(mainGraspRun.java:190)
+	at mainGraspRun.main(mainGraspRun.java:107)
+Caused by: java.lang.ClassNotFoundException: solvers.heuristicSolvers.grasp.pathLinking.MixedPathRelinking
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:580)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:490)
+	... 5 more

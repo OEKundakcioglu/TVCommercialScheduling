@@ -2,10 +2,6 @@
 
 for i in {1..10}
 do
-   sbatch run.slurm "commands/GRASPParallel/commands_${i}.txt"
+   sbatch run.slurm "commands/BeeColony/commands_${i}.txt"
 done
 
-for i in {1..10}
-do
-   sbatch run.slurm "commands/GRASPSingle/commands_${i}.txt"
-done
