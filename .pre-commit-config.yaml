@@ -1,0 +1,26 @@
+repos:
+  - repo: local
+    hooks:
+      - id: spotless
+        name: Spotless format and check
+        entry: ./gradlew spotlessApply spotlessCheck
+        language: system
+        pass_filenames: false
+
+      - id: checkstyle-main
+        name: Checkstyle (main)
+        entry: ./gradlew checkstyleMain
+        language: system
+        pass_filenames: false
+
+      - id: checkstyle-test
+        name: Checkstyle (test)
+        entry: ./gradlew checkstyleTest
+        language: system
+        pass_filenames: false
+
+      - id: errorprone
+        name: Error Prone (compile)
+        entry: ./gradlew compileJava
+        language: system
+        pass_filenames: false

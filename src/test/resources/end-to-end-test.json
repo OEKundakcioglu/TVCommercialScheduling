@@ -1,0 +1,48 @@
+{
+  "commercials": [
+    {
+      "id": 0,
+      "group": 10,
+      "audienceType": 0,
+      "duration": 10,
+      "price": 50.0,
+      "pricingType": "PPR",
+      "suitableInventories": {
+        "N": [0],
+        "F12": [1],
+        "L1": [1]
+      }
+    },
+    {
+      "id": 1,
+      "group": 20,
+      "audienceType": 1,
+      "duration": 8,
+      "price": 100.0,
+      "pricingType": "FIXED",
+      "suitableInventories": {
+        "N": [0]
+      }
+    }
+  ],
+  "inventories": [
+    {
+      "id": 0,
+      "duration": 120,
+      "hour": 1,
+      "maxNumberOfCommercial": 5
+    },
+    {
+      "id": 1,
+      "duration": 60,
+      "hour": 2,
+      "maxNumberOfCommercial": 3
+    }
+  ],
+  "ratings": [
+    { "inventoryId": 0, "minute": 1, "audienceType": 0, "rating": 2.5 },
+    { "inventoryId": 0, "minute": 1, "audienceType": 1, "rating": 3.0 },
+    { "inventoryId": 1, "minute": 1, "audienceType": 0, "rating": 1.5 },
+    { "inventoryId": 1, "minute": 1, "audienceType": 1, "rating": 4.0 }
+  ]
+}
